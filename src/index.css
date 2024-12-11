@@ -1,0 +1,108 @@
+@font-face {
+  font-family: 'SFProDisplay';
+  src: url('./assets/fonts/SF-Pro-Display-Thin.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SFProDisplay';
+  src: url('./assets/fonts/SF-Pro-Display-Ultralight.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SFProDisplay';
+  src: url('./assets/fonts/SF-Pro-Display-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SFProDisplay';
+  src: url('./assets/fonts/SF-Pro-Display-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SFProDisplay';
+  src: url('./assets/fonts/SF-Pro-Display-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SFProDisplay';
+  src: url('./assets/fonts/SF-Pro-Display-Semibold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SFProDisplay';
+  src: url('./assets/fonts/SF-Pro-Display-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SFProDisplay';
+  src: url('./assets/fonts/SF-Pro-Display-Heavy.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SFProDisplay';
+  src: url('./assets/fonts/SF-Pro-Display-Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+body {
+  @apply font-sfPro font-normal;
+  user-select: none;
+}
+
+.main-header {
+  @apply text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl;
+}
+
+.w-container-body {
+  @apply w-[calc(100vw-2rem)] sm:w-[37rem] md:w-[43rem] lg:w-[57rem] xl:w-[71rem] 2xl:w-[85rem];
+}
+
+.min-h-full-without-nav {
+  @apply min-h-[calc(100vh-7rem)] lg:min-h-[calc(100vh-9rem)];
+}
+
+.h-full-without-nav {
+  @apply h-[calc(100vh-7rem)] lg:h-[calc(100vh-9rem)];
+}
+
+.pac-container {
+  z-index: 9999 !important;
+}
+
+.right-polygon {
+  clip-path: polygon(0% 0%, 100% 0%, 0% 100%);
+}
+
+.left-polygon {
+  clip-path: polygon(100% 0%, 100% 100%, 0% 0%);
+}
+
+.clip-triangle {
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+  z-index: 50; /* Adjust if necessary to ensure visibility */
+}
+.no-select {
+  user-select: none;
+}
