@@ -12,7 +12,7 @@ export default defineConfig({
     } as AliasOptions,
   },
   server: {
-    host: 'localhost',
-    port:3000,
+    host: '192.168.1.8',
+    port: 5173,
   },
 });

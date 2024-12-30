@@ -22,6 +22,7 @@ export default {
         primary: dark.primary,
         background: dark.background,
         foreground: dark.foreground,
+        secondary: dark.seconday,
       },
       boxShadow: {
         category: '0px 0px 11px 0px rgba(0, 0, 0, 0.1)',
