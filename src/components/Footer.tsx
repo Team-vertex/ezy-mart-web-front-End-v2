@@ -14,17 +14,16 @@ export default function Footer() {
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8 !justify-between !items-start">
         <div className="flex flex-col">
           <p className="text-2xl font-bold text-white">EZYMART.LK</p>
-          <div className="flex flex-col lg:flex-row">
+          <div className="flex flex-col lg:flex-row items-center gap-4 mt-2">
             <Image
               src="/images/core/google-play.svg"
-              alt="phone"
-              className="w-full lg:w-10 lg:h-8"
+              alt="Google Play"
+              className="!w-32 lg:w-40 !h-auto"
             />
             <Image
               src="/images/core/app-store.svg"
-              alt="phone"
-              width={25}
-              height={20}
+              alt="App Store"
+              className="!w-32 lg:w-40 !h-auto"
             />
           </div>
         </div>

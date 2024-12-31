@@ -162,7 +162,7 @@ export default function Home() {
         <div className="flex flex-col-reverse lg:flex-row gap-4 items-center">
           <div className="relative lg:w-1/2">
             <Image
-              src="/public/images/home/business-img-1.svg"
+              src="/images/home/business-img-1.svg"
               alt="Business Owners"
               className="w-full !object-contain !rounded-lg max-h-[300px] md:max-h-[400px] 2xl:max-h-[500px] transition-all duration-300"
             />
@@ -218,7 +218,7 @@ export default function Home() {
           </div>
           <div className="relative md:w-1/2">
             <Image
-              src="/public/images/home/customer-img-1.svg"
+              src="/images/home/customer-img-1.svg"
               alt="For Customers"
               className="!w-full !object-cover !rounded-lg max-h-[300px] md:max-h-[400px] 2xl:max-h-[500px] transition-all duration-300"
             />
