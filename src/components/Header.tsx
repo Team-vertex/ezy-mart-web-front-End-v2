@@ -106,7 +106,7 @@ export default function Header() {
           >
             <img
               className="h-16 w-auto"
-              src={'/public/images/core/logo-light.svg'}
+              src={'/images/core/logo-light.svg'}
               alt="Logo"
             />
           </a>
