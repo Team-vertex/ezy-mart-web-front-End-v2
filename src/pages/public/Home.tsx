@@ -331,7 +331,7 @@ export default function Home() {
           </div>
           <div className="relative md:w-1/2">
             <Image
-              src="/images/home/business-we-covered.svg"
+              src="/images/home/business-section.svg"
               alt="For Customers"
               className="!w-full !object-fill !rounded-lg max-h-[300px] md:max-h-[400px] 2xl:max-h-[500px] transition-all duration-300"
             />
