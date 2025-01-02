@@ -62,10 +62,10 @@ export default function Footer() {
       </div>
       <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 !justify-around items-center ">
         <div className="flex items-center justify-evenly">
-          <IconBrandFacebookFilled size={30} className="text-white" />
-          <IconBrandWhatsappFilled size={30} className="text-white" />
-          <IconBrandInstagramFilled size={30} className="text-white" />
-          <IconBrandYoutubeFilled size={30} className="text-white" />
+          <IconBrandFacebookFilled size={40} className="text-white" />
+          <IconBrandWhatsappFilled size={40} className="text-white" />
+          <IconBrandInstagramFilled size={40} className="text-white" />
+          <IconBrandYoutubeFilled size={40} className="text-white" />
         </div>
         <div className="grid grid-cols-4 gap-4 justify-items-center mt-4 lg:mt-0">
           <p className="text-white text-xs md:text-sm">Home</p>

@@ -50,7 +50,7 @@ export default function Home() {
               <Image
                 src="/images/home/hero-1.svg"
                 alt="POS System"
-                className="w-full md:w-fit !object-contain !rounded-lg max-h-[200px] sm:max-h-[300px] md:max-h-[500px] transition-all duration-300"
+                className="w-full md:w-fit !object-contain !rounded-lg max-h-[300px] sm:max-h-[300px] md:max-h-[500px] transition-all duration-300"
               />
             </div>
           </Carousel.Slide>
@@ -89,7 +89,7 @@ export default function Home() {
               <Image
                 src="/images/home/hero-2.svg"
                 alt="POS System"
-                className="w-full md:w-fit !object-contain !rounded-lg max-h-[200px] sm:max-h-[300px] md:max-h-[500px] transition-all duration-300"
+                className="w-full md:w-fit !object-contain !rounded-lg max-h-[300px] sm:max-h-[300px] md:max-h-[500px] transition-all duration-300"
               />
             </div>
           </Carousel.Slide>
@@ -98,11 +98,11 @@ export default function Home() {
       {/* Our Services Section */}
       <div className="container mx-auto mt-8">
         <div className="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0 gap-4">
-          <div className="flex flex-col space-y-4">
-            <p className="text-2xl md:text-2xl font-semibold text-secondary">
+          <div className="flex flex-col space-y-4 items-center lg:items-start">
+            <p className="text-2xl md:text-2xl font-semibold text-secondary text-center lg:text-start">
               Our Services
             </p>
-            <p className="text-black text-md">
+            <p className="text-black text-md text-center lg:text-start">
               We provide innovative mobile applications designed for general
               users, along with advanced POS systems and other essential tools
               tailored for business. Our solutions empower both individuals and
@@ -110,7 +110,7 @@ export default function Home() {
             </p>
             <Button
               variant="filled"
-              className="!rounded-full !bg-secondary !font-semibold text-white !hover:!bg-blue-700 !px-8 !w-[fit-content]"
+              className="!rounded-full !bg-secondary !font-semibold text-white !hover:!bg-blue-700 !px-8 !w-[fit-content] "
               size="md"
             >
               View All Services
@@ -167,11 +167,11 @@ export default function Home() {
               className="w-full !object-contain !rounded-lg max-h-[300px] md:max-h-[400px] 2xl:max-h-[500px] transition-all duration-300"
             />
           </div>
-          <div className="flex flex-col space-y-4 lg:w-1/2">
+          <div className="flex flex-col space-y-4 lg:w-1/2 items-center lg:items-start">
             <p className="text-2xl md:text-2xl font-semibold text-secondary">
               For Business Owners
             </p>
-            <p className="text-black text-md">
+            <p className="text-black text-md text-center lg:text-start">
               Our POS system delivers exceptional features that go beyond the
               ordinary, all for just 2000 LKR per month less than the daily wage
               of a typical employee. With this cost-effective subscription, you
@@ -194,11 +194,11 @@ export default function Home() {
       {/* For Customers */}
       <div className="container mx-auto mt-16">
         <div className="flex flex-col md:flex-row gap-4 items-center">
-          <div className="flex flex-col space-y-4 md:w-1/2">
+          <div className="flex flex-col space-y-4 md:w-1/2 items-center md:items-start">
             <p className="text-2xl md:text-2xl font-semibold text-secondary">
               For Customers
             </p>
-            <p className="text-black text-md">
+            <p className="text-black text-md text-center lg:text-start">
               Our advanced mobile application simplifies the process of
               discovering and purchasing products across Sri Lanka. With just a
               few taps, you can explore a wide range products from multiple
@@ -227,7 +227,7 @@ export default function Home() {
       </div>
       {/* Why Choose Us */}
       <div className="container mx-auto mt-16 ">
-        <div className="bg-[url('/images/home/why-choose-us-bg.svg')] bg-cover bg-center bg-no-repeat p-8 md:p-12 !rounded-xl">
+        <div className="bg-[url('/images/home/why-choose-us-bg.svg')] bg-cover bg-center bg-no-repeat p-8 md:p-12 !rounded-xl ">
           <p className="text-2xl md:text-2xl lg:text-3xl font-semibold text-secondary text-center">
             Why Businesses Choose Us?
           </p>
@@ -296,17 +296,17 @@ export default function Home() {
       {/* Businesses We Coverd */}
       <div className="container mx-auto mt-16">
         <div className="flex flex-col md:flex-row gap-4 items-center">
-          <div className="flex flex-col space-y-4 md:w-1/2">
-            <p className="text-2xl md:text-2xl font-semibold text-secondary">
+          <div className="flex flex-col space-y-4 md:w-1/2 items-center md:items-start">
+            <p className="text-2xl md:text-2xl font-semibold text-secondary text-center lg:text-start">
               Businesses We covered
             </p>
-            <p className="text-black text-md">
+            <p className="text-black text-md text-center lg:text-start">
               Our POS System Suits a Wide Range of Businesses Our cutting-edge
               POS system is perfect for businesses across various industries,
               including:
             </p>
-            <Spoiler hideLabel="Read More" showLabel="Read Less">
-              <ul className="list-disc list-inside text-black text-md">
+            <Spoiler hideLabel="Read Less" showLabel="Read More">
+              <ul className="list-disc list-inside text-black text-md ">
                 <li>Grocery Stores</li>
                 <li>Cosmetics & Beauty Products</li>
                 <li>Clothing Retail</li>
@@ -324,7 +324,7 @@ export default function Home() {
                 <li>And More...</li>
               </ul>
             </Spoiler>
-            <p className="text-black text-md !mt-8">
+            <p className="text-black text-md !mt-8 text-center lg:text-start">
               No matter your business type, our POS system can streamline your
               operations and boost efficiency.
             </p>

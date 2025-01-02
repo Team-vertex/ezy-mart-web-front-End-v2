@@ -1,5 +1,5 @@
 import { routes } from '@/constants/route';
-import { Button, Menu, Popover } from '@mantine/core';
+import { Button, Menu, Popover, ScrollArea } from '@mantine/core';
 import {
   IconCategory,
   IconChevronDown,
@@ -154,8 +154,8 @@ export default function Header() {
               </Button>
             </Menu.Target>
             <Menu.Dropdown>
-              <Menu.Item>Business Login</Menu.Item>
-              <Menu.Item>Admin Login</Menu.Item>
+              <Menu.Item>Login as a Business Owner</Menu.Item>
+              <Menu.Item>Login as a Customer</Menu.Item>
             </Menu.Dropdown>
           </Menu>
           <Menu shadow="md">
@@ -165,8 +165,8 @@ export default function Header() {
               </Button>
             </Menu.Target>
             <Menu.Dropdown>
-              <Menu.Item>Business Register</Menu.Item>
-              <Menu.Item>Admin Register</Menu.Item>
+              <Menu.Item>Register as a Business Owner</Menu.Item>
+              <Menu.Item>Register as a Customer</Menu.Item>
             </Menu.Dropdown>
           </Menu>
         </div>
@@ -201,7 +201,7 @@ export default function Header() {
           role="dialog"
           aria-modal="true"
         >
-          <div className="w-10/12 bg-white p-4 transform transition-transform ease-in-out duration-300">
+          <ScrollArea className="w-10/12 bg-white p-4 transform transition-transform ease-in-out duration-300">
             <button
               type="button"
               className="mb-4 inline-flex items-center justify-center rounded-md p-2 text-gray-700"
@@ -258,7 +258,7 @@ export default function Header() {
                 )
               )}
             </ul>
-          </div>
+          </ScrollArea>
         </div>
       )}
     </header>
