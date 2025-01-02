@@ -258,6 +258,30 @@ export default function Header() {
                 )
               )}
             </ul>
+            <div className="flex flex-row lg:justify-end gap-4 mt-4">
+              <Menu shadow="md">
+                <Menu.Target>
+                  <Button className="!border-blue-700 !text-blue-700 !bg-white !rounded-full !px-8">
+                    Login
+                  </Button>
+                </Menu.Target>
+                <Menu.Dropdown>
+                  <Menu.Item>Login as a Business Owner</Menu.Item>
+                  <Menu.Item>Login as a Customer</Menu.Item>
+                </Menu.Dropdown>
+              </Menu>
+              <Menu shadow="md">
+                <Menu.Target>
+                  <Button className="!bg-blue-600 !text-white !rounded-full !px-8">
+                    Register
+                  </Button>
+                </Menu.Target>
+                <Menu.Dropdown>
+                  <Menu.Item>Register as a Business Owner</Menu.Item>
+                  <Menu.Item>Register as a Customer</Menu.Item>
+                </Menu.Dropdown>
+              </Menu>
+            </div>
           </ScrollArea>
         </div>
       )}

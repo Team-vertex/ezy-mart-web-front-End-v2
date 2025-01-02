@@ -19,28 +19,27 @@ export default function Home() {
           withControls={false}
         >
           {/* Slide 1 */}
-          <Carousel.Slide className="!w-full">
-            <div className="flex flex-col md:flex-row items-center justify-between bg-[#F9F3EF] !rounded-xl p-6 md:p-12 !h-[calc(100vh-16rem)] sm:!h-[500px]">
-              <div className="text-center md:text-left space-y-4">
-                <h1 className="text-3xl md:text-6xl font-extrabold text-secondary">
-                  Grow Your <br />
-                  Businesses Today!
+          <Carousel.Slide className="w-full">
+            <div className="flex flex-col md:flex-row items-center justify-between bg-[#F9F3EF] rounded-xl p-6 md:p-12 h-[calc(100vh-16rem)] sm:h-[500px]">
+              <div className="text-center md:text-left space-y-4 md:flex-1">
+                <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-secondary leading-tight">
+                  Grow Your <br /> Businesses Today!
                 </h1>
-                <p className="text-black text-lg md:text-xl">
+                <p className="text-black text-base md:text-lg lg:text-xl leading-relaxed">
                   Unlock powerful features and unmatched benefits for small and
                   mid-sized businesses. Learn more today!
                 </p>
                 <div className="flex space-x-4 justify-center md:justify-start">
                   <Button
                     variant="filled"
-                    className="!rounded-full bg-primary !font-semibold text-white !hover:!bg-blue-700 !px-8"
+                    className="rounded-full bg-primary font-semibold text-white hover:bg-blue-700 px-8 py-2"
                     size="md"
                   >
                     Get Started
                   </Button>
                   <Button
                     variant="outline"
-                    className="!rounded-full !font-semibold !text-secondary !hover:!bg-blue-700 !px-8 !border-secondary !border-2"
+                    className="rounded-full font-semibold text-secondary hover:bg-blue-700 px-8 py-2 border-secondary border-2"
                     size="md"
                   >
                     Instructions
@@ -50,20 +49,19 @@ export default function Home() {
               <Image
                 src="/images/home/hero-1.svg"
                 alt="POS System"
-                className="w-full md:w-fit !object-contain !rounded-lg max-h-[300px] sm:max-h-[300px] md:max-h-[500px] transition-all duration-300"
+                className="md:flex-1 !object-contain rounded-lg max-h-[200px] sm:max-h-[200px] md:max-h-[250px] lg:max-h-[300px] transition-all duration-300"
               />
             </div>
           </Carousel.Slide>
 
           {/* Slide 2 */}
-          <Carousel.Slide className="!w-full">
-            <div className="flex flex-col md:flex-row items-center justify-between bg-[#F9F3EF] !rounded-xl p-6 md:p-12 !h-[calc(100vh-16rem)] sm:!h-[500px]">
-              <div className="text-center md:text-left space-y-4">
-                <h1 className="text-3xl md:text-6xl font-extrabold text-secondary">
-                  Anything
-                  <br /> Anywhere !
+          <Carousel.Slide className="w-full">
+            <div className="flex flex-col md:flex-row items-center justify-between bg-[#F9F3EF] rounded-xl p-6 md:p-12 h-[calc(100vh-16rem)] sm:h-[500px]">
+              <div className="text-center md:text-left space-y-4 md:flex-1">
+                <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-secondary leading-tight">
+                  Anything <br /> Anywhere!
                 </h1>
-                <p className="text-black text-lg md:text-xl">
+                <p className="text-black text-base md:text-lg lg:text-xl leading-relaxed">
                   Our innovative mobile app helps you locate products anywhere
                   in Sri Lanka with ease. Check store locations, opening hours,
                   availability, prices, and even get directions—all at your
@@ -72,14 +70,14 @@ export default function Home() {
                 <div className="flex space-x-4 justify-center md:justify-start">
                   <Button
                     variant="filled"
-                    className="!rounded-full bg-primary !font-semibold text-white !hover:!bg-blue-700 !px-8"
+                    className="rounded-full bg-primary font-semibold text-white hover:bg-blue-700 px-8 py-2"
                     size="md"
                   >
                     Get Started
                   </Button>
                   <Button
                     variant="outline"
-                    className="!rounded-full !font-semibold !text-secondary !hover:!bg-blue-700 !px-8 !border-secondary !border-2"
+                    className="rounded-full font-semibold text-secondary hover:bg-blue-700 px-8 py-2 border-secondary border-2"
                     size="md"
                   >
                     Instructions
@@ -89,7 +87,7 @@ export default function Home() {
               <Image
                 src="/images/home/hero-2.svg"
                 alt="POS System"
-                className="w-full md:w-fit !object-contain !rounded-lg max-h-[300px] sm:max-h-[300px] md:max-h-[500px] transition-all duration-300"
+                className="md:flex-1 !object-contain rounded-lg max-h-[250px] sm:max-h-[300px] md:max-h-[400px] lg:max-h-[500px] transition-all duration-300"
               />
             </div>
           </Carousel.Slide>
@@ -97,12 +95,12 @@ export default function Home() {
       </div>
       {/* Our Services Section */}
       <div className="container mx-auto mt-8">
-        <div className="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0 gap-4">
-          <div className="flex flex-col space-y-4 items-center lg:items-start">
+        <div className="flex flex-col lg:flex-row items-center justify-between space-y-6 md:space-y-0 gap-4">
+          <div className="flex flex-col space-y-4 items-center md:items-start">
             <p className="text-2xl md:text-2xl font-semibold text-secondary text-center lg:text-start">
               Our Services
             </p>
-            <p className="text-black text-md text-center lg:text-start">
+            <p className="text-black text-md text-center md:text-start">
               We provide innovative mobile applications designed for general
               users, along with advanced POS systems and other essential tools
               tailored for business. Our solutions empower both individuals and
@@ -198,7 +196,7 @@ export default function Home() {
             <p className="text-2xl md:text-2xl font-semibold text-secondary">
               For Customers
             </p>
-            <p className="text-black text-md text-center lg:text-start">
+            <p className="text-black text-md text-center md:text-start">
               Our advanced mobile application simplifies the process of
               discovering and purchasing products across Sri Lanka. With just a
               few taps, you can explore a wide range products from multiple
@@ -297,10 +295,10 @@ export default function Home() {
       <div className="container mx-auto mt-16">
         <div className="flex flex-col md:flex-row gap-4 items-center">
           <div className="flex flex-col space-y-4 md:w-1/2 items-center md:items-start">
-            <p className="text-2xl md:text-2xl font-semibold text-secondary text-center lg:text-start">
+            <p className="text-2xl md:text-2xl font-semibold text-secondary text-center md:text-start">
               Businesses We covered
             </p>
-            <p className="text-black text-md text-center lg:text-start">
+            <p className="text-black text-md text-center md:text-start">
               Our POS System Suits a Wide Range of Businesses Our cutting-edge
               POS system is perfect for businesses across various industries,
               including:
@@ -324,7 +322,7 @@ export default function Home() {
                 <li>And More...</li>
               </ul>
             </Spoiler>
-            <p className="text-black text-md !mt-8 text-center lg:text-start">
+            <p className="text-black text-md !mt-8 text-center md:text-start">
               No matter your business type, our POS system can streamline your
               operations and boost efficiency.
             </p>
