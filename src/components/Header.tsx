@@ -1,4 +1,5 @@
 import { routes } from '@/constants/route';
+import { IRoute } from '@/interfaces/route';
 import { Button, Menu, Popover, ScrollArea } from '@mantine/core';
 import {
   IconCategory,
@@ -19,7 +20,7 @@ export default function Header() {
   const toggleDropdown = (key: any) =>
     setDropdownOpen((prev: any) => ({ ...prev, [key]: !prev[key] }));
 
-  const NAV_LINKS = [
+  const NAV_LINKS: IRoute[] = [
     { label: 'Home', path: routes.home },
     {
       label: 'Services',
@@ -68,6 +69,7 @@ export default function Header() {
           label: 'About Us',
           description: 'Know more about us',
           icon: <IconCategory size={24} />,
+          path: routes.AboutUs,
         },
       ],
     },
@@ -84,7 +86,10 @@ export default function Header() {
           {item.icon}
         </div>
         <div className="flex-auto">
-          <a href="#" className="block font-semibold text-gray-900">
+          <a
+            href={item.path ? item.path : '#'}
+            className="block font-semibold text-gray-900"
+          >
             {item.label}
             <span className="absolute inset-0"></span>
           </a>

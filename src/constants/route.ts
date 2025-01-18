@@ -8,6 +8,7 @@ export const routes = {
 
   //PUBLIC
   home: '/',
+  AboutUs: '/about-us',
 };
 
 export const api = {
