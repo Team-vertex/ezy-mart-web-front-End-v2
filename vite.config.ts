@@ -12,6 +12,6 @@ export default defineConfig({
     } as AliasOptions,
   },
   server: {
-    host: '192.168.1.8',
+    host: 'localhost',
   },
 });

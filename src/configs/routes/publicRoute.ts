@@ -6,8 +6,8 @@ const projectRoute: Route[] = [
   {
     key: '/',
     path: routes.home,
-    component: lazy(() => import('@/pages/public/Home')),
-  }
+    component: lazy(() => import('@/pages/public/Home/index')),
+  },
 ];
 
 export default projectRoute;
