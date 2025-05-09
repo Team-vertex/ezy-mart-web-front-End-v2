@@ -218,16 +218,20 @@ export default function Header() {
       {/* Mobile Navigation with slide animation */}
       <div
         ref={menuRef}
-        className={`md:hidden fixed top-0 right-0 h-full w-4/5 max-w-sm bg-blue-900 shadow-2xl transform transition-transform duration-300 ease-in-out z-50 ${
+        className={`md:hidden fixed top-0 right-0 h-full w-4/5 max-w-sm bg-white shadow-2xl transform transition-transform duration-300 ease-in-out z-50 ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="h-full flex flex-col">
           <div className="flex items-center justify-between p-4 border-b border-blue-800">
-            <h2 className="text-xl font-bold text-blue-400">EzyMart Menu</h2>
+            <img
+              src={"/images/logo-dark.png"}
+              alt="EzyMart Logo"
+              className="w-20 h-12 object-cover"
+            />
             <button
               onClick={handleMenuToggle}
-              className="text-white p-2 rounded-full hover:bg-blue-800"
+              className="text-blue p-2 rounded-full "
               aria-label="Close menu"
             >
               <svg
@@ -257,7 +261,7 @@ export default function Header() {
                   <div className="mb-2">
                     <button
                       onClick={() => toggleDropdown(item.name)}
-                      className="w-full flex items-center justify-between px-4 py-2 rounded-md hover:bg-blue-800 transition-colors"
+                      className="w-full flex items-center justify-between px-4 py-2 rounded-md hover:text-blue-600 transition-colors"
                     >
                       <span className="flex items-center">{item.name}</span>
                       <svg
@@ -290,7 +294,7 @@ export default function Header() {
                           <a
                             key={subItem.name}
                             href={subItem.href}
-                            className="block px-4 py-2 rounded-md hover:bg-blue-800 transition-colors"
+                            className="block px-4 py-2 rounded-md hover:text-blue-400 transition-colors"
                           >
                             {subItem.name}
                           </a>
@@ -301,9 +305,8 @@ export default function Header() {
                 ) : (
                   <a
                     href={item.href}
-                    className="px-4 py-2 rounded-md hover:bg-blue-800 transition-colors flex items-center"
+                    className="px-4 py-2 rounded-md hover:text-blue-400 transition-colors flex items-center"
                   >
-                    {item.icon && <span className="mr-2">{item.icon}</span>}
                     {item.name}
                   </a>
                 )}
