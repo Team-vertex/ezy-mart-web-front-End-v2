@@ -64,7 +64,7 @@ export default function Header() {
 
   return (
     <header
-      className={` fixed w-full transition-all duration-300 ${
+      className={`fixed w-full transition-all duration-300 ${
         isScrolled ? "bg-blue-950 shadow-lg py-3" : "bg-white py-4"
       }`}
     >
@@ -301,7 +301,7 @@ export default function Header() {
                 ) : (
                   <a
                     href={item.href}
-                    className="block px-4 py-2 rounded-md hover:bg-blue-800 transition-colors flex items-center"
+                    className="px-4 py-2 rounded-md hover:bg-blue-800 transition-colors flex items-center"
                   >
                     {item.icon && <span className="mr-2">{item.icon}</span>}
                     {item.name}
