@@ -33,7 +33,7 @@ export default function Home() {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <section className="lg:min-h-screen max-h-screen flex-grow flex flex-col bg-gradient-to-b from-[#15366B] to-[#2969D1] overflow-hidden">
+      <section className="flex-grow flex flex-col bg-gradient-to-b from-[#15366B] to-[#2969D1] overflow-hidden">
         <div className="flex-grow container mx-auto px-4 pt-28 md:pt-24 lg:pt-28  text-white flex flex-col items-center justify-center">
           {/* Welcome message */}
           <div className="bg-[#15366B] rounded-full px-6 py-2 mb-6 md:mb-10">
