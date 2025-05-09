@@ -1,7 +1,426 @@
+import { useEffect, useRef, useState } from "react";
+
 export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isMenuOpen]);
+
+  // Handle escape key to close menu
+  useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsMenuOpen(false);
+        setActiveDropdown(null);
+      }
+    };
+
+    document.addEventListener("keydown", handleEscape);
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, []);
+
+  // Toggle dropdown menu
+  const toggleDropdown = (name: string) => {
+    setActiveDropdown(activeDropdown === name ? null : name);
+  };
+
+  // Handle menu toggle with body scroll lock
+  const handleMenuToggle = () => {
+    const newMenuState = !isMenuOpen;
+    setIsMenuOpen(newMenuState);
+
+    // Prevent body scroll when menu is open
+    if (newMenuState) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  };
+
   return (
-    <div>
-      <h1>Header</h1>
-    </div>
+    <header
+      className={` fixed w-full transition-all duration-300 ${
+        isScrolled ? "bg-blue-950 shadow-lg py-3" : "bg-white py-4"
+      }`}
+    >
+      <div className="container mx-auto flex justify-between items-center px-4 md:px-8">
+        {/* Logo with image */}
+        <div className="flex items-center">
+          <h1 className="text-2xl font-bold text-blue-400 transition-all duration-300 hover:scale-105">
+            <a href="#" className="flex items-center space-x-2">
+              <div className="w-20 h-12 overflow-hidden flex-shrink-0">
+                <img
+                  src={
+                    isScrolled
+                      ? "/images/logo-light.png"
+                      : "/images/logo-dark.png"
+                  }
+                  alt="EzyMart Logo"
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    // Fallback to text
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = "none";
+                    target.parentElement!.innerHTML = `<span class="text-white bg-blue-500 w-8 h-8 rounded-full flex items-center justify-center">E</span>`;
+                  }}
+                />
+              </div>
+              <span className="hidden xs:inline text-white">EzyMart</span>
+            </a>
+          </h1>
+        </div>
+
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex space-x-1 lg:space-x-4">
+          {navItems.map((item) => (
+            <div key={item.name} className="relative group">
+              {item.dropdown ? (
+                <button
+                  onClick={() => toggleDropdown(item.name)}
+                  className={`flex items-center px-3 py-2 rounded-md transition-colors duration-200 ${
+                    isScrolled
+                      ? "text-white hover:text-blue-200"
+                      : " hover:text-blue-400"
+                  }`}
+                  aria-expanded={activeDropdown === item.name}
+                >
+                  {item.name}
+                  <svg
+                    className={`w-4 h-4 ml-1 z-10 transition-transform duration-200 ${
+                      activeDropdown === item.name ? "rotate-180" : ""
+                    }`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+              ) : (
+                <a
+                  href={item.href}
+                  className={`px-3 py-2 ${
+                    isScrolled
+                      ? "text-white hover:text-blue-200"
+                      : " hover:text-blue-400"
+                  } rounded-md transition-colors duration-200 flex items-center space-x-1 `}
+                >
+                  <span>{item.name}</span>
+                </a>
+              )}
+
+              {/* Dropdown menu with animation */}
+              {item.dropdown && (
+                <div
+                  className={`absolute bg-white border border-1 !z-50 top-full left-0 rounded-md shadow-lg w-48 overflow-hidden transition-all duration-300 origin-top ${
+                    activeDropdown === item.name
+                      ? "opacity-100 scale-y-100 translate-y-0"
+                      : "opacity-0 scale-y-0 -translate-y-2 pointer-events-none"
+                  }`}
+                >
+                  <div className="py-1">
+                    {item.dropdown.map((subItem) => (
+                      <a
+                        key={subItem.name}
+                        href={subItem.href}
+                        className="block px-4 py-2 text-sm hover:bg-blue-800 transition-colors duration-200"
+                      >
+                        {subItem.name}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
+        </nav>
+
+        {/* Ask Help Button with animation */}
+        <button className="hidden md:flex items-center space-x-1 bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg">
+          <svg
+            className="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M12 21a9 9 0 1 1 0-18 9 9 0 0 1 0 18z"
+            />
+          </svg>
+          <span>Ask Help</span>
+        </button>
+
+        {/* Mobile Menu Button with animation */}
+        <button
+          onClick={handleMenuToggle}
+          className="md:hidden text-white p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+        >
+          <div className="w-6 h-5 relative flex flex-col justify-between">
+            <span
+              className={`w-full h-0.5 ${
+                isScrolled ? "bg-white" : "bg-blue-800"
+              } rounded-full transition-all duration-300 ${
+                isMenuOpen ? "rotate-45 translate-y-2" : ""
+              }`}
+            />
+            <span
+              className={`w-full h-0.5 ${
+                isScrolled ? "bg-white" : "bg-blue-800"
+              } rounded-full transition-all duration-300 ${
+                isMenuOpen ? "opacity-0" : "opacity-100"
+              }`}
+            />
+            <span
+              className={`w-full h-0.5 ${
+                isScrolled ? "bg-white" : "bg-blue-800"
+              } rounded-full transition-all duration-300 ${
+                isMenuOpen ? "-rotate-45 -translate-y-2" : ""
+              }`}
+            />
+          </div>
+        </button>
+      </div>
+
+      {/* Mobile Navigation with slide animation */}
+      <div
+        ref={menuRef}
+        className={`md:hidden fixed top-0 right-0 h-full w-4/5 max-w-sm bg-blue-900 shadow-2xl transform transition-transform duration-300 ease-in-out z-50 ${
+          isMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <div className="h-full flex flex-col">
+          <div className="flex items-center justify-between p-4 border-b border-blue-800">
+            <h2 className="text-xl font-bold text-blue-400">EzyMart Menu</h2>
+            <button
+              onClick={handleMenuToggle}
+              className="text-white p-2 rounded-full hover:bg-blue-800"
+              aria-label="Close menu"
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <div className="flex-1 overflow-y-auto py-4 px-4 flex flex-col space-y-1">
+            {navItems.map((item, index) => (
+              <div
+                key={item.name}
+                className="animate-fade-in"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                {item.dropdown ? (
+                  <div className="mb-2">
+                    <button
+                      onClick={() => toggleDropdown(item.name)}
+                      className="w-full flex items-center justify-between px-4 py-2 rounded-md hover:bg-blue-800 transition-colors"
+                    >
+                      <span className="flex items-center">{item.name}</span>
+                      <svg
+                        className={`w-4 h-4 transition-transform duration-200 ${
+                          activeDropdown === item.name ? "rotate-180" : ""
+                        }`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </button>
+
+                    {/* Mobile dropdown */}
+                    <div
+                      className={`overflow-hidden transition-all duration-300 ${
+                        activeDropdown === item.name
+                          ? "max-h-96 opacity-100"
+                          : "max-h-0 opacity-0"
+                      }`}
+                    >
+                      <div className="pl-6 py-1 space-y-1 mt-1">
+                        {item.dropdown.map((subItem) => (
+                          <a
+                            key={subItem.name}
+                            href={subItem.href}
+                            className="block px-4 py-2 rounded-md hover:bg-blue-800 transition-colors"
+                          >
+                            {subItem.name}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <a
+                    href={item.href}
+                    className="block px-4 py-2 rounded-md hover:bg-blue-800 transition-colors flex items-center"
+                  >
+                    {item.icon && <span className="mr-2">{item.icon}</span>}
+                    {item.name}
+                  </a>
+                )}
+              </div>
+            ))}
+          </div>
+
+          <div className="p-4 border-t border-blue-800">
+            <button className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded-full transition-colors flex items-center justify-center space-x-2">
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M12 21a9 9 0 1 1 0-18 9 9 0 0 1 0 18z"
+                />
+              </svg>
+              <span>Ask Help</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Overlay when mobile menu is open */}
+      {isMenuOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
+          onClick={handleMenuToggle}
+          aria-hidden="true"
+        />
+      )}
+    </header>
   );
 }
+
+interface DropdownItem {
+  name: string;
+  href: string;
+}
+
+interface NavItem {
+  name: string;
+  href: string;
+  icon?: React.ReactNode;
+  dropdown?: DropdownItem[];
+}
+
+// Navigation items data structure
+const navItems: NavItem[] = [
+  {
+    name: "Home",
+    href: "#",
+    icon: (
+      <svg
+        className="w-4 h-4"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+        />
+      </svg>
+    ),
+  },
+  {
+    name: "About Us",
+    href: "#",
+  },
+  {
+    name: "Services",
+    href: "#",
+    dropdown: [
+      { name: "POS System", href: "#" },
+      { name: "Inventory Management", href: "#" },
+      { name: "Sales Analytics", href: "#" },
+      { name: "Customer Management", href: "#" },
+    ],
+  },
+  {
+    name: "Instruction",
+    href: "#",
+  },
+  {
+    name: "Resources",
+    href: "#",
+    dropdown: [
+      { name: "Documentation", href: "#" },
+      { name: "Tutorials", href: "#" },
+      { name: "FAQs", href: "#" },
+    ],
+  },
+  {
+    name: "Contact Us",
+    href: "#",
+    icon: (
+      <svg
+        className="w-4 h-4"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+        />
+      </svg>
+    ),
+  },
+];
