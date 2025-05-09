@@ -14,7 +14,7 @@ export const Service: React.FC = () => {
             Service Deliver Real Results for{" "}
             <span className="text-[#0A65FC] font-extrabold">Target</span>
           </h2>
-          <p className="text-sm lg:text-xl text-[#15366B]">
+          <p className="text-lg lg:text-xl text-[#15366B]">
             We provide a range of digital services through our project EzyMart,
             specifically designed to support small and mid-level business
             owners, as well as everyday customers across Sri Lanka.
