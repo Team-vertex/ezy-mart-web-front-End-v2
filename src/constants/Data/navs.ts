@@ -13,12 +13,7 @@ export const navItems: NavItem[] = [
   {
     name: "Services",
     href: "#",
-    dropdown: [
-      { name: "POS System", href: "#" },
-      { name: "Inventory Management", href: "#" },
-      { name: "Sales Analytics", href: "#" },
-      { name: "Customer Management", href: "#" },
-    ],
+    dropdown: [{ name: "For Business", href: routes.serviceForBusiness }],
   },
   {
     name: "Instruction",
