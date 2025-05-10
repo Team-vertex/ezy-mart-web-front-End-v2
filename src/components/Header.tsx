@@ -166,7 +166,7 @@ export default function Header() {
         </nav>
 
         {/* Ask Help Button with animation */}
-        <button className="hidden md:flex items-center space-x-1 bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg">
+        <button className="hidden md:flex items-center space-x-1 bg-[#0A65FC] hover:bg-blue-600 text-white py-2 px-4 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg">
           <svg
             className="w-5 h-5"
             fill="none"
@@ -315,7 +315,7 @@ export default function Header() {
           </div>
 
           <div className="p-4 border-t border-blue-800">
-            <button className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded-full transition-colors flex items-center justify-center space-x-2">
+            <button className="w-full bg-[#0A65FC] hover:bg-blue-600 text-white py-2 px-6 rounded-full transition-colors flex items-center justify-center space-x-2">
               <svg
                 className="w-5 h-5"
                 fill="none"
