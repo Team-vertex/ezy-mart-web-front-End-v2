@@ -11,7 +11,7 @@ export default defineConfig({
       "@": root,
     } as AliasOptions,
   },
-  server: {
-    host: "192.168.1.73",
-  },
+  // server: {
+  //   host: "192.168.1.75",
+  // },
 });

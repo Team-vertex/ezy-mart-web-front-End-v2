@@ -1,3 +1,5 @@
+import { navItems } from "@/constants/Data/navs";
+import { routes } from "@/constants/route";
 import { useEffect, useRef, useState } from "react";
 
 export default function Header() {
@@ -6,6 +8,7 @@ export default function Header() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const menuRef = useRef<HTMLDivElement>(null);
 
+  // MARK: Lifecycle
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -29,7 +32,6 @@ export default function Header() {
     };
   }, [isMenuOpen]);
 
-  // Handle escape key to close menu
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -44,17 +46,15 @@ export default function Header() {
     };
   }, []);
 
-  // Toggle dropdown menu
+  // MARK: Functions
   const toggleDropdown = (name: string) => {
     setActiveDropdown(activeDropdown === name ? null : name);
   };
 
-  // Handle menu toggle with body scroll lock
   const handleMenuToggle = () => {
     const newMenuState = !isMenuOpen;
     setIsMenuOpen(newMenuState);
 
-    // Prevent body scroll when menu is open
     if (newMenuState) {
       document.body.style.overflow = "hidden";
     } else {
@@ -62,6 +62,7 @@ export default function Header() {
     }
   };
 
+  // MARK: Render
   return (
     <header
       className={`fixed z-50 w-full transition-all duration-300 ${
@@ -72,7 +73,7 @@ export default function Header() {
         {/* Logo with image */}
         <div className="flex items-center">
           <h1 className="text-2xl font-bold text-blue-400 transition-all duration-300 hover:scale-105">
-            <a href="#" className="flex items-center space-x-2">
+            <a href={routes.home} className="flex items-center space-x-2">
               <div className="w-20 h-12 overflow-hidden flex-shrink-0">
                 <img
                   src={
@@ -346,84 +347,3 @@ export default function Header() {
     </header>
   );
 }
-
-interface DropdownItem {
-  name: string;
-  href: string;
-}
-
-interface NavItem {
-  name: string;
-  href: string;
-  icon?: React.ReactNode;
-  dropdown?: DropdownItem[];
-}
-
-// Navigation items data structure
-const navItems: NavItem[] = [
-  {
-    name: "Home",
-    href: "#",
-    icon: (
-      <svg
-        className="w-4 h-4"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-        />
-      </svg>
-    ),
-  },
-  {
-    name: "About Us",
-    href: "#",
-  },
-  {
-    name: "Services",
-    href: "#",
-    dropdown: [
-      { name: "POS System", href: "#" },
-      { name: "Inventory Management", href: "#" },
-      { name: "Sales Analytics", href: "#" },
-      { name: "Customer Management", href: "#" },
-    ],
-  },
-  {
-    name: "Instruction",
-    href: "#",
-  },
-  {
-    name: "Resources",
-    href: "#",
-    dropdown: [
-      { name: "Documentation", href: "#" },
-      { name: "Tutorials", href: "#" },
-      { name: "FAQs", href: "#" },
-    ],
-  },
-  {
-    name: "Contact Us",
-    href: "#",
-    icon: (
-      <svg
-        className="w-4 h-4"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-        />
-      </svg>
-    ),
-  },
-];

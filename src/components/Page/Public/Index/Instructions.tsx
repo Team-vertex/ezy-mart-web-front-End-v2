@@ -14,7 +14,7 @@ export const Instructions: React.FC = () => {
               EzyMart helps small and mid-level business owners and customers in
               Sri Lanka. We make it easy to manage shops and find products
               nearby. <br />
-              Don’t worry about technical knowledge — we guide you through
+              Don't worry about technical knowledge — we guide you through
               everything, and the system is designed to be simple and easy to
               use.
             </p>
