@@ -11,7 +11,7 @@ const projectRoute: Route[] = [
   {
     key: "/service/business",
     path: routes.serviceForBusiness,
-    component: lazy(() => import("@/pages/public/Service/business")),
+    component: lazy(() => import("@/pages/public/Service/Business")),
   },
 ];
 
