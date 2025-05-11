@@ -13,6 +13,11 @@ const projectRoute: Route[] = [
     path: routes.serviceForBusiness,
     component: lazy(() => import("@/pages/public/Service/Business")),
   },
+  {
+    key: "/service/CutomersService",
+    path: routes.customersService,
+    component: lazy(() => import("@/pages/public/Service/CustomersService")),
+  },
 ];
 
 export default projectRoute;

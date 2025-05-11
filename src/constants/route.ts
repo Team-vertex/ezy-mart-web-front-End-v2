@@ -9,6 +9,7 @@ export const routes = {
   //PUBLIC
   home: '/',
   serviceForBusiness: '/service/business',
+  customersService: '/service/CutomersService',
 };
 
 export const api = {

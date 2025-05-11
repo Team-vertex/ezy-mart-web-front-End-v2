@@ -32,6 +32,7 @@
     "embla-carousel": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
     "firebase": "^11.0.2",
+    "framer-motion": "^12.10.5",
     "iconsax-react": "^0.0.8",
     "motion": "^12.10.5",
     "qs": "^6.13.1",

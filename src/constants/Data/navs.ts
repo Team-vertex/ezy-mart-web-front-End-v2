@@ -13,7 +13,8 @@ export const navItems: NavItem[] = [
   {
     name: "Services",
     href: "#",
-    dropdown: [{ name: "For Business", href: routes.serviceForBusiness }],
+    dropdown: [{ name: "For Business", href: routes.serviceForBusiness }, { name: "For Customers", href: routes.customersService }],
+
   },
   {
     name: "Instruction",
