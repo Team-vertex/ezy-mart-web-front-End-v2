@@ -1,4 +1,3 @@
-import React from "react";
 import { motion } from "framer-motion";
 
 interface BenefitCardProps {
@@ -8,7 +7,7 @@ interface BenefitCardProps {
 }
 
 const BenefitCard = ({ imageSrc, title, description }: BenefitCardProps) => (
-  <motion.div 
+  <motion.div
     className="flex flex-col grow shrink self-stretch my-auto min-w-60 w-[266px]"
     initial={{ opacity: 0, y: 50 }}
     whileInView={{ opacity: 2, y: 0 }}
@@ -21,9 +20,7 @@ const BenefitCard = ({ imageSrc, title, description }: BenefitCardProps) => (
       className="object-contain self-center aspect-[1.01] w-[98px]"
     />
     <div className="flex flex-col mt-3.5 w-full">
-      <h3 className="text-2xl font-bold leading-9 text-slate-900">
-        {title}
-      </h3>
+      <h3 className="text-2xl font-bold leading-9 text-slate-900">{title}</h3>
       <p className="self-center mt-2.5 text-sm leading-5 text-black">
         {description}
       </p>
@@ -56,14 +53,14 @@ const BenefitsSection = () => {
   };
 
   return (
-    <motion.section 
+    <motion.section
       className="flex flex-col mt-48 w-full text-center max-w-[1228px] max-md:mt-10 max-md:max-w-full"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
       variants={containerVariants}
     >
-      <motion.div 
+      <motion.div
         className="flex flex-col w-full max-md:max-w-full"
         variants={itemVariants}
       >
@@ -72,12 +69,11 @@ const BenefitsSection = () => {
           with EzyMart
         </h2>
         <p className="self-center mt-6 text-sm leading-5 text-black w-[717px] max-md:max-w-full">
-          Shopping doesn't have to be stressful. With EzyMart, you can find
-          what you need, when you need it. all while saving time, energy, and
-          money
+          Shopping doesn't have to be stressful. With EzyMart, you can find what
+          you need, when you need it. all while saving time, energy, and money
         </p>
       </motion.div>
-      <motion.div 
+      <motion.div
         className="flex flex-col self-center mt-20 max-w-full w-[1116px] max-md:mt-10"
         variants={itemVariants}
       >
@@ -99,7 +95,7 @@ const BenefitsSection = () => {
           />
         </div>
         <div className="flex flex-wrap items-start self-center gap-10 mt-14 max-md:mt-10 max-md:max-w-full">
-          <motion.div 
+          <motion.div
             className="flex flex-col min-w-60 w-[332px]"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -116,12 +112,12 @@ const BenefitsSection = () => {
                 Save Time & Money{" "}
               </h3>
               <p className="self-center mt-2.5 text-sm leading-5 text-black">
-                Plan your shopping efficiently with detailed store
-                information, reducing unnecessary trips and long waits.
+                Plan your shopping efficiently with detailed store information,
+                reducing unnecessary trips and long waits.
               </p>
             </div>
           </motion.div>
-          <motion.div 
+          <motion.div
             className="flex flex-col min-w-60 w-[332px]"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
