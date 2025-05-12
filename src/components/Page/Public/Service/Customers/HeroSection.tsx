@@ -1,12 +1,4 @@
 const HeroSection = () => {
-  //MARK: Components
-  const FeatureItem = ({ text }: { text: string }) => (
-    <div className="flex items-center gap-2 py-2 transition-colors rounded-lg hover:bg-sky-900/20">
-      <div className="w-2 h-2 rounded-full bg-sky-400" />
-      <p className="text-xs font-medium md:text-base text-white">{text}</p>
-    </div>
-  );
-
   //MARK: Render
   return (
     <section className="flex-grow flex flex-col items-center justify-center bg-gradient-to-tr from-[#010916] to-[#053CDF] ">
@@ -34,5 +26,13 @@ const HeroSection = () => {
     </section>
   );
 };
+
+//MARK: Components
+export const FeatureItem = ({ text }: { text: string }) => (
+  <div className="flex items-center gap-2 py-2 transition-colors rounded-lg hover:bg-sky-900/20">
+    <div className="w-2 h-2 rounded-full bg-sky-400" />
+    <p className="text-xs font-medium md:text-base text-white">{text}</p>
+  </div>
+);
 
 export default HeroSection;

@@ -73,7 +73,7 @@ export const Service: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.6 }}
             src="/images/Public/forcustomersandservices.svg"
             alt="Ezymart"
-            className="!object-contain !w-40 lg:w-52 !h-auto mt-4"
+            className="!object-contain !w-56 lg:w-72 !h-auto mt-4"
           />
         </div>
       </div>
