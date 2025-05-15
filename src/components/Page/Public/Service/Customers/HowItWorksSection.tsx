@@ -86,7 +86,7 @@ const HowItWorksSection = () => {
                   </p>
                 </motion.div>
                 <motion.button
-                  className="self-center lg:self-start px-8 py-3 mt-12 md:mt-24 text-sm sm:text-base font-bold text-sky-100 bg-sky-950 rounded-[50px] hover:bg-sky-900 transition-colors duration-300"
+                  className="self-center lg:self-start px-8 py-3 mt-12 md:mt-24 text-sm sm:text-base font-bold bg-[#0D2140] text-white mb-14 lg:text-lg rounded-full hover:bg-[#0D2140]/80 transition-colors  duration-300"
                   variants={itemVariants}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
