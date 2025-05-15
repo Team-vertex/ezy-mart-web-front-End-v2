@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import FaqContent from "@/components/core/FaqContent";
-import { FAQContent } from "@/constants/Data";
+import { FAQCustomer } from "@/constants/Data";
 
 
 // FAQ item interface
@@ -87,7 +87,7 @@ const FaqSection = () => {
       </motion.h2>
 
       <div className="w-full mt-10 space-y-6">
-       <FaqContent faqList={FAQContent} />
+       <FaqContent faqList={FAQCustomer} />
       </div>
     </section>
   );
