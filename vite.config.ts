@@ -11,13 +11,11 @@ export default defineConfig({
       "@": root,
     } as AliasOptions,
   },
-// <<<<<<< HEAD
-//   server: {
-//     host: "localhost",
-//   },
-// =======
-//   // server: {
-//   //   host: "192.168.1.75",
-//   // },
-// >>>>>>> c9de0b356b91e7fcb087fb4c7397d2e80ecdc8fc
-// });
+
+  server: {
+    host: "localhost",
+  },
+  // server: {
+  //   host: "192.168.1.75",
+  // },
+});

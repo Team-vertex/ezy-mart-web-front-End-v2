@@ -74,7 +74,7 @@ const FaqSection = () => {
   };
 
   return (
-    <section className="w-full px-4 mx-auto mt-20 sm:px-6 lg:px-8 sm:mt-24 md:mt-32 lg:mt-48 xl:mt-56 max-w-7xl">
+    <section className="w-full px-4 mx-auto mt-20 mb-20 sm:px-6 lg:px-8 sm:mt-24 md:mt-32 lg:mt-48 xl:mt-56 max-w-7xl">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

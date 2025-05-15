@@ -10,13 +10,10 @@ export default function Customers(): JSX.Element {
     <div className="bg-white">
       <HeroSection />
       <AppShowcase />
-      <div className=" mt-[200px]">
-        <WhyUseSection />
-      </div>
+      <WhyUseSection />
       <HowItWorksSection />
       <BenefitsSection />
-      <div></div>
-      <FaqSection /> 
+      <FaqSection />
     </div>
   );
 }

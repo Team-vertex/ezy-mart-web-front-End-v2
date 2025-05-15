@@ -25,7 +25,7 @@ const WhyUseSection = () => {
       variants={fadeUp}
       className="flex flex-col items-center px-4 py-16 w-full max-w-[1228px] mx-auto md:mt-32 max-md:mt-10"
     >
-      <div className="flex flex-col items-center w-full text-center">
+      <div className="flex flex-col items-center w-full mt-40 text-center">
         <h2 className="text-xl font-bold text-center lg:text-6xl text-slate-900">
           Why Use EzyMart <span className="text-[#0A65FC]">App?</span>
         </h2>
