@@ -1,7 +1,11 @@
 "use client";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import FaqContent from "@/components/core/FaqContent";
+import { FAQContent } from "@/constants/Data";
 
+
+// FAQ item interface
 interface FaqItemProps {
   question: string;
   answer?: string;
@@ -10,6 +14,7 @@ interface FaqItemProps {
   index: number;
 }
 
+// FaqItem component
 const FaqItem = ({
   question,
   answer,
@@ -26,67 +31,63 @@ const FaqItem = ({
       delay: index * 0.1,
       ease: "easeOut",
     }}
-    className={`mt-5 bg-sky-100 rounded-2xl shadow-lg ${
-      isOpen ? "border-2 border-solid border-[#0A65FC]" : ""
+    className={`cursor-pointer bg-sky-100 rounded-2xl shadow-lg transition-all duration-300 ${
+      isOpen ? "border-2 border-[#0A65FC]" : ""
     }`}
     onClick={onClick}
   >
     {isOpen ? (
-      <div className="flex flex-col items-start px-14 py-11 max-md:px-5 max-md:max-w-full">
-        <h3 className="text-xl text-black">{question}</h3>
-        <p className="mt-5 text-lg leading-7 text-neutral-500 max-md:max-w-full">
+      <div className="flex flex-col items-start px-6 py-6 sm:px-10 md:px-12 lg:px-14 sm:py-8 md:py-10 lg:py-11">
+        <h3 className="text-xl font-semibold text-black sm:text-2xl">{question}</h3>
+        <p className="mt-5 text-base leading-7 sm:text-lg text-neutral-500">
           {answer ||
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."}
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}
         </p>
       </div>
     ) : (
-      <h3 className="text-xl text-black px-14 py-14 max-md:px-5 max-md:max-w-full">
+      <h3 className="px-6 py-6 text-xl font-semibold text-black sm:text-2xl sm:px-10 md:px-12 lg:px-14 sm:py-8 md:py-10 lg:py-14">
         {question}
       </h3>
     )}
   </motion.div>
 );
 
+
+// FaqSection component
 const FaqSection = () => {
-  const [openIndex, setOpenIndex] = useState(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const faqItems = [
     {
-      question: "is EzyMart mobile application Free?",
+      question: "Is EzyMart mobile application Free?",
       answer:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "Yes, EzyMart mobile application is free to download and use. There are no hidden charges.",
     },
-    { question: "How it Works?" },
-    { question: "Recommended for ?" },
-    { question: "In which Devices can run application?" },
-    { question: "Is customers data safe?" },
+    { question: "How it Works?", answer: "You browse, order, and we deliver to your doorstep." },
+    { question: "Recommended for ?", answer: "It is ideal for busy professionals and households." },
+    { question: "In which Devices can run application?", answer: "Android and iOS devices are supported." },
+    { question: "Is customers data safe?", answer: "Yes, all customer data is encrypted and secure." },
   ];
 
+  const handleToggle = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   return (
-    <section className="mt-48 w-full max-w-[1240px] max-md:mt-10 max-md:max-w-full">
+    <section className="w-full px-4 mx-auto mt-20 sm:px-6 lg:px-8 sm:mt-24 md:mt-32 lg:mt-48 xl:mt-56 max-w-7xl">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="text-5xl font-medium text-center text-slate-900 max-md:max-w-full max-md:text-4xl font-[Poppins]"
+        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-center text-slate-900 font-[Poppins]"
       >
         Frequently Asked{" "}
-        <span style={{ fontWeight: 700, color: "rgba(10,101,252,1)" }}>
-          Questions
-        </span>
+        <span className="text-[#0A65FC]">Questions</span>
       </motion.h2>
-      <div className="w-full mt-10 rounded-none max-md:max-w-full">
-        {faqItems.map((item, index) => (
-          <FaqItem
-            key={index}
-            question={item.question}
-            answer={item.answer}
-            isOpen={index === openIndex}
-            onClick={() => setOpenIndex(index)}
-            index={index}
-          />
-        ))}
+
+      <div className="w-full mt-10 space-y-6">
+       <FaqContent faqList={FAQContent} />
       </div>
     </section>
   );

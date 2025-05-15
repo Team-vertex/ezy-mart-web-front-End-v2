@@ -1,11 +1,35 @@
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
+
 const WhyUseSection = () => {
+  const controls = useAnimation();
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    }
+  }, [controls, inView]);
+
+  const fadeUp = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+  };
+
   return (
-    <section className="flex flex-col items-center px-4 py-16 w-full max-w-[1228px] mx-auto md:mt-32 max-md:mt-10">
+    <motion.section
+      ref={ref}
+      initial="hidden"
+      animate={controls}
+      variants={fadeUp}
+      className="flex flex-col items-center px-4 py-16 w-full max-w-[1228px] mx-auto md:mt-32 max-md:mt-10"
+    >
       <div className="flex flex-col items-center w-full text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 font-[Poppins]">
+        <h2 className="text-xl font-bold text-center lg:text-6xl text-slate-900">
           Why Use EzyMart <span className="text-[#0A65FC]">App?</span>
         </h2>
-        <p className="mt-4 md:mt-6 text-sm md:text-base leading-5 md:leading-6 text-black max-w-[717px] w-full font-[Poppins]">
+        <p className="mt-4 md:mt-6 text-xs lg:text-2xl text-center md:text-base leading-5 md:leading-6 text-black max-w-[717px] w-full">
           EzyMart makes shopping across Sri Lanka easier than ever. Find nearby
           shops, discover products fast, and save time all with a few simple
           taps on your phone.
@@ -19,7 +43,7 @@ const WhyUseSection = () => {
           loading="lazy"
         />
       </div>
-    </section>
+    </motion.section>
   );
 };
 

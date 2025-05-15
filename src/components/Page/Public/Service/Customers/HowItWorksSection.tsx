@@ -51,13 +51,13 @@ const HowItWorksSection = () => {
               <div className="flex flex-col text-center text-white lg:text-left">
                 <div className="w-full">
                   <motion.h2
-                    className="text-3xl sm:text-4xl font-medium font-[Poppins]"
+                    className="text-xl font-bold lg:text-6xl"
                     variants={itemVariants}
                   >
                     How the App Works
                   </motion.h2>
                   <motion.p
-                    className="text-sm sm:text-base leading-6 mt-4 font-[Poppins]"
+                    className="mt-4 text-xs text-white lg:text-2xl "
                     variants={itemVariants}
                   >
                     Simply open the app, search for the product or shop you
@@ -73,10 +73,10 @@ const HowItWorksSection = () => {
                   className="w-full mt-12 md:mt-24"
                   variants={itemVariants}
                 >
-                  <h2 className="text-3xl sm:text-4xl font-medium font-[Poppins]">
+                  <h2 className="text-xl font-bold lg:text-6xl">
                     How to Request the App
                   </h2>
-                  <p className="text-sm sm:text-base leading-6 mt-4 font-[Poppins]">
+                  <p className="mt-4 text-xs text-white lg:text-2xl">
                     Ready to simplify your shopping? Simply fill out a quick
                     request form or contact us through our website, and we'll
                     help you set up your access. Whether you're a customer
