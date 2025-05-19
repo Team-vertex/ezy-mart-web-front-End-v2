@@ -126,20 +126,20 @@ const Carousel: React.FC<CarouselProps> = ({
 
       {showControls && (
         <>
-          <button 
+          {/* <button 
             onClick={prevSlide}
-            className="absolute left-1 md:left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-1 md:p-1.5 shadow-md z-30 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="absolute sm:hidden left-1 md:left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-1 md:p-1.5 shadow-md z-30 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400"
             aria-label="Previous slide"
           >
             <ChevronLeft className="w-3 h-3 md:h-4 md:w-4" />
           </button>
           <button 
             onClick={nextSlide}
-            className="absolute right-1 md:right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-1 md:p-1.5 shadow-md z-30 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="absolute sm:hidden right-1 md:right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-1 md:p-1.5 shadow-md z-30 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400"
             aria-label="Next slide"
           >
             <ChevronRight className="w-3 h-3 md:h-4 md:w-4" />
-          </button>
+          </button> */}
         </>
       )}
 

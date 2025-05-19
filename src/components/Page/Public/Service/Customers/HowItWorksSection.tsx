@@ -46,7 +46,7 @@ const HowItWorksSection = () => {
           viewport={{ once: true, margin: "-100px" }}
           variants={containerVariants}
         >
-          <div className="flex flex-col gap-8 lg:flex-row xl:gap-12">
+          <div className="flex flex-col gap-8 lg:flex-row xl:gap-12 mt-[100px] sm:text-lg">
             <motion.div className="w-full lg:w-[68%]" variants={itemVariants}>
               <div className="flex flex-col text-center text-white lg:text-left">
                 <div className="w-full">
@@ -54,7 +54,7 @@ const HowItWorksSection = () => {
                     className="text-xl font-bold lg:text-6xl"
                     variants={itemVariants}
                   >
-                    How the App Works
+                   How the App Works
                   </motion.h2>
                   <motion.p
                     className="mt-4 text-xs text-white lg:text-2xl "
