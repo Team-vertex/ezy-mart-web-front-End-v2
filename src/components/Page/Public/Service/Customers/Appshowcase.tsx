@@ -35,7 +35,7 @@ const AppShowcase = () => {
   ];
 
   return (
-    <div className="absolute left-0 flex flex-col w-full min-h-screen top-4 lg:mt-[300px] mt-[150px] md:mt-[300px]">
+    <div className="absolute left-0 flex flex-col w-full min-h-screen mt-44 sm:mt-[50px] lg:mt-64 top-4">
       <main className="flex flex-col items-center justify-center flex-1 px-4 py-4">
         <div className="w-full max-w-screen-md md:h-[400px] px-2 sm:px-4">
           <Carousel
