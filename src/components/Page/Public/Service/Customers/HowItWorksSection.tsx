@@ -1,26 +1,13 @@
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
-import EmblaCarousel from "@/components/emblaCarousel/EmblaCarousel";
+import { useState,useEffect } from "react";
 
 
-// const images = [
-//   "/images/CoustomerService/Frame 388 (1).svg",
-//   "/public/images/CoustomerService/Frame 390.svg",
-//   "/public/images/CoustomerService/Frame 388 (1).svg",
-// ];
+const images = [
+  "/images/CoustomerService/Frame 388 (1).svg",
+  "/public/images/CoustomerService/Frame 390.svg",
+  "/public/images/CoustomerService/Frame 388 (1).svg",
+];
 const HowItWorksSection = () => {
-  const OPTIONS = {
-    loop: true,
-    speed: 10,
-    draggable: true,
-    autoplay: true,
-    autoplayDelay: 3000,
-    autoplayStopOnInteraction: false,
-    skipSnaps: false,
-  };
-
-
-
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -43,42 +30,23 @@ const HowItWorksSection = () => {
       },
     },
   };
+  const [current, setCurrent] = useState(0);
 
-  const slideImages = [
-    {
-      id: 1,
-      src: "/stock/test.png",
-      alt: "Shop owner using EzyMart",
-    },
-    {
-      id: 2,
-      src: "/stock/test.png",
-      alt: "Customer using EzyMart mobile app",
-    },
-    {
-      id: 3,
-      src: "/stock/test.png",
-      alt: "Inventory management with EzyMart",
-    },
-  ];
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % images.length);
+    }, 3000); // change every 3 seconds
 
-  // const [current, setCurrent] = useState(0);
+    return () => clearInterval(interval); // cleanup
+  }, []);
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     setCurrent((prev) => (prev + 1) % images.length);
-  //   }, 3000); // change every 3 seconds
+  const nextSlide = () => {
+    setCurrent((prev) => (prev + 1) % images.length);
+  };
 
-  //   return () => clearInterval(interval); // cleanup
-  // }, []);
-
-  // const nextSlide = () => {
-  //   setCurrent((prev) => (prev + 1) % images.length);
-  // };
-
-  // const prevSlide = () => {
-  //   setCurrent((prev) => (prev - 1 + images.length) % images.length);
-  // };
+  const prevSlide = () => {
+    setCurrent((prev) => (prev - 1 + images.length) % images.length);
+  };
 
   return (
     <section className="relative w-full py-24 overflow-hidden md:py-64 lg:mt-[200px] ">
@@ -153,14 +121,40 @@ const HowItWorksSection = () => {
             </motion.div>
 
             <motion.div
-              className="w-full h-full lg:w-[32%] flex items-center justify-center"
+              className="w-full lg:w-[32%] flex items-center justify-center"
               variants={itemVariants}
             >
-              <EmblaCarousel
-                slides={slideImages.map((_, index) => index)}
-                options={OPTIONS}
-                images={slideImages}
-              />
+              <div className="relative w-full max-w-xs mx-auto lg:max-w-lg">
+                <img
+                  src={images[current]}
+                  alt={`Slide ${current + 1}`}
+                  className="w-full h-auto transition duration-700 ease-in-out rounded-lg"
+                />
+                {/* Navigation Buttons */}
+                <button
+                  onClick={prevSlide}
+                  className="absolute p-2 text-white transform -translate-y-1/2 rounded-full left-2 top-1/2 bg-gray-800/70"
+                >
+                  ‹
+                </button>
+                <button
+                  onClick={nextSlide}
+                  className="absolute p-2 text-white transform -translate-y-1/2 rounded-full right-2 top-1/2 bg-gray-800/70"
+                >
+                  ›
+                </button>
+                {/* Dots */}
+                <div className="absolute flex gap-1 transform -translate-x-1/2 bottom-2 left-1/2">
+                  {images.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrent(index)}
+                      className={`w-3 h-3 rounded-full ${index === current ? "bg-white" : "bg-gray-400"
+                        }`}
+                    ></button>
+                  ))}
+                </div>
+              </div>
             </motion.div>
           </div>
         </motion.div>
