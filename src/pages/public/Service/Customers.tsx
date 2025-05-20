@@ -4,6 +4,8 @@ import HowItWorksSection from "@/components/Page/Public/Service/Customers/HowItW
 import BenefitsSection from "@/components/Page/Public/Service/Customers/BenefitsSection";
 import WhyUseSection from "@/components/Page/Public/Service/Customers/WhyUseSection";
 import FaqSection from "@/components/Page/Public/Service/Customers/Faqsection";
+import { Contact } from "@/components/Page/Public/Index/Contact";
+
 
 export default function Customers(): JSX.Element {
   return (
@@ -14,6 +16,8 @@ export default function Customers(): JSX.Element {
       <HowItWorksSection />
       <BenefitsSection />
       <FaqSection />
+      <Contact/>
+    
     </div>
   );
 }

@@ -57,11 +57,11 @@ const BenefitsSection = () => {
       viewport={{ once: true, margin: "-100px" }}
       variants={containerVariants}
     >
-      <motion.div className="max-w-5xl mx-auto mt-20 text-center " variants={itemVariants} >
+      <motion.div className="max-w-5xl mx-auto text-center " variants={itemVariants} >
         <h2 className="text-3xl font-bold sm:text-4xl md:text-5xl lg:text-6xl text-slate-900">
           Make <span className="text-blue-600">Life Easier</span> with EzyMart
         </h2>
-        <p className="max-w-2xl mx-auto mt-6 text-sm text-black sm:text-base lg:text-xl">
+        <p className="max-w-2xl mx-auto mt-6 text-black sm:text-xl lg:text-xl">
           Shopping doesn't have to be stressful. With EzyMart, you can find what
           you need, when you need it, all while saving time, energy, and money.
         </p>
@@ -92,7 +92,7 @@ const BenefitsSection = () => {
 
 
         {/* Wrap the last two cards in a flex container to center them */}
-        <div className="flex flex-wrap justify-center gap-10 sm:col-span-2 lg:col-span-3 ">
+        <div className="flex flex-wrap justify-center gap-10 text-xl sm:col-span-2 lg:col-span-3">
           <BenefitCard
             imageSrc="/public/images/CoustomerService/on-time.svg"
             title="Save Time & Money"

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import FaqContent from "@/components/core/FaqContent";
 import { FAQCustomer } from "@/constants/Data";
+import { Contact } from "@/components/Page/Public/Index/Contact";
 
 
 // FAQ item interface
@@ -31,9 +32,8 @@ const FaqItem = ({
       delay: index * 0.1,
       ease: "easeOut",
     }}
-    className={`cursor-pointer bg-sky-100 rounded-2xl shadow-lg transition-all duration-300 ${
-      isOpen ? "border-2 border-[#0A65FC]" : ""
-    }`}
+    className={`cursor-pointer bg-sky-100 rounded-2xl shadow-lg transition-all duration-300 ${isOpen ? "border-2 border-[#0A65FC]" : ""
+      }`}
     onClick={onClick}
   >
     {isOpen ? (
@@ -80,15 +80,16 @@ const FaqSection = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-center text-slate-900 font-[Poppins]"
+        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl text-center text-slate-900 font-[Poppins]"
       >
         Frequently Asked{" "}
-        <span className="text-[#0A65FC]">Questions</span>
+        <span className="text-[#0A65FC] font-bold xl:text-5xl">Questions</span>
       </motion.h2>
 
-      <div className="w-full mt-10 space-y-6">
-       <FaqContent faqList={FAQCustomer} />
+      <div className="w-full mt-10 space-y-6 text-xl sm:text-3xl md:text-2xl">
+        <FaqContent faqList={FAQCustomer} />
       </div>
+     
     </section>
   );
 };

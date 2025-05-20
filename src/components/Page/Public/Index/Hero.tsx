@@ -46,7 +46,7 @@ export const Hero: React.FC = () => {
   // MARK: Render
   return (
     <section className="flex-grow flex flex-col bg-gradient-to-b from-[#15366B] to-[#2969D1] overflow-hidden">
-      <div className="flex-grow container mx-auto px-4 pt-28 md:pt-24 lg:pt-28  text-white flex flex-col items-center justify-center">
+      <div className="container flex flex-col items-center justify-center flex-grow px-4 mx-auto text-white pt-28 md:pt-24 lg:pt-28">
         {/* Welcome message */}
         <motion.div
           ref={welcomeRef}
@@ -57,7 +57,7 @@ export const Hero: React.FC = () => {
           transition={{ duration: 0.5 }}
           className="bg-[#15366B] rounded-full px-6 py-2 mb-6 md:mb-10"
         >
-          <p className="text-white flex items-center gap-2">
+          <p className="flex items-center gap-2 text-white">
             <IconStars size={24} />
             Welcome to the Ezymart !
           </p>
@@ -71,11 +71,11 @@ export const Hero: React.FC = () => {
             isHeadingInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
           }
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-3xl sm:text-4xl md:text-6xl font-bold text-center mb-4 md:mb-6"
+          className="mb-4 text-3xl font-bold text-center sm:text-4xl md:text-6xl md:mb-6"
         >
-          <span className="text-white font-extrabold">What </span>
+          <span className="font-extrabold text-white">What </span>
           <span className="text-[#0A1A33] font-bold">we </span>
-          <span className="text-white font-bold">make </span>
+          <span className="font-bold text-white">make </span>
           <span className="text-[#0A1A33] font-bold">For You</span>
         </motion.h1>
 
@@ -87,7 +87,7 @@ export const Hero: React.FC = () => {
             isDescriptionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }
           }
           transition={{ duration: 0.7, delay: 0.4 }}
-          className="h-auto min-h-32 sm:min-h-24 lg:min-h-12 flex items-center justify-center overflow-hidden"
+          className="flex items-center justify-center h-auto overflow-hidden min-h-32 sm:min-h-24 lg:min-h-12"
         >
           <p
             className={`text-center max-w-3xl mb-6 md:mb-10 px-4 transition-all duration-500 ease-in-out
@@ -109,7 +109,7 @@ export const Hero: React.FC = () => {
             isButtonInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }
           }
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="border border-white hover:bg-white hover:text-blue-900 text-white py-2 px-8 rounded-full transition-colors"
+          className="px-8 py-2 text-white transition-colors border border-white rounded-full hover:bg-white hover:text-blue-900"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -123,7 +123,7 @@ export const Hero: React.FC = () => {
         initial={{ opacity: 0, y: 60 }}
         animate={isImageInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }}
         transition={{ duration: 0.9, delay: 0.8 }}
-        className="w-full mt-8 md:mt-10 relative flex justify-center container mx-auto"
+        className="container relative flex justify-center w-full mx-auto mt-8 md:mt-10"
       >
         <Carousel
           withIndicators
@@ -142,14 +142,14 @@ export const Hero: React.FC = () => {
             <img
               src="/stock/homeimg.jpg"
               alt="Dashboard"
-              className="w-full h-full max-w-3xl mx-auto shadow-lg rounded-t-lg p-0 "
+              className="w-full h-full max-w-3xl p-0 mx-auto rounded-t-lg shadow-lg "
             />
           </Carousel.Slide>
           <Carousel.Slide>
             <img
               src="/stock/homeimg2.png"
               alt="Dashboard"
-              className="w-full max-w-3xl mx-auto shadow-lg rounded-t-lg p-0"
+              className="w-full max-w-3xl p-0 mx-auto rounded-t-lg shadow-lg"
             />
           </Carousel.Slide>
         </Carousel>

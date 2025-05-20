@@ -18,7 +18,6 @@ const CarouselCard: React.FC<CarouselCardProps> = ({
   variant = 'primary',
 }) => {
   const variantStyles = {
-   
     secondary: 'bg-blue-50/95 backdrop-blur-sm',
     accent: 'bg-blue-100/95 backdrop-blur-sm',
   };
