@@ -153,7 +153,7 @@ const HowItWorksSection = () => {
             </motion.div>
 
             <motion.div
-              className="w-full h-full lg:w-[32%] flex items-center md:h-full justify-center"
+              className="w-full h-full lg:w-[32%] flex items-center justify-center"
               variants={itemVariants}
             >
               <EmblaCarousel
