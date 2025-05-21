@@ -23,7 +23,7 @@ const WhyUseSection = () => {
       initial="hidden"
       animate={controls}
       variants={fadeUp}
-      className="flex flex-col items-center px-4 w-full max-w-[1228px] mx-auto mt-[380px] lg:mt-[200px] md:mt-[350px]"
+      className="flex flex-col items-center px-4 w-full max-w-[1228px] mx-auto mt-[450px] lg:mt-[200px] md:mt-[350px]"
     >
       <div className="flex flex-col items-center w-full text-center">
         <h2 className="text-xl font-bold text-center lg:text-5xl text-slate-900">

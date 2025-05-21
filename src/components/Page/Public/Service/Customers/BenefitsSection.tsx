@@ -8,7 +8,7 @@ interface BenefitCardProps {
 
 const BenefitCard = ({ imageSrc, title, description }: BenefitCardProps) => (
   <motion.div
-    className="flex flex-col grow self-stretch w-full sm:max-w-[300px] md:max-w-[340px] lg:max-w-[360px] xl:max-w-[400px] mx-auto"
+    className="flex flex-col grow self-stretch w-full sm:max-w-[300px] md:max-w-[340px] lg:max-w-[360px] xl:max-w-[400px] mx-auto "
     initial={{ opacity: 0, y: 50 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, margin: "-50px" }}
@@ -50,8 +50,8 @@ const BenefitsSection = () => {
   };
 
   return (
-    <motion.section
-      className="w-full px-4 py-16 bg-white md:py-24"
+    <motion.section 
+      className="w-full px-4 py-16 bg-white md:py-24 "
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
@@ -68,7 +68,7 @@ const BenefitsSection = () => {
       </motion.div>
 
       <motion.div
-        className="grid justify-center max-w-6xl grid-cols-1 gap-10 mx-auto mt-16 sm:grid-cols-2 lg:grid-cols-3"
+        className="grid justify-center max-w-6xl grid-cols-1 gap-10 p-[10px] mx-auto mt-16 sm:grid-cols-2 lg:grid-cols-3"
         variants={itemVariants}
       >
         <BenefitCard

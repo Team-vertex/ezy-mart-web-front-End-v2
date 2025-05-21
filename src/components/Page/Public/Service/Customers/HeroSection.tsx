@@ -33,7 +33,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="mt-4 text-center text-white md:text-xl lg:text-3xl"
+          className="mt-4 text-center text-white md:text-lg lg:text-2xl"
         >
           EzyMart makes shopping easier than ever. Search for products near you,
           discover local shops, save time, and enjoy a smooth, stress free
@@ -75,7 +75,7 @@ export const FeatureItem = ({
     {icon && (
       <img src={"/public/images/CoustomerService/tick-circle.svg"} alt="feature icon" className="w-5 h-5" />
     )}
-    <p className="text-xs font-medium text-center text-white  md:text-base">{text}</p>
+    <p className="text-xs font-medium text-center text-white md:text-base">{text}</p>
   </div>
 );
 

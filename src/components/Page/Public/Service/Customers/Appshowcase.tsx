@@ -3,10 +3,40 @@ import { motion } from 'framer-motion';
 import Carousel from '@/components/carousel/carousel';
 import CarouselCard from '@/components/carousel/carouseCard';
 import EmblaCarousel from "@/components/emblaCarousel/EmblaCarousel";
+import { useState, useEffect } from "react";
 
 const AppShowcase = () => {
 
-    const OPTIONS = {
+
+  const [current, setCurrent] = useState(0);
+
+  const nextSlide = () => {
+    setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  };
+
+  const prevSlide = () => {
+    setCurrent((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
+
+  // Auto-rotate useEffect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 4000); // slower (4 seconds)
+
+    return () => clearInterval(interval);
+  }, []);
+
+
+  const images = [
+    "/images/CoustomerService/Frame 388 (1).svg",
+    "/public/images/CoustomerService/Frame 390.svg",
+    "/public/images/CoustomerService/Frame 388 (1).svg",
+  ];
+
+
+
+  const OPTIONS = {
     loop: true,
     speed: 10,
     draggable: true,
@@ -18,7 +48,7 @@ const AppShowcase = () => {
 
 
 
- const slideImages = [
+  const slideImages = [
     {
       id: 1,
       src: "/stock/test.png",
@@ -77,7 +107,7 @@ const AppShowcase = () => {
   return (
     <div className="absolute left-0 flex flex-col w-full min-h-screen md:mt-[100px] mt-[250px] lg:mt-[300px] top-4">
       <main className="flex flex-col items-center justify-center flex-1 px-4 py-4">
-        
+
         {/* Carousel with scroll animation */}
         <motion.div
           className="w-full max-w-screen-md md:h-[400px] px-2 sm:px-4"
@@ -102,13 +132,44 @@ const AppShowcase = () => {
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >
-          <EmblaCarousel
-                slides={slideImages.map((_, index) => index)}
-                options={OPTIONS}
-                images={slideImages}
+          <div className="relative w-full max-w-xs h-[500px] mx-auto lg:max-w-lg overflow-hidden">
+            {images.map((img, index) => (
+              <img
+                key={index}
+                src={img}
+                alt={`Slide ${index + 1}`}
+                className={`absolute top-0 left-0 w-full h-full object-cover rounded-[50px] transition-all duration-[4000ms] ease-in-out 
+          ${index === current ? "opacity-100 scale-100 z-10" : "opacity-0 scale-105 z-0"}`}
               />
-        </motion.div>
+            ))}
 
+            {/* Manual Navigation Buttons */}
+            <button
+              onClick={prevSlide}
+              className="absolute z-20 p-2 text-3xl font-bold text-white transform -translate-y-1/2 rounded-full bg-black/30 hover:bg-black/50 left-2 top-1/2"
+            >
+              ‹
+            </button>
+            <button
+              onClick={nextSlide}
+              className="absolute z-20 p-2 text-3xl font-bold text-white transform -translate-y-1/2 rounded-full bg-black/30 hover:bg-black/50 right-2 top-1/2"
+            >
+              ›
+            </button>
+
+            {/* Carousel Dots */}
+            <div className="absolute z-20 flex gap-2 transform -translate-x-1/2 bottom-4 left-1/2">
+              {images.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrent(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${index === current ? "bg-white scale-110" : "bg-gray-400"
+                    }`}
+                ></button>
+              ))}
+            </div>
+          </div>
+        </motion.div>
       </main>
     </div>
   );
