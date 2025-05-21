@@ -22,7 +22,7 @@ export default function Footer() {
         <div className="absolute w-32 h-32 bg-blue-400 rounded-full top-20 left-10 filter blur-3xl"></div>
         <div className="absolute w-40 h-40 bg-purple-400 rounded-full bottom-10 right-20 filter blur-3xl"></div>
       </div>
-      
+
       {/* Main Footer Content */}
       <div className="container relative z-10 px-6 py-16 mx-auto">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
@@ -47,9 +47,9 @@ export default function Footer() {
                 { icon: IconBrandInstagram, color: "hover:bg-gradient-to-br from-purple-500 to-pink-500" },
                 { icon: IconBrandYoutube, color: "hover:bg-red-600" }
               ].map((item, i) => (
-                <a 
-                  key={i} 
-                  href="#" 
+                <a
+                  key={i}
+                  href="#"
                   className={`p-2 border border-gray-400 rounded-full transition-all duration-300 transform hover:scale-110 ${item.color} hover:border-transparent`}
                 >
                   <item.icon size={20} />
@@ -67,8 +67,8 @@ export default function Footer() {
             <ul className="space-y-3">
               {quickLinks.map((item, i) => (
                 <li key={i}>
-                  <a 
-                    href="#" 
+                  <a
+                    href="#"
                     className="flex items-center text-gray-300 transition-all hover:text-white group"
                   >
                     <IconChevronRight size={16} className="mr-2 text-blue-300 transition-all opacity-0 group-hover:opacity-100" />
@@ -88,8 +88,8 @@ export default function Footer() {
             <ul className="space-y-3">
               {solutions.map((item, i) => (
                 <li key={i}>
-                  <a 
-                    href="#" 
+                  <a
+                    href="#"
                     className="flex items-center text-gray-300 transition-all hover:text-white group"
                   >
                     <IconChevronRight size={16} className="mr-2 text-purple-300 transition-all opacity-0 group-hover:opacity-100" />
@@ -144,26 +144,27 @@ export default function Footer() {
                 </div>
               </li>
             </ul>
-            
+
             <div className="mt-6">
               <h4 className="mb-2 text-sm font-medium text-gray-400">DOWNLOAD OUR APP</h4>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex items-center gap-3">
                 <a href="#" className="transition-transform hover:scale-105">
                   <img
-                    src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                    src="/images/Public/appstorebutton.svg"
                     alt="App Store"
                     className="h-10"
                   />
                 </a>
                 <a href="#" className="transition-transform hover:scale-105">
                   <img
-                    src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+                    src="/images/Public/googleplaybutton.svg"
                     alt="Google Play"
-                    className="h-10"
+                    className="h-[58px]"
                   />
                 </a>
               </div>
             </div>
+
           </div>
         </div>
       </div>

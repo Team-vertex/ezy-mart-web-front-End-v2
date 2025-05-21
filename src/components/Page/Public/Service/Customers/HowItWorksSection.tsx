@@ -81,7 +81,7 @@ const HowItWorksSection = () => {
                     How the App Works
                   </motion.h2>
                   <motion.p
-                    className="mt-4 text-white md:text-xl lg:text-2xl "
+                    className="mt-4 text-white md:text-xl lg:text-xl "
                     variants={itemVariants}
                   >
                     Simply open the app, search for the product or shop you
@@ -100,7 +100,7 @@ const HowItWorksSection = () => {
                   <h2 className="text-3xl lg:text-5xl md:text-4xl">
                     How to Request the App
                   </h2>
-                  <p className="mt-4 text-white md:text-xl lg:text-2xl">
+                  <p className="mt-4 text-white md:text-xl lg:text-xl">
                     Ready to simplify your shopping? Simply fill out a quick
                     request form or contact us through our website, and we'll
                     help you set up your access. Whether you're a customer
@@ -133,13 +133,13 @@ const HowItWorksSection = () => {
                 {/* Navigation Buttons */}
                 <button
                   onClick={prevSlide}
-                  className="absolute p-2 text-white transform -translate-y-1/2 rounded-full left-2 top-1/2 bg-gray-800/70"
+                  className="absolute p-2 text-white transform -translate-y-1/2 bg-transparent rounded-full left-2 top-1/2 "
                 >
                   ‹
                 </button>
                 <button
                   onClick={nextSlide}
-                  className="absolute p-2 text-white transform -translate-y-1/2 rounded-full right-2 top-1/2 bg-gray-800/70"
+                  className="absolute p-2 text-white transform -translate-y-1/2 bg-transparent rounded-full right-2 top-1/2 "
                 >
                   ›
                 </button>

@@ -8,7 +8,7 @@ export default function Header() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const menuRef = useRef<HTMLDivElement>(null);
 
-  // MARK: Lifecycle
+  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -17,6 +17,7 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
@@ -32,6 +33,7 @@ export default function Header() {
     };
   }, [isMenuOpen]);
 
+  // Handle escape key
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -46,7 +48,6 @@ export default function Header() {
     };
   }, []);
 
-  // MARK: Functions
   const toggleDropdown = (name: string) => {
     setActiveDropdown(activeDropdown === name ? null : name);
   };
@@ -54,27 +55,21 @@ export default function Header() {
   const handleMenuToggle = () => {
     const newMenuState = !isMenuOpen;
     setIsMenuOpen(newMenuState);
-
-    if (newMenuState) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    document.body.style.overflow = newMenuState ? "hidden" : "";
   };
 
-  // MARK: Render
   return (
     <header
       className={`fixed z-50 w-full transition-all duration-300 ${
         isScrolled ? "bg-blue-950 shadow-lg py-3" : "bg-white py-4"
       }`}
     >
-      <div className="container mx-auto flex justify-between items-center px-4 md:px-8">
-        {/* Logo with image */}
+      <div className="container flex items-center justify-between px-4 mx-auto md:px-6">
+        {/* Logo */}
         <div className="flex items-center">
           <h1 className="text-2xl font-bold text-blue-400 transition-all duration-300 hover:scale-105">
             <a href={routes.home} className="flex items-center space-x-2">
-              <div className="w-20 h-12 overflow-hidden flex-shrink-0">
+              <div className="flex-shrink-0 w-20 h-12 overflow-hidden">
                 <img
                   src={
                     isScrolled
@@ -82,115 +77,116 @@ export default function Header() {
                       : "/images/logo-dark.png"
                   }
                   alt="EzyMart Logo"
-                  className="w-full h-full object-cover"
+                  className="object-cover w-full h-full"
                   onError={(e) => {
-                    // Fallback to text
                     const target = e.target as HTMLImageElement;
                     target.style.display = "none";
                     target.parentElement!.innerHTML = `<span class="text-white bg-blue-500 w-8 h-8 rounded-full flex items-center justify-center">E</span>`;
                   }}
                 />
               </div>
-              <span className="hidden xs:inline text-white">EzyMart</span>
+              <span className="hidden text-white xs:inline">EzyMart</span>
             </a>
           </h1>
         </div>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-1 lg:space-x-4">
+        {/* Desktop Navigation - Show from md breakpoint */}
+        <nav className="hidden space-x-1 md:flex lg:space-x-4">
           {navItems.map((item) => (
             <div key={item.name} className="relative group">
               {item.dropdown ? (
-                <button
-                  onClick={() => toggleDropdown(item.name)}
-                  className={`flex items-center px-3 py-2 rounded-md transition-colors duration-200 ${
-                    isScrolled
-                      ? "text-white hover:text-blue-200"
-                      : " hover:text-blue-400"
-                  }`}
-                  aria-expanded={activeDropdown === item.name}
-                >
-                  {item.name}
-                  <svg
-                    className={`w-4 h-4 ml-1 z-10 transition-transform duration-200 ${
-                      activeDropdown === item.name ? "rotate-180" : ""
+                <>
+                  <button
+                    onClick={() => toggleDropdown(item.name)}
+                    className={`flex items-center px-3 py-2 rounded-md transition-colors duration-200 ${
+                      isScrolled
+                        ? "text-white hover:text-blue-200"
+                        : "text-gray-700 hover:text-blue-600"
                     }`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                    aria-expanded={activeDropdown === item.name}
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </button>
+                    {item.name}
+                    <svg
+                      className={`w-4 h-4 ml-1 transition-transform duration-200 ${
+                        activeDropdown === item.name ? "rotate-180" : ""
+                      }`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </button>
+
+                  {/* Dropdown menu */}
+                  <div
+                    className={`absolute bg-white border border-gray-200 top-full left-0 rounded-md shadow-lg w-48 overflow-hidden transition-all duration-200 origin-top ${
+                      activeDropdown === item.name
+                        ? "opacity-100 scale-y-100 translate-y-0"
+                        : "opacity-0 scale-y-0 -translate-y-2 pointer-events-none"
+                    }`}
+                  >
+                    <div className="py-1">
+                      {item.dropdown.map((subItem) => (
+                        <a
+                          key={subItem.name}
+                          href={subItem.href}
+                          className="block px-4 py-2 text-sm text-gray-700 transition-colors duration-200 hover:bg-blue-50"
+                        >
+                          {subItem.name}
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                </>
               ) : (
                 <a
                   href={item.href}
-                  className={`px-3 py-2 ${
+                  className={`px-3 py-2 rounded-md transition-colors duration-200 flex items-center ${
                     isScrolled
                       ? "text-white hover:text-blue-200"
-                      : " hover:text-blue-400"
-                  } rounded-md transition-colors duration-200 flex items-center space-x-1 `}
+                      : "text-gray-700 hover:text-blue-600"
+                  }`}
                 >
                   <span>{item.name}</span>
                 </a>
-              )}
-
-              {/* Dropdown menu with animation */}
-              {item.dropdown && (
-                <div
-                  className={`absolute bg-white border border-1 !z-50 top-full left-0 rounded-md shadow-lg w-48 overflow-hidden transition-all duration-300 origin-top ${
-                    activeDropdown === item.name
-                      ? "opacity-100 scale-y-100 translate-y-0"
-                      : "opacity-0 scale-y-0 -translate-y-2 pointer-events-none"
-                  }`}
-                >
-                  <div className="py-1">
-                    {item.dropdown.map((subItem) => (
-                      <a
-                        key={subItem.name}
-                        href={subItem.href}
-                        className="block px-4 py-2 text-sm hover:bg-blue-800 transition-colors duration-200"
-                      >
-                        {subItem.name}
-                      </a>
-                    ))}
-                  </div>
-                </div>
               )}
             </div>
           ))}
         </nav>
 
-        {/* Ask Help Button with animation */}
-        <button className="hidden md:flex items-center space-x-1 bg-[#0A65FC] hover:bg-blue-600 text-white py-2 px-4 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg">
-          <svg
-            className="w-5 h-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M12 21a9 9 0 1 1 0-18 9 9 0 0 1 0 18z"
-            />
-          </svg>
-          <span>Ask Help</span>
-        </button>
+        {/* CTA Button - Show from md breakpoint */}
+        <div className="items-center hidden space-x-4 md:flex">
+          <button className="flex items-center px-4 py-2 space-x-1 text-white transition-all duration-300 bg-blue-600 rounded-full hover:bg-blue-700 hover:scale-105 hover:shadow-lg">
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M12 21a9 9 0 1 1 0-18 9 9 0 0 1 0 18z"
+              />
+            </svg>
+            <span>Ask Help</span>
+          </button>
+        </div>
 
-        {/* Mobile Menu Button with animation */}
+        {/* Mobile Menu Button - Hidden on md and above */}
         <button
           onClick={handleMenuToggle}
-          className="md:hidden text-white p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="p-2 rounded-md md:hidden focus:outline-none focus:ring-2 focus:ring-blue-400"
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         >
-          <div className="w-6 h-5 relative flex flex-col justify-between">
+          <div className="relative flex flex-col justify-between w-6 h-5">
             <span
               className={`w-full h-0.5 ${
                 isScrolled ? "bg-white" : "bg-blue-800"
@@ -216,23 +212,23 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Mobile Navigation with slide animation */}
+      {/* Mobile Navigation - Hidden on md and above */}
       <div
         ref={menuRef}
         className={`md:hidden fixed top-0 right-0 h-full w-4/5 max-w-sm bg-white shadow-2xl transform transition-transform duration-300 ease-in-out z-50 ${
           isMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="h-full flex flex-col">
-          <div className="flex items-center justify-between p-4 border-b border-blue-800">
+        <div className="flex flex-col h-full">
+          <div className="flex items-center justify-between p-4 border-b border-gray-200">
             <img
-              src={"/images/logo-dark.png"}
+              src="/images/logo-dark.png"
               alt="EzyMart Logo"
-              className="w-20 h-12 object-cover"
+              className="object-cover w-20 h-12"
             />
             <button
               onClick={handleMenuToggle}
-              className="text-blue p-2 rounded-full "
+              className="p-2 text-gray-500 rounded-full hover:bg-gray-100"
               aria-label="Close menu"
             >
               <svg
@@ -251,7 +247,7 @@ export default function Header() {
             </button>
           </div>
 
-          <div className="flex-1 overflow-y-auto py-4 px-4 flex flex-col space-y-1">
+          <div className="flex flex-col flex-1 px-4 py-4 space-y-1 overflow-y-auto">
             {navItems.map((item, index) => (
               <div
                 key={item.name}
@@ -262,9 +258,9 @@ export default function Header() {
                   <div className="mb-2">
                     <button
                       onClick={() => toggleDropdown(item.name)}
-                      className="w-full flex items-center justify-between px-4 py-2 rounded-md hover:text-blue-600 transition-colors"
+                      className="flex items-center justify-between w-full px-4 py-2 text-gray-700 transition-colors rounded-md hover:bg-blue-50"
                     >
-                      <span className="flex items-center">{item.name}</span>
+                      <span>{item.name}</span>
                       <svg
                         className={`w-4 h-4 transition-transform duration-200 ${
                           activeDropdown === item.name ? "rotate-180" : ""
@@ -282,7 +278,6 @@ export default function Header() {
                       </svg>
                     </button>
 
-                    {/* Mobile dropdown */}
                     <div
                       className={`overflow-hidden transition-all duration-300 ${
                         activeDropdown === item.name
@@ -290,12 +285,12 @@ export default function Header() {
                           : "max-h-0 opacity-0"
                       }`}
                     >
-                      <div className="pl-6 py-1 space-y-1 mt-1">
+                      <div className="py-1 pl-6 mt-1 space-y-1">
                         {item.dropdown.map((subItem) => (
                           <a
                             key={subItem.name}
                             href={subItem.href}
-                            className="block px-4 py-2 rounded-md hover:text-blue-400 transition-colors"
+                            className="block px-4 py-2 text-gray-600 transition-colors rounded-md hover:bg-blue-50"
                           >
                             {subItem.name}
                           </a>
@@ -306,7 +301,7 @@ export default function Header() {
                 ) : (
                   <a
                     href={item.href}
-                    className="px-4 py-2 rounded-md hover:text-blue-400 transition-colors flex items-center"
+                    className="block px-4 py-2 text-gray-700 transition-colors rounded-md hover:bg-blue-50"
                   >
                     {item.name}
                   </a>
@@ -315,8 +310,8 @@ export default function Header() {
             ))}
           </div>
 
-          <div className="p-4 border-t border-blue-800">
-            <button className="w-full bg-[#0A65FC] hover:bg-blue-600 text-white py-2 px-6 rounded-full transition-colors flex items-center justify-center space-x-2">
+          <div className="p-4 border-t border-gray-200">
+            <button className="flex items-center justify-center w-full px-6 py-2 space-x-2 text-white transition-colors bg-blue-600 rounded-full hover:bg-blue-700">
               <svg
                 className="w-5 h-5"
                 fill="none"
@@ -336,10 +331,10 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Overlay when mobile menu is open */}
+      {/* Overlay */}
       {isMenuOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
+          className="fixed inset-0 z-40 bg-black bg-opacity-50 md:hidden"
           onClick={handleMenuToggle}
           aria-hidden="true"
         />
