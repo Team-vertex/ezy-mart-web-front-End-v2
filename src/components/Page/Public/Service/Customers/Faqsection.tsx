@@ -86,7 +86,7 @@ const FaqSection = () => {
         <span className="text-[#0A65FC] font-bold xl:text-5xl">Questions</span>
       </motion.h2>
 
-      <div className="w-full mt-10 space-y-6 text-xl sm:text-3xl md:text-2xl">
+      <div className="w-full mt-10 space-y-6 text-lg sm:text-3xl md:text-2xl">
         <FaqContent faqList={FAQCustomer} />
       </div>
      

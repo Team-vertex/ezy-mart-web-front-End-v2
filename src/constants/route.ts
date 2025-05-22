@@ -10,6 +10,7 @@ export const routes = {
   home: '/',
   serviceForBusiness: '/service/business',
   customersService: '/service/CutomersService',
+  
 };
 
 export const api = {

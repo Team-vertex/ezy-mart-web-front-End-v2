@@ -18,6 +18,7 @@ const projectRoute: Route[] = [
     path: routes.customersService,
     component: lazy(() => import("@/pages/public/Service/Customers")),
   },
+ 
 ];
 
 export default projectRoute;
