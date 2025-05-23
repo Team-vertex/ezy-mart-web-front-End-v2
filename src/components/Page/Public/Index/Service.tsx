@@ -19,7 +19,7 @@ export const Service: React.FC = () => {
 
   return (
     <section className="bg-[#E6EFFF] lg:min-h-screen lg:max-h-screen py-14 lg:py-10">
-      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2">
+      <div className="container grid grid-cols-1 mx-auto lg:grid-cols-2">
         <motion.img
           ref={imageRef}
           initial={{ opacity: 0, x: -50 }}
@@ -31,7 +31,7 @@ export const Service: React.FC = () => {
           alt="Ezymart"
           className="!object-contain !w-auto !h-auto hidden lg:block lg:col-span-1"
         />
-        <div className="flex flex-col justify-center items-start lg:px-10">
+        <div className="flex flex-col items-start justify-center lg:px-10">
           <motion.h2
             ref={headingRef}
             initial={{ opacity: 0, y: 30 }}
@@ -42,7 +42,7 @@ export const Service: React.FC = () => {
             className="text-3xl lg:text-5xl font-normal text-[#15366B] mb-4"
           >
             Service Deliver Real Results for{" "}
-            <span className="text-[#0A65FC] font-extrabold">Target</span>
+            <span className="text-[#0A65FC] font-georgia">Target</span>
           </motion.h2>
 
           <motion.p

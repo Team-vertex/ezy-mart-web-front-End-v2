@@ -79,8 +79,8 @@ const CarouselCard: React.FC<CarouselCardProps> = ({
       className={`
         rounded-xl overflow-hidden h-full flex flex-col 
         shadow-md md:shadow-none 
-        w-full max-w-xs mx-auto 
-     
+        mx-auto w-full max-w-[480px] md:max-w-[320px] 
+        lg:h-[680px] md:h-[680px] 
         ${className}
       `}
     >

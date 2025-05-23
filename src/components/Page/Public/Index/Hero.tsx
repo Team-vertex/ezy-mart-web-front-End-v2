@@ -74,9 +74,9 @@ export const Hero: React.FC = () => {
           className="mb-4 text-3xl font-bold text-center sm:text-4xl md:text-6xl md:mb-6"
         >
           <span className="font-extrabold text-white">What </span>
-          <span className="text-[#0A1A33] font-bold">we </span>
+          <span className="text-[#0A1A33] font-bold font-georgia">we </span>
           <span className="font-bold text-white">make </span>
-          <span className="text-[#0A1A33] font-bold">For You</span>
+          <span className="text-[#0A1A33] font-bold font-georgia">For You</span>
         </motion.h1>
 
         {/* Description with animation */}

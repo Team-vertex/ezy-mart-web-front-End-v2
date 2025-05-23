@@ -24,7 +24,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-3xl font-bold text-center text-white lg:text-6xl"
+          className="text-3xl font-bold text-center text-white lg:text-[64px]"
         >
           Anything, Anywhere
         </motion.h1>
@@ -33,7 +33,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="mt-4 text-center text-white md:text-lg lg:text-2xl"
+          className="mt-6 text-center text-white md:text-lg lg:text-[16px] "
         >
           EzyMart makes shopping easier than ever. Search for products near you,
           discover local shops, save time, and enjoy a smooth, stress free
@@ -55,7 +55,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="bg-[#15366B] text-white font-semibold text-sm lg:text-lg px-4 py-2 rounded-full mt-8 hover:bg-[#15366B]/80 transition-colors lg:mb-[200px]"
+          className="bg-[#15366B] text-white font-semibold text-sm lg:text-[18px] px-4 py-2 rounded-full mt-8 hover:bg-[#15366B]/80 transition-colors lg:mb-[200px]"
         >
           See How It Works
         </motion.button>

@@ -16,7 +16,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sfPro: ['SFProDisplay', 'sans-serif'],
+        sfPro: ['SFProDisplay', 'sans-serif', ],
+        georgia: ['Georgia', 'serif', ],
       },
       colors: {
         primary: dark.primary,

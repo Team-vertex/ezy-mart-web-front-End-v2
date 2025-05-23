@@ -80,10 +80,10 @@ const FaqSection = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl text-center text-slate-900 font-[Poppins]"
+        className="text-2xl text-center sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl text-slate-900 lg:text-[48px]"
       >
         Frequently Asked{" "}
-        <span className="text-[#0A65FC] font-bold xl:text-5xl">Questions</span>
+        <span className="text-[#0A65FC] xl:text-5xl font-georgia lg:text-[48px]">Questions</span>
       </motion.h2>
 
       <div className="w-full mt-10 space-y-6 text-lg sm:text-3xl md:text-2xl">

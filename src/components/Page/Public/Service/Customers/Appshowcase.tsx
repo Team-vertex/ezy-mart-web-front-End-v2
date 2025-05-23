@@ -31,7 +31,7 @@ const AppShowcase = () => {
   const images = [
     "/images/CoustomerService/Frame 388 (1).svg",
     "/public/images/CoustomerService/Frame 390.svg",
-    "/public/images/CoustomerService/Frame 388 (1).svg",
+    "/public/images/CoustomerService/Frame 390.svg",
   ];
 
 
@@ -45,27 +45,6 @@ const AppShowcase = () => {
     autoplayStopOnInteraction: false,
     skipSnaps: false,
   };
-
-
-
-  const slideImages = [
-    {
-      id: 1,
-      src: "/stock/test.png",
-      alt: "Shop owner using EzyMart",
-    },
-    {
-      id: 2,
-      src: "/stock/test.png",
-      alt: "Customer using EzyMart mobile app",
-    },
-    {
-      id: 3,
-      src: "/stock/test.png",
-      alt: "Inventory management with EzyMart",
-    },
-  ];
-
 
 
   const carouselSlides = [

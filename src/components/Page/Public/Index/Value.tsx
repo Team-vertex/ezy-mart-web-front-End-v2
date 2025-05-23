@@ -33,18 +33,18 @@ export const Value: React.FC = () => {
   ];
 
   return (
-    <section className="bg-white lg:min-h-screen lg:max-h-screen py-14 lg:py-10 flex items-center justify-center">
+    <section className="flex items-center justify-center bg-white lg:min-h-screen lg:max-h-screen py-14 lg:py-10">
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
+        <div className="grid grid-cols-1 gap-8 mb-10 lg:grid-cols-2">
           <div>
             <h2 className="text-3xl lg:text-5xl font-normal text-[#15366B] mb-4">
-              Clear <span className="text-[#0A65FC]">Value</span> for our{" "}
-              <span className="text-[#0A65FC]">Clients</span>
+              Clear <span className="text-[#0A65FC] font-georgia">Value</span> for our{" "}
+              <span className="text-[#0A65FC] font-georgia">Clients</span>
             </h2>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <EmblaCarousel
             slides={slideImages.map((_, index) => index)}
             options={OPTIONS}

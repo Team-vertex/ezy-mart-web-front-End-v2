@@ -58,10 +58,10 @@ const BenefitsSection = () => {
       variants={containerVariants}
     >
       <motion.div className="max-w-5xl mx-auto text-center " variants={itemVariants} >
-        <h2 className="text-3xl font-bold sm:text-4xl md:text-5xl lg:text-5xl text-slate-900">
-          Make <span className="text-blue-600">Life Easier</span> with EzyMart
+        <h2 className="text-3xl font-bold sm:text-4xl md:text-5xl lg:text-[48px] text-slate-900">
+          Make <span className="text-blue-600 font-georgia">Life Easier</span> with EzyMart
         </h2>
-        <p className="max-w-2xl mx-auto mt-6 text-black sm:text-xl lg:text-xl">
+        <p className="max-w-2xl mx-auto mt-6 text-black sm:text-xl lg:text-[16px]">
           Shopping doesn't have to be stressful. With EzyMart, you can find what
           you need, when you need it, all while saving time, energy, and money.
         </p>

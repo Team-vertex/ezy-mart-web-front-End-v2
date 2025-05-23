@@ -10,7 +10,7 @@ export const FAQ: React.FC = () => {
           <div>
             <h2 className="text-3xl lg:text-5xl font-bold text-[#15366B] mb-4">
               Frequently Asked{" "}
-              <span className="text-[#0A65FC] font-bold">Questions</span>
+              <span className="text-[#0A65FC] font-bold font-georgia">Questions</span>
             </h2>
           </div>
         </div>

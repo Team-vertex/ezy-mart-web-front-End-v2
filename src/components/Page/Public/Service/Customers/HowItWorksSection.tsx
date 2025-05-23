@@ -112,13 +112,13 @@ const HowItWorksSection = () => {
                 <div className="flex flex-col text-center text-white lg:text-left">
                   <div className="w-full">
                     <motion.h2
-                      className="text-3xl lg:text-5xl md:text-4xl"
+                      className="text-3xl lg:text-[36px] md:text-4xl"
                       variants={itemVariants}
                     >
                       How the App Works
                     </motion.h2>
                     <motion.p
-                      className="mt-4 text-white md:text-xl lg:text-xl "
+                      className="mt-4 text-white md:text-xl lg:text-[14px] "
                       variants={itemVariants}
                     >
                       Simply open the app, search for the product or shop you need, and view real-time results nearby. You can explore store details, save your favorite places, and even get directions straight from the app. EzyMart is built to make your shopping experience faster, smoother, and completely hassle-free all within a few taps.
@@ -129,10 +129,10 @@ const HowItWorksSection = () => {
                     className="w-full mt-12 md:mt-24"
                     variants={itemVariants}
                   >
-                    <h2 className="text-3xl lg:text-5xl md:text-4xl">
+                    <h2 className="text-3xl lg:text-[36px]] md:text-4xl">
                       How to Request the App
                     </h2>
-                    <p className="mt-4 text-white md:text-xl lg:text-xl">
+                    <p className="mt-4 text-white md:text-xl lg:text-[14px]">
                       Ready to simplify your shopping? Simply fill out a quick request form or contact us through our website, and we'll help you set up your access. Whether you're a customer looking for easy shopping or a store owner who wants to be listed, getting started with EzyMart is simple, fast, and completely stress free.
                     </p>
                   </motion.div>
