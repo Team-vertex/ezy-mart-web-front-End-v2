@@ -9,7 +9,7 @@ const HeroSection = () => {
 
   const features = [
     'Easy Product Search',
-    'Location Based Shop Finder',
+    'Nearest Shop Finder',
     'Add item to your list',
     'Seamless Experience',
   ];
@@ -24,7 +24,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-3xl font-bold text-center text-white lg:text-[64px]"
+          className="text-3xl md:text-4xl font-bold text-center lg:text-5xl  text-white font-poppins"
         >
           Anything, Anywhere
         </motion.h1>
@@ -33,18 +33,17 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="mt-6 text-center text-white md:text-lg lg:text-[16px] "
+          className="mt-6 text-center text-white text-sm md:text-lg lg:text-xl py-0 md:px-5 lg:px-8"
         >
-          EzyMart makes shopping easier than ever. Search for products near you,
-          discover local shops, save time, and enjoy a smooth, stress free
-          shopping experience all through one smart app
+          EzyMart makes shopping easier than ever.Search for products near you ,
+          discover local shops, save time,and enjoy a smooth, stress free shopping experience all through one smart app
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="grid grid-cols-2 mt-4 lg:grid-cols-4 md:gap-8 lg:text-2xl"
+          className="grid grid-cols-2 mt-4 lg:grid-cols-4  md:gap-1 lg:text-lg"
         >
           {features.map((text, i) => (
             <FeatureItem key={i} text={text} icon="/assets/check-icon.png" />
@@ -71,11 +70,11 @@ export const FeatureItem = ({
   text: string;
   icon?: string;
 }) => (
-  <div className="flex items-center gap-2 py-2 rounded-lg ">
+  <div className="flex items-center gap-1 py-2 px-2 md:px-5 rounded-lg ">
     {icon && (
       <img src={"/public/images/CoustomerService/tick-circle.svg"} alt="feature icon" className="w-5 h-5" />
     )}
-    <p className="text-xs font-medium text-center text-white md:text-base">{text}</p>
+    <p className="text-sm font-georgia text-center text-white md:text-xl lg:text-2xl">{text}</p>
   </div>
 );
 
