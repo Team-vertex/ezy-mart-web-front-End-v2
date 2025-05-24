@@ -2,8 +2,6 @@ import { Modal } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import { Input } from '@mantine/core';
-import { Button } from '@mantine/core';
 
 
 
@@ -13,12 +11,12 @@ const images = [
   "/public/images/CoustomerService/Frame 388 (1).svg",
 ];
 
-type FormData = {
-  firstName: string;
-  lastName: string;
-  mobile: string;
-  email: string;
-};
+// type FormData = {
+//   firstName: string;
+//   lastName: string;
+//   mobile: string;
+//   email: string;
+// };
 
 const HowItWorksSection = () => {
   const containerVariants = {
@@ -80,10 +78,10 @@ const HowItWorksSection = () => {
     // Here you would typically send the data to your backend
   }
 
-  const handleClose = () => {
-    console.log("Form closed")
-    // Handle close action
-  }
+  // const handleClose = () => {
+  //   console.log("Form closed")
+  //   // Handle close action
+  // }
 
   return (
     <>
@@ -130,7 +128,7 @@ const HowItWorksSection = () => {
                     variants={itemVariants}
                   >
                     <h2 className="font-bold text-center text-xl md:text-3xl lg:text-4xl">
-                      How to Download?
+                      How to Download App?
                     </h2>
                     <p className="mt-3 text-white text-xs md:text-sm lg:text-lg">
                       Ready to simplify your shopping? Simply fill out a quick request form or contact us through our website, and we'll help you set up your access. Whether you're a customer looking for easy shopping or a store owner who wants to be listed, getting started with EzyMart is simple, fast, and completely stress free.
@@ -202,31 +200,29 @@ const HowItWorksSection = () => {
         opened={opened}
         onClose={close}
         centered
-        title="Request For Mobile Application"
+        title="Request Mobile Application"
         size="xl"
         className="border-none bg-transparent !shadow-none"
       >
-        <div className="flex items-center justify-center min-h-[70vh] md:min-h-[50vh] px-4 py-12 bg-gradient-to-br from-black via-blue-900 to-black">
+        <div className="flex items-center justify-center min-h-[70vh] md:min-h-[50vh] sm:px-4 md:px-4 py-12 bg-gradient-to-br from-black via-blue-900 to-black">
           <form
             onSubmit={handleSubmit}
             className="bg-gradient-to-br from-[#0F172A] to-[#1E293B] text-white rounded-3xl p-10 w-full max-w-5xl shadow-2xl"
           >
-            <h2 className="mb-4 text-3xl font-bold text-center">
-              Request For Mobile Application
+            <h2 className="mb-4 font-bold text-center text-xl md:text-3xl lg:text-4xl">
+              Request Mobile App
             </h2>
-            <p className="mb-10 text-sm text-center text-gray-300">
-              Ready to simplify your shopping experience? Fill in your details, and
-              we’ll help you get started with the EzyMart mobile app. Enjoy fast,
-              convenient, and stress free access to nearby stores and products at your
-              fingertips.
+            <p className="mb-10 text-xs md:text-sm lg:text-lg text-center text-gray-300"> 
+              Fill in your details,and
+              we’ll help you get start.
             </p>
             <div className="grid grid-cols-1 gap-6 mb-6 md:grid-cols-2">
               <div>
-                <label className="block mb-2 font-semibold">First Name</label>
+                <label className="block mb-2 text-sm md:text-lg lg:text-lg font-semibold">First Name</label>
                 <input
                   type="text"
                   name="firstName"
-                  placeholder="First Name"
+                  placeholder="eg: First Name"
                   value={formData.firstName}
                   onChange={handleChange}
                   className="w-full p-3 bg-transparent border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -234,11 +230,11 @@ const HowItWorksSection = () => {
                 />
               </div>
               <div>
-                <label className="block mb-2 font-semibold">Last Name</label>
+                <label className="block mb-2 text-sm md:text-lg lg:text-lg font-semibold">Last Name</label>
                 <input
                   type="text"
                   name="lastName"
-                  placeholder="Last Name"
+                  placeholder="eg: Perera"
                   value={formData.lastName}
                   onChange={handleChange}
                   className="w-full p-3 bg-transparent border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -246,11 +242,11 @@ const HowItWorksSection = () => {
                 />
               </div>
               <div>
-                <label className="block mb-2 font-semibold">Mobile</label>
+                <label className="block mb-2 text-sm md:text-lg lg:text-lg font-semibold">Mobile</label>
                 <input
                   type="tel"
                   name="mobile"
-                  placeholder="+94712345678"
+                  placeholder="eg: +94 71 234 5678"
                   value={formData.mobile}
                   onChange={handleChange}
                   className="w-full p-3 bg-transparent border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -258,13 +254,14 @@ const HowItWorksSection = () => {
                 />
               </div>
               <div>
-                <label className="block mb-2 font-semibold">Email (optional)</label>
+                <label className="block mb-2 text-sm md:text-lg lg:text-lg font-semibold">Email</label>
                 <input
                   type="email"
                   name="email"
-                  placeholder="@ email"
+                  placeholder="eg: example@gmail.com"
                   value={formData.email}
                   onChange={handleChange}
+                  required={true}
                   className="w-full p-3 bg-transparent border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>

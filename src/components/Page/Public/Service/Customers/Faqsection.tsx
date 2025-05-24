@@ -74,7 +74,7 @@ const FaqSection = () => {
   };
 
   return (
-    <section className="w-full px-4 mx-auto mb-20 mt-14 sm:px-6 lg:px-8 sm:mt-24 md:mt-32 lg:mt-48 xl:mt-10 max-w-7xl">
+    <section className="w-full px-4 mx-auto mb-20  sm:px-6 lg:px-8 mt-10 md:mt-10 lg:mt-10 xl:mt-10 max-w-7xl">
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -83,7 +83,7 @@ const FaqSection = () => {
         className="font-bold text-center text-xl md:text-3xl lg:text-4xl text-slate-900"
       >
         Frequently Asked{" "}
-        <span className="text-[#0A65FC] mt-11 font-georgia">Questions</span>
+        <span className="text-[#0A65FC] font-georgia">Questions</span>
       </motion.h2>
 
       <div className="w-full mt-4 md:mt-6 space-y-1 text-xs md:text-sm lg:text-lg">

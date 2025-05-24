@@ -20,7 +20,7 @@ const BenefitCard = ({ imageSrc, title, description }: BenefitCardProps) => (
       className="self-center object-contain w-24 h-24"
     />
     <div className="flex flex-col w-full text-center mt-14">
-      <h3 className="font-bold text-xl md:text-lg text-slate-900">{title}</h3>
+      <h3 className="font-bold text-sm md:text-lg text-slate-900">{title}</h3>
       <p className="mt-2 text-xs md:text-sm lg:text-lg text-black">{description}</p>
     </div>
   </motion.div>

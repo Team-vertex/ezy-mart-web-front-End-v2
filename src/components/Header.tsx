@@ -64,7 +64,7 @@ export default function Header() {
         isScrolled ? "bg-blue-950 shadow-lg py-3" : "bg-white py-4"
       }`}
     >
-      <div className="container flex items-center justify-between px-4 mx-auto md:px-6">
+      <div className="container flex items-center justify-between px-4 mx-auto md:px-0 lg:px-6">
         {/* Logo */}
         <div className="flex items-center">
           <h1 className="text-2xl font-bold text-blue-400 transition-all duration-300 hover:scale-105">
