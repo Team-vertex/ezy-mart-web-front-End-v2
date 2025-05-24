@@ -20,8 +20,8 @@ const BenefitCard = ({ imageSrc, title, description }: BenefitCardProps) => (
       className="self-center object-contain w-24 h-24"
     />
     <div className="flex flex-col w-full text-center mt-14">
-      <h3 className="text-xl font-bold md:text-2xl text-slate-900">{title}</h3>
-      <p className="mt-2 text-sm text-black md:text-base">{description}</p>
+      <h3 className="font-bold text-xl md:text-lg text-slate-900">{title}</h3>
+      <p className="mt-2 text-xs md:text-sm lg:text-lg text-black">{description}</p>
     </div>
   </motion.div>
 );
@@ -58,10 +58,10 @@ const BenefitsSection = () => {
       variants={containerVariants}
     >
       <motion.div className="max-w-5xl mx-auto text-center " variants={itemVariants} >
-        <h2 className="text-3xl font-bold sm:text-4xl md:text-5xl lg:text-[48px] text-slate-900">
-          Make <span className="text-blue-600 font-georgia">Life Easier</span> with EzyMart
+        <h2 className="font-bold text-center text-xl md:text-3xl lg:text-4xl text-slate-900">
+          Make <span className="text-[#0A65FC] mt-11 font-georgia">Life Easier</span> with EzyMart
         </h2>
-        <p className="max-w-2xl mx-auto mt-6 text-black sm:text-xl lg:text-[16px]">
+        <p className="max-w-2xl mx-auto mt-4 md:mt-6 text-black text-xs md:text-sm lg:text-lg text-center">
           Shopping doesn't have to be stressful. With EzyMart, you can find what
           you need, when you need it, all while saving time, energy, and money.
         </p>

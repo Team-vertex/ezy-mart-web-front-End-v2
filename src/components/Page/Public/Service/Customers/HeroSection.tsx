@@ -24,7 +24,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-3xl md:text-4xl font-bold text-center lg:text-5xl  text-white font-poppins"
+          className="text-3xl md:text-4xl font-bold text-center lg:text-5xl text-white font-poppins"
         >
           Anything, Anywhere
         </motion.h1>
@@ -74,7 +74,7 @@ export const FeatureItem = ({
     {icon && (
       <img src={"/public/images/CoustomerService/tick-circle.svg"} alt="feature icon" className="w-5 h-5" />
     )}
-    <p className="text-sm font-georgia text-center text-white md:text-xl lg:text-2xl">{text}</p>
+    <p className="text-xs font-georgia text-center text-white md:text-xl lg:text-xl">{text}</p>
   </div>
 );
 

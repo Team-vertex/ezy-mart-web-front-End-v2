@@ -110,15 +110,15 @@ const HowItWorksSection = () => {
             <div className="flex flex-col gap-8 lg:flex-row xl:gap-12 mt-[150px] sm:text-lg">
               <motion.div className="w-full lg:w-[68%]" variants={itemVariants}>
                 <div className="flex flex-col text-center text-white lg:text-left">
-                  <div className="w-full">
+                  <div className="w-full ">
                     <motion.h2
-                      className="text-3xl lg:text-[36px] md:text-4xl"
+                      className="font-bold text-center text-xl md:text-3xl lg:text-4xl"
                       variants={itemVariants}
                     >
-                      How the App Works
+                      How the App Works?
                     </motion.h2>
                     <motion.p
-                      className="mt-4 text-white md:text-xl lg:text-[14px] "
+                      className="mt-3 text-white text-xs md:text-sm lg:text-lg"
                       variants={itemVariants}
                     >
                       Simply open the app, search for the product or shop you need, and view real-time results nearby. You can explore store details, save your favorite places, and even get directions straight from the app. EzyMart is built to make your shopping experience faster, smoother, and completely hassle-free all within a few taps.
@@ -126,26 +126,26 @@ const HowItWorksSection = () => {
                   </div>
 
                   <motion.div
-                    className="w-full mt-12 md:mt-24"
+                    className="w-full mt-8 md:mt-10"
                     variants={itemVariants}
                   >
-                    <h2 className="text-3xl lg:text-[36px]] md:text-4xl">
-                      How to Request the App
+                    <h2 className="font-bold text-center text-xl md:text-3xl lg:text-4xl">
+                      How to Download?
                     </h2>
-                    <p className="mt-4 text-white md:text-xl lg:text-[14px]">
+                    <p className="mt-3 text-white text-xs md:text-sm lg:text-lg">
                       Ready to simplify your shopping? Simply fill out a quick request form or contact us through our website, and we'll help you set up your access. Whether you're a customer looking for easy shopping or a store owner who wants to be listed, getting started with EzyMart is simple, fast, and completely stress free.
                     </p>
                   </motion.div>
 
                   <motion.button
-                    className="self-center lg:self-start px-8 py-3 text-xl mt-12 md:mt-24 sm:text-base font-bold bg-[#0D2140] text-white mb-14 lg:text-lg rounded-full hover:bg-[#0D2140]/80 transition-colors duration-300"
+                    className="self-center px-6 py-3 text-sm md:text-lg lg:text-xl mt-4 md:mt-6 sm:text-base mb-6  font-bold bg-[#0D2140] text-white  rounded-full hover:bg-[#0D2140]/80 transition-colors duration-300"
                     variants={itemVariants}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={open}
                   >
 
-                    Request Application
+                    Request App free
                   </motion.button>
                 </div>
               </motion.div>

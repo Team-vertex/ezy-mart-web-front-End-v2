@@ -23,13 +23,13 @@ const WhyUseSection = () => {
       initial="hidden"
       animate={controls}
       variants={fadeUp}
-      className="flex flex-col items-center px-4 w-full max-w-[1228px] mx-auto mt-[450px] lg:mt-[350px] md:mt-[600px]"
+      className="flex flex-col items-center px-4 w-full max-w-[1228px] mx-auto mt-[450px] md:mt-[620px] lg:mt-[300px] "
     >
       <div className="flex flex-col items-center w-full text-center">
-        <h2 className="text-xl font-bold text-center md:text-3xl lg:text-4xl text-slate-900">
+        <h2 className="font-bold text-center text-xl md:text-3xl lg:text-4xl text-slate-900">
           Why Use EzyMart <span className="text-[#0A65FC] mt-11 font-georgia">App?</span>
         </h2>
-        <p className="mt-4 md:mt-6 md:text-xl lg:text-lg text-center leading-5 md:leading-6 text-black max-w-[717px] w-full">
+        <p className="mt-4 md:mt-6 text-xs md:text-sm lg:text-lg text-center leading-5 md:leading-6 text-black max-w-[717px] w-full">
           EzyMart makes shopping across Sri Lanka easier than ever. Find nearby
           shops, discover products fast, and save time all with a few simple
           taps on your phone.
