@@ -212,7 +212,7 @@ const HowItWorksSection = () => {
             <h2 className="mb-4 font-bold text-center text-xl md:text-3xl lg:text-4xl">
               Request Mobile App
             </h2>
-            <p className="mb-10 text-xs md:text-sm lg:text-lg text-center text-gray-300"> 
+            <p className="mb-10 text-xs md:text-sm lg:text-lg text-center text-gray-300">
               Fill in your details,and
               we’ll help you get start.
             </p>
