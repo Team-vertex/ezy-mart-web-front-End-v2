@@ -1,27 +1,21 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode } from "react";
 
 interface CarouselCardProps {
   title?: string;
   content?: ReactNode;
   image?: string;
   className?: string;
-  imagePosition?: 'top' | 'bottom' | 'background';
-  variant?: 'primary' | 'secondary' | 'accent';
+  imagePosition?: "top" | "bottom" | "background";
+  variant?: "primary" | "secondary" | "accent";
 }
 
 const CarouselCard: React.FC<CarouselCardProps> = ({
   title,
   content,
-  image = '',
-  className = '',
-  imagePosition = 'top',
-  variant = 'primary',
+  image = "",
+  className = "",
+  imagePosition = "top",
 }) => {
-  const variantStyles = {
-    secondary: 'bg-blue-50/95 backdrop-blur-sm',
-    accent: 'bg-blue-100/95 backdrop-blur-sm',
-  };
-
   const renderContent = () => (
     <div className="flex flex-col h-full p-3 md:p-4">
       {title && (
@@ -38,13 +32,13 @@ const CarouselCard: React.FC<CarouselCardProps> = ({
       <div className="h-24 overflow-hidden md:h-32">
         <img
           src={image}
-          alt={title || 'Card image'}
+          alt={title || "Card image"}
           className="object-cover w-full h-full"
         />
       </div>
     );
 
-  if (imagePosition === 'background' && image) {
+  if (imagePosition === "background" && image) {
     return (
       <div
         className={`
@@ -55,8 +49,8 @@ const CarouselCard: React.FC<CarouselCardProps> = ({
         `}
         style={{
           backgroundImage: `url(${image})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/60">
@@ -70,7 +64,6 @@ const CarouselCard: React.FC<CarouselCardProps> = ({
           </div>
         </div>
       </div>
-
     );
   }
 
@@ -84,9 +77,9 @@ const CarouselCard: React.FC<CarouselCardProps> = ({
         ${className}
       `}
     >
-      {imagePosition === 'top' && renderImage()}
+      {imagePosition === "top" && renderImage()}
       {renderContent()}
-      {imagePosition === 'bottom' && renderImage()}
+      {imagePosition === "bottom" && renderImage()}
     </div>
   );
 };

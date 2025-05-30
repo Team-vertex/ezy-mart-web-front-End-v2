@@ -1,13 +1,9 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import Carousel from '@/components/carousel/carousel';
-import CarouselCard from '@/components/carousel/carouseCard';
-import EmblaCarousel from "@/components/emblaCarousel/EmblaCarousel";
-import { useState, useEffect } from "react";
+import CarouselCard from "@/components/carousel/carouseCard";
+import Carousel from "@/components/carousel/carousel";
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 const AppShowcase = () => {
-
-
   const [current, setCurrent] = useState(0);
 
   const nextSlide = () => {
@@ -27,25 +23,11 @@ const AppShowcase = () => {
     return () => clearInterval(interval);
   }, []);
 
-
   const images = [
     "/images/CoustomerService/Frame 388 (1).svg",
     "/public/images/CoustomerService/Frame 390.svg",
     "/public/images/CoustomerService/Frame 390.svg",
   ];
-
-
-
-  const OPTIONS = {
-    loop: true,
-    speed: 10,
-    draggable: true,
-    autoplay: true,
-    autoplayDelay: 3000,
-    autoplayStopOnInteraction: false,
-    skipSnaps: false,
-  };
-
 
   const carouselSlides = [
     <CarouselCard
@@ -54,7 +36,10 @@ const AppShowcase = () => {
       // title="User-Friendly Interface"
       content={
         <p className="text-xs md:text-sm">
-          <img src="/public/images/CoustomerService/Frame 388.svg" alt="Slide 1" />
+          <img
+            src="/public/images/CoustomerService/Frame 388.svg"
+            alt="Slide 1"
+          />
         </p>
       }
       className="mx-auto w-full max-w-[280px] md:max-w-xs h-full"
@@ -65,7 +50,10 @@ const AppShowcase = () => {
       // title="Effortless Navigation"
       content={
         <p className="text-xs md:text-sm">
-          <img src="/public/images/CoustomerService/Frame 390.svg" alt="Slide 2" />
+          <img
+            src="/public/images/CoustomerService/Frame 390.svg"
+            alt="Slide 2"
+          />
         </p>
       }
       className="mx-auto w-full max-w-[280px] md:max-w-xs h-full"
@@ -76,7 +64,10 @@ const AppShowcase = () => {
       // title="Customizable Options"
       content={
         <p className="text-xs md:text-sm">
-          <img src="/public/images/CoustomerService/Frame 388 (1).svg" alt="Slide 3" />
+          <img
+            src="/public/images/CoustomerService/Frame 388 (1).svg"
+            alt="Slide 3"
+          />
         </p>
       }
       className="mx-auto w-full max-w-[280px] md:max-w-xs h-full"
@@ -86,14 +77,13 @@ const AppShowcase = () => {
   return (
     <div className="absolute left-0 flex flex-col w-full min-h-screen md:mt-[100px] mt-[250px] lg:mt-[300px] top-4">
       <main className="flex flex-col items-center justify-center flex-1 px-4 py-4">
-
         {/* Carousel with scroll animation */}
         <motion.div
           className="w-full max-w-screen-md md:h-[400px] px-2 sm:px-4"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <Carousel
             slides={carouselSlides}
@@ -109,7 +99,7 @@ const AppShowcase = () => {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <div className="relative w-full max-w-xs h-[500px] mx-auto lg:max-w-lg overflow-hidden">
             {images.map((img, index) => (
@@ -118,7 +108,11 @@ const AppShowcase = () => {
                 src={img}
                 alt={`Slide ${index + 1}`}
                 className={`absolute top-0 left-0 w-full h-full object-cover rounded-[50px] transition-all duration-[4000ms] ease-in-out 
-          ${index === current ? "opacity-100 scale-100 z-10" : "opacity-0 scale-105 z-0"}`}
+          ${
+            index === current
+              ? "opacity-100 scale-100 z-10"
+              : "opacity-0 scale-105 z-0"
+          }`}
               />
             ))}
 
@@ -142,8 +136,9 @@ const AppShowcase = () => {
                 <button
                   key={index}
                   onClick={() => setCurrent(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${index === current ? "bg-white scale-110" : "bg-gray-400"
-                    }`}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    index === current ? "bg-white scale-110" : "bg-gray-400"
+                  }`}
                 ></button>
               ))}
             </div>

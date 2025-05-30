@@ -18,7 +18,11 @@ const projectRoute: Route[] = [
     path: routes.customersService,
     component: lazy(() => import("@/pages/public/Service/Customers")),
   },
- 
+  {
+    key: "/details/privacy-policy",
+    path: routes.privacyPolicy,
+    component: lazy(() => import("@/pages/public/Details/PrivacyPolicy")),
+  },
 ];
 
 export default projectRoute;

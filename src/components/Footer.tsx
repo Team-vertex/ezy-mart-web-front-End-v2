@@ -3,17 +3,30 @@ import {
   IconBrandInstagram,
   IconBrandWhatsapp,
   IconBrandYoutube,
+  IconChevronRight,
   IconClock,
   IconLocation,
   IconMail,
   IconPhone,
-  IconChevronRight
 } from "@tabler/icons-react";
 
 export default function Footer() {
-  const quickLinks = ["Home", "About Us", "Services", "Instruction", "Privacy Policy", "Contact us"];
-  const solutions = ["Retail POS", "Restaurant POS", "Inventory Management", "Mobile POS", "Analytics Dashboard"];
-  const supportLinks = ["Help Center", "Documentation", "API Reference", "Community Forum"];
+  const quickLinks = [
+    "Home",
+    "About Us",
+    "Services",
+    "Instruction",
+    "Privacy Policy",
+    "Contact us",
+  ];
+  const solutions = [
+    "Retail POS",
+    "Restaurant POS",
+    "Inventory Management",
+    "Mobile POS",
+    "Analytics Dashboard",
+  ];
+  // const supportLinks = ["Help Center", "Documentation", "API Reference", "Community Forum"];
 
   return (
     <footer className="bg-gradient-to-b from-[#1a2c56] to-[#0e1a3a] text-white font-sans relative overflow-hidden">
@@ -34,8 +47,8 @@ export default function Footer() {
               </span>
             </h2>
             <p className="mb-4 leading-relaxed text-gray-300">
-              A simple, affordable, and powerful POS solution built for Sri Lankan businesses.
-              Manage your sales, stock, and more with ease.
+              A simple, affordable, and powerful POS solution built for Sri
+              Lankan businesses. Manage your sales, stock, and more with ease.
             </p>
             <blockquote className="pl-4 my-6 italic text-gray-300 border-l-4 border-blue-400">
               "Empowering local businesses with technology that works for you."
@@ -44,8 +57,11 @@ export default function Footer() {
               {[
                 { icon: IconBrandFacebook, color: "hover:bg-blue-600" },
                 { icon: IconBrandWhatsapp, color: "hover:bg-green-500" },
-                { icon: IconBrandInstagram, color: "hover:bg-gradient-to-br from-purple-500 to-pink-500" },
-                { icon: IconBrandYoutube, color: "hover:bg-red-600" }
+                {
+                  icon: IconBrandInstagram,
+                  color: "hover:bg-gradient-to-br from-purple-500 to-pink-500",
+                },
+                { icon: IconBrandYoutube, color: "hover:bg-red-600" },
               ].map((item, i) => (
                 <a
                   key={i}
@@ -71,8 +87,13 @@ export default function Footer() {
                     href="#"
                     className="flex items-center text-gray-300 transition-all hover:text-white group"
                   >
-                    <IconChevronRight size={16} className="mr-2 text-blue-300 transition-all opacity-0 group-hover:opacity-100" />
-                    <span className="transition-transform group-hover:translate-x-1">{item}</span>
+                    <IconChevronRight
+                      size={16}
+                      className="mr-2 text-blue-300 transition-all opacity-0 group-hover:opacity-100"
+                    />
+                    <span className="transition-transform group-hover:translate-x-1">
+                      {item}
+                    </span>
                   </a>
                 </li>
               ))}
@@ -92,8 +113,13 @@ export default function Footer() {
                     href="#"
                     className="flex items-center text-gray-300 transition-all hover:text-white group"
                   >
-                    <IconChevronRight size={16} className="mr-2 text-purple-300 transition-all opacity-0 group-hover:opacity-100" />
-                    <span className="transition-transform group-hover:translate-x-1">{item}</span>
+                    <IconChevronRight
+                      size={16}
+                      className="mr-2 text-purple-300 transition-all opacity-0 group-hover:opacity-100"
+                    />
+                    <span className="transition-transform group-hover:translate-x-1">
+                      {item}
+                    </span>
                   </a>
                 </li>
               ))}
@@ -146,7 +172,9 @@ export default function Footer() {
             </ul>
 
             <div className="mt-6">
-              <h4 className="mb-2 text-sm font-medium text-gray-400">DOWNLOAD OUR APP</h4>
+              <h4 className="mb-2 text-sm font-medium text-gray-400">
+                DOWNLOAD OUR APP
+              </h4>
               <div className="flex items-center gap-3">
                 <a href="#" className="transition-transform hover:scale-105">
                   <img
@@ -164,7 +192,6 @@ export default function Footer() {
                 </a>
               </div>
             </div>
-
           </div>
         </div>
       </div>
@@ -177,9 +204,24 @@ export default function Footer() {
               © 2025 EZYMART.LK | All Rights Reserved
             </p>
             <div className="flex gap-4">
-              <a href="#" className="text-sm text-gray-400 transition hover:text-white">Terms of Service</a>
-              <a href="#" className="text-sm text-gray-400 transition hover:text-white">Privacy Policy</a>
-              <a href="#" className="text-sm text-gray-400 transition hover:text-white">Sitemap</a>
+              <a
+                href="#"
+                className="text-sm text-gray-400 transition hover:text-white"
+              >
+                Terms of Service
+              </a>
+              <a
+                href="#"
+                className="text-sm text-gray-400 transition hover:text-white"
+              >
+                Privacy Policy
+              </a>
+              <a
+                href="#"
+                className="text-sm text-gray-400 transition hover:text-white"
+              >
+                Sitemap
+              </a>
             </div>
           </div>
           <p className="mt-3 text-xs text-gray-500">
