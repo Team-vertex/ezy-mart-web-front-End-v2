@@ -60,7 +60,7 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed z-50 w-full transition-all duration-300 ${
+      className={`fixed z-50 w-full transition-all duration-300 w-screen ${
         isScrolled ? "bg-blue-950 shadow-lg py-3" : "bg-white py-4"
       }`}
     >
@@ -164,19 +164,20 @@ export default function Header() {
         <div className="items-center hidden space-x-4 md:flex">
           <button className="flex items-center px-4 py-2 space-x-1 text-white transition-all duration-300 bg-blue-600 rounded-full hover:bg-blue-700 hover:scale-105 hover:shadow-lg">
             <svg
-              className="w-5 h-5"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              className="lucide lucide-headset-icon lucide-headset"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M12 21a9 9 0 1 1 0-18 9 9 0 0 1 0 18z"
-              />
+              <path d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z" />
+              <path d="M21 16v2a4 4 0 0 1-4 4h-5" />
             </svg>
-            <span>Ask Help</span>
           </button>
         </div>
 

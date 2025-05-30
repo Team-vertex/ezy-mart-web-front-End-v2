@@ -1,17 +1,19 @@
-'use client';
+"use client";
 
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 const HeroSection = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const buttonRef = useRef(null);
+  const isButtonInView = useInView(buttonRef, { once: true, margin: "-100px" });
 
   const features = [
-    'Easy Product Search',
-    'Nearest Shop Finder',
-    'Add item to your list',
-    'Seamless Experience',
+    "Easy Product Search",
+    "Nearest Shop Finder",
+    "Add item to your list",
+    "Seamless Experience",
   ];
 
   return (
@@ -24,7 +26,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-3xl md:text-4xl font-bold text-center lg:text-5xl text-white font-poppins"
+          className="text-3xl md:text-4xl lg:text-6xl font-bold text-center  text-white font-poppins"
         >
           Anything, Anywhere
         </motion.h1>
@@ -36,7 +38,8 @@ const HeroSection = () => {
           className="mt-6 text-center text-white text-sm md:text-lg lg:text-xl py-0 md:px-5 lg:px-8"
         >
           EzyMart makes shopping easier than ever.Search for products near you ,
-          discover local shops, save time,and enjoy a smooth, stress free shopping experience all through one smart app
+          discover local shops, save time,and enjoy a smooth, stress free
+          shopping experience all through one smart app
         </motion.p>
 
         <motion.div
@@ -50,13 +53,19 @@ const HeroSection = () => {
           ))}
         </motion.div>
 
+        {/* CTA Button */}
         <motion.button
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="bg-[#15366B] text-white font-semibold text-sm lg:text-[18px] px-4 py-2 rounded-full mt-8 hover:bg-[#15366B]/80 transition-colors lg:mb-[200px]"
+          ref={buttonRef}
+          initial={{ opacity: 0, y: 50 }}
+          animate={
+            isButtonInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }
+          }
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="!z-50 mt-8 px-12 py-2 text-white transition-colors border border-white rounded-full hover:bg-white hover:text-blue-900"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
         >
-          See How It Works
+          Get Started
         </motion.button>
       </div>
     </section>
@@ -65,16 +74,22 @@ const HeroSection = () => {
 
 export const FeatureItem = ({
   text,
-  icon='',
+  icon = "",
 }: {
   text: string;
   icon?: string;
 }) => (
   <div className="flex items-center gap-1 py-2 px-2 md:px-5 rounded-lg ">
     {icon && (
-      <img src={"/public/images/CoustomerService/tick-circle.svg"} alt="feature icon" className="w-5 h-5" />
+      <img
+        src={"/public/images/CoustomerService/tick-circle.svg"}
+        alt="feature icon"
+        className="w-5 h-5"
+      />
     )}
-    <p className="text-xs font-georgia text-center text-white md:text-xl lg:text-xl">{text}</p>
+    <p className="text-xs font-georgia text-center text-white md:text-xl lg:text-xl">
+      {text}
+    </p>
   </div>
 );
 

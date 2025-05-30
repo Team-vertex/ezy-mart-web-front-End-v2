@@ -1,14 +1,12 @@
 import { Modal } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
-
-
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 const images = [
   "/images/CoustomerService/Frame 388 (1).svg",
-  "/public/images/CoustomerService/Frame 390.svg",
-  "/public/images/CoustomerService/Frame 388 (1).svg",
+  "/images/CoustomerService/Frame 390.svg",
+  "/images/CoustomerService/Frame 388 (1).svg",
 ];
 
 // type FormData = {
@@ -65,18 +63,18 @@ const HowItWorksSection = () => {
     lastName: "",
     mobile: "",
     email: "",
-  })
+  });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log("Form submitted:", formData)
+    e.preventDefault();
+    console.log("Form submitted:", formData);
     // Here you would typically send the data to your backend
-  }
+  };
 
   // const handleClose = () => {
   //   console.log("Form closed")
@@ -90,7 +88,8 @@ const HowItWorksSection = () => {
         <div
           className="absolute inset-0 z-0 w-full h-full"
           style={{
-            backgroundImage: "url('/public/images/CoustomerService/Vector 6 (1).svg')",
+            backgroundImage:
+              "url('/public/images/CoustomerService/Vector 6 (1).svg')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
@@ -119,7 +118,12 @@ const HowItWorksSection = () => {
                       className="mt-3 text-white text-xs md:text-sm lg:text-lg"
                       variants={itemVariants}
                     >
-                      Simply open the app, search for the product or shop you need, and view real-time results nearby. You can explore store details, save your favorite places, and even get directions straight from the app. EzyMart is built to make your shopping experience faster, smoother, and completely hassle-free all within a few taps.
+                      Simply open the app, search for the product or shop you
+                      need, and view real-time results nearby. You can explore
+                      store details, save your favorite places, and even get
+                      directions straight from the app. EzyMart is built to make
+                      your shopping experience faster, smoother, and completely
+                      hassle-free all within a few taps.
                     </motion.p>
                   </div>
 
@@ -131,7 +135,12 @@ const HowItWorksSection = () => {
                       How to Download App?
                     </h2>
                     <p className="mt-3 text-white text-xs md:text-sm lg:text-lg">
-                      Ready to simplify your shopping? Simply fill out a quick request form or contact us through our website, and we'll help you set up your access. Whether you're a customer looking for easy shopping or a store owner who wants to be listed, getting started with EzyMart is simple, fast, and completely stress free.
+                      Ready to simplify your shopping? Simply fill out a quick
+                      request form or contact us through our website, and we'll
+                      help you set up your access. Whether you're a customer
+                      looking for easy shopping or a store owner who wants to be
+                      listed, getting started with EzyMart is simple, fast, and
+                      completely stress free.
                     </p>
                   </motion.div>
 
@@ -142,7 +151,6 @@ const HowItWorksSection = () => {
                     whileTap={{ scale: 0.95 }}
                     onClick={open}
                   >
-
                     Request App free
                   </motion.button>
                 </div>
@@ -186,7 +194,9 @@ const HowItWorksSection = () => {
                       <button
                         key={index}
                         onClick={() => setCurrent(index)}
-                        className={`w-3 h-3 rounded-full ${index === current ? "bg-white" : "bg-gray-400"}`}
+                        className={`w-3 h-3 rounded-full ${
+                          index === current ? "bg-white" : "bg-gray-400"
+                        }`}
                       ></button>
                     ))}
                   </div>
@@ -213,12 +223,13 @@ const HowItWorksSection = () => {
               Request Mobile App
             </h2>
             <p className="mb-10 text-xs md:text-sm lg:text-lg text-center text-gray-300">
-              Fill in your details,and
-              we’ll help you get start.
+              Fill in your details,and we’ll help you get start.
             </p>
             <div className="grid grid-cols-1 gap-6 mb-6 md:grid-cols-2">
               <div>
-                <label className="block mb-2 text-sm md:text-lg lg:text-lg font-semibold">First Name</label>
+                <label className="block mb-2 text-sm md:text-lg lg:text-lg font-semibold">
+                  First Name
+                </label>
                 <input
                   type="text"
                   name="firstName"
@@ -230,7 +241,9 @@ const HowItWorksSection = () => {
                 />
               </div>
               <div>
-                <label className="block mb-2 text-sm md:text-lg lg:text-lg font-semibold">Last Name</label>
+                <label className="block mb-2 text-sm md:text-lg lg:text-lg font-semibold">
+                  Last Name
+                </label>
                 <input
                   type="text"
                   name="lastName"
@@ -242,7 +255,9 @@ const HowItWorksSection = () => {
                 />
               </div>
               <div>
-                <label className="block mb-2 text-sm md:text-lg lg:text-lg font-semibold">Mobile</label>
+                <label className="block mb-2 text-sm md:text-lg lg:text-lg font-semibold">
+                  Mobile
+                </label>
                 <input
                   type="tel"
                   name="mobile"
@@ -254,7 +269,9 @@ const HowItWorksSection = () => {
                 />
               </div>
               <div>
-                <label className="block mb-2 text-sm md:text-lg lg:text-lg font-semibold">Email</label>
+                <label className="block mb-2 text-sm md:text-lg lg:text-lg font-semibold">
+                  Email
+                </label>
                 <input
                   type="email"
                   name="email"

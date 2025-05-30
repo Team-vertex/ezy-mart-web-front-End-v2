@@ -64,10 +64,7 @@ const AppShowcase = () => {
       // title="Customizable Options"
       content={
         <p className="text-xs md:text-sm">
-          <img
-            src="/public/images/CoustomerService/Frame 388 (1).svg"
-            alt="Slide 3"
-          />
+          <img src="/images/CoustomerService/Frame 388 (1).svg" alt="Slide 3" />
         </p>
       }
       className="mx-auto w-full max-w-[280px] md:max-w-xs h-full"

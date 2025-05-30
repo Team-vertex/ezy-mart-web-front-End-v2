@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+import { motion, useInView } from "framer-motion";
+import React, { useRef } from "react";
 
 type FeatureProps = {
   icon: React.ReactNode;
@@ -15,6 +17,11 @@ const Feature: React.FC<FeatureProps> = ({ icon, text }) => {
 };
 
 function Hero() {
+  // MARK: Hooks
+  const buttonRef = useRef(null);
+  const isButtonInView = useInView(buttonRef, { once: true, margin: "-100px" });
+
+  // MARK: Render
   return (
     <section className="relative flex-grow flex min-h-[80vh] flex-col items-center justify-center bg-gradient-to-tr from-[#0538d0] to-[#053CDF] overflow-hidden">
       {/* Decorative bubbles */}
@@ -118,9 +125,20 @@ function Hero() {
           />
         </div>
 
-        <button className="bg-[#15366B] text-white font-semibold text-sm lg:text-base px-6 py-2 rounded-full mt-8 hover:bg-[#15366B]/80 transition-colors">
-          See How It Works
-        </button>
+        {/* CTA Button */}
+        <motion.button
+          ref={buttonRef}
+          initial={{ opacity: 0, y: 50 }}
+          animate={
+            isButtonInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }
+          }
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="!z-50 mt-8 px-12 py-2 text-white transition-colors border border-white rounded-full hover:bg-white hover:text-blue-900"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          Get Started
+        </motion.button>
       </div>
 
       {/* CSS for floating animation */}
