@@ -21,7 +21,9 @@ const BenefitCard = ({ imageSrc, title, description }: BenefitCardProps) => (
     />
     <div className="flex flex-col w-full text-center mt-14">
       <h3 className="font-bold text-sm md:text-lg text-slate-900">{title}</h3>
-      <p className="mt-2 px-4 md:px-4 lg:px-1 text-xs md:text-sm lg:text-lg text-black">{description}</p>
+      <p className="mt-2 px-4 md:px-4 lg:px-1 text-xs md:text-sm lg:text-lg text-black">
+        {description}
+      </p>
     </div>
   </motion.div>
 );
@@ -50,16 +52,21 @@ const BenefitsSection = () => {
   };
 
   return (
-    <motion.section 
+    <motion.section
       className="w-full px-4 py-16 bg-white md:py-24 "
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
       variants={containerVariants}
     >
-      <motion.div className="max-w-5xl mx-auto text-center " variants={itemVariants} >
+      <motion.div
+        className="max-w-5xl mx-auto text-center "
+        variants={itemVariants}
+      >
         <h2 className="font-bold text-center text-xl md:text-3xl lg:text-4xl text-slate-900">
-          Make <span className="text-[#0A65FC] mt-11 font-georgia">Life Easier</span> with EzyMart
+          Make{" "}
+          <span className="text-[#0A65FC] mt-11 font-georgia">Life Easier</span>{" "}
+          with EzyMart
         </h2>
         <p className="max-w-2xl mx-auto mt-4 md:mt-6 text-black text-xs md:text-sm lg:text-lg text-center">
           Shopping doesn't have to be stressful. With EzyMart, you can find what
@@ -90,21 +97,19 @@ const BenefitsSection = () => {
           />
         </div>
 
-
         {/* Wrap the last two cards in a flex container to center them */}
         <div className="flex flex-wrap justify-center gap-10 text-xl sm:col-span-2 lg:col-span-3">
           <BenefitCard
-            imageSrc="/public/images/CoustomerService/on-time.svg"
+            imageSrc="/images/CoustomerService/on-time.svg"
             title="Save Time & Money"
             description="Plan your shopping efficiently with detailed store information, reducing unnecessary trips and long waits."
           />
           <BenefitCard
-            imageSrc="/public/images/CoustomerService/happy-face.svg"
+            imageSrc="/images/CoustomerService/happy-face.svg"
             title="Stress Free Shopping Experience"
             description="Say goodbye to the frustration of endless searching. EzyMart helps you shop confidently and hassle-free, anytime and anywhere."
           />
         </div>
-
       </motion.div>
     </motion.section>
   );

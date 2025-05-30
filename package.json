@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
     "@firebase/firestore": "^4.7.5",
     "@fontsource/poppins": "^5.2.6",
     "@googlemaps/react-wrapper": "^1.1.42",
@@ -22,6 +24,8 @@
     "@mantine/hooks": "^7.14.3",
     "@mantine/notifications": "^7.14.3",
     "@mantine/spotlight": "^7.14.3",
+    "@mui/icons-material": "^7.1.0",
+    "@mui/material": "^7.1.0",
     "@react-google-maps/api": "^2.20.3",
     "@reduxjs/toolkit": "^2.3.0",
     "@tabler/icons-react": "^3.22.0",
