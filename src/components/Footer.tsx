@@ -1,3 +1,4 @@
+import { routes } from "@/constants/route";
 import {
   IconBrandFacebook,
   IconBrandInstagram,
@@ -84,7 +85,9 @@ export default function Footer() {
               {quickLinks.map((item, i) => (
                 <li key={i}>
                   <a
-                    href="#"
+                    href={
+                      item === "Privacy Policy" ? routes.privacyPolicy : "#"
+                    }
                     className="flex items-center text-gray-300 transition-all hover:text-white group"
                   >
                     <IconChevronRight
@@ -211,7 +214,7 @@ export default function Footer() {
                 Terms of Service
               </a>
               <a
-                href="#"
+                href={routes.privacyPolicy}
                 className="text-sm text-gray-400 transition hover:text-white"
               >
                 Privacy Policy
