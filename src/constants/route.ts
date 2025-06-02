@@ -11,6 +11,7 @@ export const routes = {
   serviceForBusiness: "/service/business",
   customersService: "/service/CustomersService",
   privacyPolicy: "/details/privacy-policy",
+  contactUs: "/details/contact-us",
 };
 
 export const api = {
