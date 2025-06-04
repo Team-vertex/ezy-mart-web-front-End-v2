@@ -8,7 +8,7 @@ export const navItems: NavItem[] = [
   },
   {
     name: "About Us",
-    href: "#",
+    href: routes.aboutUs,
   },
   {
     name: "Services",

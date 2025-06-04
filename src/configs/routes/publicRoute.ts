@@ -28,6 +28,11 @@ const projectRoute: Route[] = [
     path: routes.contactUs,
     component: lazy(() => import("@/pages/public/Details/ContactUs")),
   },
+  {
+    key: "/public/AboutUs/Hero",
+    path: routes.aboutUs,
+    component: lazy(() => import("@/pages/public/AboutUs/Index")),
+  },
 ];
 
 export default projectRoute;
