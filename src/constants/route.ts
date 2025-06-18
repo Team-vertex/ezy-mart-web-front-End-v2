@@ -13,6 +13,7 @@ export const routes = {
   privacyPolicy: "/details/privacy-policy",
   contactUs: "/details/contact-us",
   aboutUs: "/AboutUs/Index.tsx",
+  instructions: "/details/instructions",
 };
 
 export const api = {

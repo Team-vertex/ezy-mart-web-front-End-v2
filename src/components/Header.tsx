@@ -60,7 +60,7 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed z-50 w-full transition-all duration-300 w-screen ${
+      className={`fixed z-50 transition-all duration-300 w-screen ${
         isScrolled ? "bg-blue-950 shadow-lg py-3" : "bg-white py-4"
       }`}
     >

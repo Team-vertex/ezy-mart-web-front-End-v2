@@ -20,7 +20,7 @@ export const navItems: NavItem[] = [
   },
   {
     name: "Instruction",
-    href: "#",
+    href: routes.instructions,
   },
   {
     name: "Resources",
