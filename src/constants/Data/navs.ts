@@ -23,15 +23,6 @@ export const navItems: NavItem[] = [
     href: routes.instructions,
   },
   {
-    name: "Resources",
-    href: "#",
-    dropdown: [
-      { name: "Documentation", href: "#" },
-      { name: "Tutorials", href: "#" },
-      { name: "FAQs", href: "#" },
-    ],
-  },
-  {
     name: "Contact Us",
     href: routes.contactUs,
   },
