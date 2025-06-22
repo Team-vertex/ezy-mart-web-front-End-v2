@@ -1,11 +1,10 @@
-import { HeroSection } from '@/components/Page/Public/AboutUs/HeroSection';
-import { FeaturesSection } from '@/components/Page/Public/AboutUs/FeaturesSection';
+import { FeaturesSection } from "@/components/Page/Public/AboutUs/FeaturesSection";
+import { HeroSection } from "@/components/Page/Public/AboutUs/HeroSection";
+import { RoadmapSection } from "@/components/Page/Public/AboutUs/RoadmapSection";
+import { StorySection } from "@/components/Page/Public/AboutUs/StorySection";
+import { TeamSection } from "@/components/Page/Public/AboutUs/TeamSection";
 import { VisionMissionSection } from "@/components/Page/Public/AboutUs/VisionMissionSection";
-import { StorySection } from '@/components/Page/Public/AboutUs/StorySection';
-import { RoadmapSection } from '@/components/Page/Public/AboutUs/RoadmapSection';
-import { TeamSection } from '@/components/Page/Public/AboutUs/TeamSection';
 import { Contact } from "@/components/Page/Public/Index/Contact";
-
 
 export default function Index(): JSX.Element {
   return (
@@ -19,10 +18,10 @@ export default function Index(): JSX.Element {
           className="absolute inset-0 object-cover w-full h-full"
         />
         <img
-          src="https://cdn.builder.io/api/v1/image/assets/048e14f207294d2d81c31c8ac35554bd/4df82eb31d7d88f2abc35f9d9fb06cc2c9d9d07a?placeholderIfAbsent=true"
+          src="/images/Public/aboutUsOne.png"
           alt="Hero image"
           className="hidden sm:block aspect-[1.23] absolute right-4 md:right-8 lg:right-24
-      -translate-y-1/2 md:w-[250px] lg:w-[375px] rounded-[20px] shadow-xl lg:-mt-[50px] lg:ml-[1000px] object-contain w-[375px] max-w-full "
+      -translate-y-1/2 md:w-[250px] lg:w-[375px] rounded-[20px] lg:-mt-[50px] lg:ml-[1000px] object-contain w-[375px] max-w-full "
         />
         <FeaturesSection />
         <VisionMissionSection />
@@ -33,4 +32,4 @@ export default function Index(): JSX.Element {
       <Contact />
     </main>
   );
-};
+}

@@ -210,95 +210,126 @@ const HowItWorksSection = () => {
         opened={opened}
         onClose={close}
         centered
-        title="Request Mobile Application"
         size="xl"
-        className="border-none bg-transparent !shadow-none"
+        withCloseButton={false}
+        padding={0}
+        radius="xl"
+        classNames={{
+          overlay: "!bg-black/60 backdrop-blur-sm",
+          content: "!bg-transparent !shadow-none !overflow-visible",
+          body: "!p-0",
+        }}
+        transitionProps={{
+          transition: "fade",
+          duration: 300,
+        }}
       >
-        <div className="flex items-center justify-center min-h-[70vh] md:min-h-[50vh] sm:px-4 md:px-4 py-12 bg-gradient-to-br from-black via-blue-900 to-black">
-          <form
-            onSubmit={handleSubmit}
-            className="bg-gradient-to-br from-[#0F172A] to-[#1E293B] text-white rounded-3xl p-10 w-full max-w-5xl shadow-2xl"
-          >
-            <h2 className="mb-4 font-bold text-center text-xl md:text-3xl lg:text-4xl">
-              Request Mobile App
-            </h2>
-            <p className="mb-10 text-xs md:text-sm lg:text-lg text-center text-gray-300">
-              Fill in your details,and we’ll help you get start.
-            </p>
-            <div className="grid grid-cols-1 gap-6 mb-6 md:grid-cols-2">
-              <div>
-                <label className="block mb-2 text-sm md:text-lg lg:text-lg font-semibold">
-                  First Name
-                </label>
-                <input
-                  type="text"
-                  name="firstName"
-                  placeholder="eg: First Name"
-                  value={formData.firstName}
-                  onChange={handleChange}
-                  className="w-full p-3 bg-transparent border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block mb-2 text-sm md:text-lg lg:text-lg font-semibold">
-                  Last Name
-                </label>
-                <input
-                  type="text"
-                  name="lastName"
-                  placeholder="eg: Perera"
-                  value={formData.lastName}
-                  onChange={handleChange}
-                  className="w-full p-3 bg-transparent border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block mb-2 text-sm md:text-lg lg:text-lg font-semibold">
-                  Mobile
-                </label>
-                <input
-                  type="tel"
-                  name="mobile"
-                  placeholder="eg: +94 71 234 5678"
-                  value={formData.mobile}
-                  onChange={handleChange}
-                  className="w-full p-3 bg-transparent border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block mb-2 text-sm md:text-lg lg:text-lg font-semibold">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="eg: example@gmail.com"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required={true}
-                  className="w-full p-3 bg-transparent border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
+        <div className="relative w-full max-w-3xl mx-auto">
+          {/* Background with gradient matching the design */}
+          <div
+            className="absolute inset-0 rounded-3xl shadow-2xl"
+            style={{
+              background:
+                "linear-gradient(135deg, #0A1A33 0%, #0A65FC 25%, #0A1A33 50%, #0A1A33 75%, #0A1A33 100%)",
+            }}
+          />
+
+          {/* Content */}
+          <div className="relative z-10 p-6 sm:p-8 lg:p-12">
+            {/* Header */}
+            <div className="text-center mb-8 lg:mb-10">
+              <h2 className="text-white text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold mb-3 lg:mb-4 leading-tight">
+                Request Mobile App
+              </h2>
+              <p className="text-white/90 text-xs sm:text-sm lg:text-base leading-relaxed max-w-2xl mx-auto">
+                Fill in your details, and we'll help you get started.
+              </p>
             </div>
-            <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-[53px] mt-10">
-              <button
-                type="button"
-                onClick={close}
-                className="w-full sm:w-[203px] px-6 py-2 font-semibold text-black bg-white rounded-full shadow-md hover:bg-gray-200"
-              >
-                Close
-              </button>
-              <button
-                type="submit"
-                className="w-full sm:w-[203px] px-6 py-2 font-semibold bg-blue-600 rounded-full shadow-md hover:bg-blue-700"
-              >
-                Submit
-              </button>
-            </div>
-          </form>
+
+            {/* Form */}
+            <form onSubmit={handleSubmit} className="space-y-5 lg:space-y-6">
+              {/* First row - First Name & Last Name */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
+                <div>
+                  <label className="block text-white text-sm lg:text-base font-medium mb-2">
+                    First Name
+                  </label>
+                  <input
+                    type="text"
+                    name="firstName"
+                    placeholder="eg: First Name"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                    className="w-full h-11 lg:h-12 p-3 bg-white/15 border border-white/30 text-white placeholder:text-white/70 rounded-xl text-sm lg:text-base focus:border-white/60 focus:bg-white/20 transition-all duration-200 focus:outline-none focus:ring-0"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-white text-sm lg:text-base font-medium mb-2">
+                    Last Name
+                  </label>
+                  <input
+                    type="text"
+                    name="lastName"
+                    placeholder="eg: Perera"
+                    value={formData.lastName}
+                    onChange={handleChange}
+                    className="w-full h-11 lg:h-12 p-3 bg-white/15 border border-white/30 text-white placeholder:text-white/70 rounded-xl text-sm lg:text-base focus:border-white/60 focus:bg-white/20 transition-all duration-200 focus:outline-none focus:ring-0"
+                    required
+                  />
+                </div>
+              </div>
+
+              {/* Second row - Mobile & Email */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
+                <div>
+                  <label className="block text-white text-sm lg:text-base font-medium mb-2">
+                    Mobile
+                  </label>
+                  <input
+                    type="tel"
+                    name="mobile"
+                    placeholder="eg: +94 71 234 5678"
+                    value={formData.mobile}
+                    onChange={handleChange}
+                    className="w-full h-11 lg:h-12 p-3 bg-white/15 border border-white/30 text-white placeholder:text-white/70 rounded-xl text-sm lg:text-base focus:border-white/60 focus:bg-white/20 transition-all duration-200 focus:outline-none focus:ring-0"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-white text-sm lg:text-base font-medium mb-2">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="eg: example@gmail.com"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full h-11 lg:h-12 p-3 bg-white/15 border border-white/30 text-white placeholder:text-white/70 rounded-xl text-sm lg:text-base focus:border-white/60 focus:bg-white/20 transition-all duration-200 focus:outline-none focus:ring-0"
+                    required
+                  />
+                </div>
+              </div>
+
+              {/* Buttons */}
+              <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 mt-8 lg:mt-10 pt-2">
+                <button
+                  type="button"
+                  onClick={close}
+                  className="flex-1 h-11 lg:h-12 px-6 text-sm lg:text-base font-semibold text-gray-800 bg-white rounded-full hover:bg-gray-100 transition-all duration-200 shadow-lg hover:shadow-xl"
+                >
+                  Close
+                </button>
+                <button
+                  type="submit"
+                  className="flex-1 h-11 lg:h-12 px-6 text-sm lg:text-base font-semibold text-white bg-blue-600 rounded-full hover:bg-blue-700 transition-all duration-200 shadow-lg hover:shadow-xl"
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </Modal>
     </>

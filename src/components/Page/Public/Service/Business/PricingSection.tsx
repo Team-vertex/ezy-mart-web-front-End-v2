@@ -1,8 +1,11 @@
 import CancelIcon from "@mui/icons-material/Cancel";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import React from "react";
+import { usePOSRequestPopup } from "../../../../../hooks/usePOSRequestPopup";
 
 const PricingSection: React.FC = () => {
+  const { openPOSRequest, POSRequestModal } = usePOSRequestPopup();
+
   return (
     <div className="relative bg-white py-8 px-4 md:py-16 md:px-8">
       {/* Triangular background */}
@@ -38,7 +41,10 @@ const PricingSection: React.FC = () => {
 
             {/* Button */}
             <div className="flex justify-center mb-2">
-              <button className="w-full rounded-full py-2 px-5 text-base font-bold bg-[#1976D2] text-white hover:opacity-90">
+              <button
+                onClick={openPOSRequest}
+                className="w-full rounded-full py-2 px-5 text-base font-bold bg-[#1976D2] text-white hover:opacity-90"
+              >
                 Try free
               </button>
             </div>
@@ -130,7 +136,10 @@ const PricingSection: React.FC = () => {
 
             {/* Button */}
             <div className="flex justify-center mb-2">
-              <button className="w-full rounded-full py-2 px-5 text-base font-bold border border-[#1976D2] text-[#1976D2] bg-transparent hover:bg-[rgba(25,118,210,0.04)]">
+              <button
+                onClick={openPOSRequest}
+                className="w-full rounded-full py-2 px-5 text-base font-bold border border-[#1976D2] text-[#1976D2] bg-transparent hover:bg-[rgba(25,118,210,0.04)]"
+              >
                 Request Now
               </button>
             </div>
@@ -208,6 +217,9 @@ const PricingSection: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* POS Request Modal */}
+      <POSRequestModal />
     </div>
   );
 };
