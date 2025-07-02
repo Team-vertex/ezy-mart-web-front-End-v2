@@ -1,76 +1,95 @@
-// FeaturesSection.tsx
-
-import React from 'react';
-import { Settings , Lightbulb, Headphones  } from "lucide-react";
-
+import { motion } from "framer-motion";
+import { Headphones, Lightbulb, Settings } from "lucide-react";
+import React from "react";
 
 interface FeatureCardProps {
-    title: string;
-    description: string;
-    icon: React.ElementType; // Accepts a React component (Lucide icons)
-    className?: string;
+  title: string;
+  description: string;
+  icon: React.ElementType;
+  index: number;
 }
 
-const FeatureCard: React.FC<FeatureCardProps> = ({ title, description, icon: Icon, className = "" }) => {
-    return (
-        <article className={`justify-center items-stretch shadow-[0px_4px_20px_0px_rgba(0,0,0,0.25)] bg-white self-stretch flex min-w-60 flex-col overflow-hidden grow shrink w-[278px] my-auto px-1.5 rounded-[20px] ${className}`}>
-            <div className="flex flex-col items-stretch">
-                <div className="self-center flex items-center justify-center min-h-[90px] w-[100px] max-w-full bg-gray-100 rounded-lg">
-                    <Icon className="w-10 h-10 text-[#0A65FC]" />
-                </div>
-                <div className="flex w-full flex-col mt-[31px] px-4">
-                    <h3 className="text-2xl font-bold text-[#0A1A33]">
-                        {title}
-                    </h3>
-                    <p className="text-sm font-normal leading-[21px] mt-[22px] text-[#0A1A33]">
-                        {description}
-                    </p>
-                </div>
-            </div>
-        </article>
-    );
+const FeatureCard: React.FC<FeatureCardProps> = ({
+  title,
+  description,
+  icon: Icon,
+  index,
+}) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      viewport={{ once: true }}
+      className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-blue-200"
+    >
+      <div className="flex flex-col items-center text-center">
+        <div className="w-16 h-16 bg-gradient-to-br from-[#0A65FC] to-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+          <Icon className="w-8 h-8 text-white" />
+        </div>
+        <h3 className="text-xl font-bold text-gray-900 mb-4">{title}</h3>
+        <p className="text-gray-600 leading-relaxed">{description}</p>
+      </div>
+    </motion.div>
+  );
 };
 
 export const FeaturesSection: React.FC = () => {
-    const features = [
-        {
-            title: "Innovative Team",
-            description: "We focus on nearby stores, not big marketplaces helping you shop local and support your community.",
-            icon: Lightbulb,
-        },
-        {
-            title: "Innovative Solution",
-            description: "Designed for real needs, EzyMart makes finding products and stores quick, clear, and stress free.",
-            icon: Settings ,
-        },
-        {
-            title: "We Listen to Customers",
-            description: "Your voice matters. Every feature we build starts with feedback from real users so you always get a better, more thoughtful experience.",
-            icon: Headphones,
-        }
-    ];
+  const features = [
+    {
+      title: "Innovative Team",
+      description:
+        "We focus on nearby stores, not big marketplaces helping you shop local and support your community.",
+      icon: Lightbulb,
+    },
+    {
+      title: "Innovative Solution",
+      description:
+        "Designed for real needs, EzyMart makes finding products and stores quick, clear, and stress free.",
+      icon: Settings,
+    },
+    {
+      title: "We Listen to Customers",
+      description:
+        "Your voice matters. Every feature we build starts with feedback from real users so you always get a better, more thoughtful experience.",
+      icon: Headphones,
+    },
+  ];
 
-    return (
-        <section className="self-center w-full max-w-[1074px] max-md:max-w-full mt-[100px] md:mt-[200px] lg:mt-[100px]">
-            <h2 className="text-[#0a1a33] text-4xl font-bold leading-[54px] max-md:max-w-full">
-                <span className="font-medium text-[48px] leading-[72px]">
-                    What Makes Us
-                </span>{" "}
-                <span className="text-[48px] leading-[72px] text-[#0A65FC] font-poppins">
-                    Different?
-                </span>
-            </h2>
-            <div className="flex w-full items-center gap-[15px] text-[#0A1A33] text-center justify-center flex-wrap mt-[57px] max-md:max-w-full max-md:mt-10">
-                {features.map((feature, index) => (
-                    <FeatureCard
-                        key={index}
-                        title={feature.title}
-                        description={feature.description}
-                        icon={feature.icon}
-                        className={index === 1 ? "py-[41px]" : index === 2 ? "py-[46px]" : "py-10"}
-                    />
-                ))}
-            </div>
-        </section>
-    );
+  return (
+    <section className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            What Makes Us{" "}
+            <span className="bg-gradient-to-r from-[#0A65FC] to-blue-600 bg-clip-text text-transparent">
+              Different?
+            </span>
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Discover the unique approach that sets EzyMart apart in
+            revolutionizing local commerce.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {features.map((feature, index) => (
+            <FeatureCard
+              key={index}
+              title={feature.title}
+              description={feature.description}
+              icon={feature.icon}
+              index={index}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 };
