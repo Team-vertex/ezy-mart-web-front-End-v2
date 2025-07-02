@@ -140,9 +140,13 @@ export default function Header() {
 
         {/* Desktop CTA Buttons */}
         <div className="hidden lg:flex items-center space-x-4">
-          <button className="px-4 py-2 text-gray-700 hover:text-[#0A65FC] transition-colors duration-200 font-medium">
+          <a
+            href={routes.demo}
+            className="px-4 py-2 text-gray-700 hover:text-[#0A65FC] transition-colors duration-200 font-medium flex items-center"
+          >
+            <IconPlayerPlay className="w-4 h-4 mr-1" />
             Demo
-          </button>
+          </a>
           <button className="px-6 py-2 bg-[#0A65FC] hover:bg-blue-700 text-white rounded-lg transition-all duration-300 font-medium">
             Start Free
           </button>

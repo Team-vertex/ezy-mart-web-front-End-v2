@@ -1,5 +1,6 @@
 "use client";
 
+import { IconCheck } from "@tabler/icons-react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
@@ -19,37 +20,64 @@ const HeroSection = () => {
   return (
     <section
       ref={ref}
-      className="flex-grow flex flex-col items-center justify-center bg-gradient-to-tr from-[#010916] to-[#053CDF]"
+      className="relative flex-grow flex min-h-[80vh] flex-col items-center justify-center bg-gradient-to-tr from-[#0A65FC] to-blue-600 overflow-hidden"
     >
-      <div className="container flex flex-col items-center justify-center w-full lg:h-[875px] mx-auto pt-36 pb-36 lg:pb-48">
-        <motion.h1
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-3xl md:text-4xl lg:text-6xl font-bold text-center  text-white font-poppins"
-        >
-          Anything, Anywhere
-        </motion.h1>
+      {/* Decorative bubbles */}
+      <div className="absolute inset-0 overflow-hidden">
+        {[...Array(8)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute rounded-full bg-white/10"
+            style={{
+              width: `${Math.random() * 150 + 50}px`,
+              height: `${Math.random() * 150 + 50}px`,
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              animation: `float ${
+                Math.random() * 10 + 15
+              }s infinite ease-in-out`,
+            }}
+          />
+        ))}
+      </div>
 
-        <motion.p
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="mt-6 text-center text-white text-sm md:text-lg lg:text-xl py-0 md:px-5 lg:px-8"
+      <div className="relative z-10 pt-20 container mx-auto px-4 flex flex-col items-center justify-center">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-8"
         >
-          EzyMart makes shopping easier than ever.Search for products near you ,
-          discover local shops, save time,and enjoy a smooth, stress free
-          shopping experience all through one smart app
-        </motion.p>
+          <div className="flex items-center justify-center mb-6">
+            <span className="px-4 py-2 bg-white/20 text-white rounded-full text-sm font-semibold tracking-wide uppercase border border-white/30">
+              For Customers
+            </span>
+          </div>
+
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-center text-white mb-6 leading-tight">
+            Anything,{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-orange-300">
+              Anywhere
+            </span>
+          </h1>
+
+          <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+            EzyMart makes shopping easier than ever. Search for products near
+            you, discover local shops, save time, and enjoy a smooth,
+            stress-free shopping experience all through one smart app.
+          </p>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
-          animate={isInView ? { opacity: 1, scale: 1 } : {}}
+          animate={
+            isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }
+          }
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="grid grid-cols-2 mt-4 lg:grid-cols-4  md:gap-1 lg:text-lg"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-8 w-full max-w-4xl"
         >
           {features.map((text, i) => (
-            <FeatureItem key={i} text={text} icon="/assets/check-icon.png" />
+            <FeatureItem key={i} text={text} delay={i * 0.1} />
           ))}
         </motion.div>
 
@@ -61,36 +89,52 @@ const HeroSection = () => {
             isButtonInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }
           }
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="!z-50 mt-8 px-12 py-2 text-white transition-colors border border-white rounded-full hover:bg-white hover:text-blue-900"
+          className="!z-50 mt-12 px-12 py-4 bg-white text-[#0A65FC] font-bold text-lg rounded-full hover:bg-white/90 transition-all duration-300 transform hover:scale-105 shadow-xl"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
           Get Started
         </motion.button>
       </div>
+
+      {/* CSS for floating animation */}
+      <style>{`
+        @keyframes float {
+          0%,
+          100% {
+            transform: translateY(0) translateX(0);
+          }
+          50% {
+            transform: translateY(-20px) translateX(10px);
+          }
+        }
+        .animation-delay-2000 {
+          animation-delay: 2s;
+        }
+        .animation-delay-4000 {
+          animation-delay: 4s;
+        }
+      `}</style>
     </section>
   );
 };
 
 export const FeatureItem = ({
   text,
-  icon = "",
+  delay = 0,
 }: {
   text: string;
-  icon?: string;
+  delay?: number;
 }) => (
-  <div className="flex items-center gap-1 py-2 px-2 md:px-5 rounded-lg ">
-    {icon && (
-      <img
-        src={"/public/images/CoustomerService/tick-circle.svg"}
-        alt="feature icon"
-        className="w-5 h-5"
-      />
-    )}
-    <p className="text-xs font-georgia text-center text-white md:text-xl lg:text-xl">
-      {text}
-    </p>
-  </div>
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6, delay: 0.5 + delay }}
+    className="flex items-center justify-center text-white gap-2 bg-white/10 backdrop-blur-sm rounded-xl p-3 border border-white/20"
+  >
+    <IconCheck className="w-5 h-5 text-green-300 flex-shrink-0" />
+    <span className="text-sm md:text-base font-medium text-center">{text}</span>
+  </motion.div>
 );
 
 export default HeroSection;

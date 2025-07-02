@@ -67,13 +67,13 @@ export const Contact: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 lg:py-32 bg-gradient-to-br from-gray-900 via-[#0A65FC] to-blue-800 overflow-hidden"
+      className="relative py-20 lg:py-32 bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden"
     >
       {/* Background effects */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full filter blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full filter blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-cyan-500/5 rounded-full filter blur-3xl"></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse animation-delay-2000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-indigo-100 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-pulse animation-delay-4000"></div>
       </div>
 
       <div className="container relative z-10 mx-auto px-4">
@@ -88,19 +88,19 @@ export const Contact: React.FC = () => {
           className="text-center mb-16 lg:mb-20"
         >
           <div className="flex items-center justify-center mb-6">
-            <span className="px-4 py-2 bg-blue-500/20 text-blue-300 rounded-full text-sm font-semibold tracking-wide uppercase border border-blue-500/30">
+            <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold tracking-wide uppercase">
               Get In Touch
             </span>
           </div>
 
-          <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+          <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
             Ready to Transform{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A65FC] to-blue-600">
               Your Business?
             </span>
           </h2>
 
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Join hundreds of Sri Lankan businesses already using EzyMart POS.
             Get started today and see the difference in just 24 hours.
           </p>
@@ -114,31 +114,31 @@ export const Contact: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mb-20"
         >
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-8 lg:p-12 text-center shadow-2xl border border-white/10">
+          <div className="bg-white/70 backdrop-blur-xl rounded-3xl p-8 lg:p-12 text-center shadow-2xl border border-white/20">
             <div className="grid lg:grid-cols-3 gap-8 items-center">
               {/* Left side - Message */}
               <div className="lg:text-left">
-                <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">
+                <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
                   HEARD ENOUGH?
                 </h3>
-                <p className="text-blue-100 text-lg">
+                <p className="text-gray-600 text-lg">
                   Don't wait! Start your POS journey today.
                 </p>
               </div>
 
               {/* Center - Main CTA */}
               <div>
-                <h3 className="text-3xl lg:text-5xl font-bold text-white mb-6">
+                <h3 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6">
                   LET'S TALK
                 </h3>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <button className="group px-8 py-4 bg-white text-blue-600 rounded-xl font-bold text-lg hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                  <button className="group px-8 py-4 bg-gradient-to-r from-[#0A65FC] to-blue-600 text-white rounded-xl font-bold text-lg hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105">
                     <span className="flex items-center justify-center">
                       Book Demo
                       <IconRocket className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </span>
                   </button>
-                  <button className="group px-8 py-4 bg-blue-500/20 text-white border-2 border-white/30 rounded-xl font-bold text-lg hover:bg-blue-500/30 transition-all duration-300 transform hover:scale-105">
+                  <button className="group px-8 py-4 bg-white/60 backdrop-blur-sm text-gray-900 border-2 border-gray-200 hover:border-[#0A65FC] rounded-xl font-bold text-lg hover:bg-white/80 transition-all duration-300 transform hover:scale-105">
                     <span className="flex items-center justify-center">
                       Get Started
                       <IconArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -149,8 +149,8 @@ export const Contact: React.FC = () => {
 
               {/* Right side - Arrow */}
               <div className="lg:text-right">
-                <div className="inline-flex p-4 bg-white/10 rounded-full">
-                  <IconSend className="w-8 h-8 text-white animate-pulse" />
+                <div className="inline-flex p-4 bg-blue-100 rounded-full">
+                  <IconSend className="w-8 h-8 text-[#0A65FC] animate-pulse" />
                 </div>
               </div>
             </div>
@@ -176,17 +176,17 @@ export const Contact: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
               className="group"
             >
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 text-center hover:bg-white/15 transition-all duration-300 border border-white/10 hover:border-white/20">
+              <div className="bg-white/60 backdrop-blur-xl rounded-2xl p-8 text-center hover:bg-white/80 transition-all duration-300 border border-white/30 hover:border-blue-200 shadow-lg hover:shadow-xl">
                 <div
                   className={`inline-flex p-4 ${method.bgColor} rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300`}
                 >
                   <method.icon className={`w-8 h-8 ${method.iconColor}`} />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
                   {method.title}
                 </h3>
-                <p className="text-gray-300 mb-4">{method.description}</p>
-                <p className="text-blue-300 font-semibold mb-6">
+                <p className="text-gray-600 mb-4">{method.description}</p>
+                <p className="text-[#0A65FC] font-semibold mb-6">
                   {method.contact}
                 </p>
                 <button
@@ -219,14 +219,14 @@ export const Contact: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.7 + index * 0.1 }}
               className="text-center"
             >
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300">
-                <div className="inline-flex p-3 bg-blue-500/20 rounded-xl mb-4">
-                  <stat.icon className="w-6 h-6 text-blue-400" />
+              <div className="bg-white/50 backdrop-blur-xl border border-white/30 rounded-2xl p-8 hover:bg-white/70 transition-all duration-300 shadow-lg hover:shadow-xl">
+                <div className="inline-flex p-3 bg-blue-100 rounded-xl mb-4">
+                  <stat.icon className="w-6 h-6 text-[#0A65FC]" />
                 </div>
-                <div className="text-3xl lg:text-4xl font-bold text-white mb-2">
+                <div className="text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
                   {stat.number}
                 </div>
-                <div className="text-gray-300 font-medium">{stat.label}</div>
+                <div className="text-gray-600 font-medium">{stat.label}</div>
               </div>
             </motion.div>
           ))}
@@ -241,18 +241,18 @@ export const Contact: React.FC = () => {
           transition={{ duration: 0.8, delay: 1 }}
           className="text-center mt-16"
         >
-          <p className="text-gray-300 text-lg mb-6">
+          <p className="text-gray-600 text-lg mb-6">
             Questions? Email us at{" "}
             <a
               href="mailto:hello@ezymart.lk"
-              className="text-blue-400 hover:text-blue-300 font-semibold"
+              className="text-[#0A65FC] hover:text-blue-800 font-semibold"
             >
               hello@ezymart.lk
             </a>
           </p>
           <div className="flex items-center justify-center">
-            <IconClock className="w-5 h-5 text-gray-400 mr-2" />
-            <span className="text-gray-400">
+            <IconClock className="w-5 h-5 text-gray-500 mr-2" />
+            <span className="text-gray-500">
               Support available 9AM - 6PM (Mon-Sat)
             </span>
           </div>

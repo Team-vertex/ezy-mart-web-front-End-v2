@@ -14,6 +14,7 @@ export const routes = {
   contactUs: "/details/contact-us",
   aboutUs: "/AboutUs/Index.tsx",
   instructions: "/details/instructions",
+  demo: "/demo",
 };
 
 export const api = {

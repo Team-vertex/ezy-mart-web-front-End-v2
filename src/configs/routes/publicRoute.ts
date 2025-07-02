@@ -38,6 +38,11 @@ const projectRoute: Route[] = [
     path: routes.instructions,
     component: lazy(() => import("@/pages/public/Details/Instructions")),
   },
+  {
+    key: "/demo",
+    path: routes.demo,
+    component: lazy(() => import("@/pages/public/Demo/index")),
+  },
 ];
 
 export default projectRoute;

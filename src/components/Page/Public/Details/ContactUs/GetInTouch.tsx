@@ -1,87 +1,130 @@
-import React from "react";
+import {
+  IconClock,
+  IconMail,
+  IconMapPin,
+  IconPhone,
+} from "@tabler/icons-react";
+import { motion, useInView } from "framer-motion";
+import React, { useRef } from "react";
 
 const GetInTouch: React.FC = () => {
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
+
+  const contactInfo = [
+    {
+      icon: IconPhone,
+      title: "Phone Numbers",
+      details: ["+94 71 895 9403", "+94 71 895 9403"],
+      color: "from-[#0A65FC] to-blue-600",
+    },
+    {
+      icon: IconMapPin,
+      title: "Address",
+      details: ["Anuradhapura Road,", "Eriyagama, Malwanegama"],
+      color: "from-blue-500 to-blue-600",
+    },
+    {
+      icon: IconMail,
+      title: "Email",
+      details: ["support@ezymart.lk", "info@ezymart.lk"],
+      color: "from-blue-600 to-blue-700",
+    },
+    {
+      icon: IconClock,
+      title: "Business Hours",
+      details: ["Mon - Fri: 9:00 AM - 6:00 PM", "Sat: 9:00 AM - 4:00 PM"],
+      color: "from-blue-700 to-blue-800",
+    },
+  ];
+
   return (
-    <div className="w-full bg-white py-16 px-4 md:px-8 lg:px-16">
-      <div className="container mx-auto flex flex-col lg:flex-row items-start justify-between">
-        {/* Left Section - Text */}
-        <div className="lg:w-1/2 mb-8 lg:mb-0">
-          <h2 className="text-5xl font-bold mb-6">
-            <span className="text-gray-900">Get In </span>
-            <span className="text-blue-600">Touch</span>
-          </h2>
-          <p className="text-gray-700 text-lg max-w-lg">
-            Let's connect and make your experience even better. Whether you're a
-            shopper or a business, we're just a message away.
-          </p>
-        </div>
+    <section
+      ref={sectionRef}
+      className="bg-gradient-to-br from-blue-50 via-white to-blue-50 py-20 lg:py-32 relative overflow-hidden"
+    >
+      {/* Background decorations */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 left-0 w-96 h-96 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-pulse animation-delay-2000"></div>
+      </div>
 
-        {/* Right Section - Contact Info */}
-        <div className="lg:w-1/2 flex flex-col space-y-8 ">
-          {/* Phone Numbers */}
-          <div className="flex items-center">
-            <div className="bg-blue-600 p-4 rounded-lg mr-6">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-8 w-8 text-white"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 md:px-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* Left Section - Text */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+            transition={{ duration: 0.8 }}
+            className="space-y-8"
+          >
+            <div className="space-y-6">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={
+                  isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                }
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="inline-flex px-4 py-2 bg-blue-100 text-[#0A65FC] rounded-full text-sm font-semibold tracking-wide uppercase"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                />
-              </svg>
-            </div>
-            <div>
-              <p className="text-gray-800 text-lg font-medium">
-                +94 71 895 9403
-              </p>
-              <p className="text-gray-800 text-lg font-medium mt-1">
-                +94 71 895 9403
-              </p>
-            </div>
-          </div>
+                Contact Information
+              </motion.div>
 
-          {/* Address */}
-          <div className="flex items-center">
-            <div className="bg-blue-600 p-4 rounded-lg mr-6">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-8 w-8 text-white"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                <span className="text-gray-900">Get In </span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A65FC] to-blue-600">
+                  Touch
+                </span>
+              </h2>
+
+              <p className="text-gray-600 text-lg lg:text-xl leading-relaxed">
+                Let's connect and make your experience even better. Whether
+                you're a shopper or a business, we're just a message away.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Right Section - Contact Info Grid */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="grid grid-cols-1 sm:grid-cols-2 gap-6"
+          >
+            {contactInfo.map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 30 }}
+                animate={
+                  isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
+                }
+                transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
+                className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 hover:border-blue-200 group hover:scale-105"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                />
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                />
-              </svg>
-            </div>
-            <div>
-              <p className="text-gray-800 text-lg font-medium">
-                Anuradhapura Road,
-              </p>
-              <p className="text-gray-800 text-lg font-medium mt-1">
-                Eriyagama, Malwanegama
-              </p>
-            </div>
-          </div>
+                <div
+                  className={`w-14 h-14 bg-gradient-to-r ${item.color} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}
+                >
+                  <item.icon className="w-7 h-7 text-white" />
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-3">
+                  {item.title}
+                </h3>
+                <div className="space-y-1">
+                  {item.details.map((detail, i) => (
+                    <p
+                      key={i}
+                      className="text-gray-600 text-sm leading-relaxed"
+                    >
+                      {detail}
+                    </p>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -1,25 +1,87 @@
+import {
+  IconBook,
+  IconHelp,
+  IconPlayerPlay,
+  IconUsers,
+} from "@tabler/icons-react";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+
 export default function GuidanceSection() {
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
+
+  const features = [
+    {
+      icon: IconBook,
+      title: "Step-by-Step Guide",
+      description: "Easy to follow instructions for every feature",
+    },
+    {
+      icon: IconPlayerPlay,
+      title: "Video Tutorials",
+      description: "Watch detailed video guides for visual learning",
+    },
+    {
+      icon: IconUsers,
+      title: "Community Support",
+      description: "Join our community for tips and best practices",
+    },
+    {
+      icon: IconHelp,
+      title: "24/7 Help Center",
+      description: "Get help whenever you need it from our experts",
+    },
+  ];
+
   return (
-    <section className="w-full min-h-[600px] bg-[url('/images/Public/instructionsbg.svg')] bg-cover bg-center bg-no-repeat">
-      {/* Content */}
-      <div className="py-16 sm:py-20 md:py-24 ">
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 md:px-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Left Content */}
-            <div className="space-y-8">
+    <section
+      ref={sectionRef}
+      className="bg-gradient-to-br from-blue-50 via-white to-blue-50 py-20 lg:py-32 relative overflow-hidden"
+    >
+      {/* Background decorations */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 left-0 w-96 h-96 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-pulse animation-delay-2000"></div>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 md:px-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+            transition={{ duration: 0.8 }}
+            className="space-y-8"
+          >
+            <div className="space-y-6">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={
+                  isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                }
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="inline-flex px-4 py-2 bg-blue-100 text-[#0A65FC] rounded-full text-sm font-semibold tracking-wide uppercase"
+              >
+                Learning Made Easy
+              </motion.div>
+
               <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                <span className="text-[#4A90E2]">Guidance</span> to Start
-                Learning <span className="block">Process</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A65FC] to-blue-600">
+                  Guidance
+                </span>{" "}
+                to Start Learning <span className="block">Process</span>
               </h2>
+
               <div className="space-y-4">
-                <p className="text-gray-600 text-lg leading-relaxed">
+                <p className="text-gray-600 text-lg lg:text-xl leading-relaxed">
                   EzyMart helps small and mid-level business owners and
                   customers in Sri Lanka. We make it easy to manage shops and
                   find products nearby.
                 </p>
-                <div className="space-y-2">
+                <div className="space-y-3 p-6 bg-white rounded-2xl shadow-lg border border-blue-100">
                   <p className="text-gray-700 font-medium">
-                    <span className="text-gray-900 font-semibold">
+                    <span className="font-bold text-[#0A65FC]">
                       Instructions:
                     </span>{" "}
                     First, Read titles and find the video
@@ -30,20 +92,49 @@ export default function GuidanceSection() {
                   </p>
                 </div>
               </div>
-              <button className="bg-[#4A90E2] hover:bg-[#2C5AA0] text-white px-10 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:shadow-lg transform hover:scale-105">
-                Get Started
-              </button>
             </div>
 
-            {/* Right Illustration */}
-            <div className="relative">
-              <img
-                src="/public/images/Public/meet-our-team-concept-landing-page 1.svg"
-                alt="Learning guidance illustration showing people collaborating"
-                className="w-full h-full object-contain"
-              />
-            </div>
-          </div>
+            <motion.button
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-gradient-to-r from-[#0A65FC] to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-10 py-4 rounded-full font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-blue-500/25"
+            >
+              Get Started
+            </motion.button>
+          </motion.div>
+
+          {/* Right Content - Feature Grid */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="grid grid-cols-1 sm:grid-cols-2 gap-6"
+          >
+            {features.map((feature, index) => (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 30 }}
+                animate={
+                  isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
+                }
+                transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
+                className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-100 hover:border-blue-200 group hover:scale-105"
+              >
+                <div className="w-12 h-12 bg-gradient-to-r from-[#0A65FC] to-blue-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <feature.icon className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {feature.description}
+                </p>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>

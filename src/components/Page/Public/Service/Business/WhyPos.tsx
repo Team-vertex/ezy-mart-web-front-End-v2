@@ -1,153 +1,167 @@
-import React from "react";
+import {
+  IconArrowRight,
+  IconClock,
+  IconHeart,
+  IconTrendingUp,
+} from "@tabler/icons-react";
+import { motion, useInView } from "framer-motion";
+import React, { useRef } from "react";
 
 export const WhyPos: React.FC = () => {
-  //MARK: Render
-  return (
-    <section className="bg-white py-14 lg:py-20 overflow-hidden relative">
-      {/* Background decoration */}
-      <div className="absolute -top-24 -right-24 w-64 h-64 bg-blue-50 rounded-full opacity-50 blur-3xl"></div>
-      <div className="absolute -bottom-32 -left-32 w-80 h-80 bg-indigo-50 rounded-full opacity-40 blur-3xl"></div>
+  const sectionRef = useRef(null);
+  const headingRef = useRef(null);
+  const cardsRef = useRef(null);
+  const ctaRef = useRef(null);
 
-      <div className="container mx-auto flex flex-col items-center justify-center px-4 md:px-6 relative z-10">
-        {/* Enhanced Title Section */}
-        <div className="inline-block mb-2 px-4 py-1 bg-blue-50 rounded-full text-blue-600 text-sm font-medium">
-          Exclusively For Small Business Owners
-        </div>
-        <h2 className="text-3xl lg:text-5xl font-bold text-center bg-clip-text">
-          Why EzyMart <span className="text-[#0A65FC] font-bold">POS?</span>
-        </h2>
-        <p className="text-base lg:text-lg text-gray-700 text-center max-w-3xl mt-4 mb-10 lg:mb-16">
-          Unlike generic solutions, EzyMart POS is{" "}
-          <span className="font-semibold">specifically crafted</span> for shop
-          owners who value simplicity and efficiency. Experience business
-          management that's not just easier—it's{" "}
-          <span className="font-semibold text-[#0A65FC]">
-            uniquely tailored
-          </span>
-          to how you work.
-        </p>
+  const isHeadingInView = useInView(headingRef, { once: true, amount: 0.5 });
+  const isCardsInView = useInView(cardsRef, { once: true, amount: 0.3 });
+  const isCtaInView = useInView(ctaRef, { once: true, amount: 0.5 });
+
+  const features = [
+    {
+      icon: IconTrendingUp,
+      badge: "EXCLUSIVE",
+      title: "No Initial Cost",
+      subtitle:
+        "Unlike competitors with high startup fees - we charge nothing to begin.",
+      description:
+        "Start using EzyMart POS with zero cost — our revolutionary approach gives small businesses enterprise-level tools without the enterprise price tag.",
+      gradient: "from-blue-50 to-blue-100",
+      iconBg: "bg-blue-100",
+      iconColor: "text-[#0A65FC]",
+    },
+    {
+      icon: IconClock,
+      badge: "STANDOUT FEATURE",
+      title: "Unmatched Simplicity",
+      subtitle:
+        "While others offer complexity - we deliver intuitive design anyone can master in minutes.",
+      description:
+        "Our proprietary interface is designed specifically for retailers who value their time. Learn once, use forever - with virtually no learning curve.",
+      gradient: "from-blue-50 to-blue-100",
+      iconBg: "bg-blue-100",
+      iconColor: "text-[#0A65FC]",
+    },
+    {
+      icon: IconHeart,
+      badge: "INDUSTRY-LEADING",
+      title: "Dedicated Support Team",
+      subtitle:
+        "When others offer chatbots - we give you real humans committed to your success.",
+      description:
+        "Our support team consists of retail experts, not just tech support. Get business advice alongside technical help - a service no other POS provider offers.",
+      gradient: "from-indigo-50 to-blue-100",
+      iconBg: "bg-blue-100",
+      iconColor: "text-[#0A65FC]",
+    },
+  ];
+
+  return (
+    <section
+      ref={sectionRef}
+      className="relative py-20 lg:py-32 bg-white overflow-hidden"
+    >
+      {/* Background decorations */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-50 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-50 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse animation-delay-2000"></div>
+      </div>
+
+      <div className="container relative z-10 mx-auto px-4">
+        {/* Section Header */}
+        <motion.div
+          ref={headingRef}
+          initial={{ opacity: 0, y: 30 }}
+          animate={
+            isHeadingInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
+          }
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <div className="flex items-center justify-center mb-6">
+            <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold tracking-wide uppercase">
+              Exclusively For Small Business Owners
+            </span>
+          </div>
+
+          <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+            Why EzyMart{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A65FC] to-blue-600">
+              POS?
+            </span>
+          </h2>
+
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Unlike generic solutions, EzyMart POS is{" "}
+            <span className="font-semibold">specifically crafted</span> for shop
+            owners who value simplicity and efficiency. Experience business
+            management that's not just easier—it's{" "}
+            <span className="font-semibold text-[#0A65FC]">
+              uniquely tailored
+            </span>{" "}
+            to how you work.
+          </p>
+        </motion.div>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-6 w-full">
-          {/* No Initial Cost Card - Enhanced */}
-          <div className="feature-card group bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden transform hover:-translate-y-1 border border-transparent hover:border-blue-200">
-            <div className="absolute top-3 right-3">
-              <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded-full">
-                EXCLUSIVE
-              </span>
-            </div>
-            <div className="absolute right-0 bottom-0 w-32 h-32 opacity-20 text-blue-300">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-                />
-              </svg>
-            </div>
-            <h3 className="text-2xl font-bold text-gray-800 mb-3">
-              No Initial Cost
-            </h3>
-            <p className="text-gray-600 mb-4">
-              <span className="font-medium">
-                Unlike competitors with high startup fees
-              </span>{" "}
-              - we charge nothing to begin.
-            </p>
-            <p className="text-gray-600">
-              Start using EzyMart POS with zero cost — our revolutionary
-              approach gives small businesses enterprise-level tools without the
-              enterprise price tag.
-            </p>
-          </div>
+        <motion.div
+          ref={cardsRef}
+          initial={{ opacity: 0, y: 40 }}
+          animate={isCardsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
+        >
+          {features.map((feature, index) => (
+            <motion.div
+              key={feature.title}
+              initial={{ opacity: 0, y: 30 }}
+              animate={
+                isCardsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
+              }
+              transition={{ duration: 0.6, delay: 0.4 + index * 0.2 }}
+              className={`relative bg-gradient-to-br ${feature.gradient} p-8 rounded-3xl shadow-xl border border-blue-100 hover:shadow-2xl transition-all duration-300 hover:scale-105 group overflow-hidden`}
+            >
+              {/* Icon */}
+              <div className="mb-6">
+                <div
+                  className={`inline-flex p-4 ${feature.iconBg} rounded-2xl`}
+                >
+                  <feature.icon className={`w-8 h-8 ${feature.iconColor}`} />
+                </div>
+              </div>
 
-          {/* Ease of Use Card - Enhanced */}
-          <div className="feature-card group bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden transform hover:-translate-y-1 border border-transparent hover:border-blue-200">
-            <div className="absolute top-3 right-3">
-              <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded-full">
-                STANDOUT FEATURE
-              </span>
-            </div>
-            <div className="absolute right-0 bottom-0 w-32 h-32 opacity-20 text-blue-300">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-            </div>
-            <h3 className="text-2xl font-bold text-gray-800 mb-3">
-              Unmatched Simplicity
-            </h3>
-            <p className="text-gray-600 mb-4">
-              <span className="font-medium">While others offer complexity</span>{" "}
-              - we deliver intuitive design anyone can master in minutes.
-            </p>
-            <p className="text-gray-600">
-              Our proprietary interface is designed specifically for retailers
-              who value their time. Learn once, use forever - with virtually no
-              learning curve.
-            </p>
-          </div>
+              {/* Content */}
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-700 font-medium mb-4">
+                  {feature.subtitle}
+                </p>
+                <p className="text-gray-600 leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
 
-          {/* Lifetime Support Card - Enhanced */}
-          <div className="feature-card group bg-gradient-to-br from-indigo-50 to-blue-100 p-6 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden transform hover:-translate-y-1 border border-transparent hover:border-blue-200">
-            <div className="absolute top-3 right-3">
-              <span className="bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded-full">
-                INDUSTRY-LEADING
-              </span>
-            </div>
-            <div className="absolute right-0 bottom-0 w-32 h-32 opacity-20 text-blue-300">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"
-                />
-              </svg>
-            </div>
-            <h3 className="text-2xl font-bold text-gray-800 mb-3">
-              Dedicated Support Team
-            </h3>
-            <p className="text-gray-600 mb-4">
-              <span className="font-medium">When others offer chatbots</span> -
-              we give you real humans committed to your success.
-            </p>
-            <p className="text-gray-600">
-              Our support team consists of retail experts, not just tech
-              support. Get business advice alongside technical help - a service
-              no other POS provider offers.
-            </p>
-          </div>
-        </div>
+              {/* Hover effect gradient */}
+              <div className="absolute inset-0 bg-gradient-to-br from-transparent to-blue-50/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+            </motion.div>
+          ))}
+        </motion.div>
 
         {/* Social Proof */}
-        <div className="mt-12 px-6 py-5 bg-gray-50 rounded-xl max-w-2xl mx-auto">
-          <div className="flex items-center mb-3">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isCardsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.8, delay: 1 }}
+          className="mt-16 px-8 py-6 bg-gradient-to-r from-gray-50 to-blue-50 rounded-3xl max-w-4xl mx-auto border border-gray-100"
+        >
+          <div className="flex items-center justify-center mb-4">
             <div className="flex">
               {[1, 2, 3, 4, 5].map((star) => (
                 <svg
                   key={star}
-                  className="w-5 h-5 text-yellow-400"
+                  className="w-6 h-6 text-yellow-400"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -155,45 +169,44 @@ export const WhyPos: React.FC = () => {
                 </svg>
               ))}
             </div>
-            <span className="ml-2 text-sm font-medium text-gray-500">
+            <span className="ml-3 text-sm font-semibold text-gray-600">
               Trusted by 2,000+ shop owners
             </span>
           </div>
-          <p className="italic text-gray-600">
-            "After trying 3 different POS systems, EzyMart is the only one that
-            truly understands what small retailers need. It's like it was made
-            specifically for my business."
-          </p>
-          <p className="mt-2 font-medium">— Sarah T., Boutique Owner</p>
-        </div>
+          <blockquote className="text-center">
+            <p className="text-lg italic text-gray-700 mb-4">
+              "After trying 3 different POS systems, EzyMart is the only one
+              that truly understands what small retailers need. It's like it was
+              made specifically for my business."
+            </p>
+            <cite className="font-semibold text-gray-900">
+              — Sarah T., Boutique Owner
+            </cite>
+          </blockquote>
+        </motion.div>
 
-        {/* Enhanced Call to action section */}
-        <div className="mt-12 lg:mt-16 flex flex-col sm:flex-row items-center gap-4">
-          <button className="bg-[#0A65FC] hover:bg-blue-700 text-white font-medium py-3 px-8 rounded-full transition-colors duration-300 flex items-center gap-2 group">
-            Start Your Free Setup
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 group-hover:translate-x-1 transition-transform"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M13 7l5 5m0 0l-5 5m5-5H6"
-              />
-            </svg>
-          </button>
-          <button className="text-[#0A65FC] hover:text-blue-800 font-medium py-3 px-6 border border-blue-200 hover:border-blue-400 rounded-full transition-colors duration-300">
-            Schedule a Demo
-          </button>
-        </div>
-        <p className="text-sm text-gray-500 mt-4">
-          Join the community of shop owners who've upgraded to the smarter way
-          to run their business
-        </p>
+        {/* CTA Section */}
+        <motion.div
+          ref={ctaRef}
+          initial={{ opacity: 0, y: 30 }}
+          animate={isCtaInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-center mt-16"
+        >
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <button className="px-8 py-4 bg-gradient-to-r from-[#0A65FC] to-blue-600 text-white font-bold text-lg rounded-full hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 flex items-center">
+              Start Your Free Setup
+              <IconArrowRight className="ml-2 w-5 h-5" />
+            </button>
+            <button className="px-8 py-4 text-[#0A65FC] font-semibold border-2 border-blue-200 hover:border-[#0A65FC] rounded-full transition-all duration-300 hover:bg-blue-50">
+              Schedule a Demo
+            </button>
+          </div>
+          <p className="text-gray-500 mt-6 max-w-2xl mx-auto">
+            Join the community of shop owners who've upgraded to the smarter way
+            to run their business
+          </p>
+        </motion.div>
       </div>
     </section>
   );

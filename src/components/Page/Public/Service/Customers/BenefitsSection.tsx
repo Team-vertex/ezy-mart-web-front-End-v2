@@ -1,117 +1,164 @@
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 interface BenefitCardProps {
   imageSrc: string;
   title: string;
   description: string;
+  index: number;
 }
 
-const BenefitCard = ({ imageSrc, title, description }: BenefitCardProps) => (
-  <motion.div
-    className="flex flex-col grow self-stretch w-full sm:max-w-[300px] md:max-w-[340px] lg:max-w-[360px] xl:max-w-[400px] mx-auto "
-    initial={{ opacity: 0, y: 50 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, margin: "-50px" }}
-    transition={{ duration: 0.9 }}
-  >
-    <img
-      src={imageSrc}
-      alt={title}
-      className="self-center object-contain w-24 h-24"
-    />
-    <div className="flex flex-col w-full text-center mt-14">
-      <h3 className="font-bold text-sm md:text-lg text-slate-900">{title}</h3>
-      <p className="mt-2 px-4 md:px-4 lg:px-1 text-xs md:text-sm lg:text-lg text-black">
-        {description}
-      </p>
-    </div>
-  </motion.div>
-);
-
-const BenefitsSection = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { y: 50, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-  };
+const BenefitCard = ({
+  imageSrc,
+  title,
+  description,
+  index,
+}: BenefitCardProps) => {
+  const cardRef = useRef(null);
+  const isInView = useInView(cardRef, { once: true, amount: 0.3 });
 
   return (
-    <motion.section
-      className="w-full px-4 py-16 bg-white md:py-24 "
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
-      variants={containerVariants}
+    <motion.div
+      ref={cardRef}
+      initial={{ opacity: 0, y: 30 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      className="bg-white rounded-3xl p-8 shadow-xl border border-blue-100 hover:shadow-2xl transition-all duration-300 hover:scale-105 group relative overflow-hidden"
     >
-      <motion.div
-        className="max-w-5xl mx-auto text-center "
-        variants={itemVariants}
-      >
-        <h2 className="font-bold text-center text-xl md:text-3xl lg:text-4xl text-slate-900">
-          Make{" "}
-          <span className="text-[#0A65FC] mt-11 font-georgia">Life Easier</span>{" "}
-          with EzyMart
-        </h2>
-        <p className="max-w-2xl mx-auto mt-4 md:mt-6 text-black text-xs md:text-sm lg:text-lg text-center">
-          Shopping doesn't have to be stressful. With EzyMart, you can find what
-          you need, when you need it, all while saving time, energy, and money.
-        </p>
-      </motion.div>
-
-      <motion.div
-        className="grid justify-center max-w-6xl grid-cols-1 gap-10 p-[10px] mx-auto mt-16 sm:grid-cols-2 lg:grid-cols-3"
-        variants={itemVariants}
-      >
-        <BenefitCard
-          imageSrc="/images/CoustomerService/search(1).svg"
-          title="Find Nearby Stores Instantly"
-          description="Quickly discover the closest stores around you with real-time location tracking—no more wandering or guessing."
-        />
-        <BenefitCard
-          imageSrc="/images/CoustomerService/browsing.svg"
-          title="Search Products with Ease"
-          description="Easily search and filter products by name, brand, or category to find exactly what you need in seconds."
-        />
-
-        <div className="flex justify-center sm:col-span-2 md:col-span-2 lg:col-span-1">
-          <BenefitCard
-            imageSrc="/images/CoustomerService/brain.svg"
-            title="Compare Options in One Place"
-            description="View prices, offers, and product availability from multiple stores so you can make the smartest choice every time."
+      {/* Icon Container */}
+      <div className="mb-6 flex justify-center">
+        <div className="bg-blue-50 p-4 rounded-2xl group-hover:bg-blue-100 transition-colors duration-300">
+          <img
+            src={imageSrc}
+            alt={title}
+            className="w-16 h-16 object-contain"
           />
         </div>
+      </div>
 
-        {/* Wrap the last two cards in a flex container to center them */}
-        <div className="flex flex-wrap justify-center gap-10 text-xl sm:col-span-2 lg:col-span-3">
-          <BenefitCard
-            imageSrc="/images/CoustomerService/on-time.svg"
-            title="Save Time & Money"
-            description="Plan your shopping efficiently with detailed store information, reducing unnecessary trips and long waits."
-          />
-          <BenefitCard
-            imageSrc="/images/CoustomerService/happy-face.svg"
-            title="Stress Free Shopping Experience"
-            description="Say goodbye to the frustration of endless searching. EzyMart helps you shop confidently and hassle-free, anytime and anywhere."
-          />
-        </div>
-      </motion.div>
-    </motion.section>
+      {/* Content */}
+      <div className="text-center">
+        <h3 className="text-2xl font-bold text-gray-900 mb-4">{title}</h3>
+        <p className="text-gray-600 leading-relaxed">{description}</p>
+      </div>
+
+      {/* Hover effect gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-transparent to-blue-50/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+    </motion.div>
+  );
+};
+
+const BenefitsSection = () => {
+  const sectionRef = useRef(null);
+  const headingRef = useRef(null);
+  const cardsRef = useRef(null);
+
+  const isHeadingInView = useInView(headingRef, { once: true, amount: 0.5 });
+  const isCardsInView = useInView(cardsRef, { once: true, amount: 0.3 });
+
+  const benefits = [
+    {
+      imageSrc: "/images/CoustomerService/search(1).svg",
+      title: "Find Nearby Stores Instantly",
+      description:
+        "Quickly discover the closest stores around you with real-time location tracking—no more wandering or guessing.",
+    },
+    {
+      imageSrc: "/images/CoustomerService/browsing.svg",
+      title: "Search Products with Ease",
+      description:
+        "Easily search and filter products by name, brand, or category to find exactly what you need in seconds.",
+    },
+    {
+      imageSrc: "/images/CoustomerService/brain.svg",
+      title: "Compare Options in One Place",
+      description:
+        "View prices, offers, and product availability from multiple stores so you can make the smartest choice every time.",
+    },
+    {
+      imageSrc: "/images/CoustomerService/on-time.svg",
+      title: "Save Time & Money",
+      description:
+        "Plan your shopping efficiently with detailed store information, reducing unnecessary trips and long waits.",
+    },
+    {
+      imageSrc: "/images/CoustomerService/happy-face.svg",
+      title: "Stress Free Shopping Experience",
+      description:
+        "Say goodbye to the frustration of endless searching. EzyMart helps you shop confidently and hassle-free, anytime and anywhere.",
+    },
+  ];
+
+  return (
+    <section
+      ref={sectionRef}
+      className="relative py-20 lg:py-32 bg-gradient-to-br from-blue-50 via-white to-blue-50 overflow-hidden"
+    >
+      {/* Background decorations */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse animation-delay-2000"></div>
+      </div>
+
+      <div className="container relative z-10 mx-auto px-4">
+        {/* Section Header */}
+        <motion.div
+          ref={headingRef}
+          initial={{ opacity: 0, y: 30 }}
+          animate={
+            isHeadingInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
+          }
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <div className="flex items-center justify-center mb-6">
+            <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold tracking-wide uppercase">
+              Customer Benefits
+            </span>
+          </div>
+
+          <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+            Make{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A65FC] to-blue-600">
+              Life Easier
+            </span>{" "}
+            with EzyMart
+          </h2>
+
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Shopping doesn't have to be stressful. With EzyMart, you can find
+            what you need, when you need it, all while saving time, energy, and
+            money.
+          </p>
+        </motion.div>
+
+        {/* Benefits Grid */}
+        <motion.div
+          ref={cardsRef}
+          initial={{ opacity: 0, y: 40 }}
+          animate={isCardsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
+        >
+          {benefits.map((benefit, index) => (
+            <BenefitCard
+              key={index}
+              imageSrc={benefit.imageSrc}
+              title={benefit.title}
+              description={benefit.description}
+              index={index}
+            />
+          ))}
+        </motion.div>
+      </div>
+
+      {/* CSS for animation delays */}
+      <style>{`
+        .animation-delay-2000 {
+          animation-delay: 2s;
+        }
+      `}</style>
+    </section>
   );
 };
 

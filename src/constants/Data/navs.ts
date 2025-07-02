@@ -19,6 +19,10 @@ export const navItems: NavItem[] = [
     ],
   },
   {
+    name: "Demo",
+    href: routes.demo,
+  },
+  {
     name: "Instruction",
     href: routes.instructions,
   },
