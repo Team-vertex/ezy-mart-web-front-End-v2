@@ -1,5 +1,6 @@
 import { navItems } from "@/constants/Data/navs";
 import { routes } from "@/constants/route";
+import { Image } from "@mantine/core";
 import {
   IconChevronDown,
   IconExternalLink,
@@ -76,12 +77,13 @@ export default function Header() {
         {/* Logo */}
         <div className="flex items-center">
           <a href={routes.home} className="flex items-center space-x-2 group">
-            <div className="w-8 h-8 bg-[#0A65FC] rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">E</span>
-            </div>
-            <div className="hidden sm:block">
-              <h1 className="text-lg font-bold text-gray-900">EzyMart</h1>
-            </div>
+            <Image
+              src="/images/logo-dark.png"
+              alt="EzyMart Logo"
+              width={32}
+              height={32}
+              className="transition-transform duration-200 group-hover:scale-110 w-16 h-16"
+            />
           </a>
         </div>
 
