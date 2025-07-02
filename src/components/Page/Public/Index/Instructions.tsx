@@ -1,63 +1,329 @@
-import React from "react";
+import {
+  IconArrowRight,
+  IconCheck,
+  IconRocket,
+  IconShoppingBag,
+  IconStar,
+  IconUsers,
+} from "@tabler/icons-react";
+import { motion, useInView } from "framer-motion";
+import React, { useRef } from "react";
 
 export const Instructions: React.FC = () => {
-  return (
-    <section className="bg-[#E6EFFF] py-14 lg:py-10">
-      <div className="container mx-auto">
-        <div className="grid grid-cols-1 gap-8 mb-10 lg:grid-cols-2">
-          <div>
-            <h2 className="text-3xl lg:text-5xl font-bold text-[#15366B] mb-4">
-              Best{" "}
-              <span className="text-[#0A65FC] font-georgia">Instructions</span>
-            </h2>
-            <p className="text-lg text-[#15366B]">
-              EzyMart helps small and mid-level business owners and customers in
-              Sri Lanka. We make it easy to manage shops and find products
-              nearby. <br />
-              Don't worry about technical knowledge — we guide you through
-              everything, and the system is designed to be simple and easy to
-              use.
-            </p>
-          </div>
-        </div>
+  // MARK: Refs
+  const sectionRef = useRef(null);
+  const headingRef = useRef(null);
+  const contentRef = useRef(null);
+  const cardsRef = useRef(null);
 
-        <div className="grid items-center justify-center grid-cols-1 gap-8 lg:grid-cols-3">
-          <div className="flex flex-col h-auto lg:col-span-2 p-4 bg-white border border-[#0A1A33] rounded-xl">
-            <img
-              src="/stock/male-female-office-workers 2.png"
-              alt="Vertex Cooperation"
-              className="object-cover w-full h-full rounded-lg max-h-80"
-            />
-            <div className="grid items-center justify-between grid-cols-1 mt-4 lg:grid-cols-8">
-              <h2 className="text-xl font-normal text-black lg:col-span-4 lg:text-2xl">
-                Understand Need,Clear Instruction.
-              </h2>
-              <div className="lg:col-span-1" />
-              <p className="lg:col-span-3 text-[#737373] text-sm lg:text-base">
-                we guide you through everything, and the system is designed to
-                be simple and easy to use.
+  // MARK: Elements
+  const isSectionInView = useInView(sectionRef, { once: true, amount: 0.3 });
+  const isHeadingInView = useInView(headingRef, { once: true, amount: 0.5 });
+  const isContentInView = useInView(contentRef, { once: true, amount: 0.3 });
+  const isCardsInView = useInView(cardsRef, { once: true, amount: 0.3 });
+
+  const features = [
+    "Simple setup process",
+    "No technical knowledge required",
+    "Comprehensive training provided",
+    "Step-by-step guidance",
+  ];
+
+  const userTypes = [
+    {
+      icon: IconUsers,
+      title: "For Customers",
+      description:
+        "Find nearby stores, compare prices, and discover the best products in your area with our intuitive customer app.",
+      features: [
+        "Store locator & navigation",
+        "Price comparison tools",
+        "Product reviews & ratings",
+        "Order tracking & history",
+      ],
+      gradient: "from-[#0A65FC] to-blue-700",
+    },
+    {
+      icon: IconShoppingBag,
+      title: "For Business",
+      description:
+        "Streamline your operations with our comprehensive POS system designed specifically for local businesses.",
+      features: [
+        "Inventory management",
+        "Sales analytics & reports",
+        "Customer management",
+        "Payment processing",
+      ],
+      gradient: "from-[#0A65FC] to-blue-700",
+    },
+  ];
+
+  return (
+    <section
+      ref={sectionRef}
+      className="py-16 lg:py-24 bg-white relative overflow-hidden"
+    >
+      {/* Background Elements */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(10,101,252,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(10,101,252,0.05)_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+        <div className="absolute top-10 left-10 w-64 h-64 bg-[#0A65FC]/10 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
+        <div className="absolute bottom-10 right-10 w-64 h-64 bg-[#0A65FC]/10 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse animation-delay-2000"></div>
+      </div>
+
+      <div className="relative container mx-auto px-6 lg:px-8 max-w-7xl">
+        {/* Section Header */}
+        <motion.div
+          ref={headingRef}
+          initial={{ opacity: 0, y: 30 }}
+          animate={
+            isHeadingInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
+          }
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16 lg:mb-20"
+        >
+          <div className="inline-flex items-center px-4 py-2 bg-[#0A65FC]/10 text-[#0A65FC] text-sm font-medium rounded-full mb-6">
+            Getting Started
+          </div>
+          <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6">
+            Simple{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A65FC] to-blue-700">
+              Instructions
+            </span>{" "}
+            for Everyone
+          </h2>
+          <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            EzyMart is designed with simplicity in mind. Whether you're a
+            business owner or a customer, getting started is straightforward and
+            hassle-free.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-16 lg:mb-20">
+          {/* Content Section */}
+          <motion.div
+            ref={contentRef}
+            initial={{ opacity: 0, x: -50 }}
+            animate={
+              isContentInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }
+            }
+            transition={{ duration: 0.8 }}
+            className="space-y-8"
+          >
+            <div className="space-y-6">
+              <h3 className="text-2xl lg:text-3xl font-bold text-gray-900">
+                Clear Instructions,{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+                  Real Results
+                </span>
+              </h3>
+
+              <p className="text-lg text-gray-600 leading-relaxed">
+                We understand that not everyone is tech-savvy, which is why
+                we've made EzyMart as intuitive as possible. Our comprehensive
+                onboarding process ensures you're comfortable using the system
+                from day one.
               </p>
             </div>
-          </div>
-          <div className="flex flex-col gap-10 px-4 py-24 bg-white max-h-none rounded-xl">
-            <div className="flex flex-row items-center justify-start gap-4 p-2 pl-8 border border-black rounded-lg">
-              <img
-                src="/vectors/vector1.svg"
-                alt="Vertex Cooperation"
-                className="object-cover w-12 h-12 rounded-lg"
-              />
-              <p className="text-xl text-black lg:text-2xl">For Customers</p>
+
+            {/* Features List */}
+            <div className="space-y-4">
+              {features.map((feature, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={
+                    isContentInView
+                      ? { opacity: 1, x: 0 }
+                      : { opacity: 0, x: 20 }
+                  }
+                  transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
+                  className="flex items-center space-x-3"
+                >
+                  <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <IconCheck className="w-4 h-4 text-green-600" />
+                  </div>
+                  <span className="text-gray-700 font-medium">{feature}</span>
+                </motion.div>
+              ))}
             </div>
-            <div className="flex flex-row items-center justify-start gap-4 p-2 pl-8 border border-black rounded-lg">
-              <img
-                src="/vectors/vector2.svg"
-                alt="Vertex Cooperation"
-                className="object-cover w-12 h-12 rounded-lg"
-              />
-              <p className="text-xl text-black lg:text-2xl">For Business</p>
+
+            {/* Stats */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={
+                isContentInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+              }
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="grid grid-cols-2 gap-6 pt-6"
+            >
+              <div className="text-center bg-white/50 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                <div className="text-2xl font-bold text-gray-900 mb-1">
+                  15min
+                </div>
+                <div className="text-sm text-gray-600">Setup Time</div>
+              </div>
+              <div className="text-center bg-white/50 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                <div className="text-2xl font-bold text-gray-900 mb-1">98%</div>
+                <div className="text-sm text-gray-600">Success Rate</div>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Image Section */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={
+              isContentInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }
+            }
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative"
+          >
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur-2xl opacity-20 scale-105"></div>
+              <div className="relative bg-white rounded-2xl shadow-2xl p-6 lg:p-8">
+                <img
+                  src="/stock/male-female-office-workers 2.png"
+                  alt="EzyMart Training Session"
+                  className="w-full h-auto rounded-xl"
+                />
+
+                {/* Floating Elements */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={
+                    isContentInView
+                      ? { opacity: 1, scale: 1 }
+                      : { opacity: 0, scale: 0.8 }
+                  }
+                  transition={{ duration: 0.6, delay: 1.0 }}
+                  className="absolute -top-4 -right-4 bg-white rounded-xl shadow-lg p-4 border"
+                >
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                      <IconStar className="w-5 h-5 text-yellow-500 fill-current" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-500">Satisfaction</p>
+                      <p className="text-lg font-bold text-gray-900">4.9/5</p>
+                    </div>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={
+                    isContentInView
+                      ? { opacity: 1, scale: 1 }
+                      : { opacity: 0, scale: 0.8 }
+                  }
+                  transition={{ duration: 0.6, delay: 1.2 }}
+                  className="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-lg p-4 border"
+                >
+                  <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                      <IconRocket className="w-5 h-5 text-blue-600" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-500">Quick Start</p>
+                      <p className="text-lg font-bold text-blue-600">Ready!</p>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
             </div>
-          </div>
+          </motion.div>
         </div>
+
+        {/* User Type Cards */}
+        <motion.div
+          ref={cardsRef}
+          initial={{ opacity: 0, y: 50 }}
+          animate={isCardsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          transition={{ duration: 0.8 }}
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8"
+        >
+          {userTypes.map((userType, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              animate={
+                isCardsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
+              }
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 hover:border-blue-300"
+            >
+              {/* Header */}
+              <div className="flex items-center space-x-4 mb-6">
+                <div
+                  className={`w-16 h-16 bg-gradient-to-r ${userType.gradient} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}
+                >
+                  <userType.icon className="w-8 h-8 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
+                    {userType.title}
+                  </h3>
+                </div>
+              </div>
+
+              {/* Description */}
+              <p className="text-gray-600 mb-6 leading-relaxed">
+                {userType.description}
+              </p>
+
+              {/* Features */}
+              <div className="space-y-3 mb-6">
+                {userType.features.map((feature, featureIndex) => (
+                  <div
+                    key={featureIndex}
+                    className="flex items-center space-x-3"
+                  >
+                    <div className="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                      <IconCheck className="w-3 h-3 text-green-600" />
+                    </div>
+                    <span className="text-gray-700 text-sm font-medium">
+                      {feature}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              {/* CTA */}
+              <button className="group/btn flex items-center justify-center w-full px-6 py-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-300 font-medium">
+                Learn More
+                <IconArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform duration-300" />
+              </button>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Bottom CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={
+            isSectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
+          }
+          transition={{ duration: 0.8, delay: 1.0 }}
+          className="text-center mt-16 lg:mt-20"
+        >
+          <div className="bg-white rounded-2xl p-8 lg:p-12 shadow-xl border border-gray-200">
+            <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
+              Ready to Get Started?
+            </h3>
+            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+              Join thousands of businesses and customers who are already
+              experiencing the benefits of EzyMart's intuitive platform.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
+                Start Free Trial
+              </button>
+              <button className="px-8 py-4 border-2 border-gray-300 text-gray-700 rounded-lg font-semibold hover:border-blue-600 hover:text-blue-600 transition-all duration-300">
+                Watch Tutorial
+              </button>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

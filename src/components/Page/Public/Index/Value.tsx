@@ -1,8 +1,27 @@
 import EmblaCarousel from "@/components/emblaCarousel/EmblaCarousel";
-import { IconArrowRight } from "@tabler/icons-react";
-import React from "react";
+import {
+  IconArrowRight,
+  IconAward,
+  IconCheck,
+  IconTrendingUp,
+  IconUsers,
+} from "@tabler/icons-react";
+import { motion, useInView } from "framer-motion";
+import React, { useRef } from "react";
 
 export const Value: React.FC = () => {
+  // MARK: Refs
+  const sectionRef = useRef(null);
+  const headingRef = useRef(null);
+  const statsRef = useRef(null);
+  const carouselRef = useRef(null);
+
+  // MARK: Elements
+  const isSectionInView = useInView(sectionRef, { once: true, amount: 0.3 });
+  const isHeadingInView = useInView(headingRef, { once: true, amount: 0.5 });
+  const isStatsInView = useInView(statsRef, { once: true, amount: 0.5 });
+  const isCarouselInView = useInView(carouselRef, { once: true, amount: 0.3 });
+
   const OPTIONS = {
     loop: true,
     speed: 10,
@@ -18,7 +37,7 @@ export const Value: React.FC = () => {
     {
       id: 1,
       src: "/stock/test.png",
-      alt: "Shop owner using EzyMart",
+      alt: "Shop owner using EzyMart POS",
     },
     {
       id: 2,
@@ -32,54 +51,245 @@ export const Value: React.FC = () => {
     },
   ];
 
+  const valuePropositions = [
+    "Streamlined business operations",
+    "Enhanced customer experience",
+    "Real-time inventory management",
+    "Comprehensive sales analytics",
+    "Secure payment processing",
+    "24/7 customer support",
+  ];
+
+  const stats = [
+    {
+      icon: IconUsers,
+      value: "10,000+",
+      label: "Happy Customers",
+      color: "blue",
+    },
+    {
+      icon: IconTrendingUp,
+      value: "25%",
+      label: "Average Sales Increase",
+      color: "blue",
+    },
+    {
+      icon: IconAward,
+      value: "4.9/5",
+      label: "Customer Rating",
+      color: "blue",
+    },
+  ];
+
+  const getStatColor = (color: string) => {
+    const colorMap = {
+      blue: "from-[#0A65FC] to-blue-600",
+      green: "from-[#0A65FC] to-blue-600",
+      purple: "from-[#0A65FC] to-blue-600",
+    };
+    return colorMap[color as keyof typeof colorMap] || colorMap.blue;
+  };
+
   return (
-    <section className="flex items-center justify-center bg-white lg:min-h-screen lg:max-h-screen py-14 lg:py-10">
-      <div className="container mx-auto">
-        <div className="grid grid-cols-1 gap-8 mb-10 lg:grid-cols-2">
-          <div>
-            <h2 className="text-3xl lg:text-5xl font-normal text-[#15366B] mb-4">
-              Clear <span className="text-[#0A65FC] font-georgia">Value</span> for our{" "}
-              <span className="text-[#0A65FC] font-georgia">Clients</span>
-            </h2>
+    <section
+      ref={sectionRef}
+      className="py-16 lg:py-24 bg-white relative overflow-hidden"
+    >
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute inset-0 bg-[linear-gradient(30deg,transparent_12%,rgba(10,101,252,.05)_12%,rgba(10,101,252,.05)_20%,transparent_20%,transparent_32%,rgba(10,101,252,.05)_32%,rgba(10,101,252,.05)_40%,transparent_40%)] bg-[length:60px_60px]"></div>
+      </div>
+
+      <div className="relative container mx-auto px-6 lg:px-8 max-w-7xl">
+        {/* Section Header */}
+        <motion.div
+          ref={headingRef}
+          initial={{ opacity: 0, y: 30 }}
+          animate={
+            isHeadingInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
+          }
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16 lg:mb-20"
+        >
+          <div className="inline-flex items-center px-4 py-2 bg-[#0A65FC]/10 text-[#0A65FC] text-sm font-medium rounded-full mb-6">
+            Our Value Proposition
           </div>
-        </div>
+          <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6">
+            Clear{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A65FC] to-blue-700">
+              Value
+            </span>{" "}
+            for our{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A65FC] to-blue-700">
+              Clients
+            </span>
+          </h2>
+          <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            EzyMart empowers small and mid-level businesses across Sri Lanka
+            with cutting-edge POS technology that drives growth and efficiency.
+          </p>
+        </motion.div>
 
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-          <EmblaCarousel
-            slides={slideImages.map((_, index) => index)}
-            options={OPTIONS}
-            images={slideImages}
-          />
-          <div className="lg:col-span-2">
-            <div className="flex flex-col gap-4">
-              <p className="text-lg text-[#15366B]">
-                EzyMart helps small and mid-level business owners and customers
-                in Sri Lanka. We make it easy to manage shops and find products
-                nearby.
-              </p>
-              <p className="text-lg text-[#15366B]">
-                Our solutions empower customers and businesses to thrive in an
-                increasingly digital world.
-              </p>
-            </div>
-
-            {/* VISIT NOW BUTTON */}
-            <div className="flex items-center justify-start mt-8">
-              <a
-                href="/"
-                className="flex flex-row items-center justify-center bg-[#0A65FC] text-white px-8 py-3 rounded-full shadow-md hover:bg-[#0A65FC]/80 transition duration-300"
+        {/* Stats Section */}
+        <motion.div
+          ref={statsRef}
+          initial={{ opacity: 0, y: 30 }}
+          animate={isStatsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.8 }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 lg:mb-20"
+        >
+          {stats.map((stat, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              animate={
+                isStatsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
+              }
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="text-center bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              <div
+                className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${getStatColor(
+                  stat.color
+                )} rounded-2xl mb-6 shadow-lg`}
               >
-                Visit Now
-                <IconArrowRight
-                  className="ml-2"
-                  size={20}
-                  strokeWidth={1.5}
-                  color="white"
+                <stat.icon className="w-8 h-8 text-white" />
+              </div>
+              <div className="text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
+                {stat.value}
+              </div>
+              <div className="text-gray-600 font-medium">{stat.label}</div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Carousel Section */}
+          <motion.div
+            ref={carouselRef}
+            initial={{ opacity: 0, x: -50 }}
+            animate={
+              isCarouselInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }
+            }
+            transition={{ duration: 0.8 }}
+            className="relative"
+          >
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#0A65FC] to-blue-700 rounded-2xl blur-2xl opacity-20 scale-105"></div>
+              <div className="relative bg-white rounded-2xl shadow-2xl p-4 lg:p-6">
+                <EmblaCarousel
+                  slides={slideImages.map((_, index) => index)}
+                  options={OPTIONS}
+                  images={slideImages}
                 />
-              </a>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Content Section */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={
+              isCarouselInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }
+            }
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="space-y-8"
+          >
+            {/* Value Propositions */}
+            <div className="space-y-4">
+              <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
+                Why Businesses Choose EzyMart
+              </h3>
+
+              <div className="grid grid-cols-1 gap-3">
+                {valuePropositions.map((proposition, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={
+                      isCarouselInView
+                        ? { opacity: 1, x: 0 }
+                        : { opacity: 0, x: 20 }
+                    }
+                    transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
+                    className="flex items-center space-x-3"
+                  >
+                    <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                      <IconCheck className="w-4 h-4 text-green-600" />
+                    </div>
+                    <span className="text-gray-700 font-medium">
+                      {proposition}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Description */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={
+                isCarouselInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+              }
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="space-y-4"
+            >
+              <p className="text-lg text-gray-600 leading-relaxed">
+                Our comprehensive POS solution transforms how businesses
+                operate, making it easier to manage inventory, process payments,
+                and understand customer behavior.
+              </p>
+              <p className="text-lg text-gray-600 leading-relaxed">
+                Built specifically for the Sri Lankan market, EzyMart
+                understands local business needs and provides solutions that are
+                both powerful and accessible.
+              </p>
+            </motion.div>
+
+            {/* CTA Button */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={
+                isCarouselInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+              }
+              transition={{ duration: 0.8, delay: 1.0 }}
+              className="flex items-center justify-start"
+            >
+              <button className="group flex items-center px-8 py-4 bg-gradient-to-r from-[#0A65FC] to-blue-700 text-white rounded-xl hover:shadow-xl transition-all duration-300 font-semibold text-lg">
+                Start Your Journey
+                <IconArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+              </button>
+            </motion.div>
+          </motion.div>
+        </div>
+
+        {/* Bottom CTA Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={
+            isSectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
+          }
+          transition={{ duration: 0.8, delay: 1.2 }}
+          className="text-center mt-16 lg:mt-20"
+        >
+          <div className="bg-white rounded-2xl p-8 lg:p-12 shadow-xl border border-gray-200">
+            <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
+              Join the EzyMart Family Today
+            </h3>
+            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+              Experience the difference that modern POS technology can make for
+              your business. Start your free trial and see results within days.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button className="px-8 py-4 bg-gradient-to-r from-[#0A65FC] to-blue-700 text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
+                Start Free Trial
+              </button>
+              <button className="px-8 py-4 border-2 border-[#0A65FC] text-[#0A65FC] rounded-lg font-semibold hover:bg-[#0A65FC] hover:text-white transition-all duration-300">
+                Schedule Demo
+              </button>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
