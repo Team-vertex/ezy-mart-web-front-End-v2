@@ -1,4 +1,4 @@
-import EmblaCarousel from "@/components/emblaCarousel/EmblaCarousel";
+import ModernCarousel from "@/components/carousel/ModernCarousel";
 import {
   IconArrowRight,
   IconAward,
@@ -22,32 +22,34 @@ export const Value: React.FC = () => {
   const isStatsInView = useInView(statsRef, { once: true, amount: 0.5 });
   const isCarouselInView = useInView(carouselRef, { once: true, amount: 0.3 });
 
-  const OPTIONS = {
-    loop: true,
-    speed: 10,
-    draggable: true,
-    autoplay: true,
-    autoplayDelay: 3000,
-    autoplayStopOnInteraction: false,
-    skipSnaps: false,
-  };
-
   // Image data for the carousel
   const slideImages = [
     {
       id: 1,
-      src: "/stock/test.png",
+      src: "/images/Business/image1.png",
       alt: "Shop owner using EzyMart POS",
+      title: "Smart POS Solutions",
+      description:
+        "Streamline your business operations with our intuitive POS system designed for modern retailers.",
+      badge: "POS System",
     },
     {
       id: 2,
-      src: "/stock/test.png",
+      src: "/images/Business/image2.png",
       alt: "Customer using EzyMart mobile app",
+      title: "Mobile Integration",
+      description:
+        "Connect with customers through our powerful mobile app that enhances shopping experience.",
+      badge: "Mobile App",
     },
     {
       id: 3,
-      src: "/stock/test.png",
+      src: "/images/Business/image3.png",
       alt: "Inventory management with EzyMart",
+      title: "Real-time Analytics",
+      description:
+        "Make data-driven decisions with comprehensive analytics and reporting tools.",
+      badge: "Analytics",
     },
   ];
 
@@ -177,11 +179,16 @@ export const Value: React.FC = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-[#0A65FC] to-blue-700 rounded-2xl blur-2xl opacity-20 scale-105"></div>
               <div className="relative bg-white rounded-2xl shadow-2xl p-4 lg:p-6">
-                <EmblaCarousel
-                  slides={slideImages.map((_, index) => index)}
-                  options={OPTIONS}
-                  images={slideImages}
-                />
+                <div className="h-96 lg:h-[28rem]">
+                  <ModernCarousel
+                    images={slideImages}
+                    autoplay={true}
+                    autoplayDelay={4000}
+                    showControls={true}
+                    showIndicators={true}
+                    className="h-full"
+                  />
+                </div>
               </div>
             </div>
           </motion.div>
