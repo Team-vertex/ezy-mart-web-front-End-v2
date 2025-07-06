@@ -1,8 +1,8 @@
 import {
   IconArrowRight,
-  IconClock,
-  IconHeart,
-  IconTrendingUp,
+  IconCurrencyDollar,
+  IconSparkles,
+  IconUsers,
 } from "@tabler/icons-react";
 import { motion, useInView } from "framer-motion";
 import React, { useRef } from "react";
@@ -19,40 +19,43 @@ export const WhyPos: React.FC = () => {
 
   const features = [
     {
-      icon: IconTrendingUp,
+      icon: IconCurrencyDollar,
       badge: "EXCLUSIVE",
       title: "No Initial Cost",
       subtitle:
         "Unlike competitors with high startup fees - we charge nothing to begin.",
       description:
         "Start using EzyMart POS with zero cost — our revolutionary approach gives small businesses enterprise-level tools without the enterprise price tag.",
-      gradient: "from-blue-50 to-blue-100",
-      iconBg: "bg-blue-100",
-      iconColor: "text-[#0A65FC]",
+      gradient: "from-emerald-50 to-green-100",
+      iconBg: "bg-gradient-to-br from-emerald-100 to-green-200",
+      iconColor: "text-emerald-600",
+      glowColor: "shadow-emerald-200",
     },
     {
-      icon: IconClock,
+      icon: IconSparkles,
       badge: "STANDOUT FEATURE",
       title: "Unmatched Simplicity",
       subtitle:
         "While others offer complexity - we deliver intuitive design anyone can master in minutes.",
       description:
         "Our proprietary interface is designed specifically for retailers who value their time. Learn once, use forever - with virtually no learning curve.",
-      gradient: "from-blue-50 to-blue-100",
-      iconBg: "bg-blue-100",
-      iconColor: "text-[#0A65FC]",
+      gradient: "from-purple-50 to-indigo-100",
+      iconBg: "bg-gradient-to-br from-purple-100 to-indigo-200",
+      iconColor: "text-purple-600",
+      glowColor: "shadow-purple-200",
     },
     {
-      icon: IconHeart,
+      icon: IconUsers,
       badge: "INDUSTRY-LEADING",
       title: "Dedicated Support Team",
       subtitle:
         "When others offer chatbots - we give you real humans committed to your success.",
       description:
         "Our support team consists of retail experts, not just tech support. Get business advice alongside technical help - a service no other POS provider offers.",
-      gradient: "from-indigo-50 to-blue-100",
-      iconBg: "bg-blue-100",
-      iconColor: "text-[#0A65FC]",
+      gradient: "from-orange-50 to-red-100",
+      iconBg: "bg-gradient-to-br from-orange-100 to-red-200",
+      iconColor: "text-orange-600",
+      glowColor: "shadow-orange-200",
     },
   ];
 
@@ -119,14 +122,20 @@ export const WhyPos: React.FC = () => {
                 isCardsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
               }
               transition={{ duration: 0.6, delay: 0.4 + index * 0.2 }}
-              className={`relative bg-gradient-to-br ${feature.gradient} p-8 rounded-3xl shadow-xl border border-blue-100 hover:shadow-2xl transition-all duration-300 hover:scale-105 group overflow-hidden`}
+              className={`relative bg-gradient-to-br ${feature.gradient} p-8 rounded-3xl shadow-xl border border-white/50 hover:shadow-2xl hover:${feature.glowColor}/50 transition-all duration-300 hover:scale-105 group overflow-hidden backdrop-blur-sm`}
             >
               {/* Icon */}
               <div className="mb-6">
                 <div
-                  className={`inline-flex p-4 ${feature.iconBg} rounded-2xl`}
+                  className={`inline-flex p-4 ${feature.iconBg} rounded-2xl shadow-lg ${feature.glowColor} hover:scale-110 transition-all duration-300 relative overflow-hidden group`}
                 >
-                  <feature.icon className={`w-8 h-8 ${feature.iconColor}`} />
+                  <feature.icon
+                    className={`w-8 h-8 ${feature.iconColor} relative z-10 drop-shadow-sm`}
+                  />
+                  {/* Animated background glow */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  {/* Subtle shine effect */}
+                  <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/30 via-transparent to-transparent rounded-2xl opacity-50"></div>
                 </div>
               </div>
 
@@ -144,7 +153,11 @@ export const WhyPos: React.FC = () => {
               </div>
 
               {/* Hover effect gradient */}
-              <div className="absolute inset-0 bg-gradient-to-br from-transparent to-blue-50/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-white/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+
+              {/* Subtle animated particles effect */}
+              <div className="absolute top-4 right-4 w-2 h-2 bg-white/30 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 group-hover:animate-bounce"></div>
+              <div className="absolute top-8 right-8 w-1 h-1 bg-white/40 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-700 group-hover:animate-pulse"></div>
             </motion.div>
           ))}
         </motion.div>
