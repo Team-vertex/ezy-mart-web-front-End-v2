@@ -16,19 +16,45 @@ import { LanguageSwitch } from "./core/LanguageSwitch";
 export default function Footer() {
   const quickLinks = [
     { key: "home", messageId: "footer.quickLinks.home", route: routes.home },
-    { key: "aboutUs", messageId: "footer.quickLinks.aboutUs", route: routes.aboutUs },
-    { key: "services", messageId: "footer.quickLinks.services", route: routes.serviceForBusiness },
-    { key: "instructions", messageId: "footer.quickLinks.instructions", route: routes.instructions },
-    { key: "privacyPolicy", messageId: "footer.quickLinks.privacyPolicy", route: routes.privacyPolicy },
-    { key: "contactUs", messageId: "footer.quickLinks.contactUs", route: routes.contactUs },
+    {
+      key: "aboutUs",
+      messageId: "footer.quickLinks.aboutUs",
+      route: routes.aboutUs,
+    },
+    {
+      key: "services",
+      messageId: "footer.quickLinks.services",
+      route: routes.serviceForBusiness,
+    },
+    {
+      key: "instructions",
+      messageId: "footer.quickLinks.instructions",
+      route: routes.instructions,
+    },
+    {
+      key: "privacyPolicy",
+      messageId: "footer.quickLinks.privacyPolicy",
+      route: routes.privacyPolicy,
+    },
+    {
+      key: "contactUs",
+      messageId: "footer.quickLinks.contactUs",
+      route: routes.contactUs,
+    },
   ];
 
   const solutions = [
     { key: "retailPOS", messageId: "footer.solutions.retailPOS" },
     { key: "restaurantPOS", messageId: "footer.solutions.restaurantPOS" },
-    { key: "inventoryManagement", messageId: "footer.solutions.inventoryManagement" },
+    {
+      key: "inventoryManagement",
+      messageId: "footer.solutions.inventoryManagement",
+    },
     { key: "mobilePOS", messageId: "footer.solutions.mobilePOS" },
-    { key: "analyticsDashboard", messageId: "footer.solutions.analyticsDashboard" },
+    {
+      key: "analyticsDashboard",
+      messageId: "footer.solutions.analyticsDashboard",
+    },
   ];
   // const supportLinks = ["Help Center", "Documentation", "API Reference", "Community Forum"];
 
@@ -142,7 +168,9 @@ export default function Footer() {
                 </div>
                 <div>
                   <p className="font-medium text-white">Hotline</p>
-                  <p><FormattedMessage id="footer.contact.phone" /></p>
+                  <p>
+                    <FormattedMessage id="footer.contact.phone" />
+                  </p>
                 </div>
               </li>
               <li className="flex items-start gap-3 group">
@@ -151,7 +179,9 @@ export default function Footer() {
                 </div>
                 <div>
                   <p className="font-medium text-white">Email</p>
-                  <p><FormattedMessage id="footer.contact.email" /></p>
+                  <p>
+                    <FormattedMessage id="footer.contact.email" />
+                  </p>
                 </div>
               </li>
               <li className="flex items-start gap-3 group">
@@ -160,7 +190,9 @@ export default function Footer() {
                 </div>
                 <div>
                   <p className="font-medium text-white">Support Hours</p>
-                  <p><FormattedMessage id="footer.contact.hours" /></p>
+                  <p>
+                    <FormattedMessage id="footer.contact.hours" />
+                  </p>
                 </div>
               </li>
               <li className="flex items-start gap-3 group">
@@ -169,7 +201,9 @@ export default function Footer() {
                 </div>
                 <div>
                   <p className="font-medium text-white">Location</p>
-                  <p><FormattedMessage id="footer.contact.address" /></p>
+                  <p>
+                    <FormattedMessage id="footer.contact.address" />
+                  </p>
                 </div>
               </li>
             </ul>

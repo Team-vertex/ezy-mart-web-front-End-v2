@@ -22,7 +22,7 @@
   "footer.contact.hours": "සඳුදා - සිකුරාදා: පෙ.ව. 9:00 - ප.ව. 6:00",
   "footer.copyright": "© 2025 EZYMART.LK | සියලුම හිමිකම් ඇවිරිණි",
   "footer.managedBy": "Vertex Cooperation PVT LTD විසින් කළමනාකරණය කරනු ලැබේ | ශ්‍රී ලංකාවේ ලියාපදිංචි",
-  
+
   "home.hero.textOne.title": "ස්මාර්ට් POS තාක්‍ෂණයෙන් ඔබේ ව්‍යාපාරය පරිවර්තනය කරන්න",
   "home.hero.textOne.subtitle": "ශ්‍රී ලාංකික ව්‍යවසායකයින් සඳහා නිර්මාණය කරන ලද අපගේ අවබෝධාත්මක විකුණුම් ස්ථාන පද්ධතිය සමඟ මෙහෙයුම් විධිමත් කරන්න, විකුණුම් වර්ධනය කරන්න සහ ඔබේ ව්‍යාපාරය වර්ධනය කරන්න.",
   "home.hero.textTwo.title": "අද ඔබේ සිල්ලර අත්දැකීම විප්ලවීය කරන්න",
@@ -37,7 +37,7 @@
   "home.hero.stats.uptime": "උප්ටයිම්",
   "home.hero.stats.support": "සහාය",
   "home.hero.stats.rating": "ශ්‍රේණිගත කිරීම",
-  
+
   "home.service.title": "EzyMart POS තෝරා ගන්නේ ඇයි?",
   "home.service.subtitle": "ඔබේ ව්‍යාපාරය කාර්යක්ෂමව පවත්වාගෙන යාමට අවශ්‍ය සියල්ල, එක බලවත් වේදිකාවක",
   "home.service.inventory.title": "ඉන්වෙන්ටරි කළමනාකරණය",
@@ -52,13 +52,13 @@
   "home.service.setup.description": "අපගේ අවබෝධාත්මක සැකසීම් ක්‍රියාවලිය සහ පුළුල් ආරම්භක කිරීම සමඟ මිනිත්තු කිහිපයකින් ක්‍රියාත්මක වන්න.",
   "home.service.platform.title": "බහු-වේදිකා",
   "home.service.platform.description": "සම්පූර්ණ නම්‍යතාවයක් සඳහා සියලුම උපකරණ - ඩෙස්ක්ටොප්, ටැබ්ලට් සහ ජංගම හරහා බාධාවකින් තොරව ක්‍රියා කරයි.",
-  
+
   "home.value.title": "ශ්‍රී ලාංකික ව්‍යාපාර සඳහා නිර්මාණය කර ඇත",
   "home.value.subtitle": "තම මෙහෙයුම් විධිමත් කිරීම සඳහා EzyMart දැනටමත් භාවිතා කරන සාර්ථක ව්‍යාපාර දහස් ගණනකට එක්වන්න",
   "home.value.stats.customers": "සතුටුදායක ගනුදෙනුකරුවන්",
   "home.value.stats.increase": "සාමාන්‍ය විකුණුම් වර්ධනය",
   "home.value.stats.rating": "පාරිභෝගික ශ්‍රේණිගත කිරීම",
-  
+
   "home.instructions.title": "මිනිත්තු කිහිපයකින් ආරම්භ කරන්න",
   "home.instructions.subtitle": "සියලු ප්‍රමාණවල ව්‍යාපාර සඳහා නිර්මාණය කරන ලද සරල සැකසීම් ක්‍රියාවලිය",
   "home.instructions.feature1": "සරල සැකසීම් ක්‍රියාවලිය",
@@ -77,7 +77,7 @@
   "home.instructions.business.feature2": "විකුණුම් විශ්ලේෂණ සහ වාර්තා",
   "home.instructions.business.feature3": "පාරිභෝගික කළමනාකරණය",
   "home.instructions.business.feature4": "ගෙවීම් සැකසීම",
-  
+
   "home.testimonials.title": "අපගේ ගනුදෙනුකරුවන් කියන දේ",
   "home.testimonials.subtitle": "ශ්‍රී ලංකාව පුරා සැබෑ ව්‍යාපාරවල සැබෑ කතන්දර",
   "home.testimonials.stats.businesses": "සතුටුදායක ව්‍යාපාර",
@@ -86,10 +86,10 @@
   "home.testimonials.stats.businesses.description": "ශ්‍රී ලංකාව පුරා",
   "home.testimonials.stats.satisfaction.description": "සමාලෝචන මත පදනම්ව",
   "home.testimonials.stats.increase.description": "මාස 6ක් ඇතුළත",
-  
+
   "home.faq.title": "නිතර අසන ප්‍රශ්න",
   "home.faq.subtitle": "අපගේ POS පද්ධතිය පිළිබඳ සාමාන්‍ය ප්‍රශ්නවලට ක්ෂණික පිළිතුරු ලබා ගන්න. ඔබ සොයන දේ සොයාගත නොහැකිද?",
-  
+
   "home.cta.title": "ඔබේ ව්‍යාපාරය පරිවර්තනය කිරීමට සූදානම්ද?",
   "home.cta.subtitle": "EzyMart POS භාවිතා කරන සාර්ථක ශ්‍රී ලාංකික ව්‍යාපාර දහස් ගණනකට එක්වන්න",
   "home.cta.feature1.title": "මිනිත්තු 15කින් සැකසීම",
@@ -100,7 +100,7 @@
   "home.cta.feature3.description": "අපි ඔබට සියල්ල ඉගැන්වන්නෙමු",
   "home.cta.feature4.title": "24/7 සහාය",
   "home.cta.feature4.description": "ඔබට අවශ්‍ය විට අපි මෙහි සිටිමු",
-  
+
   "common.language": "භාෂාව",
   "common.english": "English",
   "common.sinhala": "සිංහල"

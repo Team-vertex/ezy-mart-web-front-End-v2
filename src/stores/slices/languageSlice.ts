@@ -1,28 +1,28 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-export type Locale = 'en' | 'si';
+export type Locale = "en" | "si";
 
 interface LanguageState {
   currentLocale: Locale;
 }
 
 const initialState: LanguageState = {
-  currentLocale: 'en',
+  currentLocale: "en",
 };
 
 const languageSlice = createSlice({
-  name: 'language',
+  name: "language",
   initialState,
   reducers: {
     setLocale: (state, action: PayloadAction<Locale>) => {
       state.currentLocale = action.payload;
       // Store in localStorage for persistence
-      localStorage.setItem('locale', action.payload);
+      localStorage.setItem("locale", action.payload);
     },
     initializeLocale: (state) => {
       // Get locale from localStorage or default to 'en'
-      const storedLocale = localStorage.getItem('locale') as Locale;
-      if (storedLocale && (storedLocale === 'en' || storedLocale === 'si')) {
+      const storedLocale = localStorage.getItem("locale") as Locale;
+      if (storedLocale && (storedLocale === "en" || storedLocale === "si")) {
         state.currentLocale = storedLocale;
       }
     },

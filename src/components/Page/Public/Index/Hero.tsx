@@ -1,3 +1,4 @@
+import { LanguageSwitch } from "@/components/core/LanguageSwitch";
 import { indexHeroText } from "@/constants/Data";
 import { Carousel } from "@mantine/carousel";
 import {
@@ -14,7 +15,6 @@ import {
 import { motion, useInView } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 import { FormattedMessage } from "react-intl";
-import { LanguageSwitch } from "@/components/core/LanguageSwitch";
 
 export const Hero: React.FC = () => {
   const [nowShwing, setNowShowing] = useState(indexHeroText.TextOne);
@@ -60,7 +60,7 @@ export const Hero: React.FC = () => {
 
   const features = [
     "home.hero.feature1",
-    "home.hero.feature2", 
+    "home.hero.feature2",
     "home.hero.feature3",
     "home.hero.feature4",
   ];
@@ -120,8 +120,12 @@ export const Hero: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-4xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-tight"
             >
-              <FormattedMessage 
-                id={nowShwing === indexHeroText.TextOne ? "home.hero.textOne.title" : "home.hero.textTwo.title"}
+              <FormattedMessage
+                id={
+                  nowShwing === indexHeroText.TextOne
+                    ? "home.hero.textOne.title"
+                    : "home.hero.textTwo.title"
+                }
               />
             </motion.h1>
 
@@ -144,8 +148,12 @@ export const Hero: React.FC = () => {
                     : "opacity-100 transform translate-y-0"
                 }`}
               >
-                <FormattedMessage 
-                  id={nowShwing === indexHeroText.TextOne ? "home.hero.textOne.subtitle" : "home.hero.textTwo.subtitle"}
+                <FormattedMessage
+                  id={
+                    nowShwing === indexHeroText.TextOne
+                      ? "home.hero.textOne.subtitle"
+                      : "home.hero.textTwo.subtitle"
+                  }
                 />
               </p>
             </motion.div>
@@ -187,7 +195,7 @@ export const Hero: React.FC = () => {
               <div className="flex justify-start">
                 <LanguageSwitch />
               </div>
-              
+
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
                 <motion.button

@@ -1,8 +1,7 @@
-import { combineReducers, Reducer, UnknownAction } from '@reduxjs/toolkit';
-import auth, { AuthState } from './slices/auth';
-import app, { AppState } from './slices/app';
-import language from './slices/languageSlice';
-import { Locale } from './slices/languageSlice';
+import { combineReducers, Reducer, UnknownAction } from "@reduxjs/toolkit";
+import app, { AppState } from "./slices/app";
+import auth, { AuthState } from "./slices/auth";
+import language, { Locale } from "./slices/languageSlice";
 
 export type RootState = {
   auth: AuthState;
@@ -22,12 +21,14 @@ const staticReducers = {
   language,
 };
 
-const rootReducer = (asyncReducers?: AsyncReducers) => (state: RootState, actions: UnknownAction) => {
-  const combinedReducer = combineReducers({
-    ...staticReducers,
-    ...asyncReducers,
-  });
-  return combinedReducer(state, actions);
-};
+const rootReducer =
+  (asyncReducers?: AsyncReducers) =>
+  (state: RootState, actions: UnknownAction) => {
+    const combinedReducer = combineReducers({
+      ...staticReducers,
+      ...asyncReducers,
+    });
+    return combinedReducer(state, actions);
+  };
 
 export default rootReducer;

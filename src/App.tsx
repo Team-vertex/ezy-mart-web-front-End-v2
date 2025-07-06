@@ -10,19 +10,21 @@ import { Notifications } from "@mantine/notifications";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import { IntlProvider } from "react-intl";
 import { Provider, useSelector } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { PersistGate } from "redux-persist/integration/react";
-import { IntlProvider } from 'react-intl';
+import { messages } from "./i18n";
 import RootLayout from "./layouts/RootLayout";
 import store, { persistor } from "./stores";
 import { RootState } from "./stores/rootReducer";
 import { initializeLocale } from "./stores/slices/languageSlice";
 import theme from "./theme";
-import { messages } from "./i18n";
 
 function AppContent() {
-  const currentLocale = useSelector((state: RootState) => state.language.currentLocale);
+  const currentLocale = useSelector(
+    (state: RootState) => state.language.currentLocale
+  );
 
   useEffect(() => {
     AOS.init();
@@ -31,8 +33,8 @@ function AppContent() {
   }, []);
 
   return (
-    <IntlProvider 
-      locale={currentLocale} 
+    <IntlProvider
+      locale={currentLocale}
       messages={messages[currentLocale]}
       defaultLocale="en"
     >
