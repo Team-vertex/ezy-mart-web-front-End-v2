@@ -13,6 +13,8 @@ import {
 } from "@tabler/icons-react";
 import { motion, useInView } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
+import { FormattedMessage } from "react-intl";
+import { LanguageSwitch } from "@/components/core/LanguageSwitch";
 
 export const Hero: React.FC = () => {
   const [nowShwing, setNowShowing] = useState(indexHeroText.TextOne);
@@ -57,17 +59,17 @@ export const Hero: React.FC = () => {
   }, []);
 
   const features = [
-    "No setup fees",
-    "24/7 support",
-    "Easy integration",
-    "Real-time analytics",
+    "home.hero.feature1",
+    "home.hero.feature2", 
+    "home.hero.feature3",
+    "home.hero.feature4",
   ];
 
   const stats = [
-    { value: "10K+", label: "Active Users", icon: IconTrendingUp },
-    { value: "99.9%", label: "Uptime", icon: IconShield },
-    { value: "24/7", label: "Support", icon: IconClock },
-    { value: "4.9★", label: "Rating", icon: IconStar },
+    { value: "10K+", label: "home.hero.stats.users", icon: IconTrendingUp },
+    { value: "99.9%", label: "home.hero.stats.uptime", icon: IconShield },
+    { value: "24/7", label: "home.hero.stats.support", icon: IconClock },
+    { value: "4.9★", label: "home.hero.stats.rating", icon: IconStar },
   ];
 
   // MARK: Render
@@ -118,15 +120,9 @@ export const Hero: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-4xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-tight"
             >
-              Maximize{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                Sales
-              </span>{" "}
-              with Our Advanced{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
-                POS
-              </span>{" "}
-              Solution
+              <FormattedMessage 
+                id={nowShwing === indexHeroText.TextOne ? "home.hero.textOne.title" : "home.hero.textTwo.title"}
+              />
             </motion.h1>
 
             {/* Description with animation */}
@@ -148,7 +144,9 @@ export const Hero: React.FC = () => {
                     : "opacity-100 transform translate-y-0"
                 }`}
               >
-                {nowShwing}
+                <FormattedMessage 
+                  id={nowShwing === indexHeroText.TextOne ? "home.hero.textOne.subtitle" : "home.hero.textTwo.subtitle"}
+                />
               </p>
             </motion.div>
 
@@ -168,12 +166,14 @@ export const Hero: React.FC = () => {
                   <div className="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center">
                     <IconCheck className="w-3 h-3 text-green-600" />
                   </div>
-                  <span className="text-gray-700 font-medium">{feature}</span>
+                  <span className="text-gray-700 font-medium">
+                    <FormattedMessage id={feature} />
+                  </span>
                 </div>
               ))}
             </motion.div>
 
-            {/* CTA Buttons */}
+            {/* CTA Buttons and Language Switch */}
             <motion.div
               ref={buttonRef}
               initial={{ opacity: 0, y: 50 }}
@@ -181,27 +181,35 @@ export const Hero: React.FC = () => {
                 isButtonInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }
               }
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4"
+              className="flex flex-col gap-6"
             >
-              <motion.button
-                className="group flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:shadow-xl transition-all duration-300 font-semibold text-lg"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <IconRocket className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
-                Start Free Trial
-                <IconArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-              </motion.button>
+              {/* Language Switch */}
+              <div className="flex justify-start">
+                <LanguageSwitch />
+              </div>
+              
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4">
+                <motion.button
+                  className="group flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:shadow-xl transition-all duration-300 font-semibold text-lg"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <IconRocket className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
+                  <FormattedMessage id="home.hero.cta.primary" />
+                  <IconArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                </motion.button>
 
-              <motion.button
-                onClick={() => setIsVideoModalOpen(true)}
-                className="group flex items-center justify-center px-8 py-4 bg-white border-2 border-gray-200 text-gray-800 rounded-xl hover:border-blue-300 hover:shadow-lg transition-all duration-300 font-semibold text-lg"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <IconPlayerPlay className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
-                Watch Demo
-              </motion.button>
+                <motion.button
+                  onClick={() => setIsVideoModalOpen(true)}
+                  className="group flex items-center justify-center px-8 py-4 bg-white border-2 border-gray-200 text-gray-800 rounded-xl hover:border-blue-300 hover:shadow-lg transition-all duration-300 font-semibold text-lg"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <IconPlayerPlay className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
+                  <FormattedMessage id="home.hero.cta.secondary" />
+                </motion.button>
+              </div>
             </motion.div>
 
             {/* Trust Indicators */}
@@ -359,7 +367,9 @@ export const Hero: React.FC = () => {
               <div className="text-2xl lg:text-3xl font-bold text-gray-900 mb-1">
                 {stat.value}
               </div>
-              <div className="text-sm text-gray-600">{stat.label}</div>
+              <div className="text-sm text-gray-600">
+                <FormattedMessage id={stat.label} />
+              </div>
             </motion.div>
           ))}
         </motion.div>

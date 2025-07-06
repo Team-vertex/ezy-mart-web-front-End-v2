@@ -1,9 +1,10 @@
 import {
-  IconArrowRight,
   IconBolt,
   IconCheck,
   IconCrown,
+  IconDevices,
   IconRocket,
+  IconShield,
   IconStar,
   IconX,
 } from "@tabler/icons-react";
@@ -16,142 +17,172 @@ export const Pricing: React.FC = () => {
   // MARK: Refs
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
-  const toggleRef = useRef(null);
   const cardsRef = useRef(null);
 
   // MARK: In view states
-  const isSectionInView = useInView(sectionRef, { once: true, amount: 0.2 });
   const isHeadingInView = useInView(headingRef, { once: true, amount: 0.5 });
-  const isToggleInView = useInView(toggleRef, { once: true, amount: 0.5 });
   const isCardsInView = useInView(cardsRef, { once: true, amount: 0.3 });
 
   const plans = [
     {
-      name: "Starter",
-      description: "Perfect for small businesses",
+      name: "Basic",
+      description: "Perfect for small startups",
       icon: IconBolt,
-      price: { monthly: 2499, yearly: 24999 },
-      originalPrice: { monthly: 3999, yearly: 39999 },
+      price: { monthly: 1999, yearly: 19999 },
+      originalPrice: { monthly: 2999, yearly: 29999 },
       features: [
         "Single user access",
         "Basic inventory management",
-        "Sales reporting",
-        "Customer management",
+        "Simple sales tracking",
+        "Basic customer database",
         "Email support",
-        "Basic analytics",
+        "Mobile app access",
       ],
       limitations: [
         "Advanced reporting",
         "Multi-location support",
         "API access",
         "Priority support",
+        "Hardware included",
       ],
       popular: false,
-      color: "from-blue-500 to-blue-600",
-      bgColor: "bg-blue-50",
+      borderColor: "border-gray-200",
+    },
+    {
+      name: "Starter",
+      description: "Great for small businesses",
+      icon: IconRocket,
+      price: { monthly: 3499, yearly: 34999 },
+      originalPrice: { monthly: 4999, yearly: 49999 },
+      features: [
+        "Up to 3 users",
+        "Complete inventory management",
+        "Sales reporting & analytics",
+        "Customer management",
+        "Priority email support",
+        "Barcode scanning",
+        "Basic integrations",
+        "Cloud backup",
+      ],
+      limitations: [
+        "Multi-location support",
+        "Advanced API access",
+        "Hardware included",
+        "24/7 phone support",
+      ],
+      popular: false,
       borderColor: "border-blue-200",
     },
     {
       name: "Professional",
       description: "Most popular for growing businesses",
-      icon: IconRocket,
-      price: { monthly: 4999, yearly: 49999 },
-      originalPrice: { monthly: 7999, yearly: 79999 },
+      icon: IconShield,
+      price: { monthly: 5999, yearly: 59999 },
+      originalPrice: { monthly: 8499, yearly: 84999 },
       features: [
-        "Up to 5 users",
+        "Up to 10 users",
         "Advanced inventory management",
         "Detailed reporting & analytics",
         "Customer loyalty programs",
-        "Priority support",
+        "Priority support (24/7)",
         "Multi-payment methods",
-        "Barcode scanning",
+        "Advanced barcode scanning",
         "Tax management",
+        "API access",
+        "Multi-location support (up to 3)",
       ],
-      limitations: ["Multi-location support", "API access"],
+      limitations: [
+        "Hardware included",
+        "Unlimited locations",
+        "Custom integrations",
+      ],
       popular: true,
-      color: "from-blue-600 to-blue-700",
-      bgColor: "bg-blue-50",
       borderColor: "border-blue-300",
+    },
+    {
+      name: "Hardware Bundle",
+      description: "Complete POS system with hardware",
+      icon: IconDevices,
+      price: { monthly: 8999, yearly: 89999 },
+      originalPrice: { monthly: 12999, yearly: 129999 },
+      features: [
+        "Everything in Professional",
+        "Complete POS hardware kit",
+        "Tablet/Terminal included",
+        "Receipt printer",
+        "Barcode scanner",
+        "Cash drawer",
+        "Card reader",
+        "Installation & setup",
+        "Hardware warranty (2 years)",
+        "On-site support",
+      ],
+      limitations: ["Custom integrations", "Unlimited locations"],
+      popular: false,
+      borderColor: "border-purple-200",
+      hardwareIncluded: true,
+      hardwareValue: "LKR 45,000",
     },
     {
       name: "Enterprise",
       description: "For large businesses & chains",
       icon: IconCrown,
-      price: { monthly: 9999, yearly: 99999 },
-      originalPrice: { monthly: 14999, yearly: 149999 },
+      price: { monthly: 14999, yearly: 149999 },
+      originalPrice: { monthly: 19999, yearly: 199999 },
       features: [
         "Unlimited users",
-        "Multi-location support",
+        "Unlimited locations",
         "Advanced analytics & BI",
         "Custom integrations",
-        "24/7 phone support",
-        "API access",
+        "24/7 phone & on-site support",
+        "Full API access",
         "Custom training",
         "Dedicated account manager",
         "Custom reporting",
         "Data export tools",
+        "Hardware options available",
+        "White-label solutions",
       ],
       limitations: [],
       popular: false,
-      color: "from-blue-700 to-blue-800",
-      bgColor: "bg-blue-50",
-      borderColor: "border-blue-200",
+      borderColor: "border-amber-200",
     },
   ];
 
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 lg:py-32 bg-gradient-to-br from-blue-50 via-white to-blue-50 overflow-hidden"
+      className="py-16 lg:py-24 bg-gray-50"
       id="pricing"
     >
-      {/* Background decorations */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse animation-delay-2000"></div>
-      </div>
-
-      <div className="container relative z-10 mx-auto px-4">
-        {/* Section Header */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Simple Section Header */}
         <motion.div
           ref={headingRef}
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={
-            isHeadingInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
+            isHeadingInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
           }
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
         >
-          <div className="flex items-center justify-center mb-6">
-            <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold tracking-wide uppercase">
-              Transparent Pricing
-            </span>
+          <div className="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-lg text-sm font-medium mb-4">
+            Pricing Plans
           </div>
 
-          <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-            Simple, Affordable{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A65FC] to-blue-600">
-              Pricing Plans
-            </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            Choose Your Plan
           </h2>
 
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
-            Choose the perfect plan for your business. All plans include free
-            setup, training, and 30-day money-back guarantee.
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+            Simple, transparent pricing that grows with your business. No hidden
+            fees.
           </p>
 
-          {/* Pricing Toggle */}
-          <motion.div
-            ref={toggleRef}
-            initial={{ opacity: 0, y: 20 }}
-            animate={
-              isToggleInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-            }
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex items-center justify-center gap-4"
-          >
+          {/* Simple Toggle */}
+          <div className="flex items-center justify-center gap-4 mb-8">
             <span
-              className={`text-lg font-semibold ${
+              className={`text-sm font-medium ${
                 !isYearly ? "text-gray-900" : "text-gray-500"
               }`}
             >
@@ -159,181 +190,278 @@ export const Pricing: React.FC = () => {
             </span>
             <button
               onClick={() => setIsYearly(!isYearly)}
-              className={`relative w-14 h-7 rounded-full transition-colors duration-300 ${
-                isYearly ? "bg-[#0A65FC]" : "bg-gray-300"
+              className={`relative w-12 h-6 rounded-full transition-colors duration-200 ${
+                isYearly ? "bg-blue-600" : "bg-gray-300"
               }`}
             >
               <div
-                className={`absolute top-1 w-5 h-5 bg-white rounded-full transition-transform duration-300 ${
-                  isYearly ? "translate-x-8" : "translate-x-1"
+                className={`absolute top-0.5 w-5 h-5 bg-white rounded-full transition-transform duration-200 ${
+                  isYearly ? "translate-x-6" : "translate-x-0.5"
                 }`}
               />
             </button>
             <span
-              className={`text-lg font-semibold ${
+              className={`text-sm font-medium ${
                 isYearly ? "text-gray-900" : "text-gray-500"
               }`}
             >
               Yearly
             </span>
             {isYearly && (
-              <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-semibold ml-2">
+              <span className="ml-2 px-2 py-1 bg-green-100 text-green-800 rounded text-xs font-medium">
                 Save 20%
               </span>
             )}
-          </motion.div>
+          </div>
         </motion.div>
 
-        {/* Pricing Cards */}
+        {/* Responsive Pricing Cards */}
         <motion.div
           ref={cardsRef}
-          initial={{ opacity: 0, y: 40 }}
-          animate={isCardsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isCardsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6"
         >
           {plans.map((plan, index) => (
             <motion.div
               key={plan.name}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={
-                isCardsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
+                isCardsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
               }
-              transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
-              className={`relative bg-white rounded-3xl shadow-xl border-2 ${
+              transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+              className={`relative bg-white rounded-lg border-2 p-6 hover:shadow-lg transition-shadow duration-200 ${
                 plan.borderColor
-              } hover:shadow-2xl transition-all duration-300 ${
-                plan.popular
-                  ? "scale-105 ring-4 ring-blue-200"
-                  : "hover:scale-105"
-              }`}
+              } ${plan.popular ? "ring-2 ring-blue-500 ring-offset-2" : ""}`}
             >
+              {/* Popular Badge */}
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <div className="bg-gradient-to-r from-[#0A65FC] to-blue-600 text-white px-6 py-2 rounded-full text-sm font-bold flex items-center">
-                    <IconStar className="w-4 h-4 mr-1" />
+                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                  <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-medium flex items-center gap-1">
+                    <IconStar className="w-3 h-3" />
                     Most Popular
-                  </div>
+                  </span>
                 </div>
               )}
 
-              <div className="p-8">
-                {/* Plan Header */}
-                <div className="text-center mb-8">
-                  <div
-                    className={`inline-flex p-4 ${plan.bgColor} rounded-2xl mb-6`}
-                  >
-                    <plan.icon className="w-8 h-8 text-[#0A65FC]" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                    {plan.name}
-                  </h3>
-                  <p className="text-gray-600 mb-6">{plan.description}</p>
+              {/* Hardware Badge */}
+              {plan.hardwareIncluded && (
+                <div className="absolute -top-3 right-4">
+                  <span className="bg-purple-600 text-white px-2 py-1 rounded-full text-xs font-medium flex items-center gap-1">
+                    <IconDevices className="w-3 h-3" />
+                    Hardware
+                  </span>
+                </div>
+              )}
 
-                  {/* Pricing */}
-                  <div className="mb-6">
-                    <div className="flex items-center justify-center gap-2 mb-2">
-                      <span className="text-gray-400 line-through text-lg">
-                        LKR{" "}
-                        {(isYearly
-                          ? plan.originalPrice.yearly
-                          : plan.originalPrice.monthly
-                        ).toLocaleString()}
-                      </span>
-                    </div>
-                    <div className="flex items-baseline justify-center gap-1">
-                      <span className="text-4xl font-bold text-gray-900">
-                        LKR{" "}
-                        {(isYearly
-                          ? plan.price.yearly
-                          : plan.price.monthly
-                        ).toLocaleString()}
-                      </span>
-                      <span className="text-gray-600">
-                        /{isYearly ? "year" : "month"}
-                      </span>
-                    </div>
-                    {isYearly && (
-                      <p className="text-green-600 text-sm font-semibold mt-1">
-                        Save LKR{" "}
-                        {(
-                          plan.originalPrice.yearly - plan.price.yearly
-                        ).toLocaleString()}
-                        /year
-                      </p>
-                    )}
-                  </div>
-
-                  {/* CTA Button */}
-                  <button
-                    className={`w-full py-4 px-6 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 ${
-                      plan.popular
-                        ? "bg-gradient-to-r from-[#0A65FC] to-blue-600 text-white shadow-lg hover:shadow-blue-500/25"
-                        : "bg-gray-900 text-white hover:bg-gray-800"
-                    }`}
-                  >
-                    <span className="flex items-center justify-center">
-                      Get Started
-                      <IconArrowRight className="ml-2 w-5 h-5" />
-                    </span>
-                  </button>
+              {/* Plan Header */}
+              <div className="text-center mb-6">
+                <div className="inline-flex p-3 bg-gray-100 rounded-lg mb-4">
+                  <plan.icon className="w-6 h-6 text-blue-600" />
                 </div>
 
-                {/* Features */}
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  {plan.name}
+                </h3>
+
+                <p className="text-sm text-gray-600 mb-4">{plan.description}</p>
+
+                {/* Hardware Value */}
+                {plan.hardwareIncluded && plan.hardwareValue && (
+                  <div className="mb-4">
+                    <span className="inline-block px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs font-medium">
+                      Hardware: {plan.hardwareValue}
+                    </span>
+                  </div>
+                )}
+
+                {/* Pricing */}
+                <div className="mb-6">
+                  <div className="text-center">
+                    <span className="text-gray-400 line-through text-sm">
+                      LKR{" "}
+                      {(isYearly
+                        ? plan.originalPrice.yearly
+                        : plan.originalPrice.monthly
+                      ).toLocaleString()}
+                    </span>
+                  </div>
+                  <div className="text-center">
+                    <span className="text-2xl font-bold text-gray-900">
+                      LKR{" "}
+                      {(isYearly
+                        ? plan.price.yearly
+                        : plan.price.monthly
+                      ).toLocaleString()}
+                    </span>
+                    <span className="text-gray-600 text-sm">
+                      /{isYearly ? "year" : "month"}
+                    </span>
+                  </div>
+                  {isYearly && (
+                    <p className="text-green-600 text-xs font-medium mt-1">
+                      Save LKR{" "}
+                      {(
+                        plan.originalPrice.yearly - plan.price.yearly
+                      ).toLocaleString()}
+                      /year
+                    </p>
+                  )}
+                </div>
+
+                {/* CTA Button */}
+                <button
+                  className={`w-full py-2 px-4 rounded-lg font-medium text-sm transition-colors duration-200 ${
+                    plan.popular
+                      ? "bg-blue-600 text-white hover:bg-blue-700"
+                      : plan.hardwareIncluded
+                      ? "bg-purple-600 text-white hover:bg-purple-700"
+                      : "bg-gray-900 text-white hover:bg-gray-800"
+                  }`}
+                >
+                  {plan.hardwareIncluded
+                    ? "Get Complete System"
+                    : "Get Started"}
+                </button>
+              </div>
+
+              {/* Features */}
+              <div className="space-y-4">
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-4">
+                  <h4 className="font-medium text-gray-900 mb-3 text-sm">
                     What's included:
                   </h4>
-                  <ul className="space-y-3 mb-6">
-                    {plan.features.map((feature, i) => (
-                      <li key={i} className="flex items-start">
-                        <IconCheck className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
+                  <ul className="space-y-2">
+                    {plan.features.slice(0, 5).map((feature, i) => (
+                      <li key={i} className="flex items-start text-sm">
+                        <IconCheck className="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
                         <span className="text-gray-700">{feature}</span>
                       </li>
                     ))}
+                    {plan.features.length > 5 && (
+                      <li className="text-gray-500 text-xs italic">
+                        +{plan.features.length - 5} more features
+                      </li>
+                    )}
                   </ul>
-
-                  {plan.limitations.length > 0 && (
-                    <>
-                      <h4 className="font-semibold text-gray-900 mb-4">
-                        Not included:
-                      </h4>
-                      <ul className="space-y-3">
-                        {plan.limitations.map((limitation, i) => (
-                          <li key={i} className="flex items-start">
-                            <IconX className="w-5 h-5 text-gray-400 mr-3 mt-0.5 flex-shrink-0" />
-                            <span className="text-gray-500">{limitation}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </>
-                  )}
                 </div>
+
+                {plan.limitations.length > 0 && (
+                  <div>
+                    <h4 className="font-medium text-gray-900 mb-3 text-sm">
+                      Not included:
+                    </h4>
+                    <ul className="space-y-2">
+                      {plan.limitations.slice(0, 3).map((limitation, i) => (
+                        <li key={i} className="flex items-start text-sm">
+                          <IconX className="w-4 h-4 text-gray-400 mr-2 mt-0.5 flex-shrink-0" />
+                          <span className="text-gray-500">{limitation}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
             </motion.div>
           ))}
         </motion.div>
 
+        {/* Hardware Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isCardsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="mt-16"
+        >
+          <div className="bg-white rounded-lg border p-8">
+            <div className="text-center mb-8">
+              <div className="inline-block px-3 py-1 bg-purple-100 text-purple-700 rounded text-sm font-medium mb-4">
+                Hardware Options
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                Complete POS Hardware
+              </h3>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Get everything you need with our hardware bundle.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+              {[
+                {
+                  name: "POS Terminal",
+                  description: "Touch screen tablet",
+                  price: "LKR 15,000",
+                },
+                {
+                  name: "Receipt Printer",
+                  description: "Thermal printer",
+                  price: "LKR 8,000",
+                },
+                {
+                  name: "Barcode Scanner",
+                  description: "Wireless scanner",
+                  price: "LKR 12,000",
+                },
+                {
+                  name: "Cash Drawer",
+                  description: "Heavy-duty drawer",
+                  price: "LKR 10,000",
+                },
+              ].map((item) => (
+                <div
+                  key={item.name}
+                  className="bg-gray-50 rounded-lg p-4 text-center"
+                >
+                  <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center mx-auto mb-2">
+                    <IconDevices className="w-5 h-5 text-purple-600" />
+                  </div>
+                  <h4 className="font-medium text-gray-900 text-sm mb-1">
+                    {item.name}
+                  </h4>
+                  <p className="text-gray-600 text-xs mb-2">
+                    {item.description}
+                  </p>
+                  <p className="text-purple-600 font-medium text-sm">
+                    {item.price}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div className="text-center">
+              <p className="text-purple-700 font-medium mb-4">
+                Complete Bundle: LKR 45,000 (Save LKR 10,000!)
+              </p>
+              <button className="px-6 py-2 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition-colors duration-200">
+                View Hardware Details
+              </button>
+            </div>
+          </div>
+        </motion.div>
+
         {/* Bottom CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={
-            isSectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
-          }
-          transition={{ duration: 0.8, delay: 1 }}
-          className="text-center mt-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isCardsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, delay: 1 }}
+          className="mt-16 text-center"
         >
-          <div className="bg-gradient-to-r from-[#0A65FC] to-blue-600 rounded-3xl p-8 text-white max-w-4xl mx-auto">
-            <h3 className="text-2xl lg:text-3xl font-bold mb-4">
-              Need a Custom Solution?
-            </h3>
-            <p className="text-blue-100 text-lg mb-6 max-w-2xl mx-auto">
-              We offer custom pricing for large enterprises and special
-              requirements. Contact our sales team for a personalized quote.
+          <div className="bg-blue-600 rounded-lg p-8 text-white">
+            <h3 className="text-2xl font-bold mb-4">Need a Custom Solution?</h3>
+            <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
+              Contact our sales team for enterprise pricing and custom
+              solutions.
             </p>
-            <button className="px-8 py-4 bg-white text-[#0A65FC] rounded-xl font-bold text-lg hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg">
-              Contact Sales Team
-            </button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button className="px-6 py-2 bg-white text-blue-600 rounded-lg font-medium hover:bg-gray-100 transition-colors duration-200">
+                Contact Sales
+              </button>
+              <button className="px-6 py-2 border border-white text-white rounded-lg font-medium hover:bg-white hover:text-blue-600 transition-colors duration-200">
+                Schedule Demo
+              </button>
+            </div>
           </div>
         </motion.div>
       </div>

@@ -10,22 +10,25 @@ import {
   IconMail,
   IconPhone,
 } from "@tabler/icons-react";
+import { FormattedMessage } from "react-intl";
+import { LanguageSwitch } from "./core/LanguageSwitch";
 
 export default function Footer() {
   const quickLinks = [
-    "Home",
-    "About Us",
-    "Services",
-    "Instruction",
-    "Privacy Policy",
-    "Contact us",
+    { key: "home", messageId: "footer.quickLinks.home", route: routes.home },
+    { key: "aboutUs", messageId: "footer.quickLinks.aboutUs", route: routes.aboutUs },
+    { key: "services", messageId: "footer.quickLinks.services", route: routes.serviceForBusiness },
+    { key: "instructions", messageId: "footer.quickLinks.instructions", route: routes.instructions },
+    { key: "privacyPolicy", messageId: "footer.quickLinks.privacyPolicy", route: routes.privacyPolicy },
+    { key: "contactUs", messageId: "footer.quickLinks.contactUs", route: routes.contactUs },
   ];
+
   const solutions = [
-    "Retail POS",
-    "Restaurant POS",
-    "Inventory Management",
-    "Mobile POS",
-    "Analytics Dashboard",
+    { key: "retailPOS", messageId: "footer.solutions.retailPOS" },
+    { key: "restaurantPOS", messageId: "footer.solutions.restaurantPOS" },
+    { key: "inventoryManagement", messageId: "footer.solutions.inventoryManagement" },
+    { key: "mobilePOS", messageId: "footer.solutions.mobilePOS" },
+    { key: "analyticsDashboard", messageId: "footer.solutions.analyticsDashboard" },
   ];
   // const supportLinks = ["Help Center", "Documentation", "API Reference", "Community Forum"];
 
@@ -44,15 +47,14 @@ export default function Footer() {
           <div>
             <h2 className="mb-4 text-3xl font-extrabold tracking-wide text-white">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-blue-500">
-                EZYMART.LK
+                <FormattedMessage id="footer.company.name" />
               </span>
             </h2>
             <p className="mb-4 leading-relaxed text-gray-300">
-              A simple, affordable, and powerful POS solution built for Sri
-              Lankan businesses. Manage your sales, stock, and more with ease.
+              <FormattedMessage id="footer.company.description" />
             </p>
             <blockquote className="pl-4 my-6 italic text-gray-300 border-l-4 border-blue-400">
-              "Empowering local businesses with technology that works for you."
+              "<FormattedMessage id="footer.company.quote" />"
             </blockquote>
             <div className="flex gap-4 mt-6">
               {[
@@ -79,15 +81,13 @@ export default function Footer() {
           <div>
             <h3 className="flex items-center mb-5 text-xl font-semibold text-white">
               <span className="w-3 h-3 mr-2 bg-blue-400 rounded-full"></span>
-              Quick Links
+              <FormattedMessage id="footer.quickLinks.title" />
             </h3>
             <ul className="space-y-3">
-              {quickLinks.map((item, i) => (
-                <li key={i}>
+              {quickLinks.map((item) => (
+                <li key={item.key}>
                   <a
-                    href={
-                      item === "Privacy Policy" ? routes.privacyPolicy : "#"
-                    }
+                    href={item.route}
                     className="flex items-center text-gray-300 transition-all hover:text-white group"
                   >
                     <IconChevronRight
@@ -95,7 +95,7 @@ export default function Footer() {
                       className="mr-2 text-blue-300 transition-all opacity-0 group-hover:opacity-100"
                     />
                     <span className="transition-transform group-hover:translate-x-1">
-                      {item}
+                      <FormattedMessage id={item.messageId} />
                     </span>
                   </a>
                 </li>
@@ -107,11 +107,11 @@ export default function Footer() {
           <div>
             <h3 className="flex items-center mb-5 text-xl font-semibold text-white">
               <span className="w-3 h-3 mr-2 bg-purple-400 rounded-full"></span>
-              Solutions
+              <FormattedMessage id="footer.solutions.title" />
             </h3>
             <ul className="space-y-3">
-              {solutions.map((item, i) => (
-                <li key={i}>
+              {solutions.map((item) => (
+                <li key={item.key}>
                   <a
                     href="#"
                     className="flex items-center text-gray-300 transition-all hover:text-white group"
@@ -121,7 +121,7 @@ export default function Footer() {
                       className="mr-2 text-purple-300 transition-all opacity-0 group-hover:opacity-100"
                     />
                     <span className="transition-transform group-hover:translate-x-1">
-                      {item}
+                      <FormattedMessage id={item.messageId} />
                     </span>
                   </a>
                 </li>
@@ -133,7 +133,7 @@ export default function Footer() {
           <div>
             <h3 className="flex items-center mb-5 text-xl font-semibold text-white">
               <span className="w-3 h-3 mr-2 bg-green-400 rounded-full"></span>
-              Contact Us
+              <FormattedMessage id="footer.contact.title" />
             </h3>
             <ul className="space-y-4 text-gray-300">
               <li className="flex items-start gap-3 group">
@@ -142,7 +142,7 @@ export default function Footer() {
                 </div>
                 <div>
                   <p className="font-medium text-white">Hotline</p>
-                  <p>+94 76 123 4567</p>
+                  <p><FormattedMessage id="footer.contact.phone" /></p>
                 </div>
               </li>
               <li className="flex items-start gap-3 group">
@@ -151,7 +151,7 @@ export default function Footer() {
                 </div>
                 <div>
                   <p className="font-medium text-white">Email</p>
-                  <p>support@ezymart.lk</p>
+                  <p><FormattedMessage id="footer.contact.email" /></p>
                 </div>
               </li>
               <li className="flex items-start gap-3 group">
@@ -160,7 +160,7 @@ export default function Footer() {
                 </div>
                 <div>
                   <p className="font-medium text-white">Support Hours</p>
-                  <p>9AM - 6PM (Mon-Sat)</p>
+                  <p><FormattedMessage id="footer.contact.hours" /></p>
                 </div>
               </li>
               <li className="flex items-start gap-3 group">
@@ -169,31 +169,13 @@ export default function Footer() {
                 </div>
                 <div>
                   <p className="font-medium text-white">Location</p>
-                  <p>Colombo, Sri Lanka</p>
+                  <p><FormattedMessage id="footer.contact.address" /></p>
                 </div>
               </li>
             </ul>
 
             <div className="mt-6">
-              <h4 className="mb-2 text-sm font-medium text-gray-400">
-                DOWNLOAD OUR APP
-              </h4>
-              <div className="flex items-center gap-3">
-                <a href="#" className="transition-transform hover:scale-105">
-                  <img
-                    src="/images/Public/appstorebutton.svg"
-                    alt="App Store"
-                    className="h-10"
-                  />
-                </a>
-                <a href="#" className="transition-transform hover:scale-105">
-                  <img
-                    src="/images/Public/googleplaybutton.svg"
-                    alt="Google Play"
-                    className="h-[58px]"
-                  />
-                </a>
-              </div>
+              <LanguageSwitch variant="footer" />
             </div>
           </div>
         </div>
@@ -204,7 +186,7 @@ export default function Footer() {
         <div className="container px-6 mx-auto">
           <div className="flex flex-col items-center justify-between md:flex-row">
             <p className="mb-3 text-sm text-gray-400 md:mb-0">
-              © 2025 EZYMART.LK | All Rights Reserved
+              <FormattedMessage id="footer.copyright" />
             </p>
             <div className="flex gap-4">
               <a
@@ -217,7 +199,7 @@ export default function Footer() {
                 href={routes.privacyPolicy}
                 className="text-sm text-gray-400 transition hover:text-white"
               >
-                Privacy Policy
+                <FormattedMessage id="footer.quickLinks.privacyPolicy" />
               </a>
               <a
                 href="#"
@@ -228,7 +210,7 @@ export default function Footer() {
             </div>
           </div>
           <p className="mt-3 text-xs text-gray-500">
-            Managed by Vertex Cooperation PVT LTD | Registered in Sri Lanka
+            <FormattedMessage id="footer.managedBy" />
           </p>
         </div>
       </div>

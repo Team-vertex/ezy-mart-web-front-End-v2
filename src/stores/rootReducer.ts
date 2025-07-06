@@ -1,10 +1,15 @@
 import { combineReducers, Reducer, UnknownAction } from '@reduxjs/toolkit';
 import auth, { AuthState } from './slices/auth';
 import app, { AppState } from './slices/app';
+import language from './slices/languageSlice';
+import { Locale } from './slices/languageSlice';
 
 export type RootState = {
   auth: AuthState;
   app: AppState;
+  language: {
+    currentLocale: Locale;
+  };
 };
 
 export interface AsyncReducers {
@@ -14,6 +19,7 @@ export interface AsyncReducers {
 const staticReducers = {
   auth,
   app,
+  language,
 };
 
 const rootReducer = (asyncReducers?: AsyncReducers) => (state: RootState, actions: UnknownAction) => {
