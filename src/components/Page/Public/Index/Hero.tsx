@@ -1,5 +1,6 @@
 import { LanguageSwitch } from "@/components/core/LanguageSwitch";
 import { indexHeroText } from "@/constants/Data";
+import { routes } from "@/constants/route";
 import { Carousel } from "@mantine/carousel";
 import {
   IconArrowRight,
@@ -202,6 +203,7 @@ export const Hero: React.FC = () => {
                   className="group flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:shadow-xl transition-all duration-300 font-semibold text-lg"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={() => (window.location.href = routes.demo)}
                 >
                   <IconRocket className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
                   <FormattedMessage id="home.hero.cta.primary" />
