@@ -9,86 +9,120 @@ import {
   Smartphone,
   Users,
 } from "lucide-react";
+import { FormattedMessage, useIntl } from "react-intl";
 
-const roadmapItems = [
+const getRoadmapItems = (intl: any) => [
   {
     roadmapId: 1,
-    title: "Platform Launch",
+    title: intl.formatMessage({ id: "aboutUs.roadmap.items.platform.title" }),
     year: "Q1 2025",
     month: "January",
-    description:
-      "Official release of our core platform with basic features for local business discovery and support.",
+    description: intl.formatMessage({
+      id: "aboutUs.roadmap.items.platform.description",
+    }),
     icon: Rocket,
     status: "completed",
     achievements: [
-      "✓ Core marketplace launched",
-      "✓ 100+ local businesses onboarded",
-      "✓ Mobile-responsive platform",
+      intl.formatMessage({
+        id: "aboutUs.roadmap.items.platform.achievements.0",
+      }),
+      intl.formatMessage({
+        id: "aboutUs.roadmap.items.platform.achievements.1",
+      }),
+      intl.formatMessage({
+        id: "aboutUs.roadmap.items.platform.achievements.2",
+      }),
     ],
   },
   {
     roadmapId: 2,
-    title: "Mobile Apps",
+    title: intl.formatMessage({ id: "aboutUs.roadmap.items.mobile.title" }),
     year: "Q2 2025",
     month: "April",
-    description:
-      "iOS and Android applications to make supporting local businesses even more convenient.",
+    description: intl.formatMessage({
+      id: "aboutUs.roadmap.items.mobile.description",
+    }),
     icon: Smartphone,
     status: "in-progress",
     achievements: [
-      "⚡ iOS app in development",
-      "⚡ Android app in testing",
-      "⚡ Push notifications ready",
+      intl.formatMessage({ id: "aboutUs.roadmap.items.mobile.achievements.0" }),
+      intl.formatMessage({ id: "aboutUs.roadmap.items.mobile.achievements.1" }),
+      intl.formatMessage({ id: "aboutUs.roadmap.items.mobile.achievements.2" }),
     ],
   },
   {
     roadmapId: 3,
-    title: "Community Features",
+    title: intl.formatMessage({ id: "aboutUs.roadmap.items.community.title" }),
     year: "Q3 2025",
     month: "July",
-    description:
-      "Introducing user profiles, reviews, and community engagement tools.",
+    description: intl.formatMessage({
+      id: "aboutUs.roadmap.items.community.description",
+    }),
     icon: Users,
     status: "upcoming",
     achievements: [
-      "📋 User profiles design",
-      "📋 Review system planning",
-      "📋 Community forums concept",
+      intl.formatMessage({
+        id: "aboutUs.roadmap.items.community.achievements.0",
+      }),
+      intl.formatMessage({
+        id: "aboutUs.roadmap.items.community.achievements.1",
+      }),
+      intl.formatMessage({
+        id: "aboutUs.roadmap.items.community.achievements.2",
+      }),
     ],
   },
   {
     roadmapId: 4,
-    title: "Premium Services",
+    title: intl.formatMessage({ id: "aboutUs.roadmap.items.premium.title" }),
     year: "Q4 2025",
     month: "October",
-    description:
-      "Launch of premium features for businesses to enhance their visibility and reach.",
+    description: intl.formatMessage({
+      id: "aboutUs.roadmap.items.premium.description",
+    }),
     icon: Diamond,
     status: "upcoming",
     achievements: [
-      "📋 Premium tiers design",
-      "📋 Analytics dashboard",
-      "📋 Advanced search filters",
+      intl.formatMessage({
+        id: "aboutUs.roadmap.items.premium.achievements.0",
+      }),
+      intl.formatMessage({
+        id: "aboutUs.roadmap.items.premium.achievements.1",
+      }),
+      intl.formatMessage({
+        id: "aboutUs.roadmap.items.premium.achievements.2",
+      }),
     ],
   },
   {
     roadmapId: 5,
-    title: "International Expansion",
+    title: intl.formatMessage({
+      id: "aboutUs.roadmap.items.international.title",
+    }),
     year: "2026",
     month: "Q1",
-    description:
-      "Taking our platform global to support local economies worldwide.",
+    description: intl.formatMessage({
+      id: "aboutUs.roadmap.items.international.description",
+    }),
     icon: Globe,
     status: "upcoming",
     achievements: [
-      "📋 Market research",
-      "📋 Localization strategy",
-      "📋 Partnership network",
+      intl.formatMessage({
+        id: "aboutUs.roadmap.items.international.achievements.0",
+      }),
+      intl.formatMessage({
+        id: "aboutUs.roadmap.items.international.achievements.1",
+      }),
+      intl.formatMessage({
+        id: "aboutUs.roadmap.items.international.achievements.2",
+      }),
     ],
   },
 ];
 
 export function RoadmapSection() {
+  const intl = useIntl();
+  const roadmapItems = getRoadmapItems(intl);
   return (
     <section className="py-20 px-4 bg-gradient-to-br from-blue-50/30 to-white">
       <div className="max-w-7xl mx-auto">
@@ -101,14 +135,13 @@ export function RoadmapSection() {
           className="text-center mb-20"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Our Development{" "}
+            <FormattedMessage id="aboutUs.roadmap.title.our" />{" "}
             <span className="bg-gradient-to-r from-[#0A65FC] to-blue-600 bg-clip-text text-transparent">
-              Roadmap
+              <FormattedMessage id="aboutUs.roadmap.title.roadmap" />
             </span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Track our journey as we build innovative solutions to transform
-            local commerce and community connections
+            <FormattedMessage id="aboutUs.roadmap.subtitle" />
           </p>
         </motion.div>
 
@@ -287,21 +320,20 @@ export function RoadmapSection() {
         >
           <div className="bg-gradient-to-r from-[#0A65FC]/5 to-blue-600/5 rounded-3xl p-12 border border-blue-100">
             <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-              Want to Follow Our Progress?
+              <FormattedMessage id="aboutUs.roadmap.cta.title" />
             </h3>
             <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-              Stay updated with our latest developments and be the first to know
-              about new features and improvements.
+              <FormattedMessage id="aboutUs.roadmap.cta.description" />
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="group bg-[#0A65FC] text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-                Subscribe to Updates
+                <FormattedMessage id="aboutUs.roadmap.cta.button1" />
                 <span className="inline-block ml-2 transform group-hover:translate-x-1 transition-transform">
                   →
                 </span>
               </button>
               <button className="bg-white text-[#0A65FC] px-8 py-4 rounded-full font-semibold border-2 border-[#0A65FC] hover:bg-[#0A65FC] hover:text-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-                View Changelog
+                <FormattedMessage id="aboutUs.roadmap.cta.button2" />
               </button>
             </div>
           </div>

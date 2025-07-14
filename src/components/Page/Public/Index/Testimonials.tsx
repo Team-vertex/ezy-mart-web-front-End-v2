@@ -9,6 +9,7 @@ import {
 } from "@tabler/icons-react";
 import { motion, useInView } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
+import { FormattedMessage } from "react-intl";
 
 export const Testimonials: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -99,21 +100,21 @@ export const Testimonials: React.FC = () => {
   const stats = [
     {
       number: "500+",
-      label: "Happy Businesses",
+      labelKey: "home.testimonials.stats.businesses",
       icon: IconBuilding,
-      description: "Across Sri Lanka",
+      descriptionKey: "home.testimonials.stats.businesses.description",
     },
     {
       number: "98%",
-      label: "Customer Satisfaction",
+      labelKey: "home.testimonials.stats.satisfaction",
       icon: IconUsers,
-      description: "Based on reviews",
+      descriptionKey: "home.testimonials.stats.satisfaction.description",
     },
     {
       number: "45%",
-      label: "Average Sales Increase",
+      labelKey: "home.testimonials.stats.increase",
       icon: IconTrendingUp,
-      description: "Within 6 months",
+      descriptionKey: "home.testimonials.stats.increase.description",
     },
   ];
 
@@ -175,15 +176,11 @@ export const Testimonials: React.FC = () => {
           </div>
 
           <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-            Loved by Businesses{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A65FC] to-blue-600">
-              Across Sri Lanka
-            </span>
+            <FormattedMessage id="home.testimonials.title" />
           </h2>
 
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            See how EzyMart POS has helped hundreds of Sri Lankan businesses
-            streamline operations and boost their sales.
+            <FormattedMessage id="home.testimonials.subtitle" />
           </p>
         </motion.div>
 
@@ -213,9 +210,11 @@ export const Testimonials: React.FC = () => {
                   {stat.number}
                 </div>
                 <div className="text-xl font-semibold text-[#0A65FC] mb-2">
-                  {stat.label}
+                  <FormattedMessage id={stat.labelKey} />
                 </div>
-                <div className="text-gray-600">{stat.description}</div>
+                <div className="text-gray-600">
+                  <FormattedMessage id={stat.descriptionKey} />
+                </div>
               </div>
             </motion.div>
           ))}

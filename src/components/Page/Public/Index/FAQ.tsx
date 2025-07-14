@@ -3,6 +3,7 @@ import { FAQContent } from "@/constants/Data";
 import { IconHelp, IconQuestionMark } from "@tabler/icons-react";
 import { motion, useInView } from "framer-motion";
 import React, { useRef } from "react";
+import { FormattedMessage } from "react-intl";
 
 export const FAQ: React.FC = () => {
   // MARK: Refs
@@ -57,10 +58,7 @@ export const FAQ: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight"
           >
-            Frequently Asked{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-              Questions
-            </span>
+            <FormattedMessage id="home.faq.title" />
           </motion.h2>
 
           <motion.p
@@ -72,12 +70,7 @@ export const FAQ: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
           >
-            Get instant answers to common questions about our POS system. Can't
-            find what you're looking for?
-            <span className="text-blue-600 font-semibold">
-              {" "}
-              Contact our support team.
-            </span>
+            <FormattedMessage id="home.faq.subtitle" />
           </motion.p>
         </div>
 

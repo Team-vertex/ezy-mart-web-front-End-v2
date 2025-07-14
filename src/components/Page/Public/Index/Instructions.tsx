@@ -8,6 +8,7 @@ import {
 } from "@tabler/icons-react";
 import { motion, useInView } from "framer-motion";
 import React, { useRef } from "react";
+import { FormattedMessage } from "react-intl";
 
 export const Instructions: React.FC = () => {
   // MARK: Refs
@@ -23,36 +24,34 @@ export const Instructions: React.FC = () => {
   const isCardsInView = useInView(cardsRef, { once: true, amount: 0.3 });
 
   const features = [
-    "Simple setup process",
-    "No technical knowledge required",
-    "Comprehensive training provided",
-    "Step-by-step guidance",
+    "home.instructions.feature1",
+    "home.instructions.feature2",
+    "home.instructions.feature3",
+    "home.instructions.feature4",
   ];
 
   const userTypes = [
     {
       icon: IconUsers,
-      title: "For Customers",
-      description:
-        "Find nearby stores, compare prices, and discover the best products in your area with our intuitive customer app.",
+      titleKey: "home.instructions.customers.title",
+      descriptionKey: "home.instructions.customers.description",
       features: [
-        "Store locator & navigation",
-        "Price comparison tools",
-        "Product reviews & ratings",
-        "Order tracking & history",
+        "home.instructions.customers.feature1",
+        "home.instructions.customers.feature2",
+        "home.instructions.customers.feature3",
+        "home.instructions.customers.feature4",
       ],
       gradient: "from-[#0A65FC] to-blue-700",
     },
     {
       icon: IconShoppingBag,
-      title: "For Business",
-      description:
-        "Streamline your operations with our comprehensive POS system designed specifically for local businesses.",
+      titleKey: "home.instructions.business.title",
+      descriptionKey: "home.instructions.business.description",
       features: [
-        "Inventory management",
-        "Sales analytics & reports",
-        "Customer management",
-        "Payment processing",
+        "home.instructions.business.feature1",
+        "home.instructions.business.feature2",
+        "home.instructions.business.feature3",
+        "home.instructions.business.feature4",
       ],
       gradient: "from-[#0A65FC] to-blue-700",
     },
@@ -85,16 +84,10 @@ export const Instructions: React.FC = () => {
             Getting Started
           </div>
           <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Simple{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A65FC] to-blue-700">
-              Instructions
-            </span>{" "}
-            for Everyone
+            <FormattedMessage id="home.instructions.title" />
           </h2>
           <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            EzyMart is designed with simplicity in mind. Whether you're a
-            business owner or a customer, getting started is straightforward and
-            hassle-free.
+            <FormattedMessage id="home.instructions.subtitle" />
           </p>
         </motion.div>
 
@@ -142,7 +135,9 @@ export const Instructions: React.FC = () => {
                   <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
                     <IconCheck className="w-4 h-4 text-green-600" />
                   </div>
-                  <span className="text-gray-700 font-medium">{feature}</span>
+                  <span className="text-gray-700 font-medium">
+                    <FormattedMessage id={feature} />
+                  </span>
                 </motion.div>
               ))}
             </div>
@@ -261,14 +256,14 @@ export const Instructions: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
-                    {userType.title}
+                    <FormattedMessage id={userType.titleKey} />
                   </h3>
                 </div>
               </div>
 
               {/* Description */}
               <p className="text-gray-600 mb-6 leading-relaxed">
-                {userType.description}
+                <FormattedMessage id={userType.descriptionKey} />
               </p>
 
               {/* Features */}
@@ -282,7 +277,7 @@ export const Instructions: React.FC = () => {
                       <IconCheck className="w-3 h-3 text-green-600" />
                     </div>
                     <span className="text-gray-700 text-sm font-medium">
-                      {feature}
+                      <FormattedMessage id={feature} />
                     </span>
                   </div>
                 ))}

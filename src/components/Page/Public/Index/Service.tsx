@@ -8,6 +8,7 @@ import {
 } from "@tabler/icons-react";
 import { motion, useInView } from "framer-motion";
 import React, { useRef } from "react";
+import { FormattedMessage } from "react-intl";
 
 export const Service: React.FC = () => {
   // MARK: Refs
@@ -25,44 +26,38 @@ export const Service: React.FC = () => {
   const keyFeatures = [
     {
       icon: IconShoppingCart,
-      title: "Inventory Management",
-      description:
-        "Real-time stock tracking, automated reorders, and comprehensive product management to keep your business running smoothly.",
+      titleKey: "home.service.inventory.title",
+      descriptionKey: "home.service.inventory.description",
       color: "blue",
     },
     {
       icon: IconChartBar,
-      title: "Sales Analytics",
-      description:
-        "Detailed insights and reports to help you understand your business performance and make data-driven decisions.",
+      titleKey: "home.service.analytics.title",
+      descriptionKey: "home.service.analytics.description",
       color: "blue",
     },
     {
       icon: IconShield,
-      title: "Secure Payments",
-      description:
-        "End-to-end encryption and secure payment processing to protect both you and your customers.",
+      titleKey: "home.service.payments.title",
+      descriptionKey: "home.service.payments.description",
       color: "blue",
     },
     {
       icon: IconHeadset,
-      title: "24/7 Support",
-      description:
-        "Round-the-clock customer support to ensure your business never stops, with expert assistance whenever you need it.",
+      titleKey: "home.service.support.title",
+      descriptionKey: "home.service.support.description",
       color: "blue",
     },
     {
       icon: IconClock,
-      title: "Quick Setup",
-      description:
-        "Get up and running in minutes with our intuitive setup process and comprehensive onboarding.",
+      titleKey: "home.service.setup.title",
+      descriptionKey: "home.service.setup.description",
       color: "blue",
     },
     {
       icon: IconDevices,
-      title: "Multi-Platform",
-      description:
-        "Works seamlessly across all devices - desktop, tablet, and mobile for complete flexibility.",
+      titleKey: "home.service.platform.title",
+      descriptionKey: "home.service.platform.description",
       color: "blue",
     },
   ];
@@ -117,16 +112,10 @@ export const Service: React.FC = () => {
             Our Services
           </div>
           <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Powerful Features for{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A65FC] to-blue-700">
-              Modern Business
-            </span>
+            <FormattedMessage id="home.service.title" />
           </h2>
           <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            EzyMart provides comprehensive POS solutions designed specifically
-            for small and mid-level businesses in Sri Lanka. Our platform
-            combines cutting-edge technology with user-friendly design to
-            streamline your operations.
+            <FormattedMessage id="home.service.subtitle" />
           </p>
         </motion.div>
 
@@ -162,10 +151,10 @@ export const Service: React.FC = () => {
                     <feature.icon className="w-6 h-6 transition-colors duration-300" />
                   </div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors duration-300">
-                    {feature.title}
+                    <FormattedMessage id={feature.titleKey} />
                   </h3>
                   <p className="text-gray-600 text-sm leading-relaxed">
-                    {feature.description}
+                    <FormattedMessage id={feature.descriptionKey} />
                   </p>
                 </motion.div>
               ))}
@@ -181,13 +170,10 @@ export const Service: React.FC = () => {
               className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200"
             >
               <h4 className="text-lg font-semibold text-gray-900 mb-2">
-                Why Choose EzyMart?
+                <FormattedMessage id="home.service.why.title" />
               </h4>
               <p className="text-gray-700 leading-relaxed">
-                Our POS system is built specifically for the Sri Lankan market,
-                understanding local business needs and providing solutions that
-                are both powerful and easy to use. No technical knowledge
-                required!
+                <FormattedMessage id="home.service.why.description" />
               </p>
             </motion.div>
           </motion.div>

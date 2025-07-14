@@ -1,10 +1,12 @@
 import { motion } from "framer-motion";
-import { Eye, Lightbulb, LucideIcon, Target, Users } from "lucide-react";
+import { Eye, Lightbulb, Target, Users } from "lucide-react";
+import React from "react";
+import { FormattedMessage } from "react-intl";
 
 interface VisionMissionCardProps {
-  title: string;
-  description: string;
-  icon: LucideIcon;
+  title: React.ReactNode;
+  description: React.ReactNode;
+  icon: React.ComponentType<any>;
   items: string[];
   isVision?: boolean;
 }
@@ -105,30 +107,34 @@ export const VisionMissionSection: React.FC = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Our Vision &{" "}
-            <span className="bg-gradient-to-r from-[#0A65FC] to-blue-600 bg-clip-text text-transparent">
-              Mission
-            </span>
+            <FormattedMessage id="aboutUs.visionMission.header.title" />
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Driven by purpose, guided by innovation. Here's what motivates us to
-            build a better future for local commerce.
+            <FormattedMessage id="aboutUs.visionMission.header.subtitle" />
           </p>
         </motion.div>
 
         {/* Cards */}
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           <VisionMissionCard
-            title="Vision"
-            description="Enhancing mankind's lifestyles for a better future through innovative technology and community-focused solutions."
+            title={
+              <FormattedMessage id="aboutUs.visionMission.vision.header" />
+            }
+            description={
+              <FormattedMessage id="aboutUs.visionMission.vision.content" />
+            }
             icon={Eye}
             items={visionItems}
             isVision={true}
           />
 
           <VisionMissionCard
-            title="Mission"
-            description="Deliver high-quality and accessible convenience solutions that connect people with their local communities."
+            title={
+              <FormattedMessage id="aboutUs.visionMission.mission.header" />
+            }
+            description={
+              <FormattedMessage id="aboutUs.visionMission.mission.content" />
+            }
             icon={Target}
             items={missionItems}
             isVision={false}
@@ -144,7 +150,7 @@ export const VisionMissionSection: React.FC = () => {
           className="mt-20"
         >
           <h3 className="text-3xl font-bold text-center text-gray-900 mb-12">
-            Our Core Values
+            <FormattedMessage id="aboutUs.visionMission.coreValues.title" />
           </h3>
           <div className="grid md:grid-cols-2 gap-8">
             <motion.div
@@ -159,11 +165,10 @@ export const VisionMissionSection: React.FC = () => {
               </div>
               <div>
                 <h4 className="text-xl font-semibold text-gray-900 mb-2">
-                  Innovation
+                  <FormattedMessage id="aboutUs.visionMission.innovation.title" />
                 </h4>
                 <p className="text-gray-600">
-                  Continuously improving and creating solutions that make a real
-                  difference in people's lives.
+                  <FormattedMessage id="aboutUs.visionMission.innovation.description" />
                 </p>
               </div>
             </motion.div>
@@ -180,11 +185,10 @@ export const VisionMissionSection: React.FC = () => {
               </div>
               <div>
                 <h4 className="text-xl font-semibold text-gray-900 mb-2">
-                  Community
+                  <FormattedMessage id="aboutUs.visionMission.community.title" />
                 </h4>
                 <p className="text-gray-600">
-                  Building strong relationships between businesses and customers
-                  to strengthen local economies.
+                  <FormattedMessage id="aboutUs.visionMission.community.description" />
                 </p>
               </div>
             </motion.div>

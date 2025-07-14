@@ -10,6 +10,7 @@ import {
 } from "@tabler/icons-react";
 import { motion, useInView } from "framer-motion";
 import React, { useRef } from "react";
+import { FormattedMessage } from "react-intl";
 
 export const CTA: React.FC = () => {
   // MARK: Refs
@@ -27,23 +28,23 @@ export const CTA: React.FC = () => {
   const features = [
     {
       icon: IconBolt,
-      title: "Setup in 15 Minutes",
-      description: "Get your POS running in no time",
+      titleKey: "home.cta.feature1.title",
+      descriptionKey: "home.cta.feature1.description",
     },
     {
       icon: IconShield,
-      title: "30-Day Money Back",
-      description: "Risk-free guarantee",
+      titleKey: "home.cta.feature2.title",
+      descriptionKey: "home.cta.feature2.description",
     },
     {
       icon: IconUsers,
-      title: "Free Training",
-      description: "We'll teach you everything",
+      titleKey: "home.cta.feature3.title",
+      descriptionKey: "home.cta.feature3.description",
     },
     {
       icon: IconClock,
-      title: "24/7 Support",
-      description: "We're here when you need us",
+      titleKey: "home.cta.feature4.title",
+      descriptionKey: "home.cta.feature4.description",
     },
   ];
 
@@ -77,15 +78,11 @@ export const CTA: React.FC = () => {
           </div>
 
           <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-            Transform Your Business{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-blue-300">
-              Today!
-            </span>
+            <FormattedMessage id="home.cta.title" />
           </h2>
 
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
-            Join hundreds of Sri Lankan businesses using EzyMart POS to boost
-            sales, streamline operations, and delight customers.
+            <FormattedMessage id="home.cta.subtitle" />
           </p>
 
           <div className="flex items-center justify-center gap-2 mb-8">
@@ -161,9 +158,11 @@ export const CTA: React.FC = () => {
                   <feature.icon className="w-6 h-6 text-blue-400" />
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">
-                  {feature.title}
+                  <FormattedMessage id={feature.titleKey} />
                 </h3>
-                <p className="text-gray-300 text-sm">{feature.description}</p>
+                <p className="text-gray-300 text-sm">
+                  <FormattedMessage id={feature.descriptionKey} />
+                </p>
               </div>
             </motion.div>
           ))}

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import React from "react";
+import { FormattedMessage } from "react-intl";
 
 export const HeroSection: React.FC = () => {
   return (
@@ -29,10 +30,7 @@ export const HeroSection: React.FC = () => {
             className="mb-8"
           >
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight">
-              About{" "}
-              <span className="bg-gradient-to-r from-[#0A65FC] to-blue-600 bg-clip-text text-transparent">
-                EzyMart
-              </span>
+              <FormattedMessage id="aboutUs.hero.title" />
             </h1>
           </motion.div>
 
@@ -42,10 +40,7 @@ export const HeroSection: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xl md:text-2xl text-gray-600 leading-relaxed max-w-4xl mx-auto mb-12"
           >
-            At EzyMart, our mission is simple: to make everyday shopping easier
-            for everyone. We help you find what you need, right when you need
-            it, by connecting you with trusted local stores across Sri Lanka.
-            It's shopping, made smarter.
+            <FormattedMessage id="aboutUs.hero.subtitle" />
           </motion.p>
 
           <motion.div

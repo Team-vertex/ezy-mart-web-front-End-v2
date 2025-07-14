@@ -11,6 +11,7 @@ import {
 } from "@tabler/icons-react";
 import { motion, useInView } from "framer-motion";
 import React, { useRef } from "react";
+import { FormattedMessage } from "react-intl";
 
 export const Contact: React.FC = () => {
   // MARK: Refs
@@ -28,30 +29,30 @@ export const Contact: React.FC = () => {
   const contactMethods = [
     {
       icon: IconPhone,
-      title: "Call Us",
-      description: "Speak with our team",
-      contact: "+94 76 123 4567",
-      action: "Call Now",
+      titleKey: "home.contact.phone.title",
+      descriptionKey: "home.contact.phone.description",
+      contactKey: "home.contact.phone.number",
+      actionKey: "home.contact.phone.action",
       color: "from-blue-500 to-cyan-500",
       bgColor: "bg-blue-50",
       iconColor: "text-blue-600",
     },
     {
       icon: IconMail,
-      title: "Email Us",
-      description: "Send us a message",
-      contact: "hello@ezymart.lk",
-      action: "Send Email",
+      titleKey: "home.contact.email.title",
+      descriptionKey: "home.contact.email.description",
+      contactKey: "home.contact.email.address",
+      actionKey: "home.contact.email.action",
       color: "from-purple-500 to-pink-500",
       bgColor: "bg-purple-50",
       iconColor: "text-purple-600",
     },
     {
       icon: IconMapPin,
-      title: "Visit Us",
-      description: "Come meet our team",
-      contact: "Colombo, Sri Lanka",
-      action: "Get Directions",
+      titleKey: "home.contact.location.title",
+      descriptionKey: "home.contact.location.description",
+      contactKey: "home.contact.location.address",
+      actionKey: "home.contact.location.action",
       color: "from-green-500 to-emerald-500",
       bgColor: "bg-green-50",
       iconColor: "text-green-600",
@@ -89,20 +90,16 @@ export const Contact: React.FC = () => {
         >
           <div className="flex items-center justify-center mb-6">
             <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold tracking-wide uppercase">
-              Get In Touch
+              <FormattedMessage id="home.contact.getInTouch" />
             </span>
           </div>
 
           <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-            Ready to Transform{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A65FC] to-blue-600">
-              Your Business?
-            </span>
+            <FormattedMessage id="home.contact.transformBusiness" />
           </h2>
 
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Join hundreds of Sri Lankan businesses already using EzyMart POS.
-            Get started today and see the difference in just 24 hours.
+            <FormattedMessage id="home.contact.joinBusinesses" />
           </p>
         </motion.div>
 
@@ -183,16 +180,16 @@ export const Contact: React.FC = () => {
                   <method.icon className={`w-8 h-8 ${method.iconColor}`} />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">
-                  {method.title}
+                  {method.titleKey}
                 </h3>
-                <p className="text-gray-600 mb-4">{method.description}</p>
+                <p className="text-gray-600 mb-4">{method.descriptionKey}</p>
                 <p className="text-[#0A65FC] font-semibold mb-6">
-                  {method.contact}
+                  {method.contactKey}
                 </p>
                 <button
                   className={`px-6 py-3 bg-gradient-to-r ${method.color} text-white rounded-xl font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105`}
                 >
-                  {method.action}
+                  {method.actionKey}
                 </button>
               </div>
             </motion.div>

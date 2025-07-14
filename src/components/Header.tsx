@@ -10,6 +10,7 @@ import {
   IconX,
 } from "@tabler/icons-react";
 import { useEffect, useRef, useState } from "react";
+import { LanguageSwitch } from "./core/LanguageSwitch";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -142,6 +143,7 @@ export default function Header() {
 
         {/* Desktop CTA Buttons */}
         <div className="hidden lg:flex items-center space-x-4">
+          <LanguageSwitch />
           <a
             href={routes.demo}
             className="px-4 py-2 text-gray-700 hover:text-[#0A65FC] transition-colors duration-200 font-medium flex items-center"
@@ -250,6 +252,9 @@ export default function Header() {
 
         {/* Mobile CTA Section */}
         <div className="p-4 border-t border-gray-100 space-y-3">
+          <div className="mb-3">
+            <LanguageSwitch />
+          </div>
           <button className="w-full p-3 text-gray-700 border border-gray-200 rounded-lg hover:border-[#0A65FC] hover:text-[#0A65FC] transition-all duration-200 font-medium">
             <IconPlayerPlay className="w-4 h-4 mr-2 inline" />
             Watch Demo

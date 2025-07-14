@@ -1,17 +1,18 @@
 import { motion } from "framer-motion";
 import { Headphones, Lightbulb, Settings } from "lucide-react";
 import React from "react";
+import { FormattedMessage } from "react-intl";
 
 interface FeatureCardProps {
-  title: string;
-  description: string;
+  titleKey: string;
+  descriptionKey: string;
   icon: React.ElementType;
   index: number;
 }
 
 const FeatureCard: React.FC<FeatureCardProps> = ({
-  title,
-  description,
+  titleKey,
+  descriptionKey,
   icon: Icon,
   index,
 }) => {
@@ -27,8 +28,12 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
         <div className="w-16 h-16 bg-gradient-to-br from-[#0A65FC] to-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
           <Icon className="w-8 h-8 text-white" />
         </div>
-        <h3 className="text-xl font-bold text-gray-900 mb-4">{title}</h3>
-        <p className="text-gray-600 leading-relaxed">{description}</p>
+        <h3 className="text-xl font-bold text-gray-900 mb-4">
+          <FormattedMessage id={titleKey} />
+        </h3>
+        <p className="text-gray-600 leading-relaxed">
+          <FormattedMessage id={descriptionKey} />
+        </p>
       </div>
     </motion.div>
   );
@@ -37,21 +42,18 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
 export const FeaturesSection: React.FC = () => {
   const features = [
     {
-      title: "Innovative Team",
-      description:
-        "We focus on nearby stores, not big marketplaces helping you shop local and support your community.",
+      titleKey: "aboutUs.features.innovative.title",
+      descriptionKey: "aboutUs.features.innovative.description",
       icon: Lightbulb,
     },
     {
-      title: "Innovative Solution",
-      description:
-        "Designed for real needs, EzyMart makes finding products and stores quick, clear, and stress free.",
+      titleKey: "aboutUs.features.solution.title",
+      descriptionKey: "aboutUs.features.solution.description",
       icon: Settings,
     },
     {
-      title: "We Listen to Customers",
-      description:
-        "Your voice matters. Every feature we build starts with feedback from real users so you always get a better, more thoughtful experience.",
+      titleKey: "aboutUs.features.support.title",
+      descriptionKey: "aboutUs.features.support.description",
       icon: Headphones,
     },
   ];
@@ -67,14 +69,10 @@ export const FeaturesSection: React.FC = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            What Makes Us{" "}
-            <span className="bg-gradient-to-r from-[#0A65FC] to-blue-600 bg-clip-text text-transparent">
-              Different?
-            </span>
+            <FormattedMessage id="aboutUs.features.title" />
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Discover the unique approach that sets EzyMart apart in
-            revolutionizing local commerce.
+            <FormattedMessage id="aboutUs.features.subtitle" />
           </p>
         </motion.div>
 
@@ -82,8 +80,8 @@ export const FeaturesSection: React.FC = () => {
           {features.map((feature, index) => (
             <FeatureCard
               key={index}
-              title={feature.title}
-              description={feature.description}
+              titleKey={feature.titleKey}
+              descriptionKey={feature.descriptionKey}
               icon={feature.icon}
               index={index}
             />

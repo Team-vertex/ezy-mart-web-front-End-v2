@@ -1,22 +1,23 @@
 import { motion } from "framer-motion";
 import { CheckCircle, Target, Users, Zap } from "lucide-react";
+import { FormattedMessage } from "react-intl";
 
 export function StorySection() {
   const highlights = [
     {
       icon: Target,
-      title: "Our Mission",
-      description: "Making everyday shopping easier for everyone",
+      titleKey: "aboutUs.story.highlights.mission.title",
+      descriptionKey: "aboutUs.story.highlights.mission.description",
     },
     {
       icon: Users,
-      title: "Local Focus",
-      description: "Connecting customers with trusted local stores",
+      titleKey: "aboutUs.story.highlights.focus.title",
+      descriptionKey: "aboutUs.story.highlights.focus.description",
     },
     {
       icon: Zap,
-      title: "Smart Technology",
-      description: "Innovative solutions for better shopping experiences",
+      titleKey: "aboutUs.story.highlights.technology.title",
+      descriptionKey: "aboutUs.story.highlights.technology.description",
     },
   ];
 
@@ -34,27 +35,15 @@ export function StorySection() {
           >
             <div>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Our{" "}
-                <span className="bg-gradient-to-r from-[#0A65FC] to-blue-600 bg-clip-text text-transparent">
-                  Story
-                </span>
+                <FormattedMessage id="aboutUs.story.title" />
               </h2>
               <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
                 <p>
-                  EzyMart is a smart shopping platform developed by Vertex
-                  Cooperation (PVT) LTD, a team dedicated to creating practical,
-                  innovative tech solutions. Guided by our vision — Enhancing
-                  mankind's lifestyles for a better future — we aim to make
-                  everyday shopping easier, smarter, and more connected.
+                  <FormattedMessage id="aboutUs.story.content.0" />
                 </p>
 
                 <p>
-                  Our Project EzyMart is to bring small and mid-level businesses
-                  into the digital world and connect everyday customers with
-                  local shops through a smart, easy-to-use app. EzyMart helps
-                  users find nearby products quickly, making shopping more
-                  convenient, affordable, and efficient—whether it's groceries,
-                  electronics, or daily essentials.
+                  <FormattedMessage id="aboutUs.story.content.1" />
                 </p>
               </div>
             </div>
@@ -77,10 +66,10 @@ export function StorySection() {
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-900 mb-1">
-                        {highlight.title}
+                        <FormattedMessage id={highlight.titleKey} />
                       </h3>
                       <p className="text-gray-600 text-sm">
-                        {highlight.description}
+                        <FormattedMessage id={highlight.descriptionKey} />
                       </p>
                     </div>
                   </motion.div>
@@ -95,7 +84,7 @@ export function StorySection() {
               viewport={{ once: true }}
               className="group bg-[#0A65FC] text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
             >
-              Learn More About Us
+              <FormattedMessage id="aboutUs.story.button" />
               <span className="inline-block ml-2 transform group-hover:translate-x-1 transition-transform">
                 →
               </span>

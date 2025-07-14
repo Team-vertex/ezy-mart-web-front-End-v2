@@ -8,6 +8,7 @@ import {
 } from "@tabler/icons-react";
 import { motion, useInView } from "framer-motion";
 import React, { useRef } from "react";
+import { FormattedMessage } from "react-intl";
 
 export const Value: React.FC = () => {
   // MARK: Refs
@@ -66,19 +67,19 @@ export const Value: React.FC = () => {
     {
       icon: IconUsers,
       value: "10,000+",
-      label: "Happy Customers",
+      labelKey: "home.value.stats.customers",
       color: "blue",
     },
     {
       icon: IconTrendingUp,
       value: "25%",
-      label: "Average Sales Increase",
+      labelKey: "home.value.stats.increase",
       color: "blue",
     },
     {
       icon: IconAward,
       value: "4.9/5",
-      label: "Customer Rating",
+      labelKey: "home.value.stats.rating",
       color: "blue",
     },
   ];
@@ -117,18 +118,10 @@ export const Value: React.FC = () => {
             Our Value Proposition
           </div>
           <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Clear{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A65FC] to-blue-700">
-              Value
-            </span>{" "}
-            for our{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A65FC] to-blue-700">
-              Clients
-            </span>
+            <FormattedMessage id="home.value.title" />
           </h2>
           <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            EzyMart empowers small and mid-level businesses across Sri Lanka
-            with cutting-edge POS technology that drives growth and efficiency.
+            <FormattedMessage id="home.value.subtitle" />
           </p>
         </motion.div>
 
@@ -160,7 +153,9 @@ export const Value: React.FC = () => {
               <div className="text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
                 {stat.value}
               </div>
-              <div className="text-gray-600 font-medium">{stat.label}</div>
+              <div className="text-gray-600 font-medium">
+                <FormattedMessage id={stat.labelKey} />
+              </div>
             </motion.div>
           ))}
         </motion.div>
