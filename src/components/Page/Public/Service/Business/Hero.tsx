@@ -8,6 +8,7 @@ import {
   Users,
   Zap,
 } from "lucide-react";
+import { FormattedMessage, useIntl } from "react-intl";
 
 type FeatureProps = {
   icon: React.ReactNode;
@@ -29,12 +30,30 @@ const Feature: React.FC<FeatureProps> = ({ icon, text }) => {
 };
 
 function Hero() {
-  const features = [
-    { icon: <Zap size={20} />, text: "Easy to use" },
-    { icon: <TrendingUp size={20} />, text: "Quick setup" },
-    { icon: <Shield size={20} />, text: "No complexity" },
-    { icon: <Users size={20} />, text: "Affordable pricing" },
+  const intl = useIntl();
+
+  const getFeatures = () => [
+    {
+      icon: <Zap size={20} />,
+      text: intl.formatMessage({ id: "business.hero.features.easyToUse" }),
+    },
+    {
+      icon: <TrendingUp size={20} />,
+      text: intl.formatMessage({ id: "business.hero.features.quickSetup" }),
+    },
+    {
+      icon: <Shield size={20} />,
+      text: intl.formatMessage({ id: "business.hero.features.noComplexity" }),
+    },
+    {
+      icon: <Users size={20} />,
+      text: intl.formatMessage({
+        id: "business.hero.features.affordablePricing",
+      }),
+    },
   ];
+
+  const features = getFeatures();
 
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-[#0A65FC] via-blue-600 to-blue-700 overflow-hidden flex items-center">
@@ -68,7 +87,7 @@ function Hero() {
           >
             <CheckCircle size={18} className="text-green-300" />
             <span className="text-white font-medium">
-              Trusted by 2,000+ businesses across Sri Lanka
+              <FormattedMessage id="business.hero.badge" />
             </span>
           </motion.div>
 
@@ -79,12 +98,7 @@ function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6"
           >
-            Smart{" "}
-            <span className="bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">
-              POS Solutions
-            </span>
-            <br />
-            for Sri Lankan Shops
+            <FormattedMessage id="business.hero.title" />
           </motion.h1>
 
           {/* Description */}
@@ -94,10 +108,7 @@ function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed mb-10"
           >
-            Transform your business with our all-in-one POS system. Manage
-            sales, inventory, expenses, and customer relationships effortlessly.
-            Built specifically for local businesses who value simplicity and
-            efficiency.
+            <FormattedMessage id="business.hero.description" />
           </motion.p>
 
           {/* Features grid */}
@@ -131,7 +142,7 @@ function Hero() {
               whileTap={{ scale: 0.95 }}
               className="group bg-white text-[#0A65FC] px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-50 transition-all duration-300 shadow-xl flex items-center gap-2"
             >
-              Start Free Trial
+              <FormattedMessage id="business.hero.buttons.startFreeTrial" />
               <ArrowRight
                 size={20}
                 className="group-hover:translate-x-1 transition-transform"
@@ -143,7 +154,7 @@ function Hero() {
               whileTap={{ scale: 0.95 }}
               className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-[#0A65FC] transition-all duration-300"
             >
-              Watch Demo
+              <FormattedMessage id="business.hero.buttons.watchDemo" />
             </motion.button>
           </motion.div>
 
@@ -154,8 +165,7 @@ function Hero() {
             transition={{ duration: 0.8, delay: 1.2 }}
             className="mt-12 text-blue-200 text-sm"
           >
-            ✓ No setup fees • ✓ 30-day money-back guarantee • ✓ Free training
-            included
+            <FormattedMessage id="business.hero.trustIndicators" />
           </motion.div>
         </div>
       </div>

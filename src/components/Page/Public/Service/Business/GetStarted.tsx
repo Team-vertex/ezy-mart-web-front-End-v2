@@ -1,38 +1,51 @@
 import { motion, useInView } from "framer-motion";
 import React, { useRef } from "react";
+import { FormattedMessage, useIntl } from "react-intl";
 
 export const GetStarted: React.FC = () => {
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
   const cardsRef = useRef(null);
+  const intl = useIntl();
 
   const isSectionInView = useInView(sectionRef, { once: true, amount: 0.2 });
   const isHeadingInView = useInView(headingRef, { once: true, amount: 0.5 });
   const isCardsInView = useInView(cardsRef, { once: true, amount: 0.3 });
 
-  const steps = [
+  const getSteps = () => [
     {
-      title: "Request System",
-      description:
-        "Just submit your basic details through our EzyMart landing page – name, contact info, business type, and location. No hassle, just a few clicks!",
+      title: intl.formatMessage({
+        id: "business.getStarted.steps.request.title",
+      }),
+      description: intl.formatMessage({
+        id: "business.getStarted.steps.request.description",
+      }),
       image: "/images/Business/image1.png",
       step: "01",
     },
     {
-      title: "We'll Reach Out",
-      description:
-        "Our team will contact you to confirm your business details, guide you through the integration and training process, and help you prepare the needed documents.",
+      title: intl.formatMessage({
+        id: "business.getStarted.steps.contact.title",
+      }),
+      description: intl.formatMessage({
+        id: "business.getStarted.steps.contact.description",
+      }),
       image: "/images/Business/image2.png",
       step: "02",
     },
     {
-      title: "Work with EzyMart POS",
-      description:
-        "Once your setup is complete, you'll receive the software and login – plug it in, and your business is ready to manage sales, stocks, and more with ease.",
+      title: intl.formatMessage({
+        id: "business.getStarted.steps.setup.title",
+      }),
+      description: intl.formatMessage({
+        id: "business.getStarted.steps.setup.description",
+      }),
       image: "/images/Business/image3.png",
       step: "03",
     },
   ];
+
+  const steps = getSteps();
 
   return (
     <section
@@ -58,22 +71,16 @@ export const GetStarted: React.FC = () => {
         >
           <div className="flex items-center justify-center mb-6">
             <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold tracking-wide uppercase">
-              Simple Process
+              <FormattedMessage id="business.getStarted.badge" />
             </span>
           </div>
 
           <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-            Get Started with EzyMart POS –{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A65FC] to-blue-600">
-              Fast and Easy
-            </span>
+            <FormattedMessage id="business.getStarted.title" />
           </h2>
 
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Getting started with EzyMart POS is fast and effortless. Whether
-            you're running a grocery store or a boutique, our process is
-            designed to get your business up and running within 2 days. No tech
-            skills needed!
+            <FormattedMessage id="business.getStarted.subtitle" />
           </p>
         </motion.div>
 
@@ -139,7 +146,7 @@ export const GetStarted: React.FC = () => {
           className="text-center mt-16"
         >
           <button className="px-12 py-4 bg-gradient-to-r from-[#0A65FC] to-blue-600 text-white font-bold text-lg rounded-full hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105">
-            Get Started Now
+            <FormattedMessage id="business.getStarted.cta" />
           </button>
         </motion.div>
       </div>

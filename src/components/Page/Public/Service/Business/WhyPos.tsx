@@ -6,26 +6,34 @@ import {
 } from "@tabler/icons-react";
 import { motion, useInView } from "framer-motion";
 import React, { useRef } from "react";
+import { FormattedMessage, useIntl } from "react-intl";
 
 export const WhyPos: React.FC = () => {
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
   const cardsRef = useRef(null);
   const ctaRef = useRef(null);
+  const intl = useIntl();
 
   const isHeadingInView = useInView(headingRef, { once: true, amount: 0.5 });
   const isCardsInView = useInView(cardsRef, { once: true, amount: 0.3 });
   const isCtaInView = useInView(ctaRef, { once: true, amount: 0.5 });
 
-  const features = [
+  const getFeatures = () => [
     {
       icon: IconCurrencyDollar,
-      badge: "EXCLUSIVE",
-      title: "No Initial Cost",
-      subtitle:
-        "Unlike competitors with high startup fees - we charge nothing to begin.",
-      description:
-        "Start using EzyMart POS with zero cost — our revolutionary approach gives small businesses enterprise-level tools without the enterprise price tag.",
+      badge: intl.formatMessage({
+        id: "business.whyPos.features.noCost.badge",
+      }),
+      title: intl.formatMessage({
+        id: "business.whyPos.features.noCost.title",
+      }),
+      subtitle: intl.formatMessage({
+        id: "business.whyPos.features.noCost.subtitle",
+      }),
+      description: intl.formatMessage({
+        id: "business.whyPos.features.noCost.description",
+      }),
       gradient: "from-emerald-50 to-green-100",
       iconBg: "bg-gradient-to-br from-emerald-100 to-green-200",
       iconColor: "text-emerald-600",
@@ -33,12 +41,18 @@ export const WhyPos: React.FC = () => {
     },
     {
       icon: IconSparkles,
-      badge: "STANDOUT FEATURE",
-      title: "Unmatched Simplicity",
-      subtitle:
-        "While others offer complexity - we deliver intuitive design anyone can master in minutes.",
-      description:
-        "Our proprietary interface is designed specifically for retailers who value their time. Learn once, use forever - with virtually no learning curve.",
+      badge: intl.formatMessage({
+        id: "business.whyPos.features.simplicity.badge",
+      }),
+      title: intl.formatMessage({
+        id: "business.whyPos.features.simplicity.title",
+      }),
+      subtitle: intl.formatMessage({
+        id: "business.whyPos.features.simplicity.subtitle",
+      }),
+      description: intl.formatMessage({
+        id: "business.whyPos.features.simplicity.description",
+      }),
       gradient: "from-purple-50 to-indigo-100",
       iconBg: "bg-gradient-to-br from-purple-100 to-indigo-200",
       iconColor: "text-purple-600",
@@ -46,18 +60,26 @@ export const WhyPos: React.FC = () => {
     },
     {
       icon: IconUsers,
-      badge: "INDUSTRY-LEADING",
-      title: "Dedicated Support Team",
-      subtitle:
-        "When others offer chatbots - we give you real humans committed to your success.",
-      description:
-        "Our support team consists of retail experts, not just tech support. Get business advice alongside technical help - a service no other POS provider offers.",
+      badge: intl.formatMessage({
+        id: "business.whyPos.features.support.badge",
+      }),
+      title: intl.formatMessage({
+        id: "business.whyPos.features.support.title",
+      }),
+      subtitle: intl.formatMessage({
+        id: "business.whyPos.features.support.subtitle",
+      }),
+      description: intl.formatMessage({
+        id: "business.whyPos.features.support.description",
+      }),
       gradient: "from-orange-50 to-red-100",
       iconBg: "bg-gradient-to-br from-orange-100 to-red-200",
       iconColor: "text-orange-600",
       glowColor: "shadow-orange-200",
     },
   ];
+
+  const features = getFeatures();
 
   return (
     <section
@@ -83,26 +105,16 @@ export const WhyPos: React.FC = () => {
         >
           <div className="flex items-center justify-center mb-6">
             <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold tracking-wide uppercase">
-              Exclusively For Small Business Owners
+              <FormattedMessage id="business.whyPos.badge" />
             </span>
           </div>
 
           <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-            Why EzyMart{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A65FC] to-blue-600">
-              POS?
-            </span>
+            <FormattedMessage id="business.whyPos.title" />
           </h2>
 
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Unlike generic solutions, EzyMart POS is{" "}
-            <span className="font-semibold">specifically crafted</span> for shop
-            owners who value simplicity and efficiency. Experience business
-            management that's not just easier—it's{" "}
-            <span className="font-semibold text-[#0A65FC]">
-              uniquely tailored
-            </span>{" "}
-            to how you work.
+            <FormattedMessage id="business.whyPos.subtitle" />
           </p>
         </motion.div>
 
@@ -183,17 +195,15 @@ export const WhyPos: React.FC = () => {
               ))}
             </div>
             <span className="ml-3 text-sm font-semibold text-gray-600">
-              Trusted by 2,000+ shop owners
+              <FormattedMessage id="business.whyPos.socialProof.rating" />
             </span>
           </div>
           <blockquote className="text-center">
             <p className="text-lg italic text-gray-700 mb-4">
-              "After trying 3 different POS systems, EzyMart is the only one
-              that truly understands what small retailers need. It's like it was
-              made specifically for my business."
+              "<FormattedMessage id="business.whyPos.socialProof.quote" />"
             </p>
             <cite className="font-semibold text-gray-900">
-              — Sarah T., Boutique Owner
+              <FormattedMessage id="business.whyPos.socialProof.author" />
             </cite>
           </blockquote>
         </motion.div>
@@ -208,16 +218,15 @@ export const WhyPos: React.FC = () => {
         >
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button className="px-8 py-4 bg-gradient-to-r from-[#0A65FC] to-blue-600 text-white font-bold text-lg rounded-full hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 flex items-center">
-              Start Your Free Setup
+              <FormattedMessage id="business.whyPos.cta.primary" />
               <IconArrowRight className="ml-2 w-5 h-5" />
             </button>
             <button className="px-8 py-4 text-[#0A65FC] font-semibold border-2 border-blue-200 hover:border-[#0A65FC] rounded-full transition-all duration-300 hover:bg-blue-50">
-              Schedule a Demo
+              <FormattedMessage id="business.whyPos.cta.secondary" />
             </button>
           </div>
           <p className="text-gray-500 mt-6 max-w-2xl mx-auto">
-            Join the community of shop owners who've upgraded to the smarter way
-            to run their business
+            <FormattedMessage id="business.whyPos.cta.subtitle" />
           </p>
         </motion.div>
       </div>

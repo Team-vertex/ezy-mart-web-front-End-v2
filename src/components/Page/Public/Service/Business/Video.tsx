@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Pause, Play } from "lucide-react";
 import React, { useState } from "react";
+import { FormattedMessage } from "react-intl";
 
 export const Video: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -29,18 +30,13 @@ export const Video: React.FC = () => {
           className="text-center mb-12"
         >
           <div className="inline-block px-4 py-2 bg-blue-100 text-[#0A65FC] rounded-full text-sm font-semibold mb-4">
-            See It In Action
+            <FormattedMessage id="business.video.badge" />
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Watch How EzyMart POS{" "}
-            <span className="bg-gradient-to-r from-[#0A65FC] to-blue-600 bg-clip-text text-transparent">
-              Transforms
-            </span>{" "}
-            Your Business
+            <FormattedMessage id="business.video.title" />
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            See real Sri Lankan business owners share how EzyMart POS helped
-            them streamline operations and boost sales.
+            <FormattedMessage id="business.video.subtitle" />
           </p>
         </motion.div>
 
@@ -96,11 +92,10 @@ export const Video: React.FC = () => {
                 <div className="flex items-center gap-4">
                   <div className="flex-1">
                     <h3 className="text-white font-semibold text-lg mb-1">
-                      Real Business Owner Success Story
+                      <FormattedMessage id="business.video.overlay.title" />
                     </h3>
                     <p className="text-white/80 text-sm">
-                      Watch how Sarah transformed her grocery store with EzyMart
-                      POS
+                      <FormattedMessage id="business.video.overlay.subtitle" />
                     </p>
                   </div>
                   <div className="text-white/80 text-sm">2:30</div>
@@ -123,10 +118,10 @@ export const Video: React.FC = () => {
               <Play size={24} className="text-white" />
             </div>
             <h3 className="text-xl font-semibold text-gray-900 mb-2">
-              Live Demo
+              <FormattedMessage id="business.video.benefits.liveDemo.title" />
             </h3>
             <p className="text-gray-600">
-              See the actual system in action with real-world scenarios
+              <FormattedMessage id="business.video.benefits.liveDemo.description" />
             </p>
           </div>
 
@@ -147,11 +142,10 @@ export const Video: React.FC = () => {
               </svg>
             </div>
             <h3 className="text-xl font-semibold text-gray-900 mb-2">
-              Customer Stories
+              <FormattedMessage id="business.video.benefits.customerStories.title" />
             </h3>
             <p className="text-gray-600">
-              Hear directly from business owners who've transformed their
-              operations
+              <FormattedMessage id="business.video.benefits.customerStories.description" />
             </p>
           </div>
 
@@ -172,10 +166,10 @@ export const Video: React.FC = () => {
               </svg>
             </div>
             <h3 className="text-xl font-semibold text-gray-900 mb-2">
-              Quick Setup
+              <FormattedMessage id="business.video.benefits.quickSetup.title" />
             </h3>
             <p className="text-gray-600">
-              Learn how easy it is to get started in just a few minutes
+              <FormattedMessage id="business.video.benefits.quickSetup.description" />
             </p>
           </div>
         </motion.div>
