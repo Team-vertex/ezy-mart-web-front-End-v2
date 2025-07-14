@@ -7,10 +7,12 @@ import {
 } from "@tabler/icons-react";
 import { motion, useInView } from "framer-motion";
 import { FormEvent, useRef, useState } from "react";
+import { FormattedMessage, useIntl } from "react-intl";
 
 const LetsTalk = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
+  const intl = useIntl();
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -49,15 +51,17 @@ const LetsTalk = () => {
     // Reset form or show success message
   };
 
-  const reasons = [
-    "General Inquiry",
-    "Technical Support",
-    "Sales Question",
-    "Partnership",
-    "Feature Request",
-    "Bug Report",
-    "Other",
+  const getReasons = () => [
+    intl.formatMessage({ id: "contactUs.letsTalk.form.reasons.general" }),
+    intl.formatMessage({ id: "contactUs.letsTalk.form.reasons.support" }),
+    intl.formatMessage({ id: "contactUs.letsTalk.form.reasons.sales" }),
+    intl.formatMessage({ id: "contactUs.letsTalk.form.reasons.partnership" }),
+    intl.formatMessage({ id: "contactUs.letsTalk.form.reasons.feature" }),
+    intl.formatMessage({ id: "contactUs.letsTalk.form.reasons.bug" }),
+    intl.formatMessage({ id: "contactUs.letsTalk.form.reasons.other" }),
   ];
+
+  const reasons = getReasons();
 
   return (
     <section
@@ -80,18 +84,13 @@ const LetsTalk = () => {
           className="text-center mb-16"
         >
           <div className="inline-flex px-4 py-2 bg-blue-100 text-[#0A65FC] rounded-full text-sm font-semibold tracking-wide uppercase mb-6">
-            Contact Form
+            <FormattedMessage id="contactUs.letsTalk.badge" />
           </div>
           <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-            Let's{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A65FC] to-blue-600">
-              Talk
-            </span>
+            <FormattedMessage id="contactUs.letsTalk.title" />
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Have questions, feedback, or need help getting started? Our team is
-            here to support you — just send us a message and we'll get back to
-            you as soon as possible.
+            <FormattedMessage id="contactUs.letsTalk.subtitle" />
           </p>
         </motion.div>
 
@@ -118,13 +117,15 @@ const LetsTalk = () => {
                   className="flex items-center text-gray-700 font-semibold"
                 >
                   <IconUser className="w-4 h-4 mr-2 text-[#0A65FC]" />
-                  First Name
+                  <FormattedMessage id="contactUs.letsTalk.form.firstName" />
                 </label>
                 <input
                   type="text"
                   id="firstName"
                   name="firstName"
-                  placeholder="Enter your first name"
+                  placeholder={intl.formatMessage({
+                    id: "contactUs.letsTalk.form.placeholder.firstName",
+                  })}
                   value={formData.firstName}
                   onChange={handleChange}
                   required
@@ -145,14 +146,18 @@ const LetsTalk = () => {
                   className="flex items-center text-gray-700 font-semibold"
                 >
                   <IconUser className="w-4 h-4 mr-2 text-[#0A65FC]" />
-                  Last Name{" "}
-                  <span className="text-gray-400 ml-1">(optional)</span>
+                  <FormattedMessage id="contactUs.letsTalk.form.lastName" />{" "}
+                  <span className="text-gray-400 ml-1">
+                    <FormattedMessage id="contactUs.letsTalk.form.optional" />
+                  </span>
                 </label>
                 <input
                   type="text"
                   id="lastName"
                   name="lastName"
-                  placeholder="Enter your last name"
+                  placeholder={intl.formatMessage({
+                    id: "contactUs.letsTalk.form.placeholder.lastName",
+                  })}
                   value={formData.lastName}
                   onChange={handleChange}
                   className="w-full rounded-xl border-2 border-blue-100 bg-white p-4 text-gray-700 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#0A65FC] focus:border-transparent transition-all duration-300"
@@ -175,13 +180,15 @@ const LetsTalk = () => {
                   className="flex items-center text-gray-700 font-semibold"
                 >
                   <IconPhone className="w-4 h-4 mr-2 text-[#0A65FC]" />
-                  Contact Number
+                  <FormattedMessage id="contactUs.letsTalk.form.contactNumber" />
                 </label>
                 <input
                   type="tel"
                   id="contactNumber"
                   name="contactNumber"
-                  placeholder="+94 XX XXX XXXX"
+                  placeholder={intl.formatMessage({
+                    id: "contactUs.letsTalk.form.placeholder.contactNumber",
+                  })}
                   value={formData.contactNumber}
                   onChange={handleChange}
                   required
@@ -202,13 +209,18 @@ const LetsTalk = () => {
                   className="flex items-center text-gray-700 font-semibold"
                 >
                   <IconMail className="w-4 h-4 mr-2 text-[#0A65FC]" />
-                  Email <span className="text-gray-400 ml-1">(optional)</span>
+                  <FormattedMessage id="contactUs.letsTalk.form.email" />{" "}
+                  <span className="text-gray-400 ml-1">
+                    <FormattedMessage id="contactUs.letsTalk.form.optional" />
+                  </span>
                 </label>
                 <input
                   type="email"
                   id="email"
                   name="email"
-                  placeholder="your.email@example.com"
+                  placeholder={intl.formatMessage({
+                    id: "contactUs.letsTalk.form.placeholder.email",
+                  })}
                   value={formData.email}
                   onChange={handleChange}
                   className="w-full rounded-xl border-2 border-blue-100 bg-white p-4 text-gray-700 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#0A65FC] focus:border-transparent transition-all duration-300"
@@ -228,7 +240,7 @@ const LetsTalk = () => {
                 className="flex items-center text-gray-700 font-semibold"
               >
                 <IconMessage className="w-4 h-4 mr-2 text-[#0A65FC]" />
-                Reason for Contact
+                <FormattedMessage id="contactUs.letsTalk.form.reason" />
               </label>
               <select
                 id="reason"
@@ -238,7 +250,11 @@ const LetsTalk = () => {
                 required
                 className="w-full rounded-xl border-2 border-blue-100 bg-white p-4 text-gray-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-[#0A65FC] focus:border-transparent transition-all duration-300"
               >
-                <option value="">Select a reason</option>
+                <option value="">
+                  {intl.formatMessage({
+                    id: "contactUs.letsTalk.form.placeholder.reason",
+                  })}
+                </option>
                 {reasons.map((reason) => (
                   <option key={reason} value={reason}>
                     {reason}
@@ -259,12 +275,14 @@ const LetsTalk = () => {
                 className="flex items-center text-gray-700 font-semibold"
               >
                 <IconMessage className="w-4 h-4 mr-2 text-[#0A65FC]" />
-                Message
+                <FormattedMessage id="contactUs.letsTalk.form.message" />
               </label>
               <textarea
                 id="message"
                 name="message"
-                placeholder="Tell us more about your inquiry..."
+                placeholder={intl.formatMessage({
+                  id: "contactUs.letsTalk.form.placeholder.message",
+                })}
                 value={formData.message}
                 onChange={handleChange}
                 required
@@ -290,12 +308,12 @@ const LetsTalk = () => {
                 {isSubmitting ? (
                   <>
                     <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
-                    Sending...
+                    <FormattedMessage id="contactUs.letsTalk.form.submitting" />
                   </>
                 ) : (
                   <>
                     <IconSend className="w-5 h-5 mr-2" />
-                    Send Message
+                    <FormattedMessage id="contactUs.letsTalk.form.submit" />
                   </>
                 )}
               </motion.button>

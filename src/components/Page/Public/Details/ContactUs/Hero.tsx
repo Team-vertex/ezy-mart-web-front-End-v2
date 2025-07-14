@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { FormattedMessage } from "react-intl";
 
 function Hero() {
   return (
@@ -25,7 +26,7 @@ function Hero() {
             transition={{ duration: 0.8 }}
             className="px-4 py-2 bg-white/20 backdrop-blur-sm text-white rounded-full text-sm font-semibold tracking-wide uppercase mb-6 border border-white/30"
           >
-            Get In Touch
+            <FormattedMessage id="contactUs.hero.badge" />
           </motion.div>
 
           <motion.h1
@@ -34,7 +35,7 @@ function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
           >
-            Contact <span className="text-blue-100">Us</span>
+            <FormattedMessage id="contactUs.hero.title" />
           </motion.h1>
 
           <motion.p
@@ -43,9 +44,7 @@ function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-white/90 text-lg lg:text-xl font-medium leading-relaxed mb-8 max-w-[700px]"
           >
-            Have questions, feedback, or need help getting started? Our team is
-            here to support you — just send us a message and we'll get back to
-            you as soon as possible.
+            <FormattedMessage id="contactUs.hero.subtitle" />
           </motion.p>
 
           <motion.button
@@ -61,7 +60,7 @@ function Hero() {
                 ?.scrollIntoView({ behavior: "smooth" });
             }}
           >
-            Let's Talk
+            <FormattedMessage id="contactUs.hero.button" />
           </motion.button>
         </div>
       </div>

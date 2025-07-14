@@ -6,37 +6,53 @@ import {
 } from "@tabler/icons-react";
 import { motion, useInView } from "framer-motion";
 import React, { useRef } from "react";
+import { FormattedMessage, useIntl } from "react-intl";
 
 const GetInTouch: React.FC = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
+  const intl = useIntl();
 
-  const contactInfo = [
+  const getContactInfo = () => [
     {
       icon: IconPhone,
-      title: "Phone Numbers",
-      details: ["+94 71 895 9403", "+94 71 895 9403"],
+      title: intl.formatMessage({ id: "contactUs.getInTouch.phone.title" }),
+      details: [
+        intl.formatMessage({ id: "contactUs.getInTouch.phone.details.0" }),
+        intl.formatMessage({ id: "contactUs.getInTouch.phone.details.1" }),
+      ],
       color: "from-[#0A65FC] to-blue-600",
     },
     {
       icon: IconMapPin,
-      title: "Address",
-      details: ["Anuradhapura Road,", "Eriyagama, Malwanegama"],
+      title: intl.formatMessage({ id: "contactUs.getInTouch.address.title" }),
+      details: [
+        intl.formatMessage({ id: "contactUs.getInTouch.address.details.0" }),
+        intl.formatMessage({ id: "contactUs.getInTouch.address.details.1" }),
+      ],
       color: "from-blue-500 to-blue-600",
     },
     {
       icon: IconMail,
-      title: "Email",
-      details: ["support@ezymart.lk", "info@ezymart.lk"],
+      title: intl.formatMessage({ id: "contactUs.getInTouch.email.title" }),
+      details: [
+        intl.formatMessage({ id: "contactUs.getInTouch.email.details.0" }),
+        intl.formatMessage({ id: "contactUs.getInTouch.email.details.1" }),
+      ],
       color: "from-blue-600 to-blue-700",
     },
     {
       icon: IconClock,
-      title: "Business Hours",
-      details: ["Mon - Fri: 9:00 AM - 6:00 PM", "Sat: 9:00 AM - 4:00 PM"],
+      title: intl.formatMessage({ id: "contactUs.getInTouch.hours.title" }),
+      details: [
+        intl.formatMessage({ id: "contactUs.getInTouch.hours.details.0" }),
+        intl.formatMessage({ id: "contactUs.getInTouch.hours.details.1" }),
+      ],
       color: "from-blue-700 to-blue-800",
     },
   ];
+
+  const contactInfo = getContactInfo();
 
   return (
     <section
@@ -67,19 +83,15 @@ const GetInTouch: React.FC = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="inline-flex px-4 py-2 bg-blue-100 text-[#0A65FC] rounded-full text-sm font-semibold tracking-wide uppercase"
               >
-                Contact Information
+                <FormattedMessage id="contactUs.getInTouch.badge" />
               </motion.div>
 
               <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                <span className="text-gray-900">Get In </span>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A65FC] to-blue-600">
-                  Touch
-                </span>
+                <FormattedMessage id="contactUs.getInTouch.title" />
               </h2>
 
               <p className="text-gray-600 text-lg lg:text-xl leading-relaxed">
-                Let's connect and make your experience even better. Whether
-                you're a shopper or a business, we're just a message away.
+                <FormattedMessage id="contactUs.getInTouch.subtitle" />
               </p>
             </div>
           </motion.div>

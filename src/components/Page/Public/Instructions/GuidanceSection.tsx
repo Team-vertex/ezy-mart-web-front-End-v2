@@ -6,33 +6,53 @@ import {
 } from "@tabler/icons-react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { FormattedMessage, useIntl } from "react-intl";
 
 export default function GuidanceSection() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
+  const intl = useIntl();
 
-  const features = [
+  const getFeatures = () => [
     {
       icon: IconBook,
-      title: "Step-by-Step Guide",
-      description: "Easy to follow instructions for every feature",
+      title: intl.formatMessage({
+        id: "instructions.guidance.features.stepByStep.title",
+      }),
+      description: intl.formatMessage({
+        id: "instructions.guidance.features.stepByStep.description",
+      }),
     },
     {
       icon: IconPlayerPlay,
-      title: "Video Tutorials",
-      description: "Watch detailed video guides for visual learning",
+      title: intl.formatMessage({
+        id: "instructions.guidance.features.videoTutorials.title",
+      }),
+      description: intl.formatMessage({
+        id: "instructions.guidance.features.videoTutorials.description",
+      }),
     },
     {
       icon: IconUsers,
-      title: "Community Support",
-      description: "Join our community for tips and best practices",
+      title: intl.formatMessage({
+        id: "instructions.guidance.features.communitySupport.title",
+      }),
+      description: intl.formatMessage({
+        id: "instructions.guidance.features.communitySupport.description",
+      }),
     },
     {
       icon: IconHelp,
-      title: "24/7 Help Center",
-      description: "Get help whenever you need it from our experts",
+      title: intl.formatMessage({
+        id: "instructions.guidance.features.helpCenter.title",
+      }),
+      description: intl.formatMessage({
+        id: "instructions.guidance.features.helpCenter.description",
+      }),
     },
   ];
+
+  const features = getFeatures();
 
   return (
     <section
@@ -63,32 +83,23 @@ export default function GuidanceSection() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="inline-flex px-4 py-2 bg-blue-100 text-[#0A65FC] rounded-full text-sm font-semibold tracking-wide uppercase"
               >
-                Learning Made Easy
+                <FormattedMessage id="instructions.guidance.badge" />
               </motion.div>
 
               <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A65FC] to-blue-600">
-                  Guidance
-                </span>{" "}
-                to Start Learning <span className="block">Process</span>
+                <FormattedMessage id="instructions.guidance.title" />
               </h2>
 
               <div className="space-y-4">
                 <p className="text-gray-600 text-lg lg:text-xl leading-relaxed">
-                  EzyMart helps small and mid-level business owners and
-                  customers in Sri Lanka. We make it easy to manage shops and
-                  find products nearby.
+                  <FormattedMessage id="instructions.guidance.subtitle" />
                 </p>
                 <div className="space-y-3 p-6 bg-white rounded-2xl shadow-lg border border-blue-100">
                   <p className="text-gray-700 font-medium">
                     <span className="font-bold text-[#0A65FC]">
-                      Instructions:
+                      <FormattedMessage id="instructions.guidance.instructions.title" />
                     </span>{" "}
-                    First, Read titles and find the video
-                  </p>
-                  <p className="text-gray-600">
-                    that you want to watch. Then watch the video. If there any
-                    issue feel free to contact us.
+                    <FormattedMessage id="instructions.guidance.instructions.content" />
                   </p>
                 </div>
               </div>
@@ -102,7 +113,7 @@ export default function GuidanceSection() {
               whileTap={{ scale: 0.95 }}
               className="bg-gradient-to-r from-[#0A65FC] to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-10 py-4 rounded-full font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-blue-500/25"
             >
-              Get Started
+              <FormattedMessage id="instructions.guidance.button" />
             </motion.button>
           </motion.div>
 

@@ -8,48 +8,67 @@ import {
 } from "@tabler/icons-react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-
-const guidanceSteps = [
-  {
-    id: 1,
-    title: "How to login",
-    description:
-      "It's very simple, you just need to open the software in the desk and enter your username and password then press enter.",
-    icon: IconLogin,
-  },
-  {
-    id: 2,
-    title: "How to Sell products",
-    description:
-      "Learn how to process sales, scan barcodes, and manage transactions efficiently with our intuitive POS interface.",
-    icon: IconShoppingCart,
-  },
-  {
-    id: 3,
-    title: "Inventory Management",
-    description:
-      "Track your inventory levels, set up low stock alerts, and manage your products with ease using our advanced system.",
-    icon: IconChartBar,
-  },
-  {
-    id: 4,
-    title: "System Settings",
-    description:
-      "Configure your POS system settings, customize receipts, manage tax settings, and set up payment methods.",
-    icon: IconSettings,
-  },
-  {
-    id: 5,
-    title: "Getting Support",
-    description:
-      "Access our comprehensive help center, contact support, and join our community for ongoing assistance and tips.",
-    icon: IconHelp,
-  },
-];
+import { FormattedMessage, useIntl } from "react-intl";
 
 export default function GuidanceRoadmapSection() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
+  const intl = useIntl();
+
+  const getGuidanceSteps = () => [
+    {
+      id: 1,
+      title: intl.formatMessage({
+        id: "instructions.roadmap.steps.login.title",
+      }),
+      description: intl.formatMessage({
+        id: "instructions.roadmap.steps.login.description",
+      }),
+      icon: IconLogin,
+    },
+    {
+      id: 2,
+      title: intl.formatMessage({
+        id: "instructions.roadmap.steps.sell.title",
+      }),
+      description: intl.formatMessage({
+        id: "instructions.roadmap.steps.sell.description",
+      }),
+      icon: IconShoppingCart,
+    },
+    {
+      id: 3,
+      title: intl.formatMessage({
+        id: "instructions.roadmap.steps.inventory.title",
+      }),
+      description: intl.formatMessage({
+        id: "instructions.roadmap.steps.inventory.description",
+      }),
+      icon: IconChartBar,
+    },
+    {
+      id: 4,
+      title: intl.formatMessage({
+        id: "instructions.roadmap.steps.settings.title",
+      }),
+      description: intl.formatMessage({
+        id: "instructions.roadmap.steps.settings.description",
+      }),
+      icon: IconSettings,
+    },
+    {
+      id: 5,
+      title: intl.formatMessage({
+        id: "instructions.roadmap.steps.support.title",
+      }),
+      description: intl.formatMessage({
+        id: "instructions.roadmap.steps.support.description",
+      }),
+      icon: IconHelp,
+    },
+  ];
+
+  const guidanceSteps = getGuidanceSteps();
 
   return (
     <section
@@ -71,18 +90,13 @@ export default function GuidanceRoadmapSection() {
           className="text-center mb-20"
         >
           <div className="inline-flex px-4 py-2 bg-blue-100 text-[#0A65FC] rounded-full text-sm font-semibold tracking-wide uppercase mb-6">
-            Step by Step Process
+            <FormattedMessage id="instructions.roadmap.badge" />
           </div>
           <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-            Our{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A65FC] to-blue-600">
-              Guidance
-            </span>{" "}
-            For You
+            <FormattedMessage id="instructions.roadmap.title" />
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Follow our comprehensive step-by-step guide to master your EzyMart
-            POS system
+            <FormattedMessage id="instructions.roadmap.subtitle" />
           </p>
         </motion.div>
 
@@ -178,18 +192,17 @@ export default function GuidanceRoadmapSection() {
         >
           <div className="bg-gradient-to-r from-[#0A65FC] to-blue-600 rounded-3xl p-8 text-white max-w-4xl mx-auto">
             <h3 className="text-2xl lg:text-3xl font-bold mb-4">
-              Ready to Get Started?
+              <FormattedMessage id="instructions.roadmap.cta.title" />
             </h3>
             <p className="text-blue-100 text-lg mb-6 max-w-2xl mx-auto">
-              Follow our step-by-step guide and start managing your business
-              more efficiently today.
+              <FormattedMessage id="instructions.roadmap.cta.subtitle" />
             </p>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="px-8 py-4 bg-white text-[#0A65FC] rounded-xl font-bold text-lg hover:bg-blue-50 transition-all duration-300 shadow-lg"
             >
-              Watch All Tutorials
+              <FormattedMessage id="instructions.roadmap.cta.button" />
             </motion.button>
           </div>
         </motion.div>
