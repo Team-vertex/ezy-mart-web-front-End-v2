@@ -2,9 +2,11 @@ import CarouselCard from "@/components/carousel/carouseCard";
 import Carousel from "@/components/carousel/carousel";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useIntl } from "react-intl";
 
 const AppShowcase = () => {
   const [current, setCurrent] = useState(0);
+  const intl = useIntl();
 
   const nextSlide = () => {
     setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
@@ -38,7 +40,7 @@ const AppShowcase = () => {
         <p className="text-xs md:text-sm">
           <img
             src="/public/images/CoustomerService/Frame 388.svg"
-            alt="Slide 1"
+            alt={intl.formatMessage({ id: "customers.appShowcase.slide1.alt" })}
           />
         </p>
       }
@@ -52,7 +54,7 @@ const AppShowcase = () => {
         <p className="text-xs md:text-sm">
           <img
             src="/public/images/CoustomerService/Frame 390.svg"
-            alt="Slide 2"
+            alt={intl.formatMessage({ id: "customers.appShowcase.slide2.alt" })}
           />
         </p>
       }
@@ -64,7 +66,10 @@ const AppShowcase = () => {
       // title="Customizable Options"
       content={
         <p className="text-xs md:text-sm">
-          <img src="/images/CoustomerService/Frame 388 (1).svg" alt="Slide 3" />
+          <img
+            src="/images/CoustomerService/Frame 388 (1).svg"
+            alt={intl.formatMessage({ id: "customers.appShowcase.slide3.alt" })}
+          />
         </p>
       }
       className="mx-auto w-full max-w-[280px] md:max-w-xs h-full"
@@ -103,7 +108,9 @@ const AppShowcase = () => {
               <img
                 key={index}
                 src={img}
-                alt={`Slide ${index + 1}`}
+                alt={intl.formatMessage({
+                  id: `customers.appShowcase.slide${index + 1}.alt`,
+                })}
                 className={`absolute top-0 left-0 w-full h-full object-cover rounded-[50px] transition-all duration-[4000ms] ease-in-out 
           ${
             index === current
@@ -118,13 +125,15 @@ const AppShowcase = () => {
               onClick={prevSlide}
               className="absolute z-20 p-2 text-3xl font-bold text-white transform -translate-y-1/2 rounded-full bg-black/30 hover:bg-black/50 left-2 top-1/2"
             >
-              ‹
+              {intl.formatMessage({ id: "customers.appShowcase.prevButton" }) ||
+                "‹"}
             </button>
             <button
               onClick={nextSlide}
               className="absolute z-20 p-2 text-3xl font-bold text-white transform -translate-y-1/2 rounded-full bg-black/30 hover:bg-black/50 right-2 top-1/2"
             >
-              ›
+              {intl.formatMessage({ id: "customers.appShowcase.nextButton" }) ||
+                "›"}
             </button>
 
             {/* Carousel Dots */}

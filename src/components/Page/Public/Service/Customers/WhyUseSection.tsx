@@ -8,12 +8,14 @@ import {
   Users,
 } from "lucide-react";
 import { useRef } from "react";
+import { FormattedMessage, useIntl } from "react-intl";
 
 const WhyUseSection = () => {
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
   const featuresRef = useRef(null);
   const imageRef = useRef(null);
+  const intl = useIntl();
 
   const isHeadingInView = useInView(headingRef, { once: true, amount: 0.5 });
   const isFeaturesInView = useInView(featuresRef, { once: true, amount: 0.3 });
@@ -22,27 +24,31 @@ const WhyUseSection = () => {
   const features = [
     {
       icon: <MapPin className="w-6 h-6" />,
-      title: "Find Nearby Shops",
-      description:
-        "Locate stores around you instantly with our smart location-based search.",
+      title: intl.formatMessage({ id: "customers.whyUse.feature1.title" }),
+      description: intl.formatMessage({
+        id: "customers.whyUse.feature1.description",
+      }),
     },
     {
       icon: <ShoppingBag className="w-6 h-6" />,
-      title: "Easy Shopping",
-      description:
-        "Browse thousands of products from local merchants with just a few taps.",
+      title: intl.formatMessage({ id: "customers.whyUse.feature2.title" }),
+      description: intl.formatMessage({
+        id: "customers.whyUse.feature2.description",
+      }),
     },
     {
       icon: <Clock className="w-6 h-6" />,
-      title: "Save Time",
-      description:
-        "Quick ordering and fast delivery to make your shopping experience effortless.",
+      title: intl.formatMessage({ id: "customers.whyUse.feature3.title" }),
+      description: intl.formatMessage({
+        id: "customers.whyUse.feature3.description",
+      }),
     },
     {
       icon: <Star className="w-6 h-6" />,
-      title: "Quality Assured",
-      description:
-        "All merchants are verified and rated by our community for your peace of mind.",
+      title: intl.formatMessage({ id: "customers.whyUse.feature4.title" }),
+      description: intl.formatMessage({
+        id: "customers.whyUse.feature4.description",
+      }),
     },
   ];
 
@@ -72,21 +78,19 @@ const WhyUseSection = () => {
           <div className="flex items-center justify-center mb-6">
             <div className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-700 rounded-full text-sm font-semibold tracking-wide border border-blue-200">
               <Smartphone className="w-4 h-4" />
-              <span>Why Choose EzyMart</span>
+              <FormattedMessage id="customers.whyUse.badge" />
             </div>
           </div>
 
           <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-            Why Use EzyMart{" "}
+            <FormattedMessage id="customers.whyUse.title" />{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A65FC] via-blue-600 to-indigo-600">
-              App?
+              <FormattedMessage id="customers.whyUse.titleHighlight" />
             </span>
           </h2>
 
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Transform your shopping experience in Sri Lanka with EzyMart.
-            Discover local stores, find products instantly, and enjoy seamless
-            shopping - all from your smartphone.
+            <FormattedMessage id="customers.whyUse.subtitle" />
           </p>
         </motion.div>
 
@@ -103,12 +107,13 @@ const WhyUseSection = () => {
           >
             <div className="mb-8">
               <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
-                Everything you need for
-                <span className="text-blue-600 block">smart shopping</span>
+                <FormattedMessage id="customers.whyUse.features.heading" />
+                <span className="text-blue-600 block">
+                  <FormattedMessage id="customers.whyUse.features.headingHighlight" />
+                </span>
               </h3>
               <p className="text-gray-600 text-lg">
-                Join thousands of satisfied customers who have made EzyMart
-                their go-to shopping companion.
+                <FormattedMessage id="customers.whyUse.features.description" />
               </p>
             </div>
 
@@ -151,18 +156,30 @@ const WhyUseSection = () => {
             >
               <div className="flex items-center gap-2">
                 <Users className="w-5 h-5 text-blue-600" />
-                <span className="text-2xl font-bold text-gray-900">10K+</span>
-                <span className="text-gray-600">Users</span>
+                <span className="text-2xl font-bold text-gray-900">
+                  <FormattedMessage id="customers.whyUse.stats.users.value" />
+                </span>
+                <span className="text-gray-600">
+                  <FormattedMessage id="customers.whyUse.stats.users.label" />
+                </span>
               </div>
               <div className="flex items-center gap-2">
                 <ShoppingBag className="w-5 h-5 text-blue-600" />
-                <span className="text-2xl font-bold text-gray-900">500+</span>
-                <span className="text-gray-600">Stores</span>
+                <span className="text-2xl font-bold text-gray-900">
+                  <FormattedMessage id="customers.whyUse.stats.stores.value" />
+                </span>
+                <span className="text-gray-600">
+                  <FormattedMessage id="customers.whyUse.stats.stores.label" />
+                </span>
               </div>
               <div className="flex items-center gap-2">
                 <Star className="w-5 h-5 text-yellow-500" />
-                <span className="text-2xl font-bold text-gray-900">4.8</span>
-                <span className="text-gray-600">Rating</span>
+                <span className="text-2xl font-bold text-gray-900">
+                  <FormattedMessage id="customers.whyUse.stats.rating.value" />
+                </span>
+                <span className="text-gray-600">
+                  <FormattedMessage id="customers.whyUse.stats.rating.label" />
+                </span>
               </div>
             </motion.div>
           </motion.div>
@@ -193,9 +210,11 @@ const WhyUseSection = () => {
                         <div className="w-16 h-16 bg-white rounded-2xl mx-auto mb-4 flex items-center justify-center">
                           <ShoppingBag className="w-8 h-8 text-blue-600" />
                         </div>
-                        <h3 className="text-xl font-bold">EzyMart</h3>
+                        <h3 className="text-xl font-bold">
+                          <FormattedMessage id="customers.whyUse.appShowcase.title" />
+                        </h3>
                         <p className="text-blue-100 text-sm">
-                          Shop Smart, Shop Easy
+                          <FormattedMessage id="customers.whyUse.appShowcase.tagline" />
                         </p>
                       </div>
 
@@ -205,7 +224,7 @@ const WhyUseSection = () => {
                           <div className="flex items-center gap-3 mb-3">
                             <MapPin className="w-5 h-5" />
                             <span className="font-medium">
-                              Find Nearby Stores
+                              <FormattedMessage id="customers.whyUse.appShowcase.feature1" />
                             </span>
                           </div>
                           <div className="h-2 bg-white/30 rounded-full">
@@ -216,7 +235,9 @@ const WhyUseSection = () => {
                         <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4">
                           <div className="flex items-center gap-3 mb-3">
                             <ShoppingBag className="w-5 h-5" />
-                            <span className="font-medium">Browse Products</span>
+                            <span className="font-medium">
+                              <FormattedMessage id="customers.whyUse.appShowcase.feature2" />
+                            </span>
                           </div>
                           <div className="grid grid-cols-3 gap-2">
                             <div className="h-8 bg-white/30 rounded"></div>
@@ -228,10 +249,14 @@ const WhyUseSection = () => {
                         <div className="bg-white/20 backdrop-blur-sm rounded-xl p-4">
                           <div className="flex items-center gap-3">
                             <Clock className="w-5 h-5" />
-                            <span className="font-medium">Quick Delivery</span>
+                            <span className="font-medium">
+                              <FormattedMessage id="customers.whyUse.appShowcase.feature3" />
+                            </span>
                             <div className="ml-auto flex items-center gap-1">
                               <Star className="w-4 h-4 text-yellow-300 fill-current" />
-                              <span className="text-sm">4.8</span>
+                              <span className="text-sm">
+                                <FormattedMessage id="customers.whyUse.stats.rating.value" />
+                              </span>
                             </div>
                           </div>
                         </div>

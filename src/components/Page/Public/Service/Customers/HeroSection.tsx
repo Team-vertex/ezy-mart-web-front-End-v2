@@ -3,18 +3,20 @@
 import { IconCheck } from "@tabler/icons-react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { FormattedMessage, useIntl } from "react-intl";
 
 const HeroSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const buttonRef = useRef(null);
   const isButtonInView = useInView(buttonRef, { once: true, margin: "-100px" });
+  const intl = useIntl();
 
   const features = [
-    "Easy Product Search",
-    "Nearest Shop Finder",
-    "Add item to your list",
-    "Seamless Experience",
+    intl.formatMessage({ id: "customers.hero.feature1" }),
+    intl.formatMessage({ id: "customers.hero.feature2" }),
+    intl.formatMessage({ id: "customers.hero.feature3" }),
+    intl.formatMessage({ id: "customers.hero.feature4" }),
   ];
 
   return (
@@ -50,21 +52,25 @@ const HeroSection = () => {
         >
           <div className="flex items-center justify-center mb-6">
             <span className="px-4 py-2 bg-white/20 text-white rounded-full text-sm font-semibold tracking-wide uppercase border border-white/30">
-              For Customers
+              <FormattedMessage id="customers.hero.badge" />
             </span>
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-center text-white mb-6 leading-tight">
-            Anything,{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-orange-300">
-              Anywhere
-            </span>
+            <FormattedMessage
+              id="customers.hero.title"
+              values={{
+                highlight: (chunks) => (
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-orange-300">
+                    {chunks}
+                  </span>
+                ),
+              }}
+            />
           </h1>
 
           <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-            EzyMart makes shopping easier than ever. Search for products near
-            you, discover local shops, save time, and enjoy a smooth,
-            stress-free shopping experience all through one smart app.
+            <FormattedMessage id="customers.hero.description" />
           </p>
         </motion.div>
 
@@ -93,7 +99,7 @@ const HeroSection = () => {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          Get Started
+          <FormattedMessage id="customers.hero.cta" />
         </motion.button>
       </div>
 

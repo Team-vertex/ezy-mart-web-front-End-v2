@@ -5,8 +5,10 @@ import {
   IconPlayerPlay,
 } from "@tabler/icons-react";
 import { motion } from "framer-motion";
+import { FormattedMessage, useIntl } from "react-intl";
 
 export default function DemoHero() {
+  const intl = useIntl();
   return (
     <section className="overflow-hidden bg-gradient-to-br from-[#0A65FC] to-blue-700 relative">
       {/* Decorative circles */}
@@ -38,17 +40,27 @@ export default function DemoHero() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="inline-flex px-4 py-2 bg-white/20 backdrop-blur-sm text-white rounded-full text-sm font-semibold tracking-wide uppercase mb-6 border border-white/30"
             >
-              Interactive Demo
+              <FormattedMessage id="demo.hero.badge" />
             </motion.div>
 
             <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              Experience <span className="text-blue-100">EzyMart</span>
-              <span className="block">POS Live</span>
+              <FormattedMessage id="demo.hero.title" />{" "}
+              <span className="text-blue-100">
+                <FormattedMessage
+                  id="demo.hero.title.branded"
+                  defaultMessage="EzyMart"
+                />
+              </span>
+              <span className="block">
+                <FormattedMessage
+                  id="demo.hero.title.pos"
+                  defaultMessage="POS Live"
+                />
+              </span>
             </h1>
 
             <p className="text-white/90 text-lg lg:text-xl leading-relaxed mb-8 max-w-lg">
-              Try our point-of-sale system with real features. See how easy it
-              is to manage your business with EzyMart's intuitive interface.
+              <FormattedMessage id="demo.hero.description" />
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -63,7 +75,7 @@ export default function DemoHero() {
                 }}
               >
                 <IconPlayerPlay className="w-5 h-5 mr-2" />
-                Try Demo Now
+                <FormattedMessage id="demo.hero.cta.primary" />
               </motion.button>
 
               <motion.button
@@ -71,7 +83,7 @@ export default function DemoHero() {
                 whileTap={{ scale: 0.95 }}
                 className="border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-[#0A65FC] transition-all duration-300"
               >
-                Watch Video Tour
+                <FormattedMessage id="demo.hero.cta.secondary" />
               </motion.button>
             </div>
           </motion.div>
@@ -86,27 +98,27 @@ export default function DemoHero() {
             {[
               {
                 icon: IconDeviceDesktop,
-                title: "Desktop POS",
-                desc: "Full-featured desktop interface",
+                titleId: "demo.hero.features.desktop.title",
+                descId: "demo.hero.features.desktop.description",
               },
               {
                 icon: IconDeviceMobile,
-                title: "Mobile Ready",
-                desc: "Works on tablets and phones",
+                titleId: "demo.hero.features.mobile.title",
+                descId: "demo.hero.features.mobile.description",
               },
               {
                 icon: IconCloudComputing,
-                title: "Cloud Sync",
-                desc: "Real-time data synchronization",
+                titleId: "demo.hero.features.cloud.title",
+                descId: "demo.hero.features.cloud.description",
               },
               {
                 icon: IconPlayerPlay,
-                title: "Live Demo",
-                desc: "Interactive hands-on experience",
+                titleId: "demo.hero.features.live.title",
+                descId: "demo.hero.features.live.description",
               },
             ].map((feature, index) => (
               <motion.div
-                key={feature.title}
+                key={feature.titleId}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 + index * 0.1 }}
@@ -114,9 +126,11 @@ export default function DemoHero() {
               >
                 <feature.icon className="w-8 h-8 text-white mb-3" />
                 <h3 className="text-white font-bold text-lg mb-2">
-                  {feature.title}
+                  <FormattedMessage id={feature.titleId} />
                 </h3>
-                <p className="text-white/80 text-sm">{feature.desc}</p>
+                <p className="text-white/80 text-sm">
+                  <FormattedMessage id={feature.descId} />
+                </p>
               </motion.div>
             ))}
           </motion.div>

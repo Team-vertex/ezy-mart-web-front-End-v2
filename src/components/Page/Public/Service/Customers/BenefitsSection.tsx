@@ -1,5 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { FormattedMessage, useIntl } from "react-intl";
 
 interface BenefitCardProps {
   imageSrc: string;
@@ -52,6 +53,7 @@ const BenefitsSection = () => {
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
   const cardsRef = useRef(null);
+  const intl = useIntl();
 
   const isHeadingInView = useInView(headingRef, { once: true, amount: 0.5 });
   const isCardsInView = useInView(cardsRef, { once: true, amount: 0.3 });
@@ -59,33 +61,38 @@ const BenefitsSection = () => {
   const benefits = [
     {
       imageSrc: "/images/CoustomerService/search(1).svg",
-      title: "Find Nearby Stores Instantly",
-      description:
-        "Quickly discover the closest stores around you with real-time location tracking—no more wandering or guessing.",
+      title: intl.formatMessage({ id: "customers.benefits.feature1.title" }),
+      description: intl.formatMessage({
+        id: "customers.benefits.feature1.description",
+      }),
     },
     {
       imageSrc: "/images/CoustomerService/browsing.svg",
-      title: "Search Products with Ease",
-      description:
-        "Easily search and filter products by name, brand, or category to find exactly what you need in seconds.",
+      title: intl.formatMessage({ id: "customers.benefits.feature2.title" }),
+      description: intl.formatMessage({
+        id: "customers.benefits.feature2.description",
+      }),
     },
     {
       imageSrc: "/images/CoustomerService/brain.svg",
-      title: "Compare Options in One Place",
-      description:
-        "View prices, offers, and product availability from multiple stores so you can make the smartest choice every time.",
+      title: intl.formatMessage({ id: "customers.benefits.feature3.title" }),
+      description: intl.formatMessage({
+        id: "customers.benefits.feature3.description",
+      }),
     },
     {
       imageSrc: "/images/CoustomerService/on-time.svg",
-      title: "Save Time & Money",
-      description:
-        "Plan your shopping efficiently with detailed store information, reducing unnecessary trips and long waits.",
+      title: intl.formatMessage({ id: "customers.benefits.feature4.title" }),
+      description: intl.formatMessage({
+        id: "customers.benefits.feature4.description",
+      }),
     },
     {
       imageSrc: "/images/CoustomerService/happy-face.svg",
-      title: "Stress Free Shopping Experience",
-      description:
-        "Say goodbye to the frustration of endless searching. EzyMart helps you shop confidently and hassle-free, anytime and anywhere.",
+      title: intl.formatMessage({ id: "customers.benefits.feature5.title" }),
+      description: intl.formatMessage({
+        id: "customers.benefits.feature5.description",
+      }),
     },
   ];
 
@@ -113,22 +120,25 @@ const BenefitsSection = () => {
         >
           <div className="flex items-center justify-center mb-6">
             <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold tracking-wide uppercase">
-              Customer Benefits
+              <FormattedMessage id="customers.benefits.badge" />
             </span>
           </div>
 
           <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-            Make{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A65FC] to-blue-600">
-              Life Easier
-            </span>{" "}
-            with EzyMart
+            <FormattedMessage
+              id="customers.benefits.title"
+              values={{
+                highlight: (chunks) => (
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A65FC] to-blue-600">
+                    {chunks}
+                  </span>
+                ),
+              }}
+            />
           </h2>
 
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Shopping doesn't have to be stressful. With EzyMart, you can find
-            what you need, when you need it, all while saving time, energy, and
-            money.
+            <FormattedMessage id="customers.benefits.description" />
           </p>
         </motion.div>
 

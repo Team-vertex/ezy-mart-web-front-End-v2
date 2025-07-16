@@ -8,52 +8,48 @@ import {
 } from "@tabler/icons-react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { FormattedMessage, useIntl } from "react-intl";
 
 export default function DemoFeatures() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
+  const intl = useIntl();
 
   const features = [
     {
       icon: IconBarcode,
-      title: "Barcode Scanning",
-      description:
-        "Fast and accurate barcode scanning for quick product identification and checkout.",
+      titleId: "demo.features.barcode.title",
+      descriptionId: "demo.features.barcode.description",
       color: "from-[#0A65FC] to-blue-600",
     },
     {
       icon: IconReportAnalytics,
-      title: "Real-time Analytics",
-      description:
-        "Get instant insights into sales, inventory, and customer data with live dashboards.",
+      titleId: "demo.features.analytics.title",
+      descriptionId: "demo.features.analytics.description",
       color: "from-blue-500 to-blue-600",
     },
     {
       icon: IconUsers,
-      title: "Customer Management",
-      description:
-        "Track customer purchases, loyalty points, and preferences for better service.",
+      titleId: "demo.features.customer.title",
+      descriptionId: "demo.features.customer.description",
       color: "from-blue-600 to-blue-700",
     },
     {
       icon: IconDevices,
-      title: "Multi-device Support",
-      description:
-        "Works seamlessly across desktop, tablet, and mobile devices for flexibility.",
+      titleId: "demo.features.multidevice.title",
+      descriptionId: "demo.features.multidevice.description",
       color: "from-blue-700 to-blue-800",
     },
     {
       icon: IconCloudComputing,
-      title: "Cloud Synchronization",
-      description:
-        "All your data is safely stored and synchronized across all your devices.",
+      titleId: "demo.features.cloud.title",
+      descriptionId: "demo.features.cloud.description",
       color: "from-blue-500 to-purple-600",
     },
     {
       icon: IconShield,
-      title: "Secure Payments",
-      description:
-        "Multiple secure payment options including cash, card, and digital wallets.",
+      titleId: "demo.features.payments.title",
+      descriptionId: "demo.features.payments.description",
       color: "from-purple-600 to-blue-600",
     },
   ];
@@ -78,17 +74,22 @@ export default function DemoFeatures() {
           className="text-center mb-20"
         >
           <div className="inline-flex px-4 py-2 bg-blue-100 text-[#0A65FC] rounded-full text-sm font-semibold tracking-wide uppercase mb-6">
-            Powerful Features
+            <FormattedMessage id="demo.features.badge" />
           </div>
           <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-            Everything You Need in{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A65FC] to-blue-600">
-              One System
-            </span>
+            <FormattedMessage
+              id="demo.features.title"
+              values={{
+                highlight: (chunks) => (
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A65FC] to-blue-600">
+                    {chunks}
+                  </span>
+                ),
+              }}
+            />
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Our POS system comes packed with features designed to streamline
-            your business operations and enhance customer experience.
+            <FormattedMessage id="demo.features.subtitle" />
           </p>
         </motion.div>
 
@@ -96,7 +97,7 @@ export default function DemoFeatures() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <motion.div
-              key={feature.title}
+              key={feature.titleId}
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
@@ -112,10 +113,10 @@ export default function DemoFeatures() {
 
                 {/* Content */}
                 <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-[#0A65FC] transition-colors duration-300">
-                  {feature.title}
+                  <FormattedMessage id={feature.titleId} />
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  {feature.description}
+                  <FormattedMessage id={feature.descriptionId} />
                 </p>
 
                 {/* Hover Effect */}
@@ -134,11 +135,10 @@ export default function DemoFeatures() {
         >
           <div className="bg-gradient-to-r from-[#0A65FC] to-blue-600 rounded-3xl p-8 lg:p-12 text-white max-w-4xl mx-auto">
             <h3 className="text-2xl lg:text-4xl font-bold mb-4">
-              Ready to Transform Your Business?
+              <FormattedMessage id="demo.features.cta.title" />
             </h3>
             <p className="text-blue-100 text-lg lg:text-xl mb-8 max-w-2xl mx-auto">
-              Join thousands of businesses already using EzyMart POS to
-              streamline their operations and boost sales.
+              <FormattedMessage id="demo.features.cta.subtitle" />
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.button
@@ -146,14 +146,14 @@ export default function DemoFeatures() {
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 bg-white text-[#0A65FC] rounded-xl font-bold text-lg hover:bg-blue-50 transition-all duration-300 shadow-lg"
               >
-                Start Free Trial
+                <FormattedMessage id="demo.features.cta.button.trial" />
               </motion.button>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-4 border-2 border-white text-white rounded-xl font-bold text-lg hover:bg-white hover:text-[#0A65FC] transition-all duration-300"
               >
-                Schedule Demo
+                <FormattedMessage id="demo.features.cta.button.demo" />
               </motion.button>
             </div>
           </div>
