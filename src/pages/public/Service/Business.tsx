@@ -1,4 +1,4 @@
-import { Contact } from "@/components/Page/Public/Index/Contact";
+// import { Contact } from "@/components/Page/Public/Index/Contact";
 import { FAQ } from "@/components/Page/Public/Index/FAQ";
 import { Pricing } from "@/components/Page/Public/Index/Pricing";
 import { GetStarted } from "@/components/Page/Public/Service/Business/GetStarted";
@@ -15,7 +15,7 @@ export default function Business(): JSX.Element {
       <GetStarted />
       <Pricing />
       <FAQ />
-      <Contact />
+      {/* <Contact /> */}
     </div>
   );
 }
