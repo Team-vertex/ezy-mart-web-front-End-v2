@@ -95,7 +95,6 @@ export function TeamSection() {
       bio: "Visionary leader driving EzyMart's mission to revolutionize local shopping experiences.",
       social: {
         linkedin: "#",
-        twitter: "#",
       },
     },
     {
@@ -106,29 +105,16 @@ export function TeamSection() {
       bio: "Technology innovator building scalable solutions for the future of commerce.",
       social: {
         linkedin: "#",
-        github: "#",
-      },
-    },
-    {
-      name: "Pasindu Wijesinghe",
-      position: "Design Lead",
-      imageSrc:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
-      bio: "Creative designer crafting intuitive user experiences that delight customers.",
-      social: {
-        linkedin: "#",
-        twitter: "#",
       },
     },
     {
       name: "Shehan Hansaka",
-      position: "Marketing Director",
+      position: "CMO & Co-Founder",
       imageSrc:
         "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
       bio: "Marketing strategist connecting communities with local businesses nationwide.",
       social: {
         linkedin: "#",
-        twitter: "#",
       },
     },
     {
@@ -139,18 +125,46 @@ export function TeamSection() {
       bio: "User experience specialist ensuring every interaction is smooth and meaningful.",
       social: {
         linkedin: "#",
-        twitter: "#",
+      },
+    },
+    {
+      name: "Pasindu Wijesinghe",
+      position: "UX Designer",
+      imageSrc:
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+      bio: "Creative designer crafting intuitive user experiences that delight customers.",
+      social: {
+        linkedin: "#",
+      },
+    },
+    {
+      name: "Mohan Chanaka",
+      position: "java Developer",
+      imageSrc:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+      bio: "Develop funational Software align with business goles..",
+      social: {
+        linkedin: "#",
+      },
+    },
+    {
+      name: "Sithijaya",
+      position: "Back-End developer",
+      imageSrc:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+      bio: "Develop server side align with business goles.",
+      social: {
+        linkedin: "#",
       },
     },
     {
       name: "Sasindu Deshan",
-      position: "Product Manager",
+      position: "Front-End Developer",
       imageSrc:
         "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
-      bio: "Product strategist aligning customer needs with innovative solutions.",
+      bio: "Develop funational front-end align with business goles.",
       social: {
         linkedin: "#",
-        github: "#",
       },
     },
   ];
@@ -210,16 +224,7 @@ export function TeamSection() {
                 →
               </span>
             </button>
-            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-              We're always looking for talented individuals who share our
-              passion for innovation and community impact.
-            </p>
-            <button className="group bg-[#0A65FC] text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-              View Open Positions
-              <span className="inline-block ml-2 transform group-hover:translate-x-1 transition-transform">
-                →
-              </span>
-            </button>
+            
           </div>
         </motion.div>
       </div>

@@ -276,11 +276,12 @@ export const Service: React.FC = () => {
         >
           <div className="bg-gradient-to-r from-[#0A65FC] to-blue-700 rounded-2xl p-8 lg:p-12 text-white">
             <h3 className="text-2xl lg:text-3xl font-bold mb-4">
-              Ready to Transform Your Business?
+              <FormattedMessage id="home.service.quickAction.Title"/>
+              
             </h3>
             <p className="text-lg lg:text-xl opacity-90 mb-8 max-w-2xl mx-auto">
-              Join thousands of businesses already using EzyMart to streamline
-              their operations and boost sales.
+               <FormattedMessage id="home.service.quickAction.subTitle"/>
+              
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="px-8 py-4 bg-white text-[#0A65FC] rounded-lg font-semibold hover:shadow-lg transition-all duration-300">

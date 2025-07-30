@@ -73,13 +73,7 @@ const BenefitsSection = () => {
         id: "customers.benefits.feature2.description",
       }),
     },
-    {
-      imageSrc: "/images/CoustomerService/brain.svg",
-      title: intl.formatMessage({ id: "customers.benefits.feature3.title" }),
-      description: intl.formatMessage({
-        id: "customers.benefits.feature3.description",
-      }),
-    },
+
     {
       imageSrc: "/images/CoustomerService/on-time.svg",
       title: intl.formatMessage({ id: "customers.benefits.feature4.title" }),

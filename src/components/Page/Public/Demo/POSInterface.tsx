@@ -16,6 +16,7 @@ import {
 } from "@tabler/icons-react";
 import { AnimatePresence, motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
+import { FormattedMessage } from "react-intl";
 
 // Enhanced sample products for demo
 const sampleProducts = [
@@ -334,15 +335,13 @@ export default function POSInterface() {
               Interactive POS Demo
             </div>
             <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              Try Our{" "}
+               <FormattedMessage id="demo.posInterface.Title" />{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A65FC] to-blue-600">
-                Advanced POS System
+               <FormattedMessage id="demo.posInterface.Title2" /> 
               </span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Experience the full power of EzyMart POS. Search products, apply
-              discounts, calculate taxes, and process payments with multiple
-              methods.
+             <FormattedMessage id="demo.posInterface.subtitle" />
             </p>
           </motion.div>
 

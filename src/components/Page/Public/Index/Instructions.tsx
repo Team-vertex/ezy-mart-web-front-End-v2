@@ -28,6 +28,7 @@ export const Instructions: React.FC = () => {
     "home.instructions.feature2",
     "home.instructions.feature3",
     "home.instructions.feature4",
+    "home.instructions.feature5",
   ];
 
   const userTypes = [
@@ -40,6 +41,7 @@ export const Instructions: React.FC = () => {
         "home.instructions.customers.feature2",
         "home.instructions.customers.feature3",
         "home.instructions.customers.feature4",
+        "home.instructions.customers.feature5",
       ],
       gradient: "from-[#0A65FC] to-blue-700",
     },
@@ -52,6 +54,7 @@ export const Instructions: React.FC = () => {
         "home.instructions.business.feature2",
         "home.instructions.business.feature3",
         "home.instructions.business.feature4",
+        "home.instructions.business.feature5",
       ],
       gradient: "from-[#0A65FC] to-blue-700",
     },
@@ -104,17 +107,15 @@ export const Instructions: React.FC = () => {
           >
             <div className="space-y-6">
               <h3 className="text-2xl lg:text-3xl font-bold text-gray-900">
-                Clear Instructions,{" "}
+                <FormattedMessage id="home.instructions.secondTitle"/>,{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                  Real Results
+                  <FormattedMessage id="home.instructions.secondSubTitle"/>
                 </span>
               </h3>
 
               <p className="text-lg text-gray-600 leading-relaxed">
-                We understand that not everyone is tech-savvy, which is why
-                we've made EzyMart as intuitive as possible. Our comprehensive
-                onboarding process ensures you're comfortable using the system
-                from day one.
+                <FormattedMessage id="home.instructions.paragraph"/>
+                
               </p>
             </div>
 
@@ -153,12 +154,12 @@ export const Instructions: React.FC = () => {
             >
               <div className="text-center bg-white/50 backdrop-blur-sm rounded-xl p-4 border border-white/20">
                 <div className="text-2xl font-bold text-gray-900 mb-1">
-                  15min
+                  1 Day
                 </div>
                 <div className="text-sm text-gray-600">Setup Time</div>
               </div>
               <div className="text-center bg-white/50 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                <div className="text-2xl font-bold text-gray-900 mb-1">98%</div>
+                <div className="text-2xl font-bold text-gray-900 mb-1">99%</div>
                 <div className="text-sm text-gray-600">Success Rate</div>
               </div>
             </motion.div>
@@ -285,7 +286,7 @@ export const Instructions: React.FC = () => {
 
               {/* CTA */}
               <button className="group/btn flex items-center justify-center w-full px-6 py-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-300 font-medium">
-                Learn More
+                <FormattedMessage id="home.instructions.business.action"/>
                 <IconArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform duration-300" />
               </button>
             </motion.div>
@@ -303,11 +304,12 @@ export const Instructions: React.FC = () => {
         >
           <div className="bg-white rounded-2xl p-8 lg:p-12 shadow-xl border border-gray-200">
             <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
-              Ready to Get Started?
+              <FormattedMessage id="home.instructions.business.bottomCtaTitle"/>
+              
             </h3>
             <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-              Join thousands of businesses and customers who are already
-              experiencing the benefits of EzyMart's intuitive platform.
+              <FormattedMessage id="home.instructions.business.bottomCtaSubTitle"/>
+              
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-300">

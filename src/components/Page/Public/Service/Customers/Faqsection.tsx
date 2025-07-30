@@ -3,14 +3,14 @@ import { FAQCustomer } from "@/constants/Data";
 import { IconQuestionMark, IconSparkles } from "@tabler/icons-react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { FormattedMessage, useIntl } from "react-intl";
+import { FormattedMessage } from "react-intl";
 
 // FaqSection component
 const FaqSection = () => {
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
   const contentRef = useRef(null);
-  const intl = useIntl();
+
 
   const isHeadingInView = useInView(headingRef, { once: true, amount: 0.5 });
   const isContentInView = useInView(contentRef, { once: true, amount: 0.3 });
@@ -76,17 +76,7 @@ const FaqSection = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="text-4xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mb-6 leading-tight"
           >
-            <FormattedMessage id="customers.faq.titleStart" />{" "}
-            <span className="relative">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A65FC] to-blue-600">
-                <FormattedMessage id="customers.faq.titleHighlight" />
-              </span>
-              <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-[#0A65FC] to-blue-600 rounded-full transform scale-x-0 animate-scale-x"></div>
-            </span>
-            <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-700 to-gray-900">
-              <FormattedMessage id="customers.faq.titleEnd" />
-            </span>
+            <FormattedMessage id="customers.faq.title" />{" "}
           </motion.h2>
 
           {/* Subtitle */}
@@ -98,7 +88,7 @@ const FaqSection = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
           >
-            <FormattedMessage id="customers.faq.subtitle" />
+            <FormattedMessage id="customers.faq.description" />
           </motion.p>
         </motion.div>
 
@@ -146,7 +136,6 @@ const FaqSection = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="group px-8 py-4 bg-gradient-to-r from-[#0A65FC] to-blue-700 text-white rounded-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                 <FormattedMessage id="customers.faq.cta.button1" />
-                <IconQuestionMark className="inline-block w-5 h-5 ml-2 group-hover:animate-bounce" />
               </button>
               <button className="px-8 py-4 border-2 border-[#0A65FC] text-[#0A65FC] rounded-xl font-semibold hover:bg-[#0A65FC] hover:text-white transition-all duration-300 transform hover:-translate-y-1">
                 <FormattedMessage id="customers.faq.cta.button2" />

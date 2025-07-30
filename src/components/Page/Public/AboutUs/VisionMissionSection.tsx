@@ -81,18 +81,10 @@ const VisionMissionCard: React.FC<VisionMissionCardProps> = ({
 };
 
 export const VisionMissionSection: React.FC = () => {
-  const visionItems = [
-    "Creating innovative solutions that enhance everyday life",
-    "Building sustainable technology for future generations",
-    "Fostering digital transformation in local communities",
-    "Empowering businesses with accessible tools",
+  const visionItems = [""
   ];
 
-  const missionItems = [
-    "Connecting customers with trusted local businesses",
-    "Providing convenient and efficient shopping experiences",
-    "Supporting small and medium enterprises with digital solutions",
-    "Making quality products and services accessible to everyone",
+  const missionItems = [""
   ];
 
   return (

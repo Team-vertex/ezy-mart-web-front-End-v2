@@ -67,12 +67,12 @@ export const Hero: React.FC = () => {
   ];
 
   const stats = [
-    { value: "10K+", label: "home.hero.stats.users", icon: IconTrendingUp },
+    { value: "-", label: "home.hero.stats.users", icon: IconTrendingUp },
     { value: "99.9%", label: "home.hero.stats.uptime", icon: IconShield },
     { value: "24/7", label: "home.hero.stats.support", icon: IconClock },
-    { value: "4.9★", label: "home.hero.stats.rating", icon: IconStar },
+    { value: "-", label: "home.hero.stats.rating", icon: IconStar },
   ];
-
+//4.9★
   // MARK: Render
   return (
     <section
@@ -108,7 +108,7 @@ export const Hero: React.FC = () => {
               className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-700 text-sm font-medium rounded-full border border-blue-200"
             >
               <IconStars size={16} className="mr-2 text-yellow-500" />
-              Welcome to EzyMart - Trusted by 10K+ businesses!
+              Welcome to EzyMart - New Version of Sri Lankan businesses!
             </motion.div>
 
             {/* Main heading */}
@@ -232,7 +232,7 @@ export const Hero: React.FC = () => {
               className="pt-6"
             >
               <p className="text-sm text-gray-500 mb-4">
-                Trusted by leading businesses
+                We will become number One Sri Lanka.
               </p>
               <div className="flex items-center space-x-8 opacity-60">
                 {/* Placeholder for logos */}

@@ -41,10 +41,6 @@ export function StorySection() {
                 <p>
                   <FormattedMessage id="aboutUs.story.content.0" />
                 </p>
-
-                <p>
-                  <FormattedMessage id="aboutUs.story.content.1" />
-                </p>
               </div>
             </div>
 

@@ -11,9 +11,10 @@ import {
 } from "@tabler/icons-react";
 import { motion, useInView } from "framer-motion";
 import React, { useRef } from "react";
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage, useIntl } from "react-intl";
 
 export const Contact: React.FC = () => {
+  const intl = useIntl();
   // MARK: Refs
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
@@ -29,40 +30,40 @@ export const Contact: React.FC = () => {
   const contactMethods = [
     {
       icon: IconPhone,
-      titleKey: "home.contact.phone.title",
-      descriptionKey: "home.contact.phone.description",
-      contactKey: "home.contact.phone.number",
-      actionKey: "home.contact.phone.action",
-      color: "from-blue-500 to-cyan-500",
+      titleKey: intl.formatMessage({ id: "home.contact.phone.title" }),
+      descriptionKey: intl.formatMessage({ id: "home.contact.phone.description" }),
+      contactKey: intl.formatMessage({ id: "home.contact.phone.number" }),
+      actionKey: intl.formatMessage({ id: "home.contact.phone.action" }),
+      color: intl.formatMessage({ id: "from-blue-500 to-cyan-500" }),
       bgColor: "bg-blue-50",
       iconColor: "text-blue-600",
     },
     {
       icon: IconMail,
-      titleKey: "home.contact.email.title",
-      descriptionKey: "home.contact.email.description",
-      contactKey: "home.contact.email.address",
-      actionKey: "home.contact.email.action",
-      color: "from-purple-500 to-pink-500",
+      titleKey: intl.formatMessage({ id: "home.contact.email.title" }),
+      descriptionKey: intl.formatMessage({ id: "home.contact.email.description" }),
+      contactKey: intl.formatMessage({ id: "home.contact.email.address" }),
+      actionKey: intl.formatMessage({ id: "home.contact.email.action" }),
+      color: intl.formatMessage({ id: "from-purple-500 to-pink-500" }),
       bgColor: "bg-purple-50",
       iconColor: "text-purple-600",
     },
     {
       icon: IconMapPin,
-      titleKey: "home.contact.location.title",
-      descriptionKey: "home.contact.location.description",
-      contactKey: "home.contact.location.address",
-      actionKey: "home.contact.location.action",
-      color: "from-green-500 to-emerald-500",
+      titleKey: intl.formatMessage({ id: "home.contact.location.title" }),
+      descriptionKey: intl.formatMessage({ id: "home.contact.email.title" }),
+      contactKey: intl.formatMessage({ id: "home.contact.location.address"}),
+      actionKey: intl.formatMessage({ id: "home.contact.location.action" }),
+      color: intl.formatMessage({ id: "from-green-500 to-emerald-500"}),
       bgColor: "bg-green-50",
       iconColor: "text-green-600",
     },
   ];
 
   const stats = [
-    { number: "500+", label: "Happy Businesses", icon: IconUsers },
-    { number: "24/7", label: "Support Available", icon: IconHeadset },
-    { number: "99%", label: "Uptime Guarantee", icon: IconRocket },
+    { number: intl.formatMessage({ id: "home.contact.happyCustomerCount"}), label: intl.formatMessage({ id: "home.contact.happyCustomerTitle"}), icon: IconUsers },
+    { number: intl.formatMessage({ id: "home.contact.supportPeriod"}), label: intl.formatMessage({ id: "home.contact.supportTitle"}), icon: IconHeadset },
+    { number: intl.formatMessage({ id: "home.contact.garunteePercentage"}), label: intl.formatMessage({ id: "home.contact.guaranteeTitle"}), icon: IconRocket },
   ];
 
   return (
@@ -116,28 +117,32 @@ export const Contact: React.FC = () => {
               {/* Left side - Message */}
               <div className="lg:text-left">
                 <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
-                  HEARD ENOUGH?
+                  <FormattedMessage id="home.contact.secondTitle" />
                 </h3>
                 <p className="text-gray-600 text-lg">
-                  Don't wait! Start your POS journey today.
+                  <FormattedMessage id="home.contact.paragraph" />
+
                 </p>
               </div>
 
               {/* Center - Main CTA */}
               <div>
                 <h3 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6">
-                  LET'S TALK
+                  <FormattedMessage id="home.contact.Title" />
+
                 </h3>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <button className="group px-8 py-4 bg-gradient-to-r from-[#0A65FC] to-blue-600 text-white rounded-xl font-bold text-lg hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105">
                     <span className="flex items-center justify-center">
-                      Book Demo
+                      <FormattedMessage id="home.contact.action1" />
+
                       <IconRocket className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </span>
                   </button>
                   <button className="group px-8 py-4 bg-white/60 backdrop-blur-sm text-gray-900 border-2 border-gray-200 hover:border-[#0A65FC] rounded-xl font-bold text-lg hover:bg-white/80 transition-all duration-300 transform hover:scale-105">
                     <span className="flex items-center justify-center">
-                      Get Started
+                      <FormattedMessage id="home.contact.action2" />
+
                       <IconArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </span>
                   </button>
@@ -244,7 +249,7 @@ export const Contact: React.FC = () => {
               href="mailto:hello@ezymart.lk"
               className="text-[#0A65FC] hover:text-blue-800 font-semibold"
             >
-              hello@ezymart.lk
+              contact.vertexcooperation@gmail.com
             </a>
           </p>
           <div className="flex items-center justify-center">

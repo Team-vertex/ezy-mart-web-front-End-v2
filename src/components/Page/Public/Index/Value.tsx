@@ -55,30 +55,33 @@ export const Value: React.FC = () => {
   ];
 
   const valuePropositions = [
-    "Streamlined business operations",
-    "Enhanced customer experience",
-    "Real-time inventory management",
-    "Comprehensive sales analytics",
-    "Secure payment processing",
-    "24/7 customer support",
+    <FormattedMessage id="home.value.valueproposition.value1"/>,
+    <FormattedMessage id="home.value.valueproposition.value2"/>,
+    <FormattedMessage id="home.value.valueproposition.value3"/>,
+    <FormattedMessage id="home.value.valueproposition.value4"/>,
+    <FormattedMessage id="home.value.valueproposition.value5"/>,
+    <FormattedMessage id="home.value.valueproposition.value6"/>,
+    <FormattedMessage id="home.value.valueproposition.value7"/>,
+    <FormattedMessage id="home.value.valueproposition.value8"/>,
+    
   ];
 
   const stats = [
     {
       icon: IconUsers,
-      value: "10,000+",
+      value: "-",
       labelKey: "home.value.stats.customers",
       color: "blue",
     },
     {
       icon: IconTrendingUp,
-      value: "25%",
+      value: "-",
       labelKey: "home.value.stats.increase",
       color: "blue",
     },
     {
       icon: IconAward,
-      value: "4.9/5",
+      value: "-",
       labelKey: "home.value.stats.rating",
       color: "blue",
     },
@@ -200,7 +203,7 @@ export const Value: React.FC = () => {
             {/* Value Propositions */}
             <div className="space-y-4">
               <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
-                Why Businesses Choose EzyMart
+                <FormattedMessage id="home.value.valueproposition.Title"/>
               </h3>
 
               <div className="grid grid-cols-1 gap-3">
@@ -237,14 +240,11 @@ export const Value: React.FC = () => {
               className="space-y-4"
             >
               <p className="text-lg text-gray-600 leading-relaxed">
-                Our comprehensive POS solution transforms how businesses
-                operate, making it easier to manage inventory, process payments,
-                and understand customer behavior.
+                <FormattedMessage id="home.value.valueproposition.pragraph1"/>
               </p>
               <p className="text-lg text-gray-600 leading-relaxed">
-                Built specifically for the Sri Lankan market, EzyMart
-                understands local business needs and provides solutions that are
-                both powerful and accessible.
+                <FormattedMessage id="home.value.valueproposition.pragraph2"/>
+                
               </p>
             </motion.div>
 
@@ -258,7 +258,7 @@ export const Value: React.FC = () => {
               className="flex items-center justify-start"
             >
               <button className="group flex items-center px-8 py-4 bg-gradient-to-r from-[#0A65FC] to-blue-700 text-white rounded-xl hover:shadow-xl transition-all duration-300 font-semibold text-lg">
-                Start Your Journey
+                <FormattedMessage id="home.value.valueproposition.cta1"/>
                 <IconArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
               </button>
             </motion.div>
@@ -276,18 +276,20 @@ export const Value: React.FC = () => {
         >
           <div className="bg-white rounded-2xl p-8 lg:p-12 shadow-xl border border-gray-200">
             <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
-              Join the EzyMart Family Today
+              <FormattedMessage id="home.value.bottomCta.Title"/>
             </h3>
             <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-              Experience the difference that modern POS technology can make for
-              your business. Start your free trial and see results within days.
+              <FormattedMessage id="home.value.bottomCta.subTitle"/>
+              
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="px-8 py-4 bg-gradient-to-r from-[#0A65FC] to-blue-700 text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
-                Start Free Trial
+                
+                <FormattedMessage id="home.value.bottomCta.action1"/>
               </button>
               <button className="px-8 py-4 border-2 border-[#0A65FC] text-[#0A65FC] rounded-lg font-semibold hover:bg-[#0A65FC] hover:text-white transition-all duration-300">
-                Schedule Demo
+                 
+                <FormattedMessage id="home.value.bottomCta.action2"/>
               </button>
             </div>
           </div>

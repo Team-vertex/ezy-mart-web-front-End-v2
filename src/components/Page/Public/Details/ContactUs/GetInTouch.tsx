@@ -37,7 +37,6 @@ const GetInTouch: React.FC = () => {
       title: intl.formatMessage({ id: "contactUs.getInTouch.email.title" }),
       details: [
         intl.formatMessage({ id: "contactUs.getInTouch.email.details.0" }),
-        intl.formatMessage({ id: "contactUs.getInTouch.email.details.1" }),
       ],
       color: "from-blue-600 to-blue-700",
     },

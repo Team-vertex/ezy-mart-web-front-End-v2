@@ -175,7 +175,7 @@ export const WhyPos: React.FC = () => {
         </motion.div>
 
         {/* Social Proof */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isCardsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8, delay: 1 }}
@@ -206,7 +206,7 @@ export const WhyPos: React.FC = () => {
               <FormattedMessage id="business.whyPos.socialProof.author" />
             </cite>
           </blockquote>
-        </motion.div>
+        </motion.div> */}
 
         {/* CTA Section */}
         <motion.div

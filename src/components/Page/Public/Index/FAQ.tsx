@@ -100,18 +100,17 @@ export const FAQ: React.FC = () => {
           <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
             <div className="flex items-center justify-center mb-4">
               <IconHelp className="w-8 h-8 mr-3" />
-              <h3 className="text-2xl font-bold">Still Have Questions?</h3>
+              <h3 className="text-2xl font-bold"><FormattedMessage id="home.havemorequestions.title" /></h3>
             </div>
             <p className="text-blue-100 mb-6 text-lg">
-              Our support team is here to help you get the most out of EzyMart
-              POS
+              <FormattedMessage id="home.havemorequestions.subtitle" />
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="px-8 py-3 bg-white text-blue-600 rounded-xl font-semibold hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg">
-                Contact Support
+                <FormattedMessage id="home.havemorequestions.contact" />
               </button>
               <button className="px-8 py-3 bg-blue-500/20 text-white border border-blue-400 rounded-xl font-semibold hover:bg-blue-500/30 transition-all duration-300 transform hover:scale-105">
-                Schedule Demo
+                <FormattedMessage id="home.havemorequestions.scheduleDemo" />
               </button>
             </div>
           </div>

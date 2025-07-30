@@ -8,12 +8,11 @@ import {
 } from "@tabler/icons-react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { FormattedMessage, useIntl } from "react-intl";
+import { FormattedMessage} from "react-intl";
 
 export default function DemoFeatures() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
-  const intl = useIntl();
 
   const features = [
     {
@@ -30,8 +29,8 @@ export default function DemoFeatures() {
     },
     {
       icon: IconUsers,
-      titleId: "demo.features.customer.title",
-      descriptionId: "demo.features.customer.description",
+      titleId: "demo.features.supplier.title",
+      descriptionId: "demo.features.supplier.description",
       color: "from-blue-600 to-blue-700",
     },
     {
@@ -44,6 +43,24 @@ export default function DemoFeatures() {
       icon: IconCloudComputing,
       titleId: "demo.features.cloud.title",
       descriptionId: "demo.features.cloud.description",
+      color: "from-blue-500 to-purple-600",
+    },
+    {
+      icon: IconCloudComputing,
+      titleId: "demo.features.stock.title",
+      descriptionId: "demo.features.stock.description",
+      color: "from-blue-500 to-purple-600",
+    },
+    {
+      icon: IconCloudComputing,
+      titleId: "demo.features.expenses.title",
+      descriptionId: "demo.features.expenses.description",
+      color: "from-blue-500 to-purple-600",
+    },
+    {
+      icon: IconCloudComputing,
+      titleId: "demo.features.work.title",
+      descriptionId: "demo.features.work.description",
       color: "from-blue-500 to-purple-600",
     },
     {

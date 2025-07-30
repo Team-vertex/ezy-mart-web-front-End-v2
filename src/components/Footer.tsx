@@ -45,15 +45,17 @@ export default function Footer() {
 
   const solutions = [
     { key: "retailPOS", messageId: "footer.solutions.retailPOS" },
-    { key: "restaurantPOS", messageId: "footer.solutions.restaurantPOS" },
     {
       key: "inventoryManagement",
       messageId: "footer.solutions.inventoryManagement",
     },
-    { key: "mobilePOS", messageId: "footer.solutions.mobilePOS" },
     {
       key: "analyticsDashboard",
       messageId: "footer.solutions.analyticsDashboard",
+    },
+    {
+      key: "mobileApp",
+      messageId: "footer.solutions.mobleApp",
     },
   ];
   // const supportLinks = ["Help Center", "Documentation", "API Reference", "Community Forum"];

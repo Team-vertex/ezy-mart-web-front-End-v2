@@ -5,10 +5,9 @@ import {
   IconPlayerPlay,
 } from "@tabler/icons-react";
 import { motion } from "framer-motion";
-import { FormattedMessage, useIntl } from "react-intl";
+import { FormattedMessage} from "react-intl";
 
 export default function DemoHero() {
-  const intl = useIntl();
   return (
     <section className="overflow-hidden bg-gradient-to-br from-[#0A65FC] to-blue-700 relative">
       {/* Decorative circles */}
@@ -45,18 +44,7 @@ export default function DemoHero() {
 
             <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
               <FormattedMessage id="demo.hero.title" />{" "}
-              <span className="text-blue-100">
-                <FormattedMessage
-                  id="demo.hero.title.branded"
-                  defaultMessage="EzyMart"
-                />
-              </span>
-              <span className="block">
-                <FormattedMessage
-                  id="demo.hero.title.pos"
-                  defaultMessage="POS Live"
-                />
-              </span>
+              
             </h1>
 
             <p className="text-white/90 text-lg lg:text-xl leading-relaxed mb-8 max-w-lg">
@@ -67,23 +55,9 @@ export default function DemoHero() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-white text-[#0A65FC] px-8 py-4 rounded-full font-bold text-lg hover:bg-blue-50 transition-all duration-300 shadow-lg flex items-center justify-center"
-                onClick={() => {
-                  document
-                    .querySelector("#pos-demo")
-                    ?.scrollIntoView({ behavior: "smooth" });
-                }}
-              >
-                <IconPlayerPlay className="w-5 h-5 mr-2" />
-                <FormattedMessage id="demo.hero.cta.primary" />
-              </motion.button>
-
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
                 className="border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-[#0A65FC] transition-all duration-300"
               >
-                <FormattedMessage id="demo.hero.cta.secondary" />
+                <FormattedMessage id="demo.hero.cta.primary" />
               </motion.button>
             </div>
           </motion.div>

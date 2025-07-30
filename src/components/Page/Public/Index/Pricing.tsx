@@ -1,15 +1,14 @@
 import {
   IconBolt,
   IconCheck,
-  IconCrown,
   IconDevices,
   IconRocket,
-  IconShield,
   IconStar,
   IconX,
 } from "@tabler/icons-react";
 import { motion, useInView } from "framer-motion";
 import React, { useRef, useState } from "react";
+import { FormattedMessage } from "react-intl";
 
 export const Pricing: React.FC = () => {
   const [isYearly, setIsYearly] = useState(false);
@@ -26,126 +25,67 @@ export const Pricing: React.FC = () => {
   const plans = [
     {
       name: "Basic",
-      description: "Perfect for small startups",
+      description: "Perfect for small level business",
       icon: IconBolt,
-      price: { monthly: 1999, yearly: 19999 },
-      originalPrice: { monthly: 2999, yearly: 29999 },
+      price: { monthly: 1799, yearly: 19800 },
+      originalPrice: { monthly: 1999, yearly: 22000 },
       features: [
-        "Single user access",
-        "Basic inventory management",
-        "Simple sales tracking",
-        "Basic customer database",
-        "Email support",
-        "Mobile app access",
+        "Stocks Management",
+        "Employee Managment",
+        "Work Online & Offline",
+        "Supplier Managment",
+        "Manage Expenses",
+        "Sales Analysis",
+        "Online Store",
+        "Generate Reports",
       ],
       limitations: [
-        "Advanced reporting",
+        "Web Based Admin Pannel",
         "Multi-location support",
-        "API access",
-        "Priority support",
-        "Hardware included",
+        "web-based POS",
       ],
-      popular: false,
+      popular: true,
       borderColor: "border-gray-200",
     },
     {
-      name: "Starter",
-      description: "Great for small businesses",
+      name: "Pro",
+      description: "Perfect for small and mid level business",
       icon: IconRocket,
-      price: { monthly: 3499, yearly: 34999 },
-      originalPrice: { monthly: 4999, yearly: 49999 },
+      price: { monthly: 2400, yearly: 26400 },
+      originalPrice: { monthly: 2500, yearly: 30000 },
       features: [
-        "Up to 3 users",
-        "Complete inventory management",
-        "Sales reporting & analytics",
-        "Customer management",
-        "Priority email support",
-        "Barcode scanning",
-        "Basic integrations",
+        "Web based admin panel",
+        "Web based POS",
+        "Stocks Management",
+        "Employee Managment",
+        "Work Online & Offline",
+        "Supplier Managment",
+        "Manage Expenses",
+        "Sales Analysis",
+        "Online Store",
+        "Generate Reports",
         "Cloud backup",
+        
       ],
       limitations: [
         "Multi-location support",
-        "Advanced API access",
-        "Hardware included",
-        "24/7 phone support",
       ],
       popular: false,
       borderColor: "border-blue-200",
     },
     {
-      name: "Professional",
-      description: "Most popular for growing businesses",
-      icon: IconShield,
-      price: { monthly: 5999, yearly: 59999 },
-      originalPrice: { monthly: 8499, yearly: 84999 },
+      name: "Comming Soon",
+      description: "Perfect Multi branch business",
+      icon: IconRocket,
+      price: { monthly: "", yearly: "" },
+      originalPrice: { monthly:"", yearly: "" },
       features: [
-        "Up to 10 users",
-        "Advanced inventory management",
-        "Detailed reporting & analytics",
-        "Customer loyalty programs",
-        "Priority support (24/7)",
-        "Multi-payment methods",
-        "Advanced barcode scanning",
-        "Tax management",
-        "API access",
-        "Multi-location support (up to 3)",
+        "Cooming Soon"
       ],
       limitations: [
-        "Hardware included",
-        "Unlimited locations",
-        "Custom integrations",
       ],
-      popular: true,
-      borderColor: "border-blue-300",
-    },
-    {
-      name: "Hardware Bundle",
-      description: "Complete POS system with hardware",
-      icon: IconDevices,
-      price: { monthly: 8999, yearly: 89999 },
-      originalPrice: { monthly: 12999, yearly: 129999 },
-      features: [
-        "Everything in Professional",
-        "Complete POS hardware kit",
-        "Tablet/Terminal included",
-        "Receipt printer",
-        "Barcode scanner",
-        "Cash drawer",
-        "Card reader",
-        "Installation & setup",
-        "Hardware warranty (2 years)",
-        "On-site support",
-      ],
-      limitations: ["Custom integrations", "Unlimited locations"],
       popular: false,
-      borderColor: "border-purple-200",
-      hardwareIncluded: true,
-      hardwareValue: "LKR 45,000",
-    },
-    {
-      name: "Enterprise",
-      description: "For large businesses & chains",
-      icon: IconCrown,
-      price: { monthly: 14999, yearly: 149999 },
-      originalPrice: { monthly: 19999, yearly: 199999 },
-      features: [
-        "Unlimited users",
-        "Unlimited locations",
-        "Advanced analytics & BI",
-        "Custom integrations",
-        "24/7 phone & on-site support",
-        "Full API access",
-        "Custom training",
-        "Dedicated account manager",
-        "Custom reporting",
-        "Data export tools",
-        "Hardware options available",
-        "White-label solutions",
-      ],
-      limitations: [],
-      popular: false,
-      borderColor: "border-amber-200",
+      borderColor: "border-blue-200",
     },
   ];
 
@@ -171,12 +111,12 @@ export const Pricing: React.FC = () => {
           </div>
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-            Choose Your Plan
+              <FormattedMessage id="home.pricing.title" />
           </h2>
 
           <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
-            Simple, transparent pricing that grows with your business. No hidden
-            fees.
+            <FormattedMessage id="home.pricing.subtitle" />
+            
           </p>
 
           {/* Simple Toggle */}
@@ -186,7 +126,7 @@ export const Pricing: React.FC = () => {
                 !isYearly ? "text-gray-900" : "text-gray-500"
               }`}
             >
-              Monthly
+              <FormattedMessage id="home.pricing.monthly" />
             </span>
             <button
               onClick={() => setIsYearly(!isYearly)}
@@ -205,11 +145,11 @@ export const Pricing: React.FC = () => {
                 isYearly ? "text-gray-900" : "text-gray-500"
               }`}
             >
-              Yearly
+               <FormattedMessage id="home.pricing.yearly" />
             </span>
             {isYearly && (
               <span className="ml-2 px-2 py-1 bg-green-100 text-green-800 rounded text-xs font-medium">
-                Save 20%
+                <FormattedMessage id="home.pricing.save" />
               </span>
             )}
           </div>
@@ -221,7 +161,7 @@ export const Pricing: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isCardsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 "
         >
           {plans.map((plan, index) => (
             <motion.div
@@ -246,14 +186,14 @@ export const Pricing: React.FC = () => {
               )}
 
               {/* Hardware Badge */}
-              {plan.hardwareIncluded && (
+              {/* {plan.hardwareIncluded && (
                 <div className="absolute -top-3 right-4">
                   <span className="bg-purple-600 text-white px-2 py-1 rounded-full text-xs font-medium flex items-center gap-1">
                     <IconDevices className="w-3 h-3" />
                     Hardware
                   </span>
                 </div>
-              )}
+              )} */}
 
               {/* Plan Header */}
               <div className="text-center mb-6">
@@ -268,13 +208,13 @@ export const Pricing: React.FC = () => {
                 <p className="text-sm text-gray-600 mb-4">{plan.description}</p>
 
                 {/* Hardware Value */}
-                {plan.hardwareIncluded && plan.hardwareValue && (
+                {/* {plan.hardwareIncluded && plan.hardwareValue && (
                   <div className="mb-4">
                     <span className="inline-block px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs font-medium">
                       Hardware: {plan.hardwareValue}
                     </span>
                   </div>
-                )}
+                )} */}
 
                 {/* Pricing */}
                 <div className="mb-6">
@@ -299,7 +239,7 @@ export const Pricing: React.FC = () => {
                       /{isYearly ? "year" : "month"}
                     </span>
                   </div>
-                  {isYearly && (
+                  {/* {isYearly && (
                     <p className="text-green-600 text-xs font-medium mt-1">
                       Save LKR{" "}
                       {(
@@ -307,7 +247,7 @@ export const Pricing: React.FC = () => {
                       ).toLocaleString()}
                       /year
                     </p>
-                  )}
+                  )} */}
                 </div>
 
                 {/* CTA Button */}
@@ -315,14 +255,13 @@ export const Pricing: React.FC = () => {
                   className={`w-full py-2 px-4 rounded-lg font-medium text-sm transition-colors duration-200 ${
                     plan.popular
                       ? "bg-blue-600 text-white hover:bg-blue-700"
-                      : plan.hardwareIncluded
-                      ? "bg-purple-600 text-white hover:bg-purple-700"
                       : "bg-gray-900 text-white hover:bg-gray-800"
                   }`}
                 >
-                  {plan.hardwareIncluded
+                  Get Started
+                  {/* {plan.hardwareIncluded
                     ? "Get Complete System"
-                    : "Get Started"}
+                    : "Get Started"} */}
                 </button>
               </div>
 
@@ -330,18 +269,18 @@ export const Pricing: React.FC = () => {
               <div className="space-y-4">
                 <div>
                   <h4 className="font-medium text-gray-900 mb-3 text-sm">
-                    What's included:
+                 <FormattedMessage id="home.pricing.whatInclude"/>
                   </h4>
                   <ul className="space-y-2">
-                    {plan.features.slice(0, 5).map((feature, i) => (
+                    {plan.features.slice(0, 10).map((feature, i) => (
                       <li key={i} className="flex items-start text-sm">
                         <IconCheck className="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
                         <span className="text-gray-700">{feature}</span>
                       </li>
                     ))}
-                    {plan.features.length > 5 && (
+                    {plan.features.length > 10 && (
                       <li className="text-gray-500 text-xs italic">
-                        +{plan.features.length - 5} more features
+                        +{plan.features.length - 10} more features
                       </li>
                     )}
                   </ul>
@@ -350,7 +289,7 @@ export const Pricing: React.FC = () => {
                 {plan.limitations.length > 0 && (
                   <div>
                     <h4 className="font-medium text-gray-900 mb-3 text-sm">
-                      Not included:
+                     <FormattedMessage id="home.pricing.features.not.included"/>
                     </h4>
                     <ul className="space-y-2">
                       {plan.limitations.slice(0, 3).map((limitation, i) => (
@@ -380,34 +319,34 @@ export const Pricing: React.FC = () => {
                 Hardware Options
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Complete POS Hardware
+                <FormattedMessage id="home.hardware.title"/>
               </h3>
               <p className="text-gray-600 max-w-2xl mx-auto">
-                Get everything you need with our hardware bundle.
+                <FormattedMessage id="home.hardware.subtitle"/>
               </p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
               {[
                 {
-                  name: "POS Terminal",
-                  description: "Touch screen tablet",
-                  price: "LKR 15,000",
-                },
-                {
                   name: "Receipt Printer",
-                  description: "Thermal printer",
-                  price: "LKR 8,000",
+                  description: "60 mm - 80 mm",
+                  price: "Rs.10,000 - Rs.16,000",
                 },
                 {
-                  name: "Barcode Scanner",
-                  description: "Wireless scanner",
-                  price: "LKR 12,000",
+                  name: "barcode Scanner",
+                  description: "Tabel or Portabel",
+                  price: "Rs.8,000 - Rs.12,000",
                 },
                 {
-                  name: "Cash Drawer",
-                  description: "Heavy-duty drawer",
-                  price: "LKR 10,000",
+                  name: "Computer",
+                  description: "Computer without UPS",
+                  price: "Rs.30,000",
+                },
+                {
+                  name: "Computer with UPS",
+                  description: "Computer + UPS",
+                  price: "LKR 45,000",
                 },
               ].map((item) => (
                 <div
@@ -431,12 +370,12 @@ export const Pricing: React.FC = () => {
             </div>
 
             <div className="text-center">
-              <p className="text-purple-700 font-medium mb-4">
+              {/* <p className="text-purple-700 font-medium mb-4">
                 Complete Bundle: LKR 45,000 (Save LKR 10,000!)
-              </p>
-              <button className="px-6 py-2 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition-colors duration-200">
+              </p> */}
+              {/* <button className="px-6 py-2 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition-colors duration-200">
                 View Hardware Details
-              </button>
+              </button> */}
             </div>
           </div>
         </motion.div>
@@ -449,17 +388,16 @@ export const Pricing: React.FC = () => {
           className="mt-16 text-center"
         >
           <div className="bg-blue-600 rounded-lg p-8 text-white">
-            <h3 className="text-2xl font-bold mb-4">Need a Custom Solution?</h3>
+            <h3 className="text-2xl font-bold mb-4"><FormattedMessage id="home.contact.title"/></h3>
             <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-              Contact our sales team for enterprise pricing and custom
-              solutions.
+               <FormattedMessage id="home.contact.subtitle"/>
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="px-6 py-2 bg-white text-blue-600 rounded-lg font-medium hover:bg-gray-100 transition-colors duration-200">
-                Contact Sales
+                <FormattedMessage id="home.contact.phone.title"/>
               </button>
               <button className="px-6 py-2 border border-white text-white rounded-lg font-medium hover:bg-white hover:text-blue-600 transition-colors duration-200">
-                Schedule Demo
+                Watch the Demo
               </button>
             </div>
           </div>

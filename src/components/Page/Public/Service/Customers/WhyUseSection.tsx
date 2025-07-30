@@ -5,7 +5,6 @@ import {
   ShoppingBag,
   Smartphone,
   Star,
-  Users,
 } from "lucide-react";
 import { useRef } from "react";
 import { FormattedMessage, useIntl } from "react-intl";
@@ -84,9 +83,6 @@ const WhyUseSection = () => {
 
           <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
             <FormattedMessage id="customers.whyUse.title" />{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A65FC] via-blue-600 to-indigo-600">
-              <FormattedMessage id="customers.whyUse.titleHighlight" />
-            </span>
           </h2>
 
           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -108,9 +104,7 @@ const WhyUseSection = () => {
             <div className="mb-8">
               <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
                 <FormattedMessage id="customers.whyUse.features.heading" />
-                <span className="text-blue-600 block">
-                  <FormattedMessage id="customers.whyUse.features.headingHighlight" />
-                </span>
+
               </h3>
               <p className="text-gray-600 text-lg">
                 <FormattedMessage id="customers.whyUse.features.description" />
@@ -154,33 +148,7 @@ const WhyUseSection = () => {
               transition={{ duration: 0.8, delay: 0.8 }}
               className="flex items-center gap-8 pt-8 border-t border-gray-200"
             >
-              <div className="flex items-center gap-2">
-                <Users className="w-5 h-5 text-blue-600" />
-                <span className="text-2xl font-bold text-gray-900">
-                  <FormattedMessage id="customers.whyUse.stats.users.value" />
-                </span>
-                <span className="text-gray-600">
-                  <FormattedMessage id="customers.whyUse.stats.users.label" />
-                </span>
-              </div>
-              <div className="flex items-center gap-2">
-                <ShoppingBag className="w-5 h-5 text-blue-600" />
-                <span className="text-2xl font-bold text-gray-900">
-                  <FormattedMessage id="customers.whyUse.stats.stores.value" />
-                </span>
-                <span className="text-gray-600">
-                  <FormattedMessage id="customers.whyUse.stats.stores.label" />
-                </span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Star className="w-5 h-5 text-yellow-500" />
-                <span className="text-2xl font-bold text-gray-900">
-                  <FormattedMessage id="customers.whyUse.stats.rating.value" />
-                </span>
-                <span className="text-gray-600">
-                  <FormattedMessage id="customers.whyUse.stats.rating.label" />
-                </span>
-              </div>
+              
             </motion.div>
           </motion.div>
 

@@ -1,4 +1,4 @@
-import { Contact } from "@/components/Page/Public/Index/Contact";
+// import { Contact } from "@/components/Page/Public/Index/Contact";
 import BenefitsSection from "@/components/Page/Public/Service/Customers/BenefitsSection";
 import FaqSection from "@/components/Page/Public/Service/Customers/Faqsection";
 import HeroSection from "@/components/Page/Public/Service/Customers/HeroSection";
@@ -11,7 +11,7 @@ export default function Customers(): JSX.Element {
       <WhyUseSection />
       <BenefitsSection />
       <FaqSection />
-      <Contact />
+      {/* <Contact /> */}
     </div>
   );
 }
