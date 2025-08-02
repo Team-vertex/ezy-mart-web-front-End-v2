@@ -16,11 +16,13 @@ import {
 import { motion, useInView } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 import { FormattedMessage } from "react-intl";
+import { useNavigate } from "react-router-dom";
 
 export const Hero: React.FC = () => {
   const [nowShwing, setNowShowing] = useState(indexHeroText.TextOne);
   const [isAnimating, setIsAnimating] = useState(false);
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const navigate = useNavigate();
 
   // MARK: Ref
   const welcomeRef = useRef(null);
@@ -72,7 +74,24 @@ export const Hero: React.FC = () => {
     { value: "24/7", label: "home.hero.stats.support", icon: IconClock },
     { value: "-", label: "home.hero.stats.rating", icon: IconStar },
   ];
-//4.9★
+  //4.9★
+
+  // Navigation functions
+  const handleStartFreeTrial = () => {
+    navigate(routes.serviceForBusiness);
+  };
+
+  const handleWatchDemo = () => {
+    navigate(routes.demo);
+    // Scroll to demo area after navigation
+    setTimeout(() => {
+      const demoSection = document.getElementById('demo-area');
+      if (demoSection) {
+        demoSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
   // MARK: Render
   return (
     <section
@@ -143,11 +162,10 @@ export const Hero: React.FC = () => {
               className="flex items-center justify-start h-auto overflow-hidden min-h-20"
             >
               <p
-                className={`text-lg lg:text-xl text-gray-600 leading-relaxed max-w-2xl transition-all duration-500 ease-in-out ${
-                  isAnimating
+                className={`text-lg lg:text-xl text-gray-600 leading-relaxed max-w-2xl transition-all duration-500 ease-in-out ${isAnimating
                     ? "opacity-0 transform -translate-y-4"
                     : "opacity-100 transform translate-y-0"
-                }`}
+                  }`}
               >
                 <FormattedMessage
                   id={
@@ -203,7 +221,7 @@ export const Hero: React.FC = () => {
                   className="group flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:shadow-xl transition-all duration-300 font-semibold text-lg"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={() => (window.location.href = routes.demo)}
+                  onClick={handleStartFreeTrial}
                 >
                   <IconRocket className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
                   <FormattedMessage id="home.hero.cta.primary" />
@@ -211,7 +229,7 @@ export const Hero: React.FC = () => {
                 </motion.button>
 
                 <motion.button
-                  onClick={() => setIsVideoModalOpen(true)}
+                  onClick={handleWatchDemo}
                   className="group flex items-center justify-center px-8 py-4 bg-white border-2 border-gray-200 text-gray-800 rounded-xl hover:border-blue-300 hover:shadow-lg transition-all duration-300 font-semibold text-lg"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}

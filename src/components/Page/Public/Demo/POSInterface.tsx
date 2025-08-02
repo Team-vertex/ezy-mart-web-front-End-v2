@@ -314,7 +314,7 @@ export default function POSInterface() {
     <>
       <section
         ref={sectionRef}
-        id="pos-demo"
+        id="demo-area"
         className="py-20 lg:py-32 bg-gradient-to-br from-blue-50 via-white to-blue-50 relative overflow-hidden"
       >
         {/* Background decorations */}
@@ -335,13 +335,13 @@ export default function POSInterface() {
               Interactive POS Demo
             </div>
             <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-               <FormattedMessage id="demo.posInterface.Title" />{" "}
+              <FormattedMessage id="demo.posInterface.Title" />{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0A65FC] to-blue-600">
-               <FormattedMessage id="demo.posInterface.Title2" /> 
+                <FormattedMessage id="demo.posInterface.Title2" />
               </span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-             <FormattedMessage id="demo.posInterface.subtitle" />
+              <FormattedMessage id="demo.posInterface.subtitle" />
             </p>
           </motion.div>
 
@@ -435,13 +435,12 @@ export default function POSInterface() {
                           {product.category}
                         </p>
                         <span
-                          className={`text-xs px-2 py-1 rounded-full ${
-                            product.stock > 20
+                          className={`text-xs px-2 py-1 rounded-full ${product.stock > 20
                               ? "bg-green-100 text-green-700"
                               : product.stock > 5
-                              ? "bg-yellow-100 text-yellow-700"
-                              : "bg-red-100 text-red-700"
-                          }`}
+                                ? "bg-yellow-100 text-yellow-700"
+                                : "bg-red-100 text-red-700"
+                            }`}
                         >
                           {product.stock} left
                         </span>
@@ -642,16 +641,14 @@ export default function POSInterface() {
                         !isProcessingPayment && handlePayment(method.id)
                       }
                       disabled={isProcessingPayment}
-                      className={`w-full p-4 border-2 rounded-xl flex items-center space-x-3 transition-all ${
-                        selectedPaymentMethod === method.id &&
-                        isProcessingPayment
+                      className={`w-full p-4 border-2 rounded-xl flex items-center space-x-3 transition-all ${selectedPaymentMethod === method.id &&
+                          isProcessingPayment
                           ? "border-[#0A65FC] bg-blue-50"
                           : "border-gray-200 hover:border-[#0A65FC] hover:bg-blue-50"
-                      } ${
-                        isProcessingPayment
+                        } ${isProcessingPayment
                           ? "opacity-50 cursor-not-allowed"
                           : ""
-                      }`}
+                        }`}
                     >
                       <div
                         className={`w-10 h-10 ${method.color} rounded-lg flex items-center justify-center text-white`}

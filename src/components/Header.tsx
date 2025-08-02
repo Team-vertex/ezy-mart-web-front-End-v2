@@ -10,6 +10,7 @@ import {
   IconX,
 } from "@tabler/icons-react";
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { LanguageSwitch } from "./core/LanguageSwitch";
 
 export default function Header() {
@@ -17,6 +18,25 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const menuRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
+
+  // Navigation functions
+  const handleStartFreeTrial = () => {
+    navigate(routes.serviceForBusiness);
+    setIsMenuOpen(false);
+  };
+
+  const handleWatchDemo = () => {
+    navigate(routes.demo);
+    setIsMenuOpen(false);
+    // Scroll to demo area after navigation
+    setTimeout(() => {
+      const demoSection = document.getElementById('demo-area');
+      if (demoSection) {
+        demoSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
 
   // Handle scroll effect
   useEffect(() => {
@@ -70,9 +90,8 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white shadow-md py-2" : "bg-white py-3"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-white shadow-md py-2" : "bg-white py-3"
+        }`}
     >
       <div className="container flex items-center justify-between px-4 mx-auto max-w-7xl">
         {/* Logo */}
@@ -101,19 +120,17 @@ export default function Header() {
                   >
                     {item.name}
                     <IconChevronDown
-                      className={`w-4 h-4 ml-1 transition-transform duration-200 ${
-                        activeDropdown === item.name ? "rotate-180" : ""
-                      }`}
+                      className={`w-4 h-4 ml-1 transition-transform duration-200 ${activeDropdown === item.name ? "rotate-180" : ""
+                        }`}
                     />
                   </button>
 
                   {/* Dropdown menu */}
                   <div
-                    className={`absolute top-full left-0 w-56 bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden transition-all duration-200 origin-top ${
-                      activeDropdown === item.name
+                    className={`absolute top-full left-0 w-56 bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden transition-all duration-200 origin-top ${activeDropdown === item.name
                         ? "opacity-100 scale-y-100 translate-y-2"
                         : "opacity-0 scale-y-0 translate-y-0 pointer-events-none"
-                    }`}
+                      }`}
                   >
                     <div className="py-2">
                       {item.dropdown.map((subItem) => (
@@ -144,14 +161,17 @@ export default function Header() {
         {/* Desktop CTA Buttons */}
         <div className="hidden lg:flex items-center space-x-4">
           <LanguageSwitch />
-          <a
-            href={routes.demo}
+          <button
+            onClick={handleWatchDemo}
             className="px-4 py-2 text-gray-700 hover:text-[#0A65FC] transition-colors duration-200 font-medium flex items-center"
           >
             <IconPlayerPlay className="w-4 h-4 mr-1" />
             Demo
-          </a>
-          <button className="px-6 py-2 bg-[#0A65FC] hover:bg-blue-700 text-white rounded-lg transition-all duration-300 font-medium">
+          </button>
+          <button
+            onClick={handleStartFreeTrial}
+            className="px-6 py-2 bg-[#0A65FC] hover:bg-blue-700 text-white rounded-lg transition-all duration-300 font-medium"
+          >
             Start Free
           </button>
         </div>
@@ -181,9 +201,8 @@ export default function Header() {
       {/* Mobile Navigation Menu */}
       <div
         ref={menuRef}
-        className={`lg:hidden fixed top-0 right-0 h-full w-80 bg-white shadow-2xl transform transition-transform duration-300 ease-in-out z-50 ${
-          isMenuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`lg:hidden fixed top-0 right-0 h-full w-80 bg-white shadow-2xl transform transition-transform duration-300 ease-in-out z-50 ${isMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         {/* Mobile Header */}
         <div className="flex items-center justify-between p-4 border-b border-gray-100">
@@ -217,9 +236,8 @@ export default function Header() {
                     >
                       {item.name}
                       <IconChevronDown
-                        className={`w-4 h-4 transition-transform duration-200 ${
-                          activeDropdown === item.name ? "rotate-180" : ""
-                        }`}
+                        className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === item.name ? "rotate-180" : ""
+                          }`}
                       />
                     </button>
                     {activeDropdown === item.name && (
@@ -255,11 +273,17 @@ export default function Header() {
           <div className="mb-3">
             <LanguageSwitch />
           </div>
-          <button className="w-full p-3 text-gray-700 border border-gray-200 rounded-lg hover:border-[#0A65FC] hover:text-[#0A65FC] transition-all duration-200 font-medium">
+          <button
+            onClick={handleWatchDemo}
+            className="w-full p-3 text-gray-700 border border-gray-200 rounded-lg hover:border-[#0A65FC] hover:text-[#0A65FC] transition-all duration-200 font-medium"
+          >
             <IconPlayerPlay className="w-4 h-4 mr-2 inline" />
             Watch Demo
           </button>
-          <button className="w-full p-3 bg-[#0A65FC] hover:bg-blue-700 text-white rounded-lg transition-all duration-300 font-medium">
+          <button
+            onClick={handleStartFreeTrial}
+            className="w-full p-3 bg-[#0A65FC] hover:bg-blue-700 text-white rounded-lg transition-all duration-300 font-medium"
+          >
             <IconRocket className="w-4 h-4 mr-2 inline" />
             Start Free Trial
           </button>

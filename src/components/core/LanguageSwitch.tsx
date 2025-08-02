@@ -53,7 +53,9 @@ export const LanguageSwitch: React.FC<LanguageSwitchProps> = ({
             }}
           >
             <FormattedMessage id="common.language" />:{" "}
-            {currentLanguage?.nativeName}
+            <span className={currentLanguage?.code === 'si' ? 'font-sans-sinhala' : ''}>
+              {currentLanguage?.nativeName}
+            </span>
           </Button>
         </Menu.Target>
         <Menu.Dropdown>
@@ -67,8 +69,10 @@ export const LanguageSwitch: React.FC<LanguageSwitchProps> = ({
                   : ""
               }
             >
-              <div className="flex items-center gap-2">
-                <span className="font-medium">{language.nativeName}</span>
+              <div className="flex items-center gap-4">
+                <span className={`font-medium ${language.code === 'si' ? 'font-sans-sinhala' : ''}`}>
+                  {language.nativeName}
+                </span>
                 <span className="text-sm text-gray-500">({language.name})</span>
               </div>
             </Menu.Item>
@@ -88,7 +92,9 @@ export const LanguageSwitch: React.FC<LanguageSwitchProps> = ({
           rightSection={<IconChevronDown size={14} />}
           className={`bg-white/80 backdrop-blur-sm border border-blue-200 hover:bg-blue-50 transition-all ${className}`}
         >
-          {currentLanguage?.nativeName}
+          <span className={currentLanguage?.code === 'si' ? 'font-sans-sinhala' : ''}>
+            {currentLanguage?.nativeName}
+          </span>
         </Button>
       </Menu.Target>
       <Menu.Dropdown>
@@ -100,8 +106,10 @@ export const LanguageSwitch: React.FC<LanguageSwitchProps> = ({
               currentLocale === language.code ? "bg-blue-50 text-blue-600" : ""
             }
           >
-            <div className="flex items-center gap-2">
-              <span className="font-medium">{language.nativeName}</span>
+            <div className="flex items-center gap-4">
+              <span className={`font-medium ${language.code === 'si' ? 'font-sans-sinhala' : ''}`}>
+                {language.nativeName}
+              </span>
               <span className="text-sm text-gray-500">({language.name})</span>
             </div>
           </Menu.Item>

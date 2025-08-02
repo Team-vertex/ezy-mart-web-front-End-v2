@@ -1,4 +1,5 @@
 "use client";
+import { routes } from "@/constants/route";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -9,6 +10,7 @@ import {
   Zap,
 } from "lucide-react";
 import { FormattedMessage, useIntl } from "react-intl";
+import { useNavigate } from "react-router-dom";
 
 type FeatureProps = {
   icon: React.ReactNode;
@@ -31,6 +33,23 @@ const Feature: React.FC<FeatureProps> = ({ icon, text }) => {
 
 function Hero() {
   const intl = useIntl();
+  const navigate = useNavigate();
+
+  // Navigation functions
+  const handleStartFreeTrial = () => {
+    navigate(routes.serviceForBusiness);
+  };
+
+  const handleWatchDemo = () => {
+    navigate(routes.demo);
+    // Scroll to demo area after navigation
+    setTimeout(() => {
+      const demoSection = document.getElementById('demo-area');
+      if (demoSection) {
+        demoSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
 
   const getFeatures = () => [
     {
@@ -140,6 +159,7 @@ function Hero() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={handleStartFreeTrial}
               className="group bg-white text-[#0A65FC] px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-50 transition-all duration-300 shadow-xl flex items-center gap-2"
             >
               <FormattedMessage id="business.hero.buttons.startFreeTrial" />
@@ -152,6 +172,7 @@ function Hero() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={handleWatchDemo}
               className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-[#0A65FC] transition-all duration-300"
             >
               <FormattedMessage id="business.hero.buttons.watchDemo" />

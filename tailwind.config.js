@@ -18,6 +18,8 @@ export default {
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
         georgia: ["Georgia", "serif"],
+        sinhala: ["Noto Sans Sinhala", "sans-serif"],
+        "sans-sinhala": ["Noto Sans Sinhala", "Poppins", "sans-serif"],
       },
       colors: {
         primary: dark.primary,
