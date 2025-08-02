@@ -1,3 +1,5 @@
+import { routes } from "@/constants/route";
+import { usePOSRequestPopup } from "@/hooks/usePOSRequestPopup";
 import {
   IconArrowRight,
   IconBolt,
@@ -11,8 +13,13 @@ import {
 import { motion, useInView } from "framer-motion";
 import React, { useRef } from "react";
 import { FormattedMessage } from "react-intl";
+import { useNavigate } from "react-router-dom";
 
 export const CTA: React.FC = () => {
+  // MARK: Hooks
+  const navigate = useNavigate();
+  const { openPOSRequest, POSRequestModal } = usePOSRequestPopup();
+
   // MARK: Refs
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
@@ -24,6 +31,22 @@ export const CTA: React.FC = () => {
   const isHeadingInView = useInView(headingRef, { once: true, amount: 0.5 });
   const isCtaInView = useInView(ctaRef, { once: true, amount: 0.5 });
   const isFeaturesInView = useInView(featuresRef, { once: true, amount: 0.3 });
+
+  // MARK: Navigation Functions
+  const handleStartFreeTrial = () => {
+    openPOSRequest();
+  };
+
+  const handleWatchDemo = () => {
+    navigate(routes.demo);
+    // Scroll to demo area after navigation
+    setTimeout(() => {
+      const demoSection = document.getElementById('demo-area');
+      if (demoSection) {
+        demoSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
 
   const features = [
     {
@@ -107,7 +130,10 @@ export const CTA: React.FC = () => {
           className="flex flex-col lg:flex-row gap-6 justify-center items-center mb-20"
         >
           {/* Primary CTA */}
-          <button className="group px-12 py-6 bg-gradient-to-r from-white to-blue-50 text-[#0A65FC] rounded-2xl font-bold text-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 shadow-lg">
+          <button
+            onClick={handleStartFreeTrial}
+            className="group px-12 py-6 bg-gradient-to-r from-white to-blue-50 text-[#0A65FC] rounded-2xl font-bold text-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 shadow-lg"
+          >
             <span className="flex items-center justify-center">
               <IconRocket className="mr-3 w-6 h-6 group-hover:animate-bounce" />
               Start Free Trial
@@ -119,7 +145,10 @@ export const CTA: React.FC = () => {
           </button>
 
           {/* Secondary CTA */}
-          <button className="group px-12 py-6 bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 rounded-2xl font-bold text-xl hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
+          <button
+            onClick={handleWatchDemo}
+            className="group px-12 py-6 bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 rounded-2xl font-bold text-xl hover:bg-white/20 transition-all duration-300 transform hover:scale-105"
+          >
             <span className="flex items-center justify-center">
               <IconPlayerPlay className="mr-3 w-6 h-6 group-hover:scale-110 transition-transform duration-300" />
               Watch Demo
@@ -248,6 +277,9 @@ export const CTA: React.FC = () => {
           </div>
         </motion.div>
       </div>
+
+      {/* POS Request Modal */}
+      <POSRequestModal />
     </section>
   );
 };

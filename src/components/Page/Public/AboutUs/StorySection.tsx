@@ -1,8 +1,14 @@
+import { scrollToSection } from "@/utils/scrollUtils";
 import { motion } from "framer-motion";
 import { CheckCircle, Target, Users, Zap } from "lucide-react";
 import { FormattedMessage } from "react-intl";
 
 export function StorySection() {
+  // Navigation function
+  const handleLearnMoreClick = () => {
+    // Scroll to the vision/mission section
+    scrollToSection('vision-mission');
+  };
   const highlights = [
     {
       icon: Target,
@@ -22,7 +28,7 @@ export function StorySection() {
   ];
 
   return (
-    <section className="py-20 px-4 bg-gradient-to-br from-blue-50/30 to-white">
+    <section data-section="story" className="py-20 px-4 bg-gradient-to-br from-blue-50/30 to-white">
       <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
@@ -78,6 +84,7 @@ export function StorySection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
               viewport={{ once: true }}
+              onClick={handleLearnMoreClick}
               className="group bg-[#0A65FC] text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
             >
               <FormattedMessage id="aboutUs.story.button" />

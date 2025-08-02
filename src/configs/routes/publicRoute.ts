@@ -29,7 +29,7 @@ const projectRoute: Route[] = [
     component: lazy(() => import("@/pages/public/Details/ContactUs")),
   },
   {
-    key: "/public/AboutUs/Hero",
+    key: "/about-us",
     path: routes.aboutUs,
     component: lazy(() => import("@/pages/public/AboutUs/Index")),
   },

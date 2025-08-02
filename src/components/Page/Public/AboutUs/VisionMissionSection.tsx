@@ -28,21 +28,19 @@ const VisionMissionCard: React.FC<VisionMissionCardProps> = ({
     >
       {/* Background gradient */}
       <div
-        className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${
-          isVision
+        className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${isVision
             ? "from-[#0A65FC]/5 to-blue-600/5"
             : "from-blue-500/5 to-[#0A65FC]/5"
-        } opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+          } opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
       />
 
       <div className="relative z-10">
         {/* Icon */}
         <div
-          className={`w-20 h-20 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300 ${
-            isVision
+          className={`w-20 h-20 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300 ${isVision
               ? "bg-gradient-to-r from-[#0A65FC] to-blue-600"
               : "bg-gradient-to-r from-blue-500 to-[#0A65FC]"
-          }`}
+            }`}
         >
           <IconComponent size={32} className="text-white" />
         </div>
@@ -67,9 +65,8 @@ const VisionMissionCard: React.FC<VisionMissionCardProps> = ({
               className="flex items-start gap-3"
             >
               <div
-                className={`w-2 h-2 rounded-full mt-3 flex-shrink-0 ${
-                  isVision ? "bg-[#0A65FC]" : "bg-blue-500"
-                }`}
+                className={`w-2 h-2 rounded-full mt-3 flex-shrink-0 ${isVision ? "bg-[#0A65FC]" : "bg-blue-500"
+                  }`}
               />
               <span className="text-gray-700 leading-relaxed">{item}</span>
             </motion.li>
@@ -88,7 +85,7 @@ export const VisionMissionSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 px-4 bg-gradient-to-br from-blue-50/30 to-white">
+    <section data-section="vision-mission" className="py-20 px-4 bg-gradient-to-br from-blue-50/30 to-white">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div

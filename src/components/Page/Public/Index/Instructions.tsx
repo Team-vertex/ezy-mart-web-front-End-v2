@@ -1,3 +1,5 @@
+import { routes } from "@/constants/route";
+import { usePOSRequestPopup } from "@/hooks/usePOSRequestPopup";
 import {
   IconArrowRight,
   IconCheck,
@@ -9,8 +11,13 @@ import {
 import { motion, useInView } from "framer-motion";
 import React, { useRef } from "react";
 import { FormattedMessage } from "react-intl";
+import { useNavigate } from "react-router-dom";
 
 export const Instructions: React.FC = () => {
+  // MARK: Hooks
+  const navigate = useNavigate();
+  const { openPOSRequest, POSRequestModal } = usePOSRequestPopup();
+
   // MARK: Refs
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
@@ -22,6 +29,22 @@ export const Instructions: React.FC = () => {
   const isHeadingInView = useInView(headingRef, { once: true, amount: 0.5 });
   const isContentInView = useInView(contentRef, { once: true, amount: 0.3 });
   const isCardsInView = useInView(cardsRef, { once: true, amount: 0.3 });
+
+  // MARK: Navigation Functions
+  const handleStartFreeTrial = () => {
+    openPOSRequest();
+  };
+
+  const handleWatchTutorial = () => {
+    navigate(routes.demo);
+    // Scroll to demo area after navigation
+    setTimeout(() => {
+      const demoSection = document.getElementById('demo-area');
+      if (demoSection) {
+        demoSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
 
   const features = [
     "home.instructions.feature1",
@@ -107,15 +130,15 @@ export const Instructions: React.FC = () => {
           >
             <div className="space-y-6">
               <h3 className="text-2xl lg:text-3xl font-bold text-gray-900">
-                <FormattedMessage id="home.instructions.secondTitle"/>,{" "}
+                <FormattedMessage id="home.instructions.secondTitle" />,{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                  <FormattedMessage id="home.instructions.secondSubTitle"/>
+                  <FormattedMessage id="home.instructions.secondSubTitle" />
                 </span>
               </h3>
 
               <p className="text-lg text-gray-600 leading-relaxed">
-                <FormattedMessage id="home.instructions.paragraph"/>
-                
+                <FormattedMessage id="home.instructions.paragraph" />
+
               </p>
             </div>
 
@@ -285,8 +308,11 @@ export const Instructions: React.FC = () => {
               </div>
 
               {/* CTA */}
-              <button className="group/btn flex items-center justify-center w-full px-6 py-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-300 font-medium">
-                <FormattedMessage id="home.instructions.business.action"/>
+              <button
+                onClick={index === 0 ? handleWatchTutorial : handleStartFreeTrial}
+                className="group/btn flex items-center justify-center w-full px-6 py-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-300 font-medium"
+              >
+                <FormattedMessage id="home.instructions.business.action" />
                 <IconArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform duration-300" />
               </button>
             </motion.div>
@@ -304,24 +330,33 @@ export const Instructions: React.FC = () => {
         >
           <div className="bg-white rounded-2xl p-8 lg:p-12 shadow-xl border border-gray-200">
             <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
-              <FormattedMessage id="home.instructions.business.bottomCtaTitle"/>
-              
+              <FormattedMessage id="home.instructions.business.bottomCtaTitle" />
+
             </h3>
             <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-              <FormattedMessage id="home.instructions.business.bottomCtaSubTitle"/>
-              
+              <FormattedMessage id="home.instructions.business.bottomCtaSubTitle" />
+
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
+              <button
+                onClick={handleStartFreeTrial}
+                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
+              >
                 Start Free Trial
               </button>
-              <button className="px-8 py-4 border-2 border-gray-300 text-gray-700 rounded-lg font-semibold hover:border-blue-600 hover:text-blue-600 transition-all duration-300">
+              <button
+                onClick={handleWatchTutorial}
+                className="px-8 py-4 border-2 border-gray-300 text-gray-700 rounded-lg font-semibold hover:border-blue-600 hover:text-blue-600 transition-all duration-300"
+              >
                 Watch Tutorial
               </button>
             </div>
           </div>
         </motion.div>
       </div>
+
+      {/* POS Request Modal */}
+      <POSRequestModal />
     </section>
   );
 };

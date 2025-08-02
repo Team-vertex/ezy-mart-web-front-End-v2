@@ -1,9 +1,12 @@
 import FaqContent from "@/components/core/FaqContent";
 import { FAQContent } from "@/constants/Data";
+import { routes } from "@/constants/route";
+import { usePOSRequestPopup } from "@/hooks/usePOSRequestPopup.tsx";
 import { IconHelp, IconQuestionMark } from "@tabler/icons-react";
 import { motion, useInView } from "framer-motion";
 import React, { useRef } from "react";
 import { FormattedMessage } from "react-intl";
+import { useNavigate } from "react-router-dom";
 
 export const FAQ: React.FC = () => {
   // MARK: Refs
@@ -12,11 +15,24 @@ export const FAQ: React.FC = () => {
   const subtitleRef = useRef(null);
   const faqRef = useRef(null);
 
+  // MARK: Hooks
+  const navigate = useNavigate();
+  const { openPOSRequest, POSRequestModal } = usePOSRequestPopup();
+
   // MARK: In view states
   const isSectionInView = useInView(sectionRef, { once: true, amount: 0.2 });
   const isHeadingInView = useInView(headingRef, { once: true, amount: 0.5 });
   const isSubtitleInView = useInView(subtitleRef, { once: true, amount: 0.5 });
   const isFaqInView = useInView(faqRef, { once: true, amount: 0.3 });
+
+  // MARK: Navigation functions
+  const handleContactUs = () => {
+    navigate(routes.contactUs);
+  };
+
+  const handleScheduleDemo = () => {
+    openPOSRequest();
+  };
 
   return (
     <section
@@ -106,16 +122,25 @@ export const FAQ: React.FC = () => {
               <FormattedMessage id="home.havemorequestions.subtitle" />
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-3 bg-white text-blue-600 rounded-xl font-semibold hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg">
+              <button
+                onClick={handleContactUs}
+                className="px-8 py-3 bg-white text-blue-600 rounded-xl font-semibold hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg"
+              >
                 <FormattedMessage id="home.havemorequestions.contact" />
               </button>
-              <button className="px-8 py-3 bg-blue-500/20 text-white border border-blue-400 rounded-xl font-semibold hover:bg-blue-500/30 transition-all duration-300 transform hover:scale-105">
+              <button
+                onClick={handleScheduleDemo}
+                className="px-8 py-3 bg-blue-500/20 text-white border border-blue-400 rounded-xl font-semibold hover:bg-blue-500/30 transition-all duration-300 transform hover:scale-105"
+              >
                 <FormattedMessage id="home.havemorequestions.scheduleDemo" />
               </button>
             </div>
           </div>
         </motion.div>
       </div>
+
+      {/* POS Request Modal */}
+      <POSRequestModal />
     </section>
   );
 };

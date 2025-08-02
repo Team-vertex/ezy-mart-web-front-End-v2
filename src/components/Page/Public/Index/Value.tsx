@@ -1,4 +1,6 @@
 import ModernCarousel from "@/components/carousel/ModernCarousel";
+import { routes } from "@/constants/route";
+import { usePOSRequestPopup } from "@/hooks/usePOSRequestPopup";
 import {
   IconArrowRight,
   IconAward,
@@ -9,8 +11,13 @@ import {
 import { motion, useInView } from "framer-motion";
 import React, { useRef } from "react";
 import { FormattedMessage } from "react-intl";
+import { useNavigate } from "react-router-dom";
 
 export const Value: React.FC = () => {
+  // MARK: Hooks
+  const navigate = useNavigate();
+  const { openPOSRequest, POSRequestModal } = usePOSRequestPopup();
+
   // MARK: Refs
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
@@ -22,6 +29,22 @@ export const Value: React.FC = () => {
   const isHeadingInView = useInView(headingRef, { once: true, amount: 0.5 });
   const isStatsInView = useInView(statsRef, { once: true, amount: 0.5 });
   const isCarouselInView = useInView(carouselRef, { once: true, amount: 0.3 });
+
+  // MARK: Navigation Functions
+  const handleStartFreeTrial = () => {
+    openPOSRequest();
+  };
+
+  const handleWatchDemo = () => {
+    navigate(routes.demo);
+    // Scroll to demo area after navigation
+    setTimeout(() => {
+      const demoSection = document.getElementById('demo-area');
+      if (demoSection) {
+        demoSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
 
   // Image data for the carousel
   const slideImages = [
@@ -55,15 +78,15 @@ export const Value: React.FC = () => {
   ];
 
   const valuePropositions = [
-    <FormattedMessage id="home.value.valueproposition.value1"/>,
-    <FormattedMessage id="home.value.valueproposition.value2"/>,
-    <FormattedMessage id="home.value.valueproposition.value3"/>,
-    <FormattedMessage id="home.value.valueproposition.value4"/>,
-    <FormattedMessage id="home.value.valueproposition.value5"/>,
-    <FormattedMessage id="home.value.valueproposition.value6"/>,
-    <FormattedMessage id="home.value.valueproposition.value7"/>,
-    <FormattedMessage id="home.value.valueproposition.value8"/>,
-    
+    <FormattedMessage id="home.value.valueproposition.value1" />,
+    <FormattedMessage id="home.value.valueproposition.value2" />,
+    <FormattedMessage id="home.value.valueproposition.value3" />,
+    <FormattedMessage id="home.value.valueproposition.value4" />,
+    <FormattedMessage id="home.value.valueproposition.value5" />,
+    <FormattedMessage id="home.value.valueproposition.value6" />,
+    <FormattedMessage id="home.value.valueproposition.value7" />,
+    <FormattedMessage id="home.value.valueproposition.value8" />,
+
   ];
 
   const stats = [
@@ -203,7 +226,7 @@ export const Value: React.FC = () => {
             {/* Value Propositions */}
             <div className="space-y-4">
               <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
-                <FormattedMessage id="home.value.valueproposition.Title"/>
+                <FormattedMessage id="home.value.valueproposition.Title" />
               </h3>
 
               <div className="grid grid-cols-1 gap-3">
@@ -240,11 +263,11 @@ export const Value: React.FC = () => {
               className="space-y-4"
             >
               <p className="text-lg text-gray-600 leading-relaxed">
-                <FormattedMessage id="home.value.valueproposition.pragraph1"/>
+                <FormattedMessage id="home.value.valueproposition.pragraph1" />
               </p>
               <p className="text-lg text-gray-600 leading-relaxed">
-                <FormattedMessage id="home.value.valueproposition.pragraph2"/>
-                
+                <FormattedMessage id="home.value.valueproposition.pragraph2" />
+
               </p>
             </motion.div>
 
@@ -257,8 +280,11 @@ export const Value: React.FC = () => {
               transition={{ duration: 0.8, delay: 1.0 }}
               className="flex items-center justify-start"
             >
-              <button className="group flex items-center px-8 py-4 bg-gradient-to-r from-[#0A65FC] to-blue-700 text-white rounded-xl hover:shadow-xl transition-all duration-300 font-semibold text-lg">
-                <FormattedMessage id="home.value.valueproposition.cta1"/>
+              <button
+                onClick={handleStartFreeTrial}
+                className="group flex items-center px-8 py-4 bg-gradient-to-r from-[#0A65FC] to-blue-700 text-white rounded-xl hover:shadow-xl transition-all duration-300 font-semibold text-lg"
+              >
+                <FormattedMessage id="home.value.valueproposition.cta1" />
                 <IconArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
               </button>
             </motion.div>
@@ -276,25 +302,32 @@ export const Value: React.FC = () => {
         >
           <div className="bg-white rounded-2xl p-8 lg:p-12 shadow-xl border border-gray-200">
             <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
-              <FormattedMessage id="home.value.bottomCta.Title"/>
+              <FormattedMessage id="home.value.bottomCta.Title" />
             </h3>
             <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-              <FormattedMessage id="home.value.bottomCta.subTitle"/>
-              
+              <FormattedMessage id="home.value.bottomCta.subTitle" />
+
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-4 bg-gradient-to-r from-[#0A65FC] to-blue-700 text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
-                
-                <FormattedMessage id="home.value.bottomCta.action1"/>
+              <button
+                onClick={handleStartFreeTrial}
+                className="px-8 py-4 bg-gradient-to-r from-[#0A65FC] to-blue-700 text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
+              >
+                <FormattedMessage id="home.value.bottomCta.action1" />
               </button>
-              <button className="px-8 py-4 border-2 border-[#0A65FC] text-[#0A65FC] rounded-lg font-semibold hover:bg-[#0A65FC] hover:text-white transition-all duration-300">
-                 
-                <FormattedMessage id="home.value.bottomCta.action2"/>
+              <button
+                onClick={handleWatchDemo}
+                className="px-8 py-4 border-2 border-[#0A65FC] text-[#0A65FC] rounded-lg font-semibold hover:bg-[#0A65FC] hover:text-white transition-all duration-300"
+              >
+                <FormattedMessage id="home.value.bottomCta.action2" />
               </button>
             </div>
           </div>
         </motion.div>
       </div>
+
+      {/* POS Request Modal */}
+      <POSRequestModal />
     </section>
   );
 };

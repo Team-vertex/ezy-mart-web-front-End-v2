@@ -1,3 +1,5 @@
+import { routes } from "@/constants/route";
+import { usePOSRequestPopup } from "@/hooks/usePOSRequestPopup";
 import {
   IconChartBar,
   IconClock,
@@ -9,8 +11,13 @@ import {
 import { motion, useInView } from "framer-motion";
 import React, { useRef } from "react";
 import { FormattedMessage } from "react-intl";
+import { useNavigate } from "react-router-dom";
 
 export const Service: React.FC = () => {
+  // MARK: Hooks
+  const navigate = useNavigate();
+  const { openPOSRequest, POSRequestModal } = usePOSRequestPopup();
+
   // MARK: Refs
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
@@ -22,6 +29,22 @@ export const Service: React.FC = () => {
   const isHeadingInView = useInView(headingRef, { once: true, amount: 0.5 });
   const isFeaturesInView = useInView(featuresRef, { once: true, amount: 0.3 });
   const isImageInView = useInView(imageRef, { once: true, amount: 0.3 });
+
+  // MARK: Navigation Functions
+  const handleStartFreeTrial = () => {
+    openPOSRequest();
+  };
+
+  const handleScheduleDemo = () => {
+    navigate(routes.demo);
+    // Scroll to demo area after navigation
+    setTimeout(() => {
+      const demoSection = document.getElementById('demo-area');
+      if (demoSection) {
+        demoSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
 
   const keyFeatures = [
     {
@@ -276,24 +299,33 @@ export const Service: React.FC = () => {
         >
           <div className="bg-gradient-to-r from-[#0A65FC] to-blue-700 rounded-2xl p-8 lg:p-12 text-white">
             <h3 className="text-2xl lg:text-3xl font-bold mb-4">
-              <FormattedMessage id="home.service.quickAction.Title"/>
-              
+              <FormattedMessage id="home.service.quickAction.Title" />
+
             </h3>
             <p className="text-lg lg:text-xl opacity-90 mb-8 max-w-2xl mx-auto">
-               <FormattedMessage id="home.service.quickAction.subTitle"/>
-              
+              <FormattedMessage id="home.service.quickAction.subTitle" />
+
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-4 bg-white text-[#0A65FC] rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
+              <button
+                onClick={handleStartFreeTrial}
+                className="px-8 py-4 bg-white text-[#0A65FC] rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
+              >
                 Start Free Trial
               </button>
-              <button className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-[#0A65FC] transition-all duration-300">
+              <button
+                onClick={handleScheduleDemo}
+                className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-[#0A65FC] transition-all duration-300"
+              >
                 Schedule Demo
               </button>
             </div>
           </div>
         </motion.div>
       </div>
+
+      {/* POS Request Modal */}
+      <POSRequestModal />
     </section>
   );
 };

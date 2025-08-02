@@ -12,7 +12,7 @@ export const routes = {
   customersService: "/service/CustomersService",
   privacyPolicy: "/details/privacy-policy",
   contactUs: "/details/contact-us",
-  aboutUs: "/AboutUs/Index.tsx",
+  aboutUs: "/about-us",
   instructions: "/details/instructions",
   demo: "/demo",
 };

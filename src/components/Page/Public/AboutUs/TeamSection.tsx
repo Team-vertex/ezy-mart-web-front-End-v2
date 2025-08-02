@@ -1,7 +1,9 @@
+import { routes } from "@/constants/route";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Twitter } from "lucide-react";
 import React from "react";
 import { FormattedMessage } from "react-intl";
+import { useNavigate } from "react-router-dom";
 
 interface TeamMemberProps {
   name: string;
@@ -54,6 +56,8 @@ const TeamMember: React.FC<TeamMemberProps> = ({
             {social.linkedin && (
               <a
                 href={social.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-[#0A65FC] hover:text-white transition-all duration-300 transform hover:scale-110"
                 aria-label={`${name}'s LinkedIn`}
               >
@@ -63,6 +67,8 @@ const TeamMember: React.FC<TeamMemberProps> = ({
             {social.github && (
               <a
                 href={social.github}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-[#0A65FC] hover:text-white transition-all duration-300 transform hover:scale-110"
                 aria-label={`${name}'s GitHub`}
               >
@@ -72,6 +78,8 @@ const TeamMember: React.FC<TeamMemberProps> = ({
             {social.twitter && (
               <a
                 href={social.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-[#0A65FC] hover:text-white transition-all duration-300 transform hover:scale-110"
                 aria-label={`${name}'s Twitter`}
               >
@@ -86,6 +94,13 @@ const TeamMember: React.FC<TeamMemberProps> = ({
 };
 
 export function TeamSection() {
+  const navigate = useNavigate();
+
+  // Navigation function for the CTA button
+  const handleJoinTeamClick = () => {
+    navigate(routes.contactUs);
+  };
+
   const teamMembers: TeamMemberProps[] = [
     {
       name: "Bamindu Jayakodi",
@@ -94,7 +109,7 @@ export function TeamSection() {
         "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
       bio: "Visionary leader driving EzyMart's mission to revolutionize local shopping experiences.",
       social: {
-        linkedin: "#",
+        linkedin: "https://www.linkedin.com/in/bamindu-jayakodi",
       },
     },
     {
@@ -104,7 +119,7 @@ export function TeamSection() {
         "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
       bio: "Technology innovator building scalable solutions for the future of commerce.",
       social: {
-        linkedin: "#",
+        linkedin: "https://www.linkedin.com/in/thamoddya-rashmitha",
       },
     },
     {
@@ -114,7 +129,7 @@ export function TeamSection() {
         "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
       bio: "Marketing strategist connecting communities with local businesses nationwide.",
       social: {
-        linkedin: "#",
+        linkedin: "https://www.linkedin.com/in/shehan-hansaka",
       },
     },
     {
@@ -124,7 +139,7 @@ export function TeamSection() {
         "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
       bio: "User experience specialist ensuring every interaction is smooth and meaningful.",
       social: {
-        linkedin: "#",
+        linkedin: "https://www.linkedin.com/in/rishika-mandakini",
       },
     },
     {
@@ -134,27 +149,27 @@ export function TeamSection() {
         "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
       bio: "Creative designer crafting intuitive user experiences that delight customers.",
       social: {
-        linkedin: "#",
+        linkedin: "https://www.linkedin.com/in/pasindu-wijesinghe",
       },
     },
     {
       name: "Mohan Chanaka",
-      position: "java Developer",
+      position: "Java Developer",
       imageSrc:
         "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
-      bio: "Develop funational Software align with business goles..",
+      bio: "Develops functional software aligned with business goals.",
       social: {
-        linkedin: "#",
+        linkedin: "https://www.linkedin.com/in/mohan-chanaka",
       },
     },
     {
       name: "Sithijaya",
-      position: "Back-End developer",
+      position: "Back-End Developer",
       imageSrc:
         "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
-      bio: "Develop server side align with business goles.",
+      bio: "Develops server-side solutions aligned with business goals.",
       social: {
-        linkedin: "#",
+        linkedin: "https://www.linkedin.com/in/sithijaya",
       },
     },
     {
@@ -162,9 +177,9 @@ export function TeamSection() {
       position: "Front-End Developer",
       imageSrc:
         "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
-      bio: "Develop funational front-end align with business goles.",
+      bio: "Develops functional front-end solutions aligned with business goals.",
       social: {
-        linkedin: "#",
+        linkedin: "https://www.linkedin.com/in/sasindu-deshan",
       },
     },
   ];
@@ -218,13 +233,16 @@ export function TeamSection() {
             <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
               <FormattedMessage id="aboutUs.team.cta.description" />
             </p>
-            <button className="group bg-[#0A65FC] text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+            <button
+              onClick={handleJoinTeamClick}
+              className="group bg-[#0A65FC] text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+            >
               <FormattedMessage id="aboutUs.team.cta.button" />
               <span className="inline-block ml-2 transform group-hover:translate-x-1 transition-transform">
                 →
               </span>
             </button>
-            
+
           </div>
         </motion.div>
       </div>

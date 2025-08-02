@@ -1,8 +1,23 @@
+import { routes } from "@/constants/route";
+import { scrollToSection } from "@/utils/scrollUtils";
 import { motion } from "framer-motion";
 import React from "react";
 import { FormattedMessage } from "react-intl";
+import { useNavigate } from "react-router-dom";
 
 export const HeroSection: React.FC = () => {
+  const navigate = useNavigate();
+
+  // Navigation and scroll functions
+  const handleOurStoryClick = () => {
+    // Scroll to the story section
+    scrollToSection('story');
+  };
+
+  const handleContactUsClick = () => {
+    navigate(routes.contactUs);
+  };
+
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-white via-blue-50/30 to-blue-100/40 overflow-hidden">
       {/* Background decorations */}
@@ -49,13 +64,21 @@ export const HeroSection: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            <button className="group bg-[#0A65FC] text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+            <button
+              onClick={handleOurStoryClick}
+              onKeyDown={(e) => e.key === 'Enter' && handleOurStoryClick()}
+              className="group bg-[#0A65FC] text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-300"
+            >
               Our Story
               <span className="inline-block ml-2 transform group-hover:translate-x-1 transition-transform">
                 →
               </span>
             </button>
-            <button className="bg-white text-[#0A65FC] px-8 py-4 rounded-full font-semibold text-lg border-2 border-[#0A65FC] hover:bg-[#0A65FC] hover:text-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+            <button
+              onClick={handleContactUsClick}
+              onKeyDown={(e) => e.key === 'Enter' && handleContactUsClick()}
+              className="bg-white text-[#0A65FC] px-8 py-4 rounded-full font-semibold text-lg border-2 border-[#0A65FC] hover:bg-[#0A65FC] hover:text-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-300"
+            >
               Contact Us
             </button>
           </motion.div>
