@@ -50,7 +50,7 @@ export const Value: React.FC = () => {
   const slideImages = [
     {
       id: 1,
-      src: "/images/Business/image1.png",
+      src: "public/stock/home/values/3979020.jpg",
       alt: "Shop owner using EzyMart POS",
       title: "Smart POS Solutions",
       description:
@@ -59,7 +59,7 @@ export const Value: React.FC = () => {
     },
     {
       id: 2,
-      src: "/images/Business/image2.png",
+      src: "public/stock/home/values/showing_people_creates_a_custom_design_for_a_mobile_application_suitable_for_landing_page_ui_web_app_intro_card_editorial_flyer_and_banner.jpg",
       alt: "Customer using EzyMart mobile app",
       title: "Mobile Integration",
       description:
@@ -68,7 +68,7 @@ export const Value: React.FC = () => {
     },
     {
       id: 3,
-      src: "/images/Business/image3.png",
+      src: "public/stock/home/values/erp-enterprise-resource-planning-concept-company-productivity-improvement-illustration-website.jpg",
       alt: "Inventory management with EzyMart",
       title: "Real-time Analytics",
       description:
