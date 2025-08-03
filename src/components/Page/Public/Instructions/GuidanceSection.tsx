@@ -1,3 +1,4 @@
+import { scrollToSection } from "@/utils/scrollUtils";
 import {
   IconBook,
   IconHelp,
@@ -12,6 +13,18 @@ export default function GuidanceSection() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
   const intl = useIntl();
+
+  // Navigation handlers
+  const handleExploreGuides = () => {
+    scrollToSection('roadmap-section');
+  };
+
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      handleExploreGuides();
+    }
+  };
 
   const getFeatures = () => [
     {
@@ -57,6 +70,8 @@ export default function GuidanceSection() {
   return (
     <section
       ref={sectionRef}
+      id="guidance-section"
+      data-section="guidance-section"
       className="bg-gradient-to-br from-blue-50 via-white to-blue-50 py-20 lg:py-32 relative overflow-hidden"
     >
       {/* Background decorations */}
@@ -111,7 +126,10 @@ export default function GuidanceSection() {
               transition={{ duration: 0.6, delay: 0.4 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-[#0A65FC] to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-10 py-4 rounded-full font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-blue-500/25"
+              onClick={handleExploreGuides}
+              onKeyDown={handleKeyDown}
+              className="bg-gradient-to-r from-[#0A65FC] to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-10 py-4 rounded-full font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-blue-500/25 focus:outline-none focus:ring-4 focus:ring-blue-300"
+              aria-label="Explore our step-by-step guides"
             >
               <FormattedMessage id="instructions.guidance.button" />
             </motion.button>

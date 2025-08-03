@@ -1,3 +1,4 @@
+import { routes } from "@/constants/route";
 import {
   IconChartBar,
   IconHelp,
@@ -9,11 +10,37 @@ import {
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { FormattedMessage, useIntl } from "react-intl";
+import { useNavigate } from "react-router-dom";
 
 export default function GuidanceRoadmapSection() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
   const intl = useIntl();
+  const navigate = useNavigate();
+
+  // Navigation handlers
+  const handlePlayVideo = (stepId: number) => {
+    // Navigate to demo with specific step or open video modal
+    navigate(`${routes.demo}?step=${stepId}`);
+  };
+
+  const handleGetStartedNow = () => {
+    navigate(routes.demo);
+  };
+
+  const handleVideoKeyDown = (event: React.KeyboardEvent, stepId: number) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      handlePlayVideo(stepId);
+    }
+  };
+
+  const handleCTAKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      handleGetStartedNow();
+    }
+  };
 
   const getGuidanceSteps = () => [
     {
@@ -73,6 +100,8 @@ export default function GuidanceRoadmapSection() {
   return (
     <section
       ref={sectionRef}
+      id="roadmap-section"
+      data-section="roadmap-section"
       className="py-20 lg:py-32 bg-white relative overflow-hidden"
     >
       {/* Background decorations */}
@@ -116,9 +145,8 @@ export default function GuidanceRoadmapSection() {
                     isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }
                   }
                   transition={{ duration: 0.8, delay: index * 0.2 }}
-                  className={`relative flex flex-col lg:flex-row items-center ${
-                    isLeft ? "lg:flex-row" : "lg:flex-row-reverse"
-                  } gap-12`}
+                  className={`relative flex flex-col lg:flex-row items-center ${isLeft ? "lg:flex-row" : "lg:flex-row-reverse"
+                    } gap-12`}
                 >
                   {/* Step Number Circle */}
                   <div className="absolute left-1/2 transform -translate-x-1/2 w-20 h-20 bg-gradient-to-r from-[#0A65FC] to-blue-600 text-white rounded-full items-center justify-center text-xl font-bold z-10 hidden lg:flex shadow-lg">
@@ -132,11 +160,10 @@ export default function GuidanceRoadmapSection() {
 
                   {/* Content Side */}
                   <div
-                    className={`w-full lg:w-[45%] ${
-                      isLeft
+                    className={`w-full lg:w-[45%] ${isLeft
                         ? "lg:text-right lg:pr-12"
                         : "lg:text-left lg:pl-12"
-                    }`}
+                      }`}
                   >
                     <div className="lg:hidden w-20 h-20 bg-gradient-to-r from-[#0A65FC] to-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mb-6 mx-auto shadow-lg">
                       <div className="flex flex-col items-center">
@@ -164,7 +191,12 @@ export default function GuidanceRoadmapSection() {
                         <motion.div
                           whileHover={{ scale: 1.1 }}
                           whileTap={{ scale: 0.95 }}
-                          className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center cursor-pointer hover:bg-white/30 transition-all duration-300 border border-white/30"
+                          onClick={() => handlePlayVideo(step.id)}
+                          onKeyDown={(e) => handleVideoKeyDown(e, step.id)}
+                          className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center cursor-pointer hover:bg-white/30 transition-all duration-300 border border-white/30 focus:outline-none focus:ring-4 focus:ring-white/50"
+                          tabIndex={0}
+                          role="button"
+                          aria-label={`Play tutorial video for ${step.title}`}
                         >
                           <IconPlayerPlay className="w-8 h-8 text-white ml-1" />
                         </motion.div>
@@ -200,7 +232,10 @@ export default function GuidanceRoadmapSection() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-white text-[#0A65FC] rounded-xl font-bold text-lg hover:bg-blue-50 transition-all duration-300 shadow-lg"
+              onClick={handleGetStartedNow}
+              onKeyDown={handleCTAKeyDown}
+              className="px-8 py-4 bg-white text-[#0A65FC] rounded-xl font-bold text-lg hover:bg-blue-50 transition-all duration-300 shadow-lg focus:outline-none focus:ring-4 focus:ring-white/50"
+              aria-label="Get started with the demo now"
             >
               <FormattedMessage id="instructions.roadmap.cta.button" />
             </motion.button>

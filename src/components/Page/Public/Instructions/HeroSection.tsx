@@ -1,7 +1,23 @@
+import { scrollToSection } from "@/utils/scrollUtils";
 import { motion } from "framer-motion";
 import { FormattedMessage } from "react-intl";
 
 export default function HeroSection() {
+  // Navigation handlers
+  const handleGetStarted = () => {
+    // Scroll to guidance section first
+    scrollToSection('guidance-section');
+    // Or navigate to demo if user wants to try the system
+    // navigate(routes.demo);
+  };
+
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      handleGetStarted();
+    }
+  };
+
   return (
     <section className="overflow-hidden bg-gradient-to-br from-[#0A65FC] to-blue-700 relative">
       {/* Decorative circles */}
@@ -53,7 +69,10 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.6 }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="text-[#0A65FC] hover:bg-blue-50 bg-white px-8 sm:px-12 md:px-[50px] py-3 sm:py-4 rounded-full font-bold text-base lg:text-lg transition-all duration-300 shadow-lg hover:shadow-xl"
+            onClick={handleGetStarted}
+            onKeyDown={handleKeyDown}
+            className="text-[#0A65FC] hover:bg-blue-50 bg-white px-8 sm:px-12 md:px-[50px] py-3 sm:py-4 rounded-full font-bold text-base lg:text-lg transition-all duration-300 shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-white/50"
+            aria-label="Get started with instructions"
           >
             <FormattedMessage id="instructions.hero.button" />
           </motion.button>
