@@ -1,16 +1,37 @@
+import { routes } from "@/constants/route";
+import { scrollToSection } from "@/utils/scrollUtils";
 import { motion, useInView } from "framer-motion";
 import React, { useRef } from "react";
 import { FormattedMessage, useIntl } from "react-intl";
+import { useNavigate } from "react-router-dom";
 
 export const GetStarted: React.FC = () => {
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
   const cardsRef = useRef(null);
   const intl = useIntl();
+  const navigate = useNavigate();
 
   const isSectionInView = useInView(sectionRef, { once: true, amount: 0.2 });
   const isHeadingInView = useInView(headingRef, { once: true, amount: 0.5 });
   const isCardsInView = useInView(cardsRef, { once: true, amount: 0.3 });
+
+  // Navigation handlers
+  const handleGetStarted = () => {
+    navigate(routes.contactUs);
+    // Also scroll to contact form if on same page
+    setTimeout(() => {
+      scrollToSection('contact-form');
+    }, 100);
+  };
+
+  // Keyboard navigation handler
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      handleGetStarted();
+    }
+  };
 
   const getSteps = () => [
     {
@@ -145,7 +166,12 @@ export const GetStarted: React.FC = () => {
           transition={{ duration: 0.8, delay: 1 }}
           className="text-center mt-16"
         >
-          <button className="px-12 py-4 bg-gradient-to-r from-[#0A65FC] to-blue-600 text-white font-bold text-lg rounded-full hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105">
+          <button
+            onClick={handleGetStarted}
+            onKeyDown={handleKeyDown}
+            className="px-12 py-4 bg-gradient-to-r from-[#0A65FC] to-blue-600 text-white font-bold text-lg rounded-full hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300"
+            aria-label="Get started with our POS system"
+          >
             <FormattedMessage id="business.getStarted.cta" />
           </button>
         </motion.div>

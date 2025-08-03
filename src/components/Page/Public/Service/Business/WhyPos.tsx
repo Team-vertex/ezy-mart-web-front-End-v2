@@ -1,3 +1,5 @@
+import { routes } from "@/constants/route";
+import { scrollToSection } from "@/utils/scrollUtils";
 import {
   IconArrowRight,
   IconCurrencyDollar,
@@ -7,6 +9,7 @@ import {
 import { motion, useInView } from "framer-motion";
 import React, { useRef } from "react";
 import { FormattedMessage, useIntl } from "react-intl";
+import { useNavigate } from "react-router-dom";
 
 export const WhyPos: React.FC = () => {
   const sectionRef = useRef(null);
@@ -14,10 +17,38 @@ export const WhyPos: React.FC = () => {
   const cardsRef = useRef(null);
   const ctaRef = useRef(null);
   const intl = useIntl();
+  const navigate = useNavigate();
 
   const isHeadingInView = useInView(headingRef, { once: true, amount: 0.5 });
   const isCardsInView = useInView(cardsRef, { once: true, amount: 0.3 });
   const isCtaInView = useInView(ctaRef, { once: true, amount: 0.5 });
+
+  // Navigation handlers
+  const handleGetStarted = () => {
+    navigate(routes.contactUs);
+    setTimeout(() => {
+      scrollToSection('contact-form');
+    }, 100);
+  };
+
+  const handleLearnMore = () => {
+    scrollToSection('pricing');
+  };
+
+  // Keyboard navigation handlers
+  const handleGetStartedKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      handleGetStarted();
+    }
+  };
+
+  const handleLearnMoreKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      handleLearnMore();
+    }
+  };
 
   const getFeatures = () => [
     {
@@ -217,11 +248,21 @@ export const WhyPos: React.FC = () => {
           className="text-center mt-16"
         >
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button className="px-8 py-4 bg-gradient-to-r from-[#0A65FC] to-blue-600 text-white font-bold text-lg rounded-full hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 flex items-center">
+            <button
+              onClick={handleGetStarted}
+              onKeyDown={handleGetStartedKeyDown}
+              className="px-8 py-4 bg-gradient-to-r from-[#0A65FC] to-blue-600 text-white font-bold text-lg rounded-full hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 flex items-center focus:outline-none focus:ring-4 focus:ring-blue-300"
+              aria-label="Get started with our POS system"
+            >
               <FormattedMessage id="business.whyPos.cta.primary" />
               <IconArrowRight className="ml-2 w-5 h-5" />
             </button>
-            <button className="px-8 py-4 text-[#0A65FC] font-semibold border-2 border-blue-200 hover:border-[#0A65FC] rounded-full transition-all duration-300 hover:bg-blue-50">
+            <button
+              onClick={handleLearnMore}
+              onKeyDown={handleLearnMoreKeyDown}
+              className="px-8 py-4 text-[#0A65FC] font-semibold border-2 border-blue-200 hover:border-[#0A65FC] rounded-full transition-all duration-300 hover:bg-blue-50 focus:outline-none focus:ring-4 focus:ring-blue-200"
+              aria-label="Learn more about our pricing"
+            >
               <FormattedMessage id="business.whyPos.cta.secondary" />
             </button>
           </div>

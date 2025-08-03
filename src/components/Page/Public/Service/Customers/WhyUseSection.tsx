@@ -1,3 +1,5 @@
+import { routes } from "@/constants/route";
+import { detectPlatformAndDownload } from "@/utils/appUtils";
 import { motion, useInView } from "framer-motion";
 import {
   Clock,
@@ -8,6 +10,7 @@ import {
 } from "lucide-react";
 import { useRef } from "react";
 import { FormattedMessage, useIntl } from "react-intl";
+import { useNavigate } from "react-router-dom";
 
 const WhyUseSection = () => {
   const sectionRef = useRef(null);
@@ -15,6 +18,16 @@ const WhyUseSection = () => {
   const featuresRef = useRef(null);
   const imageRef = useRef(null);
   const intl = useIntl();
+  const navigate = useNavigate();
+
+  // Navigation functions
+  const handleTryDemoClick = () => {
+    navigate(routes.demo);
+  };
+
+  const handleDownloadAppClick = () => {
+    detectPlatformAndDownload();
+  };
 
   const isHeadingInView = useInView(headingRef, { once: true, amount: 0.5 });
   const isFeaturesInView = useInView(featuresRef, { once: true, amount: 0.3 });
@@ -148,7 +161,7 @@ const WhyUseSection = () => {
               transition={{ duration: 0.8, delay: 0.8 }}
               className="flex items-center gap-8 pt-8 border-t border-gray-200"
             >
-              
+
             </motion.div>
           </motion.div>
 
@@ -241,6 +254,42 @@ const WhyUseSection = () => {
             </div>
           </motion.div>
         </div>
+
+        {/* Call to Action Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={
+            isFeaturesInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
+          }
+          transition={{ duration: 0.8, delay: 1.0 }}
+          className="text-center mt-20"
+        >
+          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-3xl p-12 border border-blue-100">
+            <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
+              Ready to experience the difference?
+            </h3>
+            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+              Join thousands of satisfied customers who have transformed their shopping experience with our app.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button
+                onClick={handleDownloadAppClick}
+                className="group px-8 py-4 bg-gradient-to-r from-[#0A65FC] to-blue-700 text-white rounded-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-blue-300"
+              >
+                Download App
+                <span className="inline-block ml-2 transform group-hover:translate-x-1 transition-transform">
+                  📱
+                </span>
+              </button>
+              <button
+                onClick={handleTryDemoClick}
+                className="px-8 py-4 border-2 border-[#0A65FC] text-[#0A65FC] rounded-xl font-semibold hover:bg-[#0A65FC] hover:text-white transition-all duration-300 transform hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-blue-300"
+              >
+                Try Demo
+              </button>
+            </div>
+          </div>
+        </motion.div>
       </div>
 
       {/* Enhanced CSS for animations */}

@@ -1,16 +1,28 @@
 import FaqContent from "@/components/core/FaqContent";
+import { AppDownloadButtons } from "@/components/ui/AppDownloadButtons";
 import { FAQCustomer } from "@/constants/Data";
+import { routes } from "@/constants/route";
 import { IconQuestionMark, IconSparkles } from "@tabler/icons-react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { FormattedMessage } from "react-intl";
+import { useNavigate } from "react-router-dom";
 
 // FaqSection component
 const FaqSection = () => {
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
   const contentRef = useRef(null);
+  const navigate = useNavigate();
 
+  // Navigation functions
+  const handleGetStartedClick = () => {
+    navigate(routes.demo);
+  };
+
+  const handleContactSupportClick = () => {
+    navigate(routes.contactUs);
+  };
 
   const isHeadingInView = useInView(headingRef, { once: true, amount: 0.5 });
   const isContentInView = useInView(contentRef, { once: true, amount: 0.3 });
@@ -18,6 +30,7 @@ const FaqSection = () => {
   return (
     <section
       ref={sectionRef}
+      data-section="faq"
       className="relative py-20 lg:py-32 bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50 overflow-hidden"
     >
       {/* Enhanced Background decorations */}
@@ -133,13 +146,27 @@ const FaqSection = () => {
             <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
               <FormattedMessage id="customers.faq.cta.description" />
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="group px-8 py-4 bg-gradient-to-r from-[#0A65FC] to-blue-700 text-white rounded-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+              <button
+                onClick={handleGetStartedClick}
+                className="group px-8 py-4 bg-gradient-to-r from-[#0A65FC] to-blue-700 text-white rounded-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-blue-300"
+              >
                 <FormattedMessage id="customers.faq.cta.button1" />
               </button>
-              <button className="px-8 py-4 border-2 border-[#0A65FC] text-[#0A65FC] rounded-xl font-semibold hover:bg-[#0A65FC] hover:text-white transition-all duration-300 transform hover:-translate-y-1">
+              <button
+                onClick={handleContactSupportClick}
+                className="px-8 py-4 border-2 border-[#0A65FC] text-[#0A65FC] rounded-xl font-semibold hover:bg-[#0A65FC] hover:text-white transition-all duration-300 transform hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-blue-300"
+              >
                 <FormattedMessage id="customers.faq.cta.button2" />
               </button>
+            </div>
+
+            {/* App Download Section */}
+            <div className="border-t border-gray-200 pt-8">
+              <h4 className="text-lg font-semibold text-gray-900 mb-4">
+                Download Our Mobile App
+              </h4>
+              <AppDownloadButtons />
             </div>
           </div>
         </motion.div>

@@ -93,6 +93,7 @@ const BenefitsSection = () => {
   return (
     <section
       ref={sectionRef}
+      data-section="benefits"
       className="relative py-20 lg:py-32 bg-gradient-to-br from-blue-50 via-white to-blue-50 overflow-hidden"
     >
       {/* Background decorations */}

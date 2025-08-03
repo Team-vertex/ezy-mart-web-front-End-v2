@@ -3,6 +3,7 @@ import BenefitsSection from "@/components/Page/Public/Service/Customers/Benefits
 import FaqSection from "@/components/Page/Public/Service/Customers/Faqsection";
 import HeroSection from "@/components/Page/Public/Service/Customers/HeroSection";
 import WhyUseSection from "@/components/Page/Public/Service/Customers/WhyUseSection";
+import { BackToTopButton } from "@/components/ui/BackToTopButton";
 
 export default function Customers(): JSX.Element {
   return (
@@ -11,6 +12,7 @@ export default function Customers(): JSX.Element {
       <WhyUseSection />
       <BenefitsSection />
       <FaqSection />
+      <BackToTopButton />
       {/* <Contact /> */}
     </div>
   );

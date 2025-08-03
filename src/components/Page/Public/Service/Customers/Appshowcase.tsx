@@ -112,25 +112,28 @@ const AppShowcase = () => {
                   id: `customers.appShowcase.slide${index + 1}.alt`,
                 })}
                 className={`absolute top-0 left-0 w-full h-full object-cover rounded-[50px] transition-all duration-[4000ms] ease-in-out 
-          ${
-            index === current
-              ? "opacity-100 scale-100 z-10"
-              : "opacity-0 scale-105 z-0"
-          }`}
+          ${index === current
+                    ? "opacity-100 scale-100 z-10"
+                    : "opacity-0 scale-105 z-0"
+                  }`}
               />
             ))}
 
             {/* Manual Navigation Buttons */}
             <button
               onClick={prevSlide}
-              className="absolute z-20 p-2 text-3xl font-bold text-white transform -translate-y-1/2 rounded-full bg-black/30 hover:bg-black/50 left-2 top-1/2"
+              onKeyDown={(e) => e.key === 'Enter' && prevSlide()}
+              aria-label="Previous slide"
+              className="absolute z-20 p-2 text-3xl font-bold text-white transform -translate-y-1/2 rounded-full bg-black/30 hover:bg-black/50 left-2 top-1/2 focus:outline-none focus:ring-4 focus:ring-white/50 transition-all duration-300"
             >
               {intl.formatMessage({ id: "customers.appShowcase.prevButton" }) ||
                 "‹"}
             </button>
             <button
               onClick={nextSlide}
-              className="absolute z-20 p-2 text-3xl font-bold text-white transform -translate-y-1/2 rounded-full bg-black/30 hover:bg-black/50 right-2 top-1/2"
+              onKeyDown={(e) => e.key === 'Enter' && nextSlide()}
+              aria-label="Next slide"
+              className="absolute z-20 p-2 text-3xl font-bold text-white transform -translate-y-1/2 rounded-full bg-black/30 hover:bg-black/50 right-2 top-1/2 focus:outline-none focus:ring-4 focus:ring-white/50 transition-all duration-300"
             >
               {intl.formatMessage({ id: "customers.appShowcase.nextButton" }) ||
                 "›"}
@@ -142,9 +145,10 @@ const AppShowcase = () => {
                 <button
                   key={index}
                   onClick={() => setCurrent(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === current ? "bg-white scale-110" : "bg-gray-400"
-                  }`}
+                  onKeyDown={(e) => e.key === 'Enter' && setCurrent(index)}
+                  aria-label={`Go to slide ${index + 1}`}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/50 ${index === current ? "bg-white scale-110" : "bg-gray-400 hover:bg-gray-300"
+                    }`}
                 ></button>
               ))}
             </div>

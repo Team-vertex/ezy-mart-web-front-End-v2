@@ -1,5 +1,6 @@
 "use client";
 
+import { scrollToSection } from "@/utils/scrollUtils";
 import { IconCheck } from "@tabler/icons-react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
@@ -11,6 +12,12 @@ const HeroSection = () => {
   const buttonRef = useRef(null);
   const isButtonInView = useInView(buttonRef, { once: true, margin: "-100px" });
   const intl = useIntl();
+
+  // Navigation function
+  const handleGetStartedClick = () => {
+    // Scroll to benefits section
+    scrollToSection('benefits');
+  };
 
   const features = [
     intl.formatMessage({ id: "customers.hero.feature1" }),
@@ -35,9 +42,8 @@ const HeroSection = () => {
               height: `${Math.random() * 150 + 50}px`,
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
-              animation: `float ${
-                Math.random() * 10 + 15
-              }s infinite ease-in-out`,
+              animation: `float ${Math.random() * 10 + 15
+                }s infinite ease-in-out`,
             }}
           />
         ))}
@@ -95,7 +101,8 @@ const HeroSection = () => {
             isButtonInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }
           }
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="!z-50 mt-12 px-12 py-4 bg-white text-[#0A65FC] font-bold text-lg rounded-full hover:bg-white/90 transition-all duration-300 transform hover:scale-105 shadow-xl"
+          onClick={handleGetStartedClick}
+          className="!z-50 mt-12 px-12 py-4 bg-white text-[#0A65FC] font-bold text-lg rounded-full hover:bg-white/90 transition-all duration-300 transform hover:scale-105 shadow-xl focus:outline-none focus:ring-4 focus:ring-white/50"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
