@@ -291,18 +291,18 @@ export const Hero: React.FC = () => {
                 >
                   <Carousel.Slide>
                     <img
-                      src="/stock/homeimg.jpg"
+                      src="public/stock/home/hero/Hero.png"
                       alt="EzyMart POS Dashboard"
                       className="w-full h-auto rounded-xl shadow-lg"
                     />
                   </Carousel.Slide>
-                  <Carousel.Slide>
+                  {/* <Carousel.Slide>
                     <img
                       src="/stock/homeimg2.png"
                       alt="EzyMart POS Interface"
                       className="w-full h-auto rounded-xl shadow-lg"
                     />
-                  </Carousel.Slide>
+                  </Carousel.Slide> */}
                 </Carousel>
 
                 {/* Floating Cards */}
@@ -320,7 +320,7 @@ export const Hero: React.FC = () => {
                     </div>
                     <div>
                       <p className="text-sm text-gray-500">Sales Today</p>
-                      <p className="text-lg font-bold text-gray-900">$12,450</p>
+                      <p className="text-lg font-bold text-gray-900">Rs.100,000</p>
                     </div>
                   </div>
                 </motion.div>
@@ -359,9 +359,9 @@ export const Hero: React.FC = () => {
                       <IconClock className="w-5 h-5 text-purple-600" />
                     </div>
                     <div>
-                      <p className="text-sm text-gray-500">Response Time</p>
+                      <p className="text-sm text-gray-500">Service Period</p>
                       <p className="text-lg font-bold text-gray-900">
-                        &lt; 0.1s
+                        Lifetime
                       </p>
                     </div>
                   </div>
