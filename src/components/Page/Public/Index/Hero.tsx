@@ -291,6 +291,7 @@ export const Hero: React.FC = () => {
                 >
                   <Carousel.Slide>
                     <img
+                      // src="public/stock/home/hero/Hero.png"
                       src="public/stock/home/hero/Hero.png"
                       alt="EzyMart POS Dashboard"
                       className="w-full h-auto rounded-xl shadow-lg"
