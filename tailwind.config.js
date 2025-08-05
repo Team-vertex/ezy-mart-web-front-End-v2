@@ -33,6 +33,17 @@ export default {
       backgroundImage: {
         auth: "linear-gradient(45deg, #06948B 0%, #52796D 100%)",
       },
+      animation: {
+        'float': 'float 6s ease-in-out infinite',
+        'float-delayed': 'float 6s ease-in-out infinite 2s',
+        'float-slow': 'float 8s ease-in-out infinite 1s',
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+          '50%': { transform: 'translateY(-20px) rotate(180deg)' },
+        },
+      },
     },
   },
   plugins: [
