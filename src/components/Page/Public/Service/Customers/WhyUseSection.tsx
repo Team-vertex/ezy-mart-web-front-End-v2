@@ -34,7 +34,7 @@ const WhyUseSection = () => {
       title: "Home Screen",
       description: "Browse and discover products",
       features: ["Product Search", "Categories", "Recommendations"],
-      color: "from-blue-500 to-indigo-600"
+      color: "from-blue-500 to-indigo-100"
     },
     {
       id: 2,

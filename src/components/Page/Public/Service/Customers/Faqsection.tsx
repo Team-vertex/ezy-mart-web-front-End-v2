@@ -162,12 +162,12 @@ const FaqSection = () => {
             </div>
 
             {/* App Download Section */}
-            <div className="border-t border-gray-200 pt-8">
-              <h4 className="text-lg font-semibold text-gray-900 mb-4">
-                Download Our Mobile App
-              </h4>
-              <AppDownloadButtons />
-            </div>
+            {/* <div className="border-t border-gray-200 pt-8"> */}
+              {/* <h4 className="text-lg font-semibold text-gray-900 mb-4">
+                Request Our Mobile App
+              </h4> */}
+              {/* <AppDownloadButtons /> */}
+            {/* </div> */}
           </div>
         </motion.div>
       </div>
