@@ -201,7 +201,7 @@ export const Instructions: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur-2xl opacity-20 scale-105"></div>
               <div className="relative bg-white rounded-2xl shadow-2xl p-6 lg:p-8">
                 <img
-                  src="/stock/male-female-office-workers 2.png"
+                  src="/stock/home/instuctions/a7f887ba-7534-4a49-b99f-89b9da8fe29c.jpg"
                   alt="EzyMart Training Session"
                   className="w-full h-auto rounded-xl"
                 />

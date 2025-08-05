@@ -218,7 +218,7 @@ export const Service: React.FC = () => {
               {/* Main Image Container */}
               <div className="relative bg-white rounded-2xl shadow-2xl p-4 lg:p-6">
                 <img
-                  src="/images/Public/serviceSectionImage.png"
+                  src="public/stock/home/why_choose_us/5138237.jpg"
                   alt="EzyMart POS Interface"
                   className="w-full h-auto rounded-xl"
                 />
@@ -279,11 +279,11 @@ export const Service: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="mt-8 text-center"
             >
-              <img
-                src="/images/Public/forcustomersandservices.svg"
+              {/* <img
+                // src="/images/Public/forcustomersandservices.svg"
                 alt="For Customers and Services"
                 className="mx-auto w-64 lg:w-80 h-auto opacity-80"
-              />
+              /> */}
             </motion.div>
           </motion.div>
         </div>
