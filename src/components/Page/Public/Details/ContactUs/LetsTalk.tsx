@@ -1,3 +1,5 @@
+import emailService from "@/service/email/email.service";
+import notificationService from "@/service/notification/notification.service";
 import {
   IconMail,
   IconMessage,
@@ -6,13 +8,29 @@ import {
   IconUser,
 } from "@tabler/icons-react";
 import { motion, useInView } from "framer-motion";
-import { FormEvent, useRef, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import { FormattedMessage, useIntl } from "react-intl";
 
 const LetsTalk = () => {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
   const intl = useIntl();
+
+  // Check email service configuration on component mount
+  useEffect(() => {
+    const checkEmailService = async () => {
+      try {
+        const isHealthy = await emailService.checkHealth();
+        if (!isHealthy) {
+          console.warn('Email service health check failed. Email functionality may not work.');
+        }
+      } catch (error) {
+        console.warn('Email service is not available:', error);
+      }
+    };
+
+    checkEmailService();
+  }, []);
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -24,6 +42,7 @@ const LetsTalk = () => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -41,14 +60,94 @@ const LetsTalk = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      // Client-side validation
+      if (!formData.firstName.trim()) {
+        notificationService.showError("Please enter your first name");
+        return;
+      }
 
-    console.log("Form submitted:", formData);
-    // Add your form submission logic here
+      if (!formData.contactNumber.trim()) {
+        notificationService.showError("Please enter your contact number");
+        return;
+      }
 
-    setIsSubmitting(false);
-    // Reset form or show success message
+      if (!emailService.validatePhoneNumber(formData.contactNumber)) {
+        notificationService.showError("Please enter a valid phone number");
+        return;
+      }
+
+      if (formData.email && !emailService.validateEmail(formData.email)) {
+        notificationService.showError("Please enter a valid email address");
+        return;
+      }
+
+      if (!formData.reason.trim()) {
+        notificationService.showError("Please select a reason for contact");
+        return;
+      }
+
+      if (!formData.message.trim()) {
+        notificationService.showError("Please enter your message");
+        return;
+      }
+
+      if (formData.message.trim().length < 10) {
+        notificationService.showError("Please provide a more detailed message (minimum 10 characters)");
+        return;
+      }
+
+      // Send email
+      const result = await emailService.sendContactEmail({
+        firstName: formData.firstName.trim(),
+        lastName: formData.lastName.trim() || undefined,
+        contactNumber: formData.contactNumber.trim(),
+        email: formData.email.trim() || undefined,
+        reason: formData.reason,
+        message: formData.message.trim(),
+      });
+
+      if (result.success) {
+        notificationService.showSuccess(
+          "Thank you for your message! We'll get back to you within 24-48 hours.",
+          "Message Sent Successfully"
+        );
+
+        // Reset form
+        setFormData({
+          firstName: "",
+          lastName: "",
+          contactNumber: "",
+          email: "",
+          reason: "",
+          message: "",
+        });
+
+        setIsSuccess(true);
+
+        // Auto-hide success message after 10 seconds
+        setTimeout(() => setIsSuccess(false), 10000);
+      } else {
+        notificationService.showError(
+          result.message || "Failed to send message. Please try again.",
+          "Error Sending Message"
+        );
+      }
+    } catch (error: any) {
+      console.error("Contact form error:", error);
+
+      let errorMessage = "An unexpected error occurred. Please try again later.";
+
+      if (error.message) {
+        errorMessage = error.message;
+      } else if (error.response?.data?.message) {
+        errorMessage = error.response.data.message;
+      }
+
+      notificationService.showError(errorMessage, "Error Sending Message");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const getReasons = () => [
@@ -319,6 +418,46 @@ const LetsTalk = () => {
               </motion.button>
             </motion.div>
           </form>
+
+          {/* Success Message */}
+          {isSuccess && (
+            <motion.div
+              initial={{ opacity: 0, y: 20, scale: 0.9 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -20, scale: 0.9 }}
+              transition={{ duration: 0.5 }}
+              className="mt-8 bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-2xl p-6 text-center"
+            >
+              <div className="flex flex-col items-center space-y-4">
+                <div className="w-16 h-16 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full flex items-center justify-center">
+                  <svg
+                    className="w-8 h-8 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-green-800 mb-2">
+                    <FormattedMessage id="contactUs.letsTalk.success.title" defaultMessage="Message Sent Successfully!" />
+                  </h3>
+                  <p className="text-green-700">
+                    <FormattedMessage
+                      id="contactUs.letsTalk.success.message"
+                      defaultMessage="Thank you for reaching out! We've received your message and will respond within 24-48 hours."
+                    />
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          )}
         </motion.div>
       </div>
     </section>
