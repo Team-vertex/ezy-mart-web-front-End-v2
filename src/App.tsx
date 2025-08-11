@@ -20,6 +20,7 @@ import store, { persistor } from "./stores";
 import { RootState } from "./stores/rootReducer";
 import { initializeLocale } from "./stores/slices/languageSlice";
 import theme from "./theme";
+import ScrollToTop from "../ScrollToTop";
 
 function AppContent() {
   const currentLocale = useSelector(
@@ -39,6 +40,7 @@ function AppContent() {
       defaultLocale="en"
     >
       <BrowserRouter>
+       <ScrollToTop />
         <Notifications />
         <RootLayout />
       </BrowserRouter>

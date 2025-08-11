@@ -25,14 +25,15 @@ export const WhyPos: React.FC = () => {
 
   // Navigation handlers
   const handleGetStarted = () => {
-    navigate(routes.contactUs);
-    setTimeout(() => {
-      scrollToSection('contact-form');
-    }, 100);
+    scrollToSection('pricing');
+    // 
   };
 
   const handleLearnMore = () => {
-    scrollToSection('pricing');
+    navigate(routes.demo);
+    setTimeout(() => {
+     scrollToSection('contact-form');
+   }, 100);
   };
 
   // Keyboard navigation handlers
@@ -115,15 +116,15 @@ export const WhyPos: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 lg:py-32 bg-white overflow-hidden"
+      className="relative py-20 overflow-hidden bg-white lg:py-32"
     >
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-50 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-50 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse animation-delay-2000"></div>
+        <div className="absolute top-0 rounded-full left-1/4 w-96 h-96 bg-blue-50 mix-blend-multiply filter blur-xl opacity-70 animate-pulse"></div>
+        <div className="absolute bottom-0 rounded-full right-1/4 w-96 h-96 bg-indigo-50 mix-blend-multiply filter blur-xl opacity-70 animate-pulse animation-delay-2000"></div>
       </div>
 
-      <div className="container relative z-10 mx-auto px-4">
+      <div className="container relative z-10 px-4 mx-auto">
         {/* Section Header */}
         <motion.div
           ref={headingRef}
@@ -132,19 +133,19 @@ export const WhyPos: React.FC = () => {
             isHeadingInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
           }
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="mb-16 text-center"
         >
           <div className="flex items-center justify-center mb-6">
-            <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold tracking-wide uppercase">
+            <span className="px-4 py-2 text-sm font-semibold tracking-wide text-blue-700 uppercase bg-blue-100 rounded-full">
               <FormattedMessage id="business.whyPos.badge" />
             </span>
           </div>
 
-          <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+          <h2 className="mb-6 text-4xl font-bold leading-tight text-gray-900 lg:text-6xl">
             <FormattedMessage id="business.whyPos.title" />
           </h2>
 
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="max-w-3xl mx-auto text-xl leading-relaxed text-gray-600">
             <FormattedMessage id="business.whyPos.subtitle" />
           </p>
         </motion.div>
@@ -155,7 +156,7 @@ export const WhyPos: React.FC = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={isCardsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
+          className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-3 max-w-7xl"
         >
           {features.map((feature, index) => (
             <motion.div
@@ -176,31 +177,31 @@ export const WhyPos: React.FC = () => {
                     className={`w-8 h-8 ${feature.iconColor} relative z-10 drop-shadow-sm`}
                   />
                   {/* Animated background glow */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 transition-opacity duration-300 opacity-0 bg-gradient-to-r from-white/20 to-transparent rounded-2xl group-hover:opacity-100"></div>
                   {/* Subtle shine effect */}
-                  <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/30 via-transparent to-transparent rounded-2xl opacity-50"></div>
+                  <div className="absolute top-0 left-0 w-full h-full opacity-50 bg-gradient-to-br from-white/30 via-transparent to-transparent rounded-2xl"></div>
                 </div>
               </div>
 
               {/* Content */}
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                <h3 className="mb-3 text-2xl font-bold text-gray-900">
                   {feature.title}
                 </h3>
-                <p className="text-gray-700 font-medium mb-4">
+                <p className="mb-4 font-medium text-gray-700">
                   {feature.subtitle}
                 </p>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="leading-relaxed text-gray-600">
                   {feature.description}
                 </p>
               </div>
 
               {/* Hover effect gradient */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-white/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+              <div className="absolute inset-0 transition-opacity duration-300 opacity-0 pointer-events-none bg-gradient-to-br from-white/10 via-transparent to-white/5 rounded-3xl group-hover:opacity-100"></div>
 
               {/* Subtle animated particles effect */}
-              <div className="absolute top-4 right-4 w-2 h-2 bg-white/30 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 group-hover:animate-bounce"></div>
-              <div className="absolute top-8 right-8 w-1 h-1 bg-white/40 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-700 group-hover:animate-pulse"></div>
+              <div className="absolute w-2 h-2 transition-all duration-500 rounded-full opacity-0 top-4 right-4 bg-white/30 group-hover:opacity-100 group-hover:animate-bounce"></div>
+              <div className="absolute w-1 h-1 transition-all duration-700 rounded-full opacity-0 top-8 right-8 bg-white/40 group-hover:opacity-100 group-hover:animate-pulse"></div>
             </motion.div>
           ))}
         </motion.div>
@@ -210,7 +211,7 @@ export const WhyPos: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isCardsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8, delay: 1 }}
-          className="mt-16 px-8 py-6 bg-gradient-to-r from-gray-50 to-blue-50 rounded-3xl max-w-4xl mx-auto border border-gray-100"
+          className="max-w-4xl px-8 py-6 mx-auto mt-16 border border-gray-100 bg-gradient-to-r from-gray-50 to-blue-50 rounded-3xl"
         >
           <div className="flex items-center justify-center mb-4">
             <div className="flex">
@@ -230,7 +231,7 @@ export const WhyPos: React.FC = () => {
             </span>
           </div>
           <blockquote className="text-center">
-            <p className="text-lg italic text-gray-700 mb-4">
+            <p className="mb-4 text-lg italic text-gray-700">
               "<FormattedMessage id="business.whyPos.socialProof.quote" />"
             </p>
             <cite className="font-semibold text-gray-900">
@@ -245,9 +246,9 @@ export const WhyPos: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isCtaInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-center mt-16"
+          className="mt-16 text-center"
         >
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <button
               onClick={handleGetStarted}
               onKeyDown={handleGetStartedKeyDown}
@@ -255,7 +256,7 @@ export const WhyPos: React.FC = () => {
               aria-label="Get started with our POS system"
             >
               <FormattedMessage id="business.whyPos.cta.primary" />
-              <IconArrowRight className="ml-2 w-5 h-5" />
+              <IconArrowRight className="w-5 h-5 ml-2" />
             </button>
             <button
               onClick={handleLearnMore}
@@ -266,7 +267,7 @@ export const WhyPos: React.FC = () => {
               <FormattedMessage id="business.whyPos.cta.secondary" />
             </button>
           </div>
-          <p className="text-gray-500 mt-6 max-w-2xl mx-auto">
+          <p className="max-w-2xl mx-auto mt-6 text-gray-500">
             <FormattedMessage id="business.whyPos.cta.subtitle" />
           </p>
         </motion.div>

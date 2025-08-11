@@ -31,24 +31,24 @@ export const FAQ: React.FC = () => {
   };
 
   const handleScheduleDemo = () => {
-    openPOSRequest();
+   navigate(routes.demo);
   };
 
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 lg:py-32 bg-gradient-to-br from-slate-50 via-blue-50/50 to-indigo-50 overflow-hidden"
+      className="relative py-20 overflow-hidden lg:py-32 bg-gradient-to-br from-slate-50 via-blue-50/50 to-indigo-50"
     >
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-pink-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+        <div className="absolute bg-blue-100 rounded-full -top-40 -right-40 w-80 h-80 mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+        <div className="absolute bg-purple-100 rounded-full -bottom-40 -left-40 w-80 h-80 mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+        <div className="absolute transform -translate-x-1/2 -translate-y-1/2 bg-pink-100 rounded-full top-1/2 left-1/2 w-80 h-80 mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
       </div>
 
-      <div className="container relative z-10 mx-auto px-4">
+      <div className="container relative z-10 px-4 mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-16 lg:mb-20">
+        <div className="mb-16 text-center lg:mb-20">
           <motion.div
             ref={headingRef}
             initial={{ opacity: 0, y: 30 }}
@@ -58,10 +58,10 @@ export const FAQ: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="flex items-center justify-center mb-6"
           >
-            <div className="bg-blue-100 p-3 rounded-2xl mr-4">
+            <div className="p-3 mr-4 bg-blue-100 rounded-2xl">
               <IconQuestionMark className="w-8 h-8 text-blue-600" />
             </div>
-            <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold tracking-wide uppercase">
+            <span className="px-4 py-2 text-sm font-semibold tracking-wide text-blue-700 uppercase bg-blue-100 rounded-full">
               Have Questions?
             </span>
           </motion.div>
@@ -72,7 +72,7 @@ export const FAQ: React.FC = () => {
               isHeadingInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
             }
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight"
+            className="mb-6 text-4xl font-bold leading-tight text-gray-900 lg:text-6xl"
           >
             <FormattedMessage id="home.faq.title" />
           </motion.h2>
@@ -84,7 +84,7 @@ export const FAQ: React.FC = () => {
               isSubtitleInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
             }
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
+            className="max-w-3xl mx-auto text-xl leading-relaxed text-gray-600"
           >
             <FormattedMessage id="home.faq.subtitle" />
           </motion.p>
@@ -99,7 +99,7 @@ export const FAQ: React.FC = () => {
           className="max-w-4xl mx-auto"
         >
           {/* FAQ Component with enhanced styling */}
-          <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl border border-white/20 p-8 lg:p-12">
+          <div className="p-8 border shadow-xl bg-white/80 backdrop-blur-sm rounded-3xl border-white/20 lg:p-12">
             <FaqContent faqList={FAQContent} />
           </div>
         </motion.div>
@@ -111,26 +111,26 @@ export const FAQ: React.FC = () => {
             isSectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
           }
           transition={{ duration: 0.6, delay: 1 }}
-          className="text-center mt-16"
+          className="mt-16 text-center"
         >
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
+          <div className="p-8 text-white bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl">
             <div className="flex items-center justify-center mb-4">
               <IconHelp className="w-8 h-8 mr-3" />
               <h3 className="text-2xl font-bold"><FormattedMessage id="home.havemorequestions.title" /></h3>
             </div>
-            <p className="text-blue-100 mb-6 text-lg">
+            <p className="mb-6 text-lg text-blue-100">
               <FormattedMessage id="home.havemorequestions.subtitle" />
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <button
                 onClick={handleContactUs}
-                className="px-8 py-3 bg-white text-blue-600 rounded-xl font-semibold hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                className="px-8 py-3 font-semibold text-blue-600 transition-all duration-300 transform bg-white shadow-lg rounded-xl hover:bg-blue-50 hover:scale-105"
               >
                 <FormattedMessage id="home.havemorequestions.contact" />
               </button>
               <button
                 onClick={handleScheduleDemo}
-                className="px-8 py-3 bg-blue-500/20 text-white border border-blue-400 rounded-xl font-semibold hover:bg-blue-500/30 transition-all duration-300 transform hover:scale-105"
+                className="px-8 py-3 font-semibold text-white transition-all duration-300 transform border border-blue-400 bg-blue-500/20 rounded-xl hover:bg-blue-500/30 hover:scale-105"
               >
                 <FormattedMessage id="home.havemorequestions.scheduleDemo" />
               </button>

@@ -23,10 +23,10 @@ const Feature: React.FC<FeatureProps> = ({ icon, text }) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="flex items-center justify-center text-white gap-3 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 border border-white/20"
+      className="flex items-center justify-center gap-3 px-4 py-2 text-white border rounded-full bg-white/10 backdrop-blur-sm border-white/20"
     >
       {icon}
-      <span className="text-sm md:text-base font-medium">{text}</span>
+      <span className="text-sm font-medium md:text-base">{text}</span>
     </motion.div>
   );
 };
@@ -81,31 +81,32 @@ function Hero() {
         <motion.div
           animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
           transition={{ duration: 8, repeat: Infinity }}
-          className="absolute top-20 right-20 w-64 h-64 bg-white/5 rounded-full blur-xl"
+          className="absolute w-64 h-64 rounded-full top-20 right-20 bg-white/5 blur-xl"
         />
         <motion.div
           animate={{ y: [0, 20, 0], rotate: [0, -5, 0] }}
           transition={{ duration: 10, repeat: Infinity }}
-          className="absolute bottom-20 left-20 w-80 h-80 bg-white/5 rounded-full blur-xl"
+          className="absolute rounded-full bottom-20 left-20 w-80 h-80 bg-white/5 blur-xl"
         />
         <motion.div
           animate={{ x: [0, 30, 0] }}
           transition={{ duration: 12, repeat: Infinity }}
-          className="absolute top-1/2 left-1/4 w-48 h-48 bg-white/3 rounded-full blur-2xl"
+          className="absolute w-48 h-48 rounded-full top-1/2 left-1/4 bg-white/3 blur-2xl"
         />
+       
       </div>
 
-      <div className="relative z-10 container mx-auto px-4 py-20">
+      <div className="container relative z-10 px-4 py-20 mx-auto">
         <div className="max-w-4xl mx-auto text-center">
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-3 mb-8"
+            className="inline-flex items-center gap-2 px-6 py-3 mb-8 border rounded-full bg-white/10 backdrop-blur-sm border-white/20"
           >
             <CheckCircle size={18} className="text-green-300" />
-            <span className="text-white font-medium">
+            <span className="font-medium text-white">
               <FormattedMessage id="business.hero.badge" />
             </span>
           </motion.div>
@@ -115,7 +116,7 @@ function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6"
+            className="mb-6 text-4xl font-bold leading-tight text-white md:text-6xl lg:text-7xl"
           >
             <FormattedMessage id="business.hero.title" />
           </motion.h1>
@@ -125,7 +126,7 @@ function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed mb-10"
+            className="max-w-3xl mx-auto mb-10 text-xl leading-relaxed text-blue-100 md:text-2xl"
           >
             <FormattedMessage id="business.hero.description" />
           </motion.p>
@@ -135,7 +136,7 @@ function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-12 max-w-4xl mx-auto"
+            className="grid max-w-4xl grid-cols-2 gap-4 mx-auto mb-12 lg:grid-cols-4"
           >
             {features.map((feature, index) => (
               <motion.div
@@ -154,8 +155,9 @@ function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            className="flex flex-col items-center justify-center gap-4 sm:flex-row"
           >
+            
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -165,8 +167,9 @@ function Hero() {
               <FormattedMessage id="business.hero.buttons.startFreeTrial" />
               <ArrowRight
                 size={20}
-                className="group-hover:translate-x-1 transition-transform"
+                className="transition-transform group-hover:translate-x-1"
               />
+              
             </motion.button>
 
             <motion.button
@@ -184,11 +187,12 @@ function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.2 }}
-            className="mt-12 text-blue-200 text-sm"
+            className="mt-12 text-sm text-blue-200"
           >
             <FormattedMessage id="business.hero.trustIndicators" />
           </motion.div>
         </div>
+        
       </div>
 
       {/* Scroll indicator */}
@@ -196,17 +200,17 @@ function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        className="absolute transform -translate-x-1/2 bottom-8 left-1/2"
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center"
+          className="flex justify-center w-6 h-10 border-2 rounded-full border-white/50"
         >
           <motion.div
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="w-1 h-3 bg-white/70 rounded-full mt-2"
+            className="w-1 h-3 mt-2 rounded-full bg-white/70"
           />
         </motion.div>
       </motion.div>

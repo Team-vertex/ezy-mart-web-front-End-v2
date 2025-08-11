@@ -7,22 +7,34 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { FormattedMessage } from "react-intl";
 import { useNavigate } from "react-router-dom";
+import { usePOSRequestPopup } from "@/hooks/useMobleRequestPopup";
+import { scrollToSection } from "@/utils/scrollUtils";
 
 // FaqSection component
 const FaqSection = () => {
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
   const contentRef = useRef(null);
-  const navigate = useNavigate();
+  
+
+     const navigate = useNavigate();
+      const { openMobileRequest, MobileRequestModal } = usePOSRequestPopup();
 
   // Navigation functions
   const handleGetStartedClick = () => {
-    navigate(routes.demo);
+    openMobileRequest();
   };
 
   const handleContactSupportClick = () => {
-    navigate(routes.contactUs);
+     scrollToSection('appshowcase');
   };
+
+    const handleGetStartedKeyDown = (event: React.KeyboardEvent) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        handleContactSupportClick();
+      }
+    };
 
   const isHeadingInView = useInView(headingRef, { once: true, amount: 0.5 });
   const isContentInView = useInView(contentRef, { once: true, amount: 0.3 });
@@ -31,14 +43,14 @@ const FaqSection = () => {
     <section
       ref={sectionRef}
       data-section="faq"
-      className="relative py-20 lg:py-32 bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50 overflow-hidden"
+      className="relative py-20 overflow-hidden lg:py-32 bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/50"
     >
       {/* Enhanced Background decorations */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Primary floating shapes */}
-        <div className="absolute top-20 left-1/4 w-72 h-72 bg-gradient-to-br from-blue-200/40 to-indigo-300/40 rounded-full mix-blend-multiply filter blur-2xl animate-float"></div>
-        <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-gradient-to-br from-purple-200/40 to-blue-300/40 rounded-full mix-blend-multiply filter blur-2xl animate-float-delayed"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-br from-cyan-200/30 to-blue-200/30 rounded-full mix-blend-multiply filter blur-3xl animate-pulse-slow"></div>
+        <div className="absolute rounded-full top-20 left-1/4 w-72 h-72 bg-gradient-to-br from-blue-200/40 to-indigo-300/40 mix-blend-multiply filter blur-2xl animate-float"></div>
+        <div className="absolute rounded-full bottom-20 right-1/4 w-96 h-96 bg-gradient-to-br from-purple-200/40 to-blue-300/40 mix-blend-multiply filter blur-2xl animate-float-delayed"></div>
+        <div className="absolute transform -translate-x-1/2 -translate-y-1/2 rounded-full top-1/2 left-1/2 w-80 h-80 bg-gradient-to-br from-cyan-200/30 to-blue-200/30 mix-blend-multiply filter blur-3xl animate-pulse-slow"></div>
 
         {/* Question mark decorations */}
         <div className="absolute top-32 right-20 opacity-10">
@@ -53,7 +65,7 @@ const FaqSection = () => {
         <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_48%,rgba(10,101,252,0.03)_49%,rgba(10,101,252,0.03)_51%,transparent_52%)] bg-[length:60px_60px]"></div>
       </div>
 
-      <div className="container relative z-10 mx-auto px-6 lg:px-8 max-w-5xl">
+      <div className="container relative z-10 max-w-5xl px-6 mx-auto lg:px-8">
         {/* Enhanced Section Header */}
         <motion.div
           ref={headingRef}
@@ -62,7 +74,7 @@ const FaqSection = () => {
             isHeadingInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }
           }
           transition={{ duration: 0.8 }}
-          className="text-center mb-16 lg:mb-20"
+          className="mb-16 text-center lg:mb-20"
         >
           {/* Badge */}
           <motion.div
@@ -87,7 +99,7 @@ const FaqSection = () => {
               isHeadingInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
             }
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-4xl lg:text-6xl xl:text-7xl font-bold text-gray-900 mb-6 leading-tight"
+            className="mb-6 text-4xl font-bold leading-tight text-gray-900 lg:text-6xl xl:text-7xl"
           >
             <FormattedMessage id="customers.faq.title" />{" "}
           </motion.h2>
@@ -99,7 +111,7 @@ const FaqSection = () => {
               isHeadingInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
             }
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
+            className="max-w-3xl mx-auto text-lg leading-relaxed text-gray-600 lg:text-xl"
           >
             <FormattedMessage id="customers.faq.description" />
           </motion.p>
@@ -116,7 +128,7 @@ const FaqSection = () => {
           className="relative"
         >
           {/* Content wrapper with glass effect */}
-          <div className="relative bg-white/70 backdrop-blur-xl rounded-3xl p-8 lg:p-12 shadow-2xl border border-white/30">
+          <div className="relative p-8 border shadow-2xl bg-white/70 backdrop-blur-xl rounded-3xl lg:p-12 border-white/30">
             {/* Inner glow effect */}
             <div className="absolute inset-0 bg-gradient-to-br from-white/50 to-transparent rounded-3xl"></div>
 
@@ -124,6 +136,7 @@ const FaqSection = () => {
             <div className="relative z-10">
               <FaqContent faqList={FAQCustomer} />
             </div>
+           
           </div>
 
           {/* Bottom decorative element */}
@@ -137,16 +150,17 @@ const FaqSection = () => {
             isContentInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
           }
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="text-center mt-16 lg:mt-20"
+          className="mt-16 text-center lg:mt-20"
         >
           <div className="bg-gradient-to-r from-[#0A65FC]/5 to-blue-600/5 rounded-2xl p-8 lg:p-12 border border-[#0A65FC]/10">
-            <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
+            <h3 className="mb-4 text-2xl font-bold text-gray-900 lg:text-3xl">
               <FormattedMessage id="customers.faq.cta.title" />
             </h3>
-            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+            
+            <p className="max-w-2xl mx-auto mb-8 text-lg text-gray-600">
               <FormattedMessage id="customers.faq.cta.description" />
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <div className="flex flex-col justify-center gap-4 mb-8 sm:flex-row">
               <button
                 onClick={handleGetStartedClick}
                 className="group px-8 py-4 bg-gradient-to-r from-[#0A65FC] to-blue-700 text-white rounded-xl font-semibold hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-blue-300"
@@ -155,6 +169,7 @@ const FaqSection = () => {
               </button>
               <button
                 onClick={handleContactSupportClick}
+                 onKeyDown={handleGetStartedKeyDown}
                 className="px-8 py-4 border-2 border-[#0A65FC] text-[#0A65FC] rounded-xl font-semibold hover:bg-[#0A65FC] hover:text-white transition-all duration-300 transform hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-blue-300"
               >
                 <FormattedMessage id="customers.faq.cta.button2" />
@@ -162,8 +177,8 @@ const FaqSection = () => {
             </div>
 
             {/* App Download Section */}
-            {/* <div className="border-t border-gray-200 pt-8"> */}
-              {/* <h4 className="text-lg font-semibold text-gray-900 mb-4">
+            {/* <div className="pt-8 border-t border-gray-200"> */}
+              {/* <h4 className="mb-4 text-lg font-semibold text-gray-900">
                 Request Our Mobile App
               </h4> */}
               {/* <AppDownloadButtons /> */}
@@ -211,6 +226,7 @@ const FaqSection = () => {
           animation: scale-x 1s ease-out 1s forwards;
         }
       `}</style>
+       <MobileRequestModal />
     </section>
   );
 };

@@ -122,7 +122,7 @@ export const Pricing: React.FC = () => {
       className="py-16 lg:py-24 bg-gray-50"
       id="pricing"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         {/* Simple Section Header */}
         <motion.div
           ref={headingRef}
@@ -131,17 +131,17 @@ export const Pricing: React.FC = () => {
             isHeadingInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
           }
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="mb-12 text-center"
         >
-          <div className="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-lg text-sm font-medium mb-4">
+          <div className="inline-block px-4 py-2 mb-4 text-sm font-medium text-blue-700 bg-blue-100 rounded-lg">
             Pricing Plans
           </div>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="mb-4 text-3xl font-bold text-gray-900 md:text-4xl lg:text-5xl">
             <FormattedMessage id="home.pricing.title" />
           </h2>
 
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+          <p className="max-w-2xl mx-auto mb-8 text-lg text-gray-600">
             <FormattedMessage id="home.pricing.subtitle" />
 
           </p>
@@ -171,7 +171,7 @@ export const Pricing: React.FC = () => {
               <FormattedMessage id="home.pricing.yearly" />
             </span>
             {isYearly && (
-              <span className="ml-2 px-2 py-1 bg-green-100 text-green-800 rounded text-xs font-medium">
+              <span className="px-2 py-1 ml-2 text-xs font-medium text-green-800 bg-green-100 rounded">
                 <FormattedMessage id="home.pricing.save" />
               </span>
             )}
@@ -184,7 +184,7 @@ export const Pricing: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isCardsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-6 max-w-6xl mx-auto"
+          className="flex justify-center inline max-w-6xl gap-6 mx-auto "
         >
           {plans.map((plan, index) => (
             <motion.div
@@ -199,8 +199,8 @@ export const Pricing: React.FC = () => {
             >
               {/* Popular Badge */}
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                  <span className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2 shadow-lg">
+                <div className="absolute z-10 transform -translate-x-1/2 -top-4 left-1/2">
+                  <span className="flex items-center gap-2 px-4 py-2 text-sm font-semibold text-white rounded-full shadow-lg bg-gradient-to-r from-blue-600 to-purple-600">
                     <IconStar className="w-4 h-4" />
                     Most Popular
                   </span>
@@ -210,7 +210,7 @@ export const Pricing: React.FC = () => {
               {/* Hardware Badge */}
               {/* {plan.hardwareIncluded && (
                 <div className="absolute -top-3 right-4">
-                  <span className="bg-purple-600 text-white px-2 py-1 rounded-full text-xs font-medium flex items-center gap-1">
+                  <span className="flex items-center gap-1 px-2 py-1 text-xs font-medium text-white bg-purple-600 rounded-full">
                     <IconDevices className="w-3 h-3" />
                     Hardware
                   </span>
@@ -218,7 +218,7 @@ export const Pricing: React.FC = () => {
               )} */}
 
               {/* Plan Header */}
-              <div className="text-center mb-8">
+              <div className="mb-8 text-center">
                 <div className={`inline-flex p-4 rounded-xl mb-6 ${plan.popular
                     ? "bg-gradient-to-br from-blue-100 to-purple-100"
                     : "bg-gray-100"
@@ -227,16 +227,16 @@ export const Pricing: React.FC = () => {
                     }`} />
                 </div>
 
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                <h3 className="mb-3 text-xl font-bold text-gray-900">
                   {plan.name}
                 </h3>
 
-                <p className="text-gray-600 mb-6 leading-relaxed">{plan.description}</p>
+                <p className="mb-6 leading-relaxed text-gray-600">{plan.description}</p>
 
                 {/* Hardware Value */}
                 {/* {plan.hardwareIncluded && plan.hardwareValue && (
                   <div className="mb-4">
-                    <span className="inline-block px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs font-medium">
+                    <span className="inline-block px-2 py-1 text-xs font-medium text-purple-700 bg-purple-100 rounded">
                       Hardware: {plan.hardwareValue}
                     </span>
                   </div>
@@ -246,8 +246,8 @@ export const Pricing: React.FC = () => {
                 <div className="mb-8">
                   {plan.name !== "Comming Soon" && (
                     <>
-                      <div className="text-center mb-2">
-                        <span className="text-gray-400 line-through text-lg">
+                      <div className="mb-2 text-center">
+                        <span className="text-lg text-gray-400 line-through">
                           LKR{" "}
                           {(isYearly
                             ? plan.originalPrice.yearly
@@ -255,7 +255,7 @@ export const Pricing: React.FC = () => {
                           ).toLocaleString()}
                         </span>
                       </div>
-                      <div className="text-center mb-4">
+                      <div className="mb-4 text-center">
                         <span className="text-4xl font-bold text-gray-900">
                           LKR{" "}
                           {(isYearly
@@ -263,14 +263,14 @@ export const Pricing: React.FC = () => {
                             : plan.price.monthly
                           ).toLocaleString()}
                         </span>
-                        <span className="text-gray-600 text-lg block mt-1">
+                        <span className="block mt-1 text-lg text-gray-600">
                           /{isYearly ? "year" : "month"}
                         </span>
                       </div>
                     </>
                   )}
                   {plan.name === "Comming Soon" && (
-                    <div className="text-center mb-4">
+                    <div className="mb-4 text-center">
                       <span className="text-2xl font-bold text-gray-500">
                         Coming Soon
                       </span>
@@ -296,19 +296,19 @@ export const Pricing: React.FC = () => {
               {/* Features */}
               <div className="space-y-6">
                 <div>
-                  <h4 className="font-semibold text-gray-900 mb-4 text-base flex items-center">
-                    <IconCheck className="w-5 h-5 text-green-500 mr-2" />
+                  <h4 className="flex items-center mb-4 text-base font-semibold text-gray-900">
+                    <IconCheck className="w-5 h-5 mr-2 text-green-500" />
                     <FormattedMessage id="home.pricing.whatInclude" />
                   </h4>
                   <ul className="space-y-3">
                     {plan.features.slice(0, 10).map((feature, i) => (
                       <li key={i} className="flex items-start">
                         <IconCheck className="w-4 h-4 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-700 text-sm leading-relaxed">{feature}</span>
+                        <span className="text-sm leading-relaxed text-gray-700">{feature}</span>
                       </li>
                     ))}
                     {plan.features.length > 10 && (
-                      <li className="text-gray-500 text-sm italic ml-7">
+                      <li className="text-sm italic text-gray-500 ml-7">
                         +{plan.features.length - 10} more features
                       </li>
                     )}
@@ -317,15 +317,15 @@ export const Pricing: React.FC = () => {
 
                 {plan.limitations.length > 0 && (
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-4 text-base flex items-center">
-                      <IconX className="w-5 h-5 text-gray-400 mr-2" />
+                    <h4 className="flex items-center mb-4 text-base font-semibold text-gray-900">
+                      <IconX className="w-5 h-5 mr-2 text-gray-400" />
                       <FormattedMessage id="home.pricing.features.not.included" />
                     </h4>
                     <ul className="space-y-3">
                       {plan.limitations.slice(0, 3).map((limitation, i) => (
                         <li key={i} className="flex items-start">
                           <IconX className="w-4 h-4 text-gray-400 mr-3 mt-0.5 flex-shrink-0" />
-                          <span className="text-gray-500 text-sm leading-relaxed">{limitation}</span>
+                          <span className="text-sm leading-relaxed text-gray-500">{limitation}</span>
                         </li>
                       ))}
                     </ul>
@@ -343,20 +343,20 @@ export const Pricing: React.FC = () => {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="mt-20"
         >
-          <div className="bg-white rounded-2xl border shadow-xl p-10">
-            <div className="text-center mb-12">
-              <div className="inline-block px-4 py-2 bg-purple-100 text-purple-700 rounded-lg text-sm font-semibold mb-6">
+          <div className="p-10 bg-white border shadow-xl rounded-2xl">
+            <div className="mb-12 text-center">
+              <div className="inline-block px-4 py-2 mb-6 text-sm font-semibold text-purple-700 bg-purple-100 rounded-lg">
                 Hardware Options
               </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-6">
+              <h3 className="mb-6 text-3xl font-bold text-gray-900">
                 <FormattedMessage id="home.hardware.title" />
               </h3>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              <p className="max-w-3xl mx-auto text-lg leading-relaxed text-gray-600">
                 <FormattedMessage id="home.hardware.subtitle" />
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div className="grid grid-cols-1 gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
               {[
                 {
                   name: "Receipt Printer",
@@ -381,18 +381,18 @@ export const Pricing: React.FC = () => {
               ].map((item) => (
                 <div
                   key={item.name}
-                  className="bg-gradient-to-br from-gray-50 to-purple-50 rounded-xl p-6 text-center hover:shadow-lg transition-shadow duration-300"
+                  className="p-6 text-center transition-shadow duration-300 bg-gradient-to-br from-gray-50 to-purple-50 rounded-xl hover:shadow-lg"
                 >
-                  <div className="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <div className="flex items-center justify-center w-12 h-12 mx-auto mb-4 bg-purple-100 rounded-xl">
                     <IconDevices className="w-6 h-6 text-purple-600" />
                   </div>
-                  <h4 className="font-semibold text-gray-900 mb-2">
+                  <h4 className="mb-2 font-semibold text-gray-900">
                     {item.name}
                   </h4>
-                  <p className="text-gray-600 text-sm mb-3 leading-relaxed">
+                  <p className="mb-3 text-sm leading-relaxed text-gray-600">
                     {item.description}
                   </p>
-                  <p className="text-purple-600 font-bold text-lg">
+                  <p className="text-lg font-bold text-purple-600">
                     {item.price}
                   </p>
                 </div>
@@ -400,10 +400,10 @@ export const Pricing: React.FC = () => {
             </div>
 
             <div className="text-center">
-              {/* <p className="text-purple-700 font-medium mb-4">
+              {/* <p className="mb-4 font-medium text-purple-700">
                 Complete Bundle: LKR 45,000 (Save LKR 10,000!)
               </p> */}
-              {/* <button className="px-6 py-2 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition-colors duration-200">
+              {/* <button className="px-6 py-2 font-medium text-white transition-colors duration-200 bg-purple-600 rounded-lg hover:bg-purple-700">
                 View Hardware Details
               </button> */}
             </div>
@@ -417,23 +417,23 @@ export const Pricing: React.FC = () => {
           transition={{ duration: 0.6, delay: 1 }}
           className="mt-20 text-center"
         >
-          <div className="bg-gradient-to-br from-blue-600 via-blue-700 to-purple-800 rounded-2xl p-10 text-white shadow-2xl">
-            <h3 className="text-3xl font-bold mb-6">
+          <div className="p-10 text-white shadow-2xl bg-gradient-to-br from-blue-600 via-blue-700 to-purple-800 rounded-2xl">
+            <h3 className="mb-6 text-3xl font-bold">
               <FormattedMessage id="home.contact.title" />
             </h3>
-            <p className="text-blue-100 mb-8 max-w-3xl mx-auto text-lg leading-relaxed">
+            <p className="max-w-3xl mx-auto mb-8 text-lg leading-relaxed text-blue-100">
               <FormattedMessage id="home.contact.subtitle" />
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center max-w-md mx-auto">
+            <div className="flex flex-col justify-center max-w-md gap-6 mx-auto sm:flex-row">
               <button
                 onClick={handleContactUs}
-                className="px-8 py-4 bg-white text-blue-600 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                className="px-8 py-4 font-semibold text-blue-600 transition-all duration-300 transform bg-white shadow-lg rounded-xl hover:bg-gray-100 hover:scale-105"
               >
                 <FormattedMessage id="home.contact.phone.title" />
               </button>
               <button
                 onClick={handleWatchDemo}
-                className="px-8 py-4 border-2 border-white text-white rounded-xl font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300 transform hover:scale-105"
+                className="px-8 py-4 font-semibold text-white transition-all duration-300 transform border-2 border-white rounded-xl hover:bg-white hover:text-blue-600 hover:scale-105"
               >
                 Watch the Demo
               </button>

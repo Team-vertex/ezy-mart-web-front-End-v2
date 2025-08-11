@@ -1,6 +1,7 @@
 import { routes } from "@/constants/route";
 import { detectPlatformAndDownload } from "@/utils/appUtils";
 import { motion, useInView } from "framer-motion";
+import { usePOSRequestPopup } from "@/hooks/usePOSRequestPopup";
 import {
   ChevronLeft,
   ChevronRight,
@@ -22,7 +23,9 @@ const WhyUseSection = () => {
   const featuresRef = useRef(null);
   const imageRef = useRef(null);
   const intl = useIntl();
+
   const navigate = useNavigate();
+  const { openPOSRequest, POSRequestModal } = usePOSRequestPopup();
 
   // Carousel state
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -34,7 +37,8 @@ const WhyUseSection = () => {
       title: "Home Screen",
       description: "Browse and discover products",
       features: ["Product Search", "Categories", "Recommendations"],
-      color: "from-blue-500 to-indigo-100"
+      color: "from-blue-500 to-indigo-100",
+      image: "/public/images/details/bg-img-one.svg",
     },
     {
       id: 2,
@@ -68,12 +72,12 @@ const WhyUseSection = () => {
   }, [appScreens.length]);
 
   // Navigation functions
-  const handleTryDemoClick = () => {
-    navigate(routes.demo);
-  };
+  // const handleTryDemoClick = () => {
+  //   navigate(routes.demo);
+  // };
 
   const handleDownloadAppClick = () => {
-    detectPlatformAndDownload();
+    openPOSRequest();
   };
 
   const nextSlide = () => {
@@ -122,16 +126,16 @@ const WhyUseSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 lg:py-32 bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden"
+      className="relative py-20 overflow-hidden lg:py-32 bg-gradient-to-br from-gray-50 via-white to-blue-50"
     >
       {/* Enhanced Background decorations */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 right-1/4 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-60 animate-float"></div>
-        <div className="absolute bottom-20 left-1/3 w-96 h-96 bg-indigo-100 rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-float-delayed"></div>
-        <div className="absolute top-1/2 left-10 w-48 h-48 bg-purple-100 rounded-full mix-blend-multiply filter blur-xl opacity-40 animate-float-slow"></div>
+        <div className="absolute bg-blue-100 rounded-full top-20 right-1/4 w-72 h-72 mix-blend-multiply filter blur-xl opacity-60 animate-float"></div>
+        <div className="absolute bg-indigo-100 rounded-full opacity-50 bottom-20 left-1/3 w-96 h-96 mix-blend-multiply filter blur-xl animate-float-delayed"></div>
+        <div className="absolute w-48 h-48 bg-purple-100 rounded-full top-1/2 left-10 mix-blend-multiply filter blur-xl opacity-40 animate-float-slow"></div>
       </div>
 
-      <div className="container relative z-10 mx-auto px-4 max-w-7xl">
+      <div className="container relative z-10 px-4 mx-auto max-w-7xl">
         {/* Enhanced Section Header */}
         <motion.div
           ref={headingRef}
@@ -140,25 +144,26 @@ const WhyUseSection = () => {
             isHeadingInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
           }
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="mb-20 text-center"
         >
           <div className="flex items-center justify-center mb-6">
-            <div className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-700 rounded-full text-sm font-semibold tracking-wide border border-blue-200">
+            <div className="flex items-center gap-2 px-6 py-3 text-sm font-semibold tracking-wide text-blue-700 border border-blue-200 rounded-full bg-gradient-to-r from-blue-100 to-indigo-100">
               <Smartphone className="w-4 h-4" />
               <FormattedMessage id="customers.whyUse.badge" />
             </div>
+
           </div>
 
-          <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+          <h2 className="mb-6 text-4xl font-bold leading-tight text-gray-900 lg:text-6xl">
             <FormattedMessage id="customers.whyUse.title" />{" "}
           </h2>
 
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="max-w-3xl mx-auto text-xl leading-relaxed text-gray-600">
             <FormattedMessage id="customers.whyUse.subtitle" />
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid items-center gap-16 lg:grid-cols-2">
           {/* Features Grid */}
           <motion.div
             ref={featuresRef}
@@ -170,11 +175,11 @@ const WhyUseSection = () => {
             className="space-y-8"
           >
             <div className="mb-8">
-              <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
+              <h3 className="mb-4 text-2xl font-bold text-gray-900 lg:text-3xl">
                 <FormattedMessage id="customers.whyUse.features.heading" />
 
               </h3>
-              <p className="text-gray-600 text-lg">
+              <p className="text-lg text-gray-600">
                 <FormattedMessage id="customers.whyUse.features.description" />
               </p>
             </div>
@@ -190,16 +195,16 @@ const WhyUseSection = () => {
                       : { opacity: 0, y: 20 }
                   }
                   transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                  className="flex items-start gap-4 p-4 rounded-2xl bg-white/60 backdrop-blur-sm border border-gray-100 hover:shadow-lg hover:border-blue-200 transition-all duration-300"
+                  className="flex items-start gap-4 p-4 transition-all duration-300 border border-gray-100 rounded-2xl bg-white/60 backdrop-blur-sm hover:shadow-lg hover:border-blue-200"
                 >
-                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center text-white shadow-lg">
+                  <div className="flex items-center justify-center flex-shrink-0 w-12 h-12 text-white shadow-lg bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl">
                     {feature.icon}
                   </div>
                   <div>
-                    <h4 className="font-bold text-gray-900 text-lg mb-2">
+                    <h4 className="mb-2 text-lg font-bold text-gray-900">
                       {feature.title}
                     </h4>
-                    <p className="text-gray-600 leading-relaxed">
+                    <p className="leading-relaxed text-gray-600">
                       {feature.description}
                     </p>
                   </div>
@@ -230,34 +235,33 @@ const WhyUseSection = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="relative"
           >
-            <div className="relative bg-gradient-to-br from-blue-50 via-white to-indigo-50 rounded-3xl p-8 shadow-2xl border border-blue-100">
+            <div className="relative p-8 border border-blue-100 shadow-2xl bg-gradient-to-br from-blue-50 via-white to-indigo-50 rounded-3xl">
               {/* Carousel Controls */}
-              <div className="absolute top-4 right-4 z-20 flex gap-2">
+              <div className="absolute z-20 flex gap-2 top-4 right-4">
                 <button
                   onClick={prevSlide}
-                  className="w-10 h-10 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-white transition-all duration-200"
+                  className="flex items-center justify-center w-10 h-10 transition-all duration-200 rounded-full shadow-lg bg-white/80 backdrop-blur-sm hover:bg-white"
                 >
                   <ChevronLeft className="w-5 h-5 text-gray-700" />
                 </button>
                 <button
                   onClick={nextSlide}
-                  className="w-10 h-10 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center shadow-lg hover:bg-white transition-all duration-200"
+                  className="flex items-center justify-center w-10 h-10 transition-all duration-200 rounded-full shadow-lg bg-white/80 backdrop-blur-sm hover:bg-white"
                 >
                   <ChevronRight className="w-5 h-5 text-gray-700" />
                 </button>
               </div>
 
               {/* Mock phone frame with carousel */}
-              <div className="relative mx-auto max-w-sm">
+              <div className="relative max-w-sm mx-auto">
                 <div className="bg-gray-900 rounded-[3rem] p-2 shadow-2xl">
                   <div className="bg-white rounded-[2.5rem] overflow-hidden">
                     {/* Status bar */}
-                    <div className="bg-gray-900 h-8 flex items-center justify-center">
+                    <div className="flex items-center justify-center h-8 bg-gray-900">
                       <div className="w-20 h-1 bg-white rounded-full"></div>
                     </div>
-
                     {/* Carousel content */}
-                    <div className="relative h-[400px] overflow-hidden">
+                    <div className="relative h-[400px] overflow-hidden rounded-none">
                       {appScreens.map((screen, index) => (
                         <motion.div
                           key={screen.id}
@@ -267,57 +271,17 @@ const WhyUseSection = () => {
                             x: currentSlide === index ? 0 : currentSlide > index ? -300 : 300,
                           }}
                           transition={{ duration: 0.5, ease: "easeInOut" }}
-                          className={`absolute inset-0 bg-gradient-to-br ${screen.color} p-6 text-white`}
+                          className="absolute inset-0 flex items-center justify-center"
                         >
-                          <div className="text-center mb-6">
-                            <div className="w-16 h-16 bg-white rounded-2xl mx-auto mb-4 flex items-center justify-center">
-                              <ShoppingBag className="w-8 h-8 text-blue-600" />
-                            </div>
-                            <h3 className="text-xl font-bold mb-2">
-                              {screen.title}
-                            </h3>
-                            <p className="text-white/90 text-sm">
-                              {screen.description}
-                            </p>
-                          </div>
-
-                          {/* Mock app interface for each screen */}
-                          <div className="space-y-4">
-                            {screen.features.map((feature, featureIndex) => (
-                              <motion.div
-                                key={featureIndex}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: featureIndex * 0.1 }}
-                                className="bg-white/20 backdrop-blur-sm rounded-xl p-4"
-                              >
-                                <div className="flex items-center gap-3">
-                                  {featureIndex === 0 && <MapPin className="w-5 h-5" />}
-                                  {featureIndex === 1 && <ShoppingBag className="w-5 h-5" />}
-                                  {featureIndex === 2 && <Clock className="w-5 h-5" />}
-                                  <span className="font-medium">{feature}</span>
-                                  {featureIndex === 2 && (
-                                    <div className="ml-auto flex items-center gap-1">
-                                      <Star className="w-4 h-4 text-yellow-300 fill-current" />
-                                      <span className="text-sm">4.8</span>
-                                    </div>
-                                  )}
-                                </div>
-                                {featureIndex === 0 && (
-                                  <div className="mt-3 h-2 bg-white/30 rounded-full">
-                                    <div className="h-2 bg-white rounded-full w-3/4"></div>
-                                  </div>
-                                )}
-                                {featureIndex === 1 && (
-                                  <div className="mt-3 grid grid-cols-3 gap-2">
-                                    <div className="h-8 bg-white/30 rounded"></div>
-                                    <div className="h-8 bg-white/30 rounded"></div>
-                                    <div className="h-8 bg-white/30 rounded"></div>
-                                  </div>
-                                )}
-                              </motion.div>
-                            ))}
-                          </div>
+                          {/* Image inside the phone frame - full screen */}
+                          {screen.image && (
+                            <img
+                              src={screen.image}
+                              alt={screen.title}
+                              className="object-cover w-full h-full"
+                               // Match phone screen rounding
+                            />
+                          )}
                         </motion.div>
                       ))}
                     </div>
@@ -326,23 +290,23 @@ const WhyUseSection = () => {
               </div>
 
               {/* Carousel indicators */}
-              <div className="flex justify-center mt-6 gap-2">
+              <div className="flex justify-center gap-2 mt-6">
                 {appScreens.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentSlide(index)}
                     className={`w-2 h-2 rounded-full transition-all duration-300 ${currentSlide === index
-                        ? "bg-blue-600 w-6"
-                        : "bg-gray-300 hover:bg-gray-400"
+                      ? "bg-blue-600 w-6"
+                      : "bg-gray-300 hover:bg-gray-400"
                       }`}
                   />
                 ))}
               </div>
 
               {/* Floating elements */}
-              <div className="absolute -top-4 -left-4 w-8 h-8 bg-blue-500 rounded-full animate-bounce"></div>
-              <div className="absolute -bottom-4 -right-4 w-6 h-6 bg-indigo-500 rounded-full animate-bounce animation-delay-1000"></div>
-              <div className="absolute top-1/2 -right-6 w-4 h-4 bg-purple-500 rounded-full animate-ping"></div>
+              <div className="absolute w-8 h-8 bg-blue-500 rounded-full -top-4 -left-4 animate-bounce"></div>
+              <div className="absolute w-6 h-6 bg-indigo-500 rounded-full -bottom-4 -right-4 animate-bounce animation-delay-1000"></div>
+              <div className="absolute w-4 h-4 bg-purple-500 rounded-full top-1/2 -right-6 animate-ping"></div>
             </div>
           </motion.div>
         </div>
@@ -357,11 +321,11 @@ const WhyUseSection = () => {
           className="mt-20"
         >
           {/* Main CTA Card */}
-          <div className="relative bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-800 rounded-3xl p-12 overflow-hidden">
+          <div className="relative p-12 overflow-hidden bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-800 rounded-3xl">
             {/* Background Pattern */}
             <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent"></div>
-            <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full transform translate-x-32 -translate-y-32"></div>
-            <div className="absolute bottom-0 left-0 w-72 h-72 bg-white/5 rounded-full transform -translate-x-24 translate-y-24"></div>
+            <div className="absolute top-0 right-0 transform translate-x-32 -translate-y-32 rounded-full w-96 h-96 bg-white/5"></div>
+            <div className="absolute bottom-0 left-0 transform -translate-x-24 translate-y-24 rounded-full w-72 h-72 bg-white/5"></div>
 
             <div className="relative z-10 text-center text-white">
               <motion.div
@@ -370,17 +334,17 @@ const WhyUseSection = () => {
                 transition={{ delay: 1.2 }}
                 className="mb-8"
               >
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium mb-6">
+                <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 text-sm font-medium rounded-full bg-white/20 backdrop-blur-sm">
                   <Smartphone className="w-4 h-4" />
                   <span>Download Our App Today</span>
                 </div>
 
-                <h3 className="text-3xl lg:text-5xl font-bold mb-4 leading-tight">
+                <h3 className="mb-4 text-3xl font-bold leading-tight lg:text-5xl">
                   Ready to Transform Your{" "}
                   <span className="text-yellow-300">Shopping Experience?</span>
                 </h3>
 
-                <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed">
+                <p className="max-w-3xl mx-auto mb-8 text-xl leading-relaxed text-blue-100">
                   Join over 100,000+ satisfied customers who have discovered the convenience of
                   smart shopping. Download our app and get exclusive deals, faster delivery,
                   and personalized recommendations.
@@ -392,95 +356,95 @@ const WhyUseSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.4 }}
-                className="flex flex-col sm:flex-row gap-4 justify-center mb-8"
+                className="flex flex-col justify-center gap-4 mb-8 sm:flex-row"
               >
                 <button
                   onClick={handleDownloadAppClick}
-                  className="group px-8 py-4 bg-white text-blue-700 rounded-xl font-semibold hover:bg-gray-50 transition-all duration-300 transform hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-white/30 shadow-xl"
+                  className="px-8 py-4 font-semibold text-blue-700 transition-all duration-300 transform bg-white shadow-xl group rounded-xl hover:bg-gray-50 hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-white/30"
                 >
                   <span className="flex items-center justify-center gap-2">
                     <Download className="w-5 h-5" />
                     Download App
-                    <span className="inline-block transform group-hover:translate-x-1 transition-transform">
+                    <span className="inline-block transition-transform transform group-hover:translate-x-1">
                       →
                     </span>
                   </span>
                 </button>
 
-                <button
+                {/* <button
                   onClick={handleTryDemoClick}
-                  className="group px-8 py-4 border-2 border-white text-white rounded-xl font-semibold hover:bg-white hover:text-blue-700 transition-all duration-300 transform hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-white/30"
+                  className="px-8 py-4 font-semibold text-white transition-all duration-300 transform border-2 border-white group rounded-xl hover:bg-white hover:text-blue-700 hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-white/30"
                 >
                   <span className="flex items-center justify-center gap-2">
                     <Play className="w-5 h-5" />
                     Try Demo
                   </span>
-                </button>
+                </button> */}
               </motion.div>
 
               {/* Features highlight */}
-              <motion.div
+              {/* <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.6 }}
-                className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto"
+                className="grid max-w-4xl grid-cols-1 gap-6 mx-auto md:grid-cols-3"
               >
                 <div className="flex items-center justify-center gap-3 p-4 bg-white/10 backdrop-blur-sm rounded-xl">
-                  <div className="w-10 h-10 bg-yellow-400 rounded-full flex items-center justify-center">
+                  <div className="flex items-center justify-center w-10 h-10 bg-yellow-400 rounded-full">
                     <Star className="w-5 h-5 text-yellow-800" />
                   </div>
                   <div className="text-left">
-                    <div className="font-bold text-lg">4.8/5 Rating</div>
-                    <div className="text-blue-200 text-sm">50k+ Reviews</div>
+                    <div className="text-lg font-bold">4.8/5 Rating</div>
+                    <div className="text-sm text-blue-200">50k+ Reviews</div>
                   </div>
                 </div>
 
                 <div className="flex items-center justify-center gap-3 p-4 bg-white/10 backdrop-blur-sm rounded-xl">
-                  <div className="w-10 h-10 bg-green-400 rounded-full flex items-center justify-center">
+                  <div className="flex items-center justify-center w-10 h-10 bg-green-400 rounded-full">
                     <Clock className="w-5 h-5 text-green-800" />
                   </div>
                   <div className="text-left">
-                    <div className="font-bold text-lg">30 Min Delivery</div>
-                    <div className="text-blue-200 text-sm">Average Time</div>
+                    <div className="text-lg font-bold">30 Min Delivery</div>
+                    <div className="text-sm text-blue-200">Average Time</div>
                   </div>
                 </div>
 
                 <div className="flex items-center justify-center gap-3 p-4 bg-white/10 backdrop-blur-sm rounded-xl">
-                  <div className="w-10 h-10 bg-purple-400 rounded-full flex items-center justify-center">
+                  <div className="flex items-center justify-center w-10 h-10 bg-purple-400 rounded-full">
                     <ShoppingBag className="w-5 h-5 text-purple-800" />
                   </div>
                   <div className="text-left">
-                    <div className="font-bold text-lg">1M+ Products</div>
-                    <div className="text-blue-200 text-sm">Available</div>
+                    <div className="text-lg font-bold">1M+ Products</div>
+                    <div className="text-sm text-blue-200">Available</div>
                   </div>
                 </div>
-              </motion.div>
+              </motion.div> */}
             </div>
           </div>
 
           {/* Secondary CTA Cards */}
-          <div className="grid md:grid-cols-2 gap-6 mt-8">
+          {/* <div className="grid gap-6 mt-8 md:grid-cols-2">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 1.8 }}
-              className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 border border-green-100"
+              className="p-8 border border-green-100 bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl"
             >
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center">
+                <div className="flex items-center justify-center w-12 h-12 bg-green-500 rounded-xl">
                   <ShoppingBag className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-2">
+                  <h4 className="mb-2 text-xl font-bold text-gray-900">
                     For Customers
                   </h4>
-                  <p className="text-gray-600 mb-4 leading-relaxed">
+                  <p className="mb-4 leading-relaxed text-gray-600">
                     Shop from thousands of local stores, get items delivered in minutes,
                     and enjoy exclusive deals and rewards.
                   </p>
                   <button
                     onClick={handleDownloadAppClick}
-                    className="text-green-600 font-semibold hover:text-green-700 transition-colors"
+                    className="font-semibold text-green-600 transition-colors hover:text-green-700"
                   >
                     Shop Now →
                   </button>
@@ -492,33 +456,33 @@ const WhyUseSection = () => {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 2.0 }}
-              className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl p-8 border border-purple-100"
+              className="p-8 border border-purple-100 bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl"
             >
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center">
+                <div className="flex items-center justify-center w-12 h-12 bg-purple-500 rounded-xl">
                   <Smartphone className="w-6 h-6 text-white" />
                 </div>
                 <div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-2">
+                  <h4 className="mb-2 text-xl font-bold text-gray-900">
                     For Businesses
                   </h4>
-                  <p className="text-gray-600 mb-4 leading-relaxed">
+                  <p className="mb-4 leading-relaxed text-gray-600">
                     Connect with local customers, manage your inventory,
                     and grow your business with our merchant platform.
                   </p>
                   <button
                     onClick={() => navigate('/business')}
-                    className="text-purple-600 font-semibold hover:text-purple-700 transition-colors"
+                    className="font-semibold text-purple-600 transition-colors hover:text-purple-700"
                   >
                     Learn More →
                   </button>
                 </div>
               </div>
             </motion.div>
-          </div>
+          </div> */}
         </motion.div>
       </div>
-
+      <POSRequestModal />
     </section>
   );
 };

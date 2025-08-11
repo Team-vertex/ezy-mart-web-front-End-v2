@@ -128,7 +128,7 @@ export function RoadmapSection() {
 
   // Navigation functions for CTA buttons
   const handleGetStartedClick = () => {
-    navigate(routes.demo);
+    window.location.href = "https://www.facebook.com/share/1CVyj7uWrY/?mibextid=wwXIfr";
   };
 
   const handleContactUsClick = () => {
@@ -137,23 +137,23 @@ export function RoadmapSection() {
 
   const roadmapItems = getRoadmapItems(intl);
   return (
-    <section className="py-20 px-4 bg-gradient-to-br from-blue-50/30 to-white">
-      <div className="max-w-7xl mx-auto">
+    <section className="px-4 py-20 bg-gradient-to-br from-blue-50/30 to-white">
+      <div className="mx-auto max-w-7xl">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="mb-20 text-center"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="mb-6 text-4xl font-bold text-gray-900 md:text-5xl">
             <FormattedMessage id="aboutUs.roadmap.title.our" />{" "}
             <span className="bg-gradient-to-r from-[#0A65FC] to-blue-600 bg-clip-text text-transparent">
               <FormattedMessage id="aboutUs.roadmap.title.roadmap" />
             </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="max-w-3xl mx-auto text-xl text-gray-600">
             <FormattedMessage id="aboutUs.roadmap.subtitle" />
           </p>
         </motion.div>
@@ -182,33 +182,33 @@ export function RoadmapSection() {
                     } flex-row lg:gap-16`}
                 >
                   {/* Timeline Node */}
-                  <div className="absolute left-6 lg:left-1/2 lg:transform lg:-translate-x-1/2 z-20">
+                  <div className="absolute z-20 left-6 lg:left-1/2 lg:transform lg:-translate-x-1/2">
                     <div
                       className={`w-16 h-16 rounded-full border-4 border-white shadow-lg flex items-center justify-center ${item.status === "completed"
-                          ? "bg-gradient-to-r from-[#0A65FC] to-blue-600"
-                          : item.status === "in-progress"
-                            ? "bg-gradient-to-r from-blue-400 to-blue-500"
-                            : "bg-gradient-to-r from-gray-300 to-gray-400"
+                        ? "bg-gradient-to-r from-[#0A65FC] to-blue-600"
+                        : item.status === "in-progress"
+                          ? "bg-gradient-to-r from-blue-400 to-blue-500"
+                          : "bg-gradient-to-r from-gray-300 to-gray-400"
                         }`}
                     >
                       <IconComponent
                         size={24}
                         className={`${item.status === "completed" ||
-                            item.status === "in-progress"
-                            ? "text-white"
-                            : "text-gray-600"
+                          item.status === "in-progress"
+                          ? "text-white"
+                          : "text-gray-600"
                           }`}
                       />
                     </div>
 
                     {/* Status Badge */}
-                    <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
+                    <div className="absolute transform -translate-x-1/2 -bottom-2 left-1/2">
                       <div
                         className={`w-6 h-6 rounded-full flex items-center justify-center ${item.status === "completed"
-                            ? "bg-green-500"
-                            : item.status === "in-progress"
-                              ? "bg-yellow-500"
-                              : "bg-gray-400"
+                          ? "bg-green-500"
+                          : item.status === "in-progress"
+                            ? "bg-yellow-500"
+                            : "bg-gray-400"
                           }`}
                       >
                         {item.status === "completed" ? (
@@ -231,19 +231,19 @@ export function RoadmapSection() {
                       whileHover={{ scale: 1.02, y: -5 }}
                       transition={{ duration: 0.3 }}
                       className={`bg-white rounded-3xl p-8 shadow-xl border-2 transition-all duration-300 ${item.status === "completed"
-                          ? "border-[#0A65FC]/20 shadow-blue-100"
-                          : item.status === "in-progress"
-                            ? "border-blue-400/20 shadow-blue-50"
-                            : "border-gray-200 shadow-gray-100"
+                        ? "border-[#0A65FC]/20 shadow-blue-100"
+                        : item.status === "in-progress"
+                          ? "border-blue-400/20 shadow-blue-50"
+                          : "border-gray-200 shadow-gray-100"
                         } hover:shadow-2xl`}
                     >
                       {/* Date Badge */}
                       <div
                         className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold mb-4 ${item.status === "completed"
-                            ? "bg-[#0A65FC] text-white"
-                            : item.status === "in-progress"
-                              ? "bg-blue-400 text-white"
-                              : "bg-gray-200 text-gray-700"
+                          ? "bg-[#0A65FC] text-white"
+                          : item.status === "in-progress"
+                            ? "bg-blue-400 text-white"
+                            : "bg-gray-200 text-gray-700"
                           }`}
                       >
                         <Calendar size={16} />
@@ -251,18 +251,18 @@ export function RoadmapSection() {
                       </div>
 
                       {/* Title */}
-                      <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                      <h3 className="mb-3 text-2xl font-bold text-gray-900">
                         {item.title}
                       </h3>
 
                       {/* Description */}
-                      <p className="text-gray-600 leading-relaxed mb-6">
+                      <p className="mb-6 leading-relaxed text-gray-600">
                         {item.description}
                       </p>
 
                       {/* Achievements/Goals */}
                       <div className="space-y-2">
-                        <h4 className="text-sm font-semibold text-gray-800 uppercase tracking-wide">
+                        <h4 className="text-sm font-semibold tracking-wide text-gray-800 uppercase">
                           {item.status === "completed"
                             ? "Achievements"
                             : item.status === "in-progress"
@@ -273,7 +273,7 @@ export function RoadmapSection() {
                           {item.achievements.map((achievement, i) => (
                             <li
                               key={i}
-                              className="text-sm text-gray-600 flex items-center gap-2"
+                              className="flex items-center gap-2 text-sm text-gray-600"
                             >
                               <span className="text-xs">{achievement}</span>
                             </li>
@@ -284,12 +284,12 @@ export function RoadmapSection() {
                       {/* Progress Indicator */}
                       {item.status === "in-progress" && (
                         <div className="mt-4">
-                          <div className="flex justify-between text-xs text-gray-500 mb-1">
+                          <div className="flex justify-between mb-1 text-xs text-gray-500">
                             <span>Progress</span>
                             <span>75%</span>
                           </div>
-                          <div className="w-full bg-gray-200 rounded-full h-2">
-                            <div className="bg-gradient-to-r from-blue-400 to-blue-500 h-2 rounded-full w-3/4"></div>
+                          <div className="w-full h-2 bg-gray-200 rounded-full">
+                            <div className="w-3/4 h-2 rounded-full bg-gradient-to-r from-blue-400 to-blue-500"></div>
                           </div>
                         </div>
                       )}
@@ -312,7 +312,7 @@ export function RoadmapSection() {
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 4, repeat: Infinity }}
-            className="absolute bottom-10 left-10 w-16 h-16 bg-gradient-to-r from-blue-400/10 to-blue-600/10 rounded-full hidden lg:block"
+            className="absolute hidden w-16 h-16 rounded-full bottom-10 left-10 bg-gradient-to-r from-blue-400/10 to-blue-600/10 lg:block"
           />
         </div>
 
@@ -322,22 +322,22 @@ export function RoadmapSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mt-20"
+          className="mt-20 text-center"
         >
           <div className="bg-gradient-to-r from-[#0A65FC]/5 to-blue-600/5 rounded-3xl p-12 border border-blue-100">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+            <h3 className="mb-4 text-2xl font-bold text-gray-900 md:text-3xl">
               <FormattedMessage id="aboutUs.roadmap.cta.title" />
             </h3>
-            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+            <p className="max-w-2xl mx-auto mb-8 text-lg text-gray-600">
               <FormattedMessage id="aboutUs.roadmap.cta.description" />
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <button
                 onClick={handleGetStartedClick}
                 className="group bg-[#0A65FC] text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
               >
                 <FormattedMessage id="aboutUs.roadmap.cta.button1" />
-                <span className="inline-block ml-2 transform group-hover:translate-x-1 transition-transform">
+                <span className="inline-block ml-2 transition-transform transform group-hover:translate-x-1">
                   →
                 </span>
               </button>
@@ -345,7 +345,7 @@ export function RoadmapSection() {
                 onClick={handleContactUsClick}
                 className="bg-white text-[#0A65FC] px-8 py-4 rounded-full font-semibold border-2 border-[#0A65FC] hover:bg-[#0A65FC] hover:text-white transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
               >
-                <FormattedMessage id="aboutUs.roadmap.cta.button2" />
+                Contact Us
               </button>
             </div>
           </div>

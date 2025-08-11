@@ -122,14 +122,14 @@ export const Value: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="py-16 lg:py-24 bg-white relative overflow-hidden"
+      className="relative py-16 overflow-hidden bg-white lg:py-24"
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute inset-0 bg-[linear-gradient(30deg,transparent_12%,rgba(10,101,252,.05)_12%,rgba(10,101,252,.05)_20%,transparent_20%,transparent_32%,rgba(10,101,252,.05)_32%,rgba(10,101,252,.05)_40%,transparent_40%)] bg-[length:60px_60px]"></div>
       </div>
 
-      <div className="relative container mx-auto px-6 lg:px-8 max-w-7xl">
+      <div className="container relative px-6 mx-auto lg:px-8 max-w-7xl">
         {/* Section Header */}
         <motion.div
           ref={headingRef}
@@ -138,15 +138,15 @@ export const Value: React.FC = () => {
             isHeadingInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
           }
           transition={{ duration: 0.8 }}
-          className="text-center mb-16 lg:mb-20"
+          className="mb-16 text-center lg:mb-20"
         >
           <div className="inline-flex items-center px-4 py-2 bg-[#0A65FC]/10 text-[#0A65FC] text-sm font-medium rounded-full mb-6">
             Our Value Proposition
           </div>
-          <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="mb-6 text-3xl font-bold text-gray-900 lg:text-5xl">
             <FormattedMessage id="home.value.title" />
           </h2>
-          <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="max-w-3xl mx-auto text-lg leading-relaxed text-gray-600 lg:text-xl">
             <FormattedMessage id="home.value.subtitle" />
           </p>
         </motion.div>
@@ -157,7 +157,7 @@ export const Value: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isStatsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 lg:mb-20"
+          className="grid grid-cols-1 gap-6 mb-16 md:grid-cols-3 lg:mb-20"
         >
           {stats.map((stat, index) => (
             <motion.div
@@ -167,7 +167,7 @@ export const Value: React.FC = () => {
                 isStatsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
               }
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="text-center bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
+              className="p-8 text-center transition-all duration-300 bg-white shadow-lg rounded-2xl hover:shadow-xl"
             >
               <div
                 className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${getStatColor(
@@ -176,17 +176,17 @@ export const Value: React.FC = () => {
               >
                 <stat.icon className="w-8 h-8 text-white" />
               </div>
-              <div className="text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
+              <div className="mb-2 text-3xl font-bold text-gray-900 lg:text-4xl">
                 {stat.value}
               </div>
-              <div className="text-gray-600 font-medium">
+              <div className="font-medium text-gray-600">
                 <FormattedMessage id={stat.labelKey} />
               </div>
             </motion.div>
           ))}
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div className="grid items-center grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
           {/* Carousel Section */}
           <motion.div
             ref={carouselRef}
@@ -199,7 +199,7 @@ export const Value: React.FC = () => {
           >
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-[#0A65FC] to-blue-700 rounded-2xl blur-2xl opacity-20 scale-105"></div>
-              <div className="relative bg-white rounded-2xl shadow-2xl p-4 lg:p-6">
+              <div className="relative p-4 bg-white shadow-2xl rounded-2xl lg:p-6">
                 <div className="h-96 lg:h-[28rem]">
                   <ModernCarousel
                     images={slideImages}
@@ -225,7 +225,7 @@ export const Value: React.FC = () => {
           >
             {/* Value Propositions */}
             <div className="space-y-4">
-              <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-6">
+              <h3 className="mb-6 text-2xl font-bold text-gray-900 lg:text-3xl">
                 <FormattedMessage id="home.value.valueproposition.Title" />
               </h3>
 
@@ -242,10 +242,10 @@ export const Value: React.FC = () => {
                     transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
                     className="flex items-center space-x-3"
                   >
-                    <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <div className="flex items-center justify-center flex-shrink-0 w-6 h-6 bg-green-100 rounded-full">
                       <IconCheck className="w-4 h-4 text-green-600" />
                     </div>
-                    <span className="text-gray-700 font-medium">
+                    <span className="font-medium text-gray-700">
                       {proposition}
                     </span>
                   </motion.div>
@@ -262,10 +262,10 @@ export const Value: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.8 }}
               className="space-y-4"
             >
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="text-lg leading-relaxed text-gray-600">
                 <FormattedMessage id="home.value.valueproposition.pragraph1" />
               </p>
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="text-lg leading-relaxed text-gray-600">
                 <FormattedMessage id="home.value.valueproposition.pragraph2" />
 
               </p>
@@ -285,7 +285,7 @@ export const Value: React.FC = () => {
                 className="group flex items-center px-8 py-4 bg-gradient-to-r from-[#0A65FC] to-blue-700 text-white rounded-xl hover:shadow-xl transition-all duration-300 font-semibold text-lg"
               >
                 <FormattedMessage id="home.value.valueproposition.cta1" />
-                <IconArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                <IconArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
               </button>
             </motion.div>
           </motion.div>
@@ -298,17 +298,17 @@ export const Value: React.FC = () => {
             isSectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
           }
           transition={{ duration: 0.8, delay: 1.2 }}
-          className="text-center mt-16 lg:mt-20"
+          className="mt-16 text-center lg:mt-20"
         >
-          <div className="bg-white rounded-2xl p-8 lg:p-12 shadow-xl border border-gray-200">
-            <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
+          <div className="p-8 bg-white border border-gray-200 shadow-xl rounded-2xl lg:p-12">
+            <h3 className="mb-4 text-2xl font-bold text-gray-900 lg:text-3xl">
               <FormattedMessage id="home.value.bottomCta.Title" />
             </h3>
-            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+            <p className="max-w-2xl mx-auto mb-8 text-lg text-gray-600">
               <FormattedMessage id="home.value.bottomCta.subTitle" />
 
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <button
                 onClick={handleStartFreeTrial}
                 className="px-8 py-4 bg-gradient-to-r from-[#0A65FC] to-blue-700 text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-300"

@@ -24,27 +24,27 @@ const BenefitCard = ({
       initial={{ opacity: 0, y: 30 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="bg-white rounded-3xl p-8 shadow-xl border border-blue-100 hover:shadow-2xl transition-all duration-300 hover:scale-105 group relative overflow-hidden"
+      className="relative p-8 overflow-hidden transition-all duration-300 bg-white border border-blue-100 shadow-xl rounded-3xl hover:shadow-2xl hover:scale-105 group"
     >
       {/* Icon Container */}
-      <div className="mb-6 flex justify-center">
-        <div className="bg-blue-50 p-4 rounded-2xl group-hover:bg-blue-100 transition-colors duration-300">
+      <div className="flex justify-center mb-6">
+        <div className="p-4 transition-colors duration-300 bg-blue-50 rounded-2xl group-hover:bg-blue-100">
           <img
             src={imageSrc}
             alt={title}
-            className="w-16 h-16 object-contain"
+            className="object-contain w-16 h-16"
           />
         </div>
       </div>
 
       {/* Content */}
       <div className="text-center">
-        <h3 className="text-2xl font-bold text-gray-900 mb-4">{title}</h3>
-        <p className="text-gray-600 leading-relaxed">{description}</p>
+        <h3 className="mb-4 text-2xl font-bold text-gray-900">{title}</h3>
+        <p className="leading-relaxed text-gray-600">{description}</p>
       </div>
 
       {/* Hover effect gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-transparent to-blue-50/20 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+      <div className="absolute inset-0 transition-opacity duration-300 opacity-0 pointer-events-none bg-gradient-to-br from-transparent to-blue-50/20 rounded-3xl group-hover:opacity-100"></div>
     </motion.div>
   );
 };
@@ -94,15 +94,16 @@ const BenefitsSection = () => {
     <section
       ref={sectionRef}
       data-section="benefits"
-      className="relative py-20 lg:py-32 bg-gradient-to-br from-blue-50 via-white to-blue-50 overflow-hidden"
+      className="relative py-20 overflow-hidden lg:py-32 bg-gradient-to-br from-blue-50 via-white to-blue-50"
     >
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse animation-delay-2000"></div>
+        <div className="absolute top-0 bg-blue-100 rounded-full left-1/4 w-96 h-96 mix-blend-multiply filter blur-xl opacity-70 animate-pulse"></div>
+        <div className="absolute bottom-0 bg-blue-200 rounded-full right-1/4 w-96 h-96 mix-blend-multiply filter blur-xl opacity-70 animate-pulse animation-delay-2000"></div>
       </div>
+      
 
-      <div className="container relative z-10 mx-auto px-4">
+      <div className="container relative z-10 px-4 mx-auto">
         {/* Section Header */}
         <motion.div
           ref={headingRef}
@@ -111,15 +112,15 @@ const BenefitsSection = () => {
             isHeadingInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
           }
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="mb-16 text-center"
         >
           <div className="flex items-center justify-center mb-6">
-            <span className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold tracking-wide uppercase">
+            <span className="px-4 py-2 text-sm font-semibold tracking-wide text-blue-700 uppercase bg-blue-100 rounded-full">
               <FormattedMessage id="customers.benefits.badge" />
             </span>
           </div>
 
-          <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+          <h2 className="mb-6 text-4xl font-bold leading-tight text-gray-900 lg:text-6xl">
             <FormattedMessage
               id="customers.benefits.title"
               values={{
@@ -132,7 +133,7 @@ const BenefitsSection = () => {
             />
           </h2>
 
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="max-w-3xl mx-auto text-xl leading-relaxed text-gray-600">
             <FormattedMessage id="customers.benefits.description" />
           </p>
         </motion.div>
@@ -143,7 +144,7 @@ const BenefitsSection = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={isCardsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
+          className="grid grid-cols-1 gap-8 mx-auto md:grid-cols-2 lg:grid-cols-3 max-w-7xl"
         >
           {benefits.map((benefit, index) => (
             <BenefitCard

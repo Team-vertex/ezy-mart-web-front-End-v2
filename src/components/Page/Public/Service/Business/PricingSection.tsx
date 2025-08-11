@@ -7,7 +7,7 @@ const PricingSection: React.FC = () => {
   const { openPOSRequest, POSRequestModal } = usePOSRequestPopup();
 
   return (
-    <div className="relative bg-white py-8 px-4 md:py-16 md:px-8">
+    <div className="relative px-4 py-8 bg-white md:py-16 md:px-8">
       {/* Triangular background */}
       <div
         className="absolute inset-0 z-0"
@@ -18,10 +18,10 @@ const PricingSection: React.FC = () => {
       ></div>
 
       {/* Content */}
-      <div className="container mx-auto max-w-6xl relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="container relative z-10 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           {/* Popular Plan */}
-          <div className="bg-white rounded-2xl p-5 shadow-category relative flex flex-col h-full overflow-hidden ">
+          <div className="relative flex flex-col h-full p-5 overflow-hidden bg-white rounded-2xl shadow-category ">
             {/* Ribbon */}
             <div className="absolute top-0 right-0 w-[100px] h-[100px] overflow-hidden">
               <div className="absolute w-[150px] h-[30px] bg-[#4CAF50] transform rotate-45 right-[-40px] top-[20px]"></div>
@@ -31,8 +31,8 @@ const PricingSection: React.FC = () => {
             </div>
 
             {/* Price */}
-            <div className="text-center mb-5">
-              <p className="text-red-500 line-through text-base mb-1">
+            <div className="mb-5 text-center">
+              <p className="mb-1 text-base text-red-500 line-through">
                 LKR 2000/=
               </p>
               <p className="text-[#1A2942] font-bold text-4xl m-0">1800/=</p>
@@ -49,9 +49,9 @@ const PricingSection: React.FC = () => {
               </button>
             </div>
 
-            <p className="text-center text-sm mb-2">1 Month Free</p>
+            <p className="mb-2 text-sm text-center">1 Month Free</p>
 
-            <div className="h-px bg-gray-200 my-5"></div>
+            <div className="h-px my-5 bg-gray-200"></div>
 
             {/* Features */}
             <div className="flex-grow">
@@ -116,7 +116,7 @@ const PricingSection: React.FC = () => {
           </div>
 
           {/* Basic Plan */}
-          <div className="bg-white rounded-2xl p-5 shadow-category relative flex flex-col h-full overflow-hidden">
+          <div className="relative flex flex-col h-full p-5 overflow-hidden bg-white rounded-2xl shadow-category">
             {/* Ribbon */}
             <div className="absolute top-0 right-0 w-[100px] h-[100px] overflow-hidden">
               <div className="absolute w-[150px] h-[30px] bg-[#1A2942] transform rotate-45 right-[-40px] top-[20px]"></div>
@@ -126,8 +126,8 @@ const PricingSection: React.FC = () => {
             </div>
 
             {/* Price */}
-            <div className="text-center mb-5">
-              <p className="text-red-500 line-through text-base mb-1">
+            <div className="mb-5 text-center">
+              <p className="mb-1 text-base text-red-500 line-through">
                 LKR 60000/=
               </p>
               <p className="text-[#1A2942] font-bold text-4xl m-0">55 000/=</p>
@@ -144,9 +144,9 @@ const PricingSection: React.FC = () => {
               </button>
             </div>
 
-            <p className="text-center text-sm mb-2">7 Day Trial</p>
+            <p className="mb-2 text-sm text-center">7 Day Trial</p>
 
-            <div className="h-px bg-gray-200 my-5"></div>
+            <div className="h-px my-5 bg-gray-200"></div>
 
             {/* Features */}
             <div className="flex-grow">

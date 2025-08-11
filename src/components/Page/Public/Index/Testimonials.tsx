@@ -150,15 +150,15 @@ export const Testimonials: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-20 lg:py-32 bg-gradient-to-br from-blue-50 via-white to-blue-50 overflow-hidden"
+      className="relative py-20 overflow-hidden lg:py-32 bg-gradient-to-br from-blue-50 via-white to-blue-50"
     >
       {/* Background effects */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-100/50 rounded-full filter blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-200/50 rounded-full filter blur-3xl animate-pulse animation-delay-2000"></div>
+        <div className="absolute rounded-full top-1/4 left-1/4 w-96 h-96 bg-blue-100/50 filter blur-3xl animate-pulse"></div>
+        <div className="absolute rounded-full bottom-1/4 right-1/4 w-96 h-96 bg-blue-200/50 filter blur-3xl animate-pulse animation-delay-2000"></div>
       </div>
 
-      <div className="container relative z-10 mx-auto px-4">
+      <div className="container relative z-10 px-4 mx-auto">
         {/* Section Header */}
         <motion.div
           ref={headingRef}
@@ -167,7 +167,7 @@ export const Testimonials: React.FC = () => {
             isHeadingInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
           }
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="mb-16 text-center"
         >
           <div className="flex items-center justify-center mb-6">
             <span className="px-4 py-2 bg-[#0A65FC]/10 text-[#0A65FC] rounded-full text-sm font-semibold tracking-wide uppercase border border-[#0A65FC]/30">
@@ -175,11 +175,11 @@ export const Testimonials: React.FC = () => {
             </span>
           </div>
 
-          <h2 className="text-4xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+          <h2 className="mb-6 text-4xl font-bold leading-tight text-gray-900 lg:text-6xl">
             <FormattedMessage id="home.testimonials.title" />
           </h2>
 
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="max-w-3xl mx-auto text-xl leading-relaxed text-gray-600">
             <FormattedMessage id="home.testimonials.subtitle" />
           </p>
         </motion.div>
@@ -190,7 +190,7 @@ export const Testimonials: React.FC = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={isStatsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="grid md:grid-cols-3 gap-8 mb-20"
+          className="grid gap-8 mb-20 md:grid-cols-3"
         >
           {stats.map((stat, index) => (
             <motion.div
@@ -206,7 +206,7 @@ export const Testimonials: React.FC = () => {
                 <div className="inline-flex p-4 bg-[#0A65FC]/10 rounded-2xl mb-6">
                   <stat.icon className="w-8 h-8 text-[#0A65FC]" />
                 </div>
-                <div className="text-4xl lg:text-5xl font-bold text-gray-900 mb-2">
+                <div className="mb-2 text-4xl font-bold text-gray-900 lg:text-5xl">
                   {stat.number}
                 </div>
                 <div className="text-xl font-semibold text-[#0A65FC] mb-2">
@@ -230,15 +230,15 @@ export const Testimonials: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="relative"
         >
-          <div className="bg-white rounded-3xl p-8 lg:p-12 border border-gray-200 shadow-xl">
+          <div className="p-8 bg-white border border-gray-200 shadow-xl rounded-3xl lg:p-12">
             <div className="relative overflow-hidden">
               <div
                 className="flex transition-transform duration-500 ease-in-out"
                 style={{ transform: `translateX(-${currentSlide * 100}%)` }}
               >
                 {testimonials.map((testimonial) => (
-                  <div key={testimonial.id} className="w-full flex-shrink-0">
-                    <div className="grid lg:grid-cols-2 gap-12 items-center">
+                  <div key={testimonial.id} className="flex-shrink-0 w-full">
+                    <div className="grid items-center gap-12 lg:grid-cols-2">
                       {/* Testimonial Content */}
                       <div>
                         <div className="flex items-center mb-6">
@@ -248,7 +248,7 @@ export const Testimonials: React.FC = () => {
                           </div>
                         </div>
 
-                        <blockquote className="text-xl lg:text-2xl text-gray-800 leading-relaxed mb-8">
+                        <blockquote className="mb-8 text-xl leading-relaxed text-gray-800 lg:text-2xl">
                           "{testimonial.testimonial}"
                         </blockquote>
 
@@ -265,7 +265,7 @@ export const Testimonials: React.FC = () => {
                             <div className="text-[#0A65FC]">
                               {testimonial.position}, {testimonial.company}
                             </div>
-                            <div className="text-gray-600 text-sm">
+                            <div className="text-sm text-gray-600">
                               {testimonial.location}
                             </div>
                           </div>
@@ -274,8 +274,8 @@ export const Testimonials: React.FC = () => {
 
                       {/* Business Info */}
                       <div className="space-y-6">
-                        <div className="bg-blue-50 rounded-2xl p-6 border border-blue-100">
-                          <h4 className="text-lg font-semibold text-gray-900 mb-4">
+                        <div className="p-6 border border-blue-100 bg-blue-50 rounded-2xl">
+                          <h4 className="mb-4 text-lg font-semibold text-gray-900">
                             Business Details
                           </h4>
                           <div className="space-y-3">
@@ -289,7 +289,7 @@ export const Testimonials: React.FC = () => {
                               <span className="text-gray-600">
                                 Using EzyMart:
                               </span>
-                              <span className="text-green-600 font-semibold">
+                              <span className="font-semibold text-green-600">
                                 {testimonial.yearsUsing}
                               </span>
                             </div>
@@ -355,21 +355,21 @@ export const Testimonials: React.FC = () => {
             isSectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
           }
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="text-center mt-16"
+          className="mt-16 text-center"
         >
           <div className="bg-gradient-to-r from-[#0A65FC] to-blue-600 rounded-3xl p-8 max-w-4xl mx-auto">
-            <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">
+            <h3 className="mb-4 text-2xl font-bold text-white lg:text-3xl">
               Join These Success Stories
             </h3>
-            <p className="text-blue-100 text-lg mb-6">
+            <p className="mb-6 text-lg text-blue-100">
               Ready to transform your business like these amazing entrepreneurs?
               Start your journey with EzyMart today.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <button className="px-8 py-4 bg-white text-[#0A65FC] rounded-xl font-bold text-lg hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg">
                 Start Free Trial
               </button>
-              <button className="px-8 py-4 bg-blue-500/20 text-white border-2 border-white/30 rounded-xl font-bold text-lg hover:bg-blue-500/30 transition-all duration-300 transform hover:scale-105">
+              <button className="px-8 py-4 text-lg font-bold text-white transition-all duration-300 transform border-2 bg-blue-500/20 border-white/30 rounded-xl hover:bg-blue-500/30 hover:scale-105">
                 View All Stories
               </button>
             </div>

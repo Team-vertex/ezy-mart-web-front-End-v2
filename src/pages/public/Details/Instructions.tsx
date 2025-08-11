@@ -11,8 +11,8 @@ function Instructions() {
       <HeroSection />
       <GuidanceSection />
       <GuidanceRoadmapSection />
-      <Pricing />
-      <FAQ />
+      {/* <Pricing /> */}
+      {/* <FAQ /> */}
       <Contact />
     </div>
   );
