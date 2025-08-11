@@ -11,43 +11,33 @@ export const FAQContent: AccordionData[] = [
   {
     title: "what are the service provided for business owners in Sri Lanka?",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "we provide fully business management system specially developed for Sri Lankan business. You can manage invoices , customers , employees , expenses , stocks and suppliers etc.",
   },
   {
     title: "What are the service provided for customers in Sri Lanka ?",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "We will provide EzyMart mobile application for Sri Lankan people. You can find any product nearly where you at and alos shops informations more.",
   },
   {
     title: "How to connect with you?",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "If your business owner or a customer you can request each application from our website or you can simply call us.We will take care all of that.",
   },
 ];
 export const FAQCustomer: AccordionData[] = [
   {
-    title: "is EzyMart mobile application Free?",
+    title: "what are the service provided for business owners in Sri Lanka?",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "we provide fully business management system specially developed for Sri Lankan business. You can manage invoices , customers , employees , expenses , stocks and suppliers etc.",
   },
   {
-    title: "How it Works?",
+    title: "What are the service provided for customers in Sri Lanka ?",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "We will provide EzyMart mobile application for Sri Lankan people. You can find any product nearly where you at and alos shops informations more.",
   },
   {
-    title: "Recommended for ?",
+    title: "How to connect with you?",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  },
-  {
-    title: "In which Devices can run application?",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  },
-  {
-    title: "Is customers data safe?",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "If your business owner or a customer you can request each application from our website or you can simply call us.We will take care all of that.",
   },
 ];
