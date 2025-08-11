@@ -184,7 +184,7 @@ export const Pricing: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isCardsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex justify-center inline max-w-6xl gap-6 mx-auto "
+          className="flex justify-center max-w-6xl gap-6 mx-auto "
         >
           {plans.map((plan, index) => (
             <motion.div
