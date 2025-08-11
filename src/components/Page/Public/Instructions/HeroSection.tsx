@@ -163,7 +163,7 @@ export default function HeroSection() {
         {/* Main heading */}
         <h1 className="mb-6 text-6xl font-bold tracking-tight text-white md:text-8xl">
           <span className="text-transparent bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text animate-pulse">
-            Coming
+            Comming
           </span>
           <br />
           <span className="text-white">Soon</span>
@@ -171,7 +171,7 @@ export default function HeroSection() {
 
         {/* Subtitle */}
         <p className="max-w-2xl mb-12 text-xl leading-relaxed text-gray-300 md:text-2xl">
-          Something extraordinary is on the horizon. Get ready for an experience that will transform the way you think about possibilities.
+          This, Page will update soon. Thank you for your patient.
         </p>
 
         {/* Countdown Timer */}
@@ -193,21 +193,7 @@ export default function HeroSection() {
           ))}
         </div> */}
 
-        {/* Email signup */}
-        <div className="w-full max-w-md">
-          
-
-          {isSubmitted && (
-            <div className="font-medium text-green-400 animate-fadeIn">
-              ✨ You'll be the first to know when we launch!
-            </div>
-          )}
-        </div>
-
-        {/* Social proof */}
-        <div className="text-sm text-gray-400">
-          Join 10,000+ others waiting for the big reveal
-        </div>
+        
       </div>
 
       {/* Bottom decoration */}
