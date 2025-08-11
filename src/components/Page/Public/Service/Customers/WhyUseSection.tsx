@@ -34,33 +34,29 @@ const WhyUseSection = () => {
   const appScreens = [
     {
       id: 1,
-      title: "Home Screen",
-      description: "Browse and discover products",
-      features: ["Product Search", "Categories", "Recommendations"],
-      color: "from-blue-500 to-indigo-100",
-      image: "/public/images/details/bg-img-one.svg",
+      title: "Product Search",
+      image: "public/images/CoustomerService/mobileScreens/Product Search.png",
     },
     {
       id: 2,
-      title: "Shopping Cart",
-      description: "Manage your selections",
-      features: ["Quick Add/Remove", "Price Calculation", "Checkout"],
-      color: "from-purple-500 to-pink-600"
+      title: "Review",
+      image: "public/images/CoustomerService/mobileScreens/Review.png",
     },
     {
       id: 3,
-      title: "Order Tracking",
-      description: "Track your deliveries",
-      features: ["Real-time Updates", "Delivery ETA", "Contact Rider"],
-      color: "from-green-500 to-teal-600"
+      title: "Shop view",
+      image: "public/images/CoustomerService/mobileScreens/Shop view.png",
+    },
+     {
+      id: 5,
+      title: "Splash",
+      image: "public/images/CoustomerService/mobileScreens/Splash.png",
     },
     {
       id: 4,
-      title: "Profile & Settings",
-      description: "Personalize your experience",
-      features: ["Account Settings", "Order History", "Preferences"],
-      color: "from-orange-500 to-red-600"
-    }
+      title: "Start",
+      image: "public/images/CoustomerService/mobileScreens/Start.png",
+    },
   ];
 
   // Auto-advance carousel
