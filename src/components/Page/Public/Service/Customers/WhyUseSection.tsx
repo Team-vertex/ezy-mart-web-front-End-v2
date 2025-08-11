@@ -35,27 +35,27 @@ const WhyUseSection = () => {
     {
       id: 1,
       title: "Product Search",
-      image: "public/images/CoustomerService/mobileScreens/Product Search.png",
+      image: "/public/images/CoustomerService/mobileScreens/Product Search.png",
     },
     {
       id: 2,
       title: "Review",
-      image: "public/images/CoustomerService/mobileScreens/Review.png",
+      image: "/public/images/CoustomerService/mobileScreens/Review.png",
     },
     {
       id: 3,
       title: "Shop view",
-      image: "public/images/CoustomerService/mobileScreens/Shop view.png",
+      image: "/public/images/CoustomerService/mobileScreens/Shop view.png",
     },
-     {
+    {
       id: 5,
       title: "Splash",
-      image: "public/images/CoustomerService/mobileScreens/Splash.png",
+      image: "/public/images/CoustomerService/mobileScreens/Splash.png",
     },
     {
       id: 4,
       title: "Start",
-      image: "public/images/CoustomerService/mobileScreens/Start.png",
+      image: "/public/images/CoustomerService/mobileScreens/Start.png",
     },
   ];
 
@@ -257,7 +257,7 @@ const WhyUseSection = () => {
                       <div className="w-20 h-1 bg-white rounded-full"></div>
                     </div>
                     {/* Carousel content */}
-                    <div className="relative h-[400px] overflow-hidden rounded-none">
+                    <div className="relative h-[800px]  overflow-hidden rounded-none">
                       {appScreens.map((screen, index) => (
                         <motion.div
                           key={screen.id}
