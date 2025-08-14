@@ -1,14 +1,14 @@
 import FaqContent from "@/components/core/FaqContent";
-import { AppDownloadButtons } from "@/components/ui/AppDownloadButtons";
+// import { AppDownloadButtons } from "@/components/ui/AppDownloadButtons";
 import { FAQCustomer } from "@/constants/Data";
-import { routes } from "@/constants/route";
+// import { routes } from "@/constants/route";
 import { IconQuestionMark, IconSparkles } from "@tabler/icons-react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { FormattedMessage } from "react-intl";
 import { useNavigate } from "react-router-dom";
-import { usePOSRequestPopup } from "@/hooks/useMobleRequestPopup";
-import { scrollToSection } from "@/utils/scrollUtils";
+import { useMobleRequestPopups } from "@/hooks/useMobleRequestPopup";
+// import { scrollToSection } from "@/utils/scrollUtils";
 
 // FaqSection component
 const FaqSection = () => {
@@ -18,23 +18,23 @@ const FaqSection = () => {
   
 
      const navigate = useNavigate();
-      const { openMobileRequest, MobileRequestModal } = usePOSRequestPopup();
+      const { openMobileRequest, MobileRequestModal } = useMobleRequestPopups();
 
   // Navigation functions
   const handleGetStartedClick = () => {
     openMobileRequest();
   };
 
-  const handleContactSupportClick = () => {
-     scrollToSection('appshowcase');
-  };
+  // const handleContactSupportClick = () => {
+  //    scrollToSection('appshowcase');
+  // };
 
-    const handleGetStartedKeyDown = (event: React.KeyboardEvent) => {
-      if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault();
-        handleContactSupportClick();
-      }
-    };
+    // const handleGetStartedKeyDown = (event: React.KeyboardEvent) => {
+    //   if (event.key === 'Enter' || event.key === ' ') {
+    //     event.preventDefault();
+    //     handleContactSupportClick();
+    //   }
+    // };
 
   const isHeadingInView = useInView(headingRef, { once: true, amount: 0.5 });
   const isContentInView = useInView(contentRef, { once: true, amount: 0.3 });
@@ -167,13 +167,7 @@ const FaqSection = () => {
               >
                 <FormattedMessage id="customers.faq.cta.button1" />
               </button>
-              <button
-                onClick={handleContactSupportClick}
-                 onKeyDown={handleGetStartedKeyDown}
-                className="px-8 py-4 border-2 border-[#0A65FC] text-[#0A65FC] rounded-xl font-semibold hover:bg-[#0A65FC] hover:text-white transition-all duration-300 transform hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-blue-300"
-              >
-                <FormattedMessage id="customers.faq.cta.button2" />
-              </button>
+             
             </div>
 
             {/* App Download Section */}

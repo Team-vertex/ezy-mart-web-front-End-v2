@@ -1,16 +1,16 @@
-import { routes } from "@/constants/route";
-import {
-  IconChartBar,
-  IconHelp,
-  IconLogin,
-  IconPlayerPlay,
-  IconSettings,
-  IconShoppingCart,
-} from "@tabler/icons-react";
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import { FormattedMessage, useIntl } from "react-intl";
-import { useNavigate } from "react-router-dom";
+// import { routes } from "@/constants/route";
+// import {
+//   IconChartBar,
+//   IconHelp,
+//   IconLogin,
+//   IconPlayerPlay,
+//   IconSettings,
+//   IconShoppingCart,
+// } from "@tabler/icons-react";
+// import { motion, useInView } from "framer-motion";
+// import { useRef } from "react";
+// import { FormattedMessage, useIntl } from "react-intl";
+// import { useNavigate } from "react-router-dom";
 
 export default function GuidanceRoadmapSection() {
   // const sectionRef = useRef(null);

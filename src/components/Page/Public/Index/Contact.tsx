@@ -1,17 +1,17 @@
-import {
-  IconArrowRight,
-  IconClock,
-  IconHeadset,
-  IconMail,
-  IconMapPin,
-  IconPhone,
-  IconRocket,
-  IconSend,
-  IconUsers,
-} from "@tabler/icons-react";
-import { motion, useInView } from "framer-motion";
-import React, { useRef } from "react";
-import { FormattedMessage, useIntl } from "react-intl";
+// import {
+//   IconArrowRight,
+//   IconClock,
+//   IconHeadset,
+//   IconMail,
+//   IconMapPin,
+//   IconPhone,
+//   IconRocket,
+//   IconSend,
+//   IconUsers,
+// } from "@tabler/icons-react";
+// import { motion, useInView } from "framer-motion";
+// import React, { useRef } from "react";
+// import { FormattedMessage, useIntl } from "react-intl";
 
 export const Contact: React.FC = () => {
   // const intl = useIntl();

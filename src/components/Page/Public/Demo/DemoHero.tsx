@@ -10,9 +10,9 @@ import { FormattedMessage } from "react-intl";
 export default function DemoHero() {
   const handleScrollToBottom = () => {
     const startY = window.pageYOffset;
-    const targetY = document.body.scrollHeight / 2; 
+    const targetY = document.body.scrollHeight / 2;
     const distance = targetY - startY;
-    const duration = 2000; 
+    const duration = 2000;
     let startTime: number | null = null;
 
     function animation(currentTime: number) {
@@ -21,7 +21,7 @@ export default function DemoHero() {
       const progress = Math.min(timeElapsed / duration, 1);
       const easeInOut = progress < 0.5
         ? 2 * progress * progress
-        : -1 + (4 - 2 * progress) * progress; 
+        : -1 + (4 - 2 * progress) * progress;
 
       window.scrollTo(0, startY + distance * easeInOut);
 
@@ -78,8 +78,6 @@ export default function DemoHero() {
 
               <div className="flex flex-col justify-center gap-4 sm:flex-row lg:justify-start">
                 <motion.button
-                  whileHover={{ scale: 1.95 }}
-                  whileTap={{ scale: 1.54 }}
                   onClick={handleScrollToBottom}
                   className="border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-[#0A65FC] transition-all duration-300"
                 >
@@ -139,7 +137,7 @@ export default function DemoHero() {
       </section>
 
       {/* Example bottom content so we can scroll */}
-     
+
     </>
   );
 }

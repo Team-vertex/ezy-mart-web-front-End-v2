@@ -43,6 +43,7 @@ export default function Footer() {
     },
   ];
 
+
   const solutions = [
     { key: "retailPOS", messageId: "footer.solutions.retailPOS" },
     {
@@ -84,23 +85,22 @@ export default function Footer() {
             <blockquote className="pl-4 my-6 italic text-gray-300 border-l-4 border-blue-400">
               "<FormattedMessage id="footer.company.quote" />"
             </blockquote>
-            <div className="flex gap-4 mt-6">
-              {[
-                { icon: IconBrandFacebook, color: "hover:bg-blue-600" },
-                { icon: IconBrandWhatsapp, color: "hover:bg-green-500" },
-                {
-                  icon: IconBrandInstagram,
-                  color: "hover:bg-gradient-to-br from-purple-500 to-pink-500",
-                },
-                { icon: IconBrandYoutube, color: "hover:bg-red-600" },
-              ].map((item, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  className={`p-2 border border-gray-400 rounded-full transition-all duration-300 transform hover:scale-110 ${item.color} hover:border-transparent`}
-                >
-                  <item.icon size={20} />
-                </a>
+           <div className="flex gap-4 mt-6">
+  {[
+    { icon: IconBrandFacebook, color: "hover:bg-blue-600", link: "https://www.facebook.com/share/1CVyj7uWrY/?mibextid=wwXIfr" },
+    { icon: IconBrandWhatsapp, color: "hover:bg-green-500", link: "https://wa.me/94718959403" },
+    { icon: IconBrandInstagram, color: "hover:bg-gradient-to-br from-purple-500 to-pink-500", link: "https://www.instagram.com/YourProfile" },
+    { icon: IconBrandYoutube, color: "hover:bg-red-600", link: "https://www.youtube.com/channel/YourChannel" },
+  ].map((item, i) => (
+    <a
+      key={i}
+      href={item.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`p-2 border border-gray-400 rounded-full transition-all duration-300 transform hover:scale-110 ${item.color} hover:border-transparent`}
+    >
+      <item.icon size={20} />
+    </a>
               ))}
             </div>
           </div>
@@ -225,24 +225,14 @@ export default function Footer() {
               <FormattedMessage id="footer.copyright" />
             </p>
             <div className="flex gap-4">
-              <a
-                href="#"
-                className="text-sm text-gray-400 transition hover:text-white"
-              >
-                Terms of Service
-              </a>
+              
               <a
                 href={routes.privacyPolicy}
                 className="text-sm text-gray-400 transition hover:text-white"
               >
                 <FormattedMessage id="footer.quickLinks.privacyPolicy" />
               </a>
-              <a
-                href="#"
-                className="text-sm text-gray-400 transition hover:text-white"
-              >
-                Sitemap
-              </a>
+             
             </div>
           </div>
           <p className="mt-3 text-xs text-gray-500">

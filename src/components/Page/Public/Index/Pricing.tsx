@@ -1,7 +1,7 @@
 import { routes } from "@/constants/route";
 import { usePOSRequestPopup } from "@/hooks/usePOSRequestPopup.tsx";
 import {
-  IconBolt,
+  // IconBolt,
   IconCheck,
   IconDevices,
   IconRocket,
@@ -50,30 +50,30 @@ export const Pricing: React.FC = () => {
   };
 
   const plans = [
-    {
-      name: "Basic",
-      description: "Perfect for small level business",
-      icon: IconBolt,
-      price: { monthly: 1799, yearly: 19800 },
-      originalPrice: { monthly: 1999, yearly: 22000 },
-      features: [
-        "Stocks Management",
-        "Employee Managment",
-        "Work Online & Offline",
-        "Supplier Managment",
-        "Manage Expenses",
-        "Sales Analysis",
-        "Online Store",
-        "Generate Reports",
-      ],
-      limitations: [
-        "Web Based Admin Pannel",
-        "Multi-location support",
-        "web-based POS",
-      ],
-      popular: true,
-      borderColor: "border-gray-200",
-    },
+    // {
+    //   name: "Basic",
+    //   description: "Perfect for small level business",
+    //   icon: IconBolt,
+    //   price: { monthly: 1799, yearly: 19800 },
+    //   originalPrice: { monthly: 1999, yearly: 22000 },
+    //   features: [
+    //     "Stocks Management",
+    //     "Employee Managment",
+    //     "Work Online & Offline",
+    //     "Supplier Managment",
+    //     "Manage Expenses",
+    //     "Sales Analysis",
+    //     "Online Store",
+    //     "Generate Reports",
+    //   ],
+    //   limitations: [
+    //     "Web Based Admin Pannel",
+    //     "Multi-location support",
+    //     "web-based POS",
+    //   ],
+    //   popular: true,
+    //   borderColor: "border-gray-200",
+    // },
     {
       name: "Pro",
       description: "Perfect for small and mid level business",
@@ -97,7 +97,7 @@ export const Pricing: React.FC = () => {
       limitations: [
         "Multi-location support",
       ],
-      popular: false,
+      popular: true,
       borderColor: "border-blue-200",
     },
     {

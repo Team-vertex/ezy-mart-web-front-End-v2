@@ -1,7 +1,6 @@
 import FaqContent from "@/components/core/FaqContent";
 import { FAQContent } from "@/constants/Data";
 import { routes } from "@/constants/route";
-import { usePOSRequestPopup } from "@/hooks/usePOSRequestPopup.tsx";
 import { IconHelp, IconQuestionMark } from "@tabler/icons-react";
 import { motion, useInView } from "framer-motion";
 import React, { useRef } from "react";
@@ -17,7 +16,7 @@ export const FAQ: React.FC = () => {
 
   // MARK: Hooks
   const navigate = useNavigate();
-  const { openPOSRequest, POSRequestModal } = usePOSRequestPopup();
+ 
 
   // MARK: In view states
   const isSectionInView = useInView(sectionRef, { once: true, amount: 0.2 });
@@ -140,7 +139,7 @@ export const FAQ: React.FC = () => {
       </div>
 
       {/* POS Request Modal */}
-      <POSRequestModal />
+     
     </section>
   );
 };

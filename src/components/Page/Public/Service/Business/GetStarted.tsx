@@ -1,10 +1,10 @@
-import { routes } from "@/constants/route";
-import { scrollToSection } from "@/utils/scrollUtils";
+// import { routes } from "@/constants/route";
+// import { scrollToSection } from "@/utils/scrollUtils";
 import { motion, useInView } from "framer-motion";
 import { usePOSRequestPopup } from "@/hooks/usePOSRequestPopup";
 import React, { useRef } from "react";
 import { FormattedMessage, useIntl } from "react-intl";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 export const GetStarted: React.FC = () => {
   const sectionRef = useRef(null);
@@ -13,7 +13,7 @@ export const GetStarted: React.FC = () => {
   const intl = useIntl();
  
 
-   const navigate = useNavigate();
+  
     const { openPOSRequest, POSRequestModal } = usePOSRequestPopup();
 
   const isSectionInView = useInView(sectionRef, { once: true, amount: 0.2 });

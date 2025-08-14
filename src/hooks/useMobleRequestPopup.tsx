@@ -1,7 +1,7 @@
 import MobileReqestPopup from "../components/ui/MobileRequestPopup";
 import { useDisclosure } from "@mantine/hooks";
 
-export const usePOSRequestPopup = () => {
+export const useMobleRequestPopups = () => {
 
     const [opened, { open, close }] = useDisclosure(false);
 

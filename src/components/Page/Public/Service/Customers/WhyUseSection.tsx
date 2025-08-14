@@ -1,5 +1,5 @@
-import { routes } from "@/constants/route";
-import { detectPlatformAndDownload } from "@/utils/appUtils";
+// import { routes } from "@/constants/route";
+// import { detectPlatformAndDownload } from "@/utils/appUtils";
 import { motion, useInView } from "framer-motion";
 import { usePOSRequestPopup } from "@/hooks/usePOSRequestPopup";
 import {
@@ -8,14 +8,14 @@ import {
   Clock,
   Download,
   MapPin,
-  Play,
+  // Play,
   ShoppingBag,
   Smartphone,
   Star,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { FormattedMessage, useIntl } from "react-intl";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate  } from "react-router-dom";
 
 const WhyUseSection = () => {
   const sectionRef = useRef(null);
@@ -24,11 +24,13 @@ const WhyUseSection = () => {
   const imageRef = useRef(null);
   const intl = useIntl();
 
-  const navigate = useNavigate();
-  const { openPOSRequest, POSRequestModal } = usePOSRequestPopup();
+
 
   // Carousel state
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0); 
+  
+  const { openPOSRequest, POSRequestModal } = usePOSRequestPopup();
+
 
   // Mobile app screens data
   const appScreens = [
@@ -257,7 +259,7 @@ const WhyUseSection = () => {
                       <div className="w-20 h-1 bg-white rounded-full"></div>
                     </div>
                     {/* Carousel content */}
-                    <div className="relative h-[800px]  overflow-hidden rounded-none">
+                    <div className="relative h-[600px] overflow-hidden bg-black">
                       {appScreens.map((screen, index) => (
                         <motion.div
                           key={screen.id}
@@ -269,18 +271,18 @@ const WhyUseSection = () => {
                           transition={{ duration: 0.5, ease: "easeInOut" }}
                           className="absolute inset-0 flex items-center justify-center"
                         >
-                          {/* Image inside the phone frame - full screen */}
                           {screen.image && (
                             <img
                               src={screen.image}
                               alt={screen.title}
-                              className="object-cover w-full h-full"
-                               // Match phone screen rounding
+                              className="w-[100%] h-[98%] object-cover shadow-lg"
                             />
                           )}
                         </motion.div>
                       ))}
                     </div>
+
+
                   </div>
                 </div>
               </div>

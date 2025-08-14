@@ -1,9 +1,9 @@
-import { scrollToSection } from "@/utils/scrollUtils";
-import { motion } from "framer-motion";
-import { FormattedMessage } from "react-intl";
+// import { scrollToSection } from "@/utils/scrollUtils";
+// import { motion } from "framer-motion";
+// import { FormattedMessage } from "react-intl";
 
-import React, { useState, useEffect } from 'react';
-import { Clock, Mail, Bell, Sparkles, ArrowRight } from 'lucide-react';
+import React,{ useState, useEffect } from 'react';
+import { Clock, Sparkles,  } from 'lucide-react';
 
 export default function HeroSection() {
   // Navigation handlers

@@ -1,4 +1,4 @@
-import { Contact } from "@/components/Page/Public/Index/Contact";
+// import { Contact } from "@/components/Page/Public/Index/Contact";
 import HeroSection from "@/components/Page/Public/Instructions/HeroSection";
 
 function Instructions() {
@@ -6,10 +6,10 @@ function Instructions() {
     <div className="bg-white">
       <HeroSection />
       {/* <GuidanceSection />
-      <GuidanceRoadmapSection /> */}
-      {/* <Pricing /> */}
-      {/* <FAQ /> */}
-      <Contact />
+      <GuidanceRoadmapSection />
+      <Pricing />
+      <FAQ /> */}
+      {/* <Contact /> */}
     </div>
   );
 }

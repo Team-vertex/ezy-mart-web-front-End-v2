@@ -57,12 +57,12 @@ export default function POSInterface() {
             initial={{ opacity: 0, y: 40 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex items-center justify-center p-6 overflow-hidden bg-white border border-blue-100 shadow-2xl rounded-3xl"
+            className="flex items-center justify-center w-[1200px] h-[800px] p-6 overflow-hidden bg-white border border-blue-100 shadow-2xl rounded-3xl"
           >
             <div
               style={{
-                width: iframeWidth,
-                height: iframeHeight,
+                width: "900px",
+                height: "800px",
                 overflow: "hidden",
                 border: "1px solid rgba(0, 0, 0, 0.1)",
               }}
@@ -79,8 +79,8 @@ export default function POSInterface() {
                   // To prevent iframe default scroll
                   overflow: "hidden",
                 }}
-                scrolling="no"
-                frameBorder="0"
+                scrolling="yes"
+                frameBorder="1"
               ></iframe>
             </div>
           </motion.div>

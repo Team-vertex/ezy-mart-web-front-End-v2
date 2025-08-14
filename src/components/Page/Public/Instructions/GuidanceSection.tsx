@@ -1,13 +1,13 @@
-import { scrollToSection } from "@/utils/scrollUtils";
-import {
-  IconBook,
-  IconHelp,
-  IconPlayerPlay,
-  IconUsers,
-} from "@tabler/icons-react";
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import { FormattedMessage, useIntl } from "react-intl";
+// import { scrollToSection } from "@/utils/scrollUtils";
+// import {
+//   IconBook,
+//   IconHelp,
+//   IconPlayerPlay,
+//   IconUsers,
+// } from "@tabler/icons-react";
+// import { motion, useInView } from "framer-motion";
+// import { useRef } from "react";
+// import { FormattedMessage, useIntl } from "react-intl";
 
 export default function GuidanceSection() {
   // const sectionRef = useRef(null);

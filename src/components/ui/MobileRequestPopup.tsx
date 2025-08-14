@@ -42,7 +42,7 @@ const SimpleRequestPopup: React.FC<SimpleRequestPopupProps> = ({
     },
   });
 
-  const handleSubmit = async (values: FormData) => {
+  const handleSubmit = async (_values: FormData) => {
     setIsSubmitting(true);
     setNotification(null);
 
