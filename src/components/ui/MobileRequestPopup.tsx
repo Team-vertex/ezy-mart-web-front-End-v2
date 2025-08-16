@@ -37,8 +37,8 @@ const SimpleRequestPopup: React.FC<SimpleRequestPopupProps> = ({
         !value
           ? "Email is required"
           : !/^\S+@\S+$/.test(value)
-          ? "Invalid email"
-          : null,
+            ? "Invalid email"
+            : null,
     },
   });
 
@@ -47,10 +47,7 @@ const SimpleRequestPopup: React.FC<SimpleRequestPopupProps> = ({
     setNotification(null);
 
     try {
-      // Replace this with your actual email service call
-      // const response = await emailService.sendSimpleRequestEmail(values);
-
-      // Simulating success response here:
+      // Mock response – replace with actual API
       const response = { success: true };
 
       if (response.success) {
@@ -63,7 +60,7 @@ const SimpleRequestPopup: React.FC<SimpleRequestPopupProps> = ({
           onClose();
           form.reset();
           setNotification(null);
-        }, 3000);
+        }, 2500);
       } else {
         throw new Error("Failed to send request.");
       }
@@ -88,76 +85,117 @@ const SimpleRequestPopup: React.FC<SimpleRequestPopupProps> = ({
       opened={opened}
       onClose={handleClose}
       centered
-      size="md"
+      size="lg"
       withCloseButton={false}
+      radius="xl"
       padding="lg"
-      radius="md"
       classNames={{
-        overlay: "!bg-black/60 backdrop-blur-sm",
-        content: "!bg-white !shadow-lg",
+        overlay: "!bg-black/50 backdrop-blur-md",
+        content:
+          "!bg-transparent !shadow-none !overflow-visible",
       }}
       transitionProps={{
         transition: "fade",
         duration: 300,
       }}
     >
-      <div>
-        <h2 className="mb-6 text-xl font-bold text-center">
-          Simple Request Form
-        </h2>
+      <div className="relative w-full max-w-3xl mx-auto">
+        {/* Background with gradient matching the design */}
+        <div
+          className="absolute inset-0 shadow-2xl rounded-3xl"
+          style={{
+            background:
+              "linear-gradient(135deg, #0A1A33 0%, #0A65FC 25%, #0A1A33 50%, #0A1A33 75%, #0A1A33 100%)",
+          }}
+        />
 
-        {notification && (
-          <div
-            className={`mb-4 p-3 rounded ${
-              notification.type === "success"
-                ? "bg-green-100 text-green-800"
-                : "bg-red-100 text-red-800"
-            }`}
-          >
-            {notification.message}
-          </div>
-        )}
+        <div className="px-2 py-4">
+          <h2 className="mb-6 text-2xl font-bold text-center text-white drop-shadow">
+            Mobile Request Form
+          </h2>
 
-        <form onSubmit={form.onSubmit(handleSubmit)} className="space-y-4">
-          <div>
-            <label className="block mb-1 font-medium">Username</label>
-            <TextInput
-              placeholder="Enter your username"
-              {...form.getInputProps("username")}
-            />
-          </div>
-
-          <div>
-            <label className="block mb-1 font-medium">Mobile Number</label>
-            <TextInput
-              placeholder="Enter your mobile number"
-              {...form.getInputProps("mobile")}
-            />
-          </div>
-
-          <div>
-            <label className="block mb-1 font-medium">Email</label>
-            <TextInput
-              placeholder="Enter your email"
-              {...form.getInputProps("email")}
-            />
-          </div>
-
-          <div className="flex justify-end gap-3 mt-6">
-            <StyledButton
-              type="button"
-              onClick={handleClose}
-              variant="outline"
-              disabled={isSubmitting}
+          {notification && (
+            <div
+              className={`mb-5 p-3 text-center rounded-lg shadow-sm animate-fadeIn ${notification.type === "success"
+                  ? "bg-green-100 text-green-800 border border-green-300"
+                  : "bg-red-100 text-red-800 border border-red-300"
+                }`}
             >
-              Close
-            </StyledButton>
+              {notification.message}
+            </div>
+          )}
 
-            <StyledButton type="submit" disabled={isSubmitting}>
-              {isSubmitting ? "Sending..." : "Submit"}
-            </StyledButton>
-          </div>
-        </form>
+          <form
+            onSubmit={form.onSubmit(handleSubmit)}
+            className="max-w-lg p-6 mx-auto space-y-5 shadow-lg bg-white/95 rounded-2xl backdrop-blur-sm animate-slideUp"
+          >
+            <h3 className="text-xl font-semibold text-center text-gray-800">
+              User Details
+            </h3>
+
+            <div>
+              <label className="block mb-1 text-sm font-medium text-gray-700">
+                Username
+              </label>
+              <TextInput
+                placeholder="Enter your username"
+                classNames={{
+                  input:
+                    "rounded-xl border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition shadow-sm",
+                }}
+                {...form.getInputProps("username")}
+              />
+            </div>
+
+            <div>
+              <label className="block mb-1 text-sm font-medium text-gray-700">
+                Mobile Number
+              </label>
+              <TextInput
+                placeholder="Enter your mobile number"
+                classNames={{
+                  input:
+                    "rounded-xl border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition shadow-sm",
+                }}
+                {...form.getInputProps("mobile")}
+              />
+            </div>
+
+            <div>
+              <label className="block mb-1 text-sm font-medium text-gray-700">
+                Email
+              </label>
+              <TextInput
+                placeholder="Enter your email"
+                classNames={{
+                  input:
+                    "rounded-xl border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition shadow-sm",
+                }}
+                {...form.getInputProps("email")}
+              />
+            </div>
+
+            <div className="flex justify-end gap-3 pt-4">
+              <StyledButton
+                type="button"
+                onClick={handleClose}
+                variant="outline"
+                disabled={isSubmitting}
+                className="transition border-gray-300 rounded-xl hover:bg-gray-100"
+              >
+                Close
+              </StyledButton>
+
+              <StyledButton
+                type="submit"
+                disabled={isSubmitting}
+                className="text-white transition bg-blue-600 shadow-md rounded-xl hover:bg-blue-700 hover:shadow-lg"
+              >
+                {isSubmitting ? "Sending..." : "Submit"}
+              </StyledButton>
+            </div>
+          </form>
+        </div>
       </div>
     </Modal>
   );
