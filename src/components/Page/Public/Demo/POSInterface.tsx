@@ -5,17 +5,19 @@ import { FormattedMessage } from "react-intl";
 export default function POSInterface() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
-  const iframeWidth = 800;
-  const iframeHeight = 550;
+  // const iframeWidth = 800;
+  // const iframeHeight = 550;
 
   // Content original size (oya Figma proto viewport size eka anuwa adjust karanna)
-  const contentWidth = 1920;  // example original content width
-  const contentHeight = 1080; // example original content height
+  // const contentWidth = 1920;  
+  // example original content width
+  // const contentHeight = 1080; 
+  // example original content height
 
   // Calculate scale factor so content fits in iframe container
-  const scaleX = iframeWidth / contentWidth;
-  const scaleY = iframeHeight / contentHeight;
-  const scale = Math.min(scaleX, scaleY);
+  // const scaleX = iframeWidth / contentWidth;
+  // const scaleY = iframeHeight / contentHeight;
+  // const scale = Math.min(scaleX, scaleY);
 
   return (
     <>
