@@ -1,8 +1,8 @@
 import emailjs from '@emailjs/browser';
 
 export interface ContactFormData {
-    firstName: string;
-    lastName?: string;
+    Name: string;
+    
     contactNumber: string;
     email?: string;
     reason: string;
@@ -16,14 +16,13 @@ export interface EmailResponse {
 }
 
 export interface POSRequestFormData {
-    firstName: string;
-    lastName: string;
+    Name: string;
+    
     mobile: string;
     email?: string;
-    district: string;
+    
     city: string;
-    businessName: string;
-    contactEmail: string;
+ 
     message: string;
 }
 
@@ -54,16 +53,13 @@ class EmailService {
 
             // Prepare template parameters for EmailJS
             const templateParams = {
-                from_name: `${formData.firstName} ${formData.lastName}`.trim(),
-                from_email: formData.contactEmail,
+                from_name: `${formData.Name} `.trim(),
                 from_phone: formData.mobile,
-                personal_email: formData.email || 'Not provided',
-                business_name: formData.businessName,
-                location: `${formData.city}, ${formData.district}`,
-                subject: `POS System Request from ${formData.businessName}`,
+                location: `${formData.city}, `,
+                subject: `POS System Request `,
                 message: formData.message,
                 to_email: 'contact.vertexcooperation@gmail.com', // Your receiving email
-                reply_to: formData.contactEmail,
+               
             };
 
             // Send email using EmailJS
@@ -113,7 +109,7 @@ class EmailService {
 
             // Prepare template parameters for EmailJS
             const templateParams = {
-                from_name: `${formData.firstName} ${formData.lastName || ''}`.trim(),
+                from_name: `${formData.Name}`.trim(),
                 from_email: formData.email || 'No email provided',
                 from_phone: formData.contactNumber,
                 subject: `Contact Form: ${formData.reason}`,

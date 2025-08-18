@@ -1,4 +1,4 @@
-import { scrollToSection } from "@/utils/scrollUtils";
+// import { scrollToSection } from "@/utils/scrollUtils";
 import { motion } from "framer-motion";
 import { CheckCircle, Target, Users, Zap } from "lucide-react";
 import { FormattedMessage } from "react-intl";
