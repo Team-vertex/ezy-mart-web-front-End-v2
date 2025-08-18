@@ -129,7 +129,7 @@ export const Pricing: React.FC = () => {
       name: "Multi Branch One-Time",
       description: "Lifetime license for multiple branches",
       icon: IconRocket,
-      price: { monthly: 0, yearly: 190000 }, // yearly use karanawa one-time price
+      price: { monthly: 0, yearly: 150000 }, // yearly use karanawa one-time price
       originalPrice: { monthly: 0, yearly: 0 },
       features: [
         "Web based admin panel",
@@ -282,7 +282,8 @@ export const Pricing: React.FC = () => {
                 <div className="mb-4 text-center">
                   <span className="text-4xl font-bold text-gray-900">
                     LKR{" "}
-                    {(isYearly
+                    {(plan.name.includes("One-Time") ? 
+                    plan.price.yearly : isYearly
                       ? plan.price.yearly
                       : plan.price.monthly
                     ).toLocaleString()}
