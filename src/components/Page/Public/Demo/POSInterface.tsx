@@ -61,19 +61,12 @@ export default function POSInterface() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="flex items-center justify-center w-[1200px] h-[800px] p-6 overflow-hidden bg-white border border-blue-100 shadow-2xl rounded-3xl"
           >
-            <div
-              style={{
-                width: "900px",
-                height: "800px",
-                overflow: "hidden",
-                border: "1px solid rgba(0, 0, 0, 0.1)",
-              }}
-            >
+            
               <iframe
                 src="https://vertexcooperation.lk/"
                 className="w-full h-full border-0"
               ></iframe>
-            </div>
+            
           </motion.div>
         </div>
       </section>
