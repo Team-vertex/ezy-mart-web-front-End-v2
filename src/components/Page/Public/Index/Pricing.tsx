@@ -101,18 +101,54 @@ export const Pricing: React.FC = () => {
       borderColor: "border-blue-200",
     },
     {
-      name: "Comming Soon",
-      description: "Perfect Multi branch business",
+      name: "Single Branch One-Time",
+      description: "Lifetime license for a single branch",
       icon: IconRocket,
-      price: { monthly: "", yearly: "" },
-      originalPrice: { monthly: "", yearly: "" },
+      price: { monthly: 0, yearly: 80000 }, // yearly use karanawa one-time price
+      originalPrice: { monthly: 0, yearly: 0 },
       features: [
-        "Cooming Soon"
+        "Web based admin panel",
+        "Web based POS",
+        "Stocks Management",
+        "Employee Management",
+        "Work Online & Offline",
+        "Supplier Management",
+        "Manage Expenses",
+        "Sales Analysis",
+        "Online Store",
+        "Generate Reports",
+        "Cloud backup",
       ],
       limitations: [
+        "No Multi-location support",
       ],
       popular: false,
-      borderColor: "border-blue-200",
+      borderColor: "border-green-200",
+    },
+    {
+      name: "Multi Branch One-Time",
+      description: "Lifetime license for multiple branches",
+      icon: IconRocket,
+      price: { monthly: 0, yearly: 190000 }, // yearly use karanawa one-time price
+      originalPrice: { monthly: 0, yearly: 0 },
+      features: [
+        "Web based admin panel",
+        "Web based POS",
+        "Stocks Management",
+        "Employee Management",
+        "Work Online & Offline",
+        "Supplier Management",
+        "Manage Expenses",
+        "Sales Analysis",
+        "Online Store",
+        "Generate Reports",
+        "Cloud backup",
+      ],
+      limitations: [
+        "No Multi-location support",
+      ],
+      popular: false,
+      borderColor: "border-green-200",
     },
   ];
 
@@ -220,8 +256,8 @@ export const Pricing: React.FC = () => {
               {/* Plan Header */}
               <div className="mb-8 text-center">
                 <div className={`inline-flex p-4 rounded-xl mb-6 ${plan.popular
-                    ? "bg-gradient-to-br from-blue-100 to-purple-100"
-                    : "bg-gray-100"
+                  ? "bg-gradient-to-br from-blue-100 to-purple-100"
+                  : "bg-gray-100"
                   }`}>
                   <plan.icon className={`w-8 h-8 ${plan.popular ? "text-blue-600" : "text-gray-600"
                     }`} />
@@ -243,49 +279,29 @@ export const Pricing: React.FC = () => {
                 )} */}
 
                 {/* Pricing */}
-                <div className="mb-8">
-                  {plan.name !== "Comming Soon" && (
-                    <>
-                      <div className="mb-2 text-center">
-                        <span className="text-lg text-gray-400 line-through">
-                          LKR{" "}
-                          {(isYearly
-                            ? plan.originalPrice.yearly
-                            : plan.originalPrice.monthly
-                          ).toLocaleString()}
-                        </span>
-                      </div>
-                      <div className="mb-4 text-center">
-                        <span className="text-4xl font-bold text-gray-900">
-                          LKR{" "}
-                          {(isYearly
-                            ? plan.price.yearly
-                            : plan.price.monthly
-                          ).toLocaleString()}
-                        </span>
-                        <span className="block mt-1 text-lg text-gray-600">
-                          /{isYearly ? "year" : "month"}
-                        </span>
-                      </div>
-                    </>
-                  )}
-                  {plan.name === "Comming Soon" && (
-                    <div className="mb-4 text-center">
-                      <span className="text-2xl font-bold text-gray-500">
-                        Coming Soon
-                      </span>
-                    </div>
-                  )}
+                <div className="mb-4 text-center">
+                  <span className="text-4xl font-bold text-gray-900">
+                    LKR{" "}
+                    {(isYearly
+                      ? plan.price.yearly
+                      : plan.price.monthly
+                    ).toLocaleString()}
+                  </span>
+                  <span className="block mt-1 text-lg text-gray-600">
+                    {plan.name.includes("One-Time")
+                      ? "One-Time"
+                      : `/${isYearly ? "year" : "month"}`}
+                  </span>
                 </div>
 
                 {/* CTA Button */}
                 <button
                   onClick={plan.name === "Comming Soon" ? undefined : handleGetStarted}
                   className={`w-full py-4 px-6 rounded-xl font-semibold text-base transition-all duration-300 transform hover:scale-105 shadow-lg ${plan.popular
-                      ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 shadow-blue-500/25"
-                      : plan.name === "Comming Soon"
-                        ? "bg-gray-400 text-white cursor-not-allowed"
-                        : "bg-gray-900 text-white hover:bg-gray-800"
+                    ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 shadow-blue-500/25"
+                    : plan.name === "Comming Soon"
+                      ? "bg-gray-400 text-white cursor-not-allowed"
+                      : "bg-gray-900 text-white hover:bg-gray-800"
                     }`}
                   disabled={plan.name === "Comming Soon"}
                 >

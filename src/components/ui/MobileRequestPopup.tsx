@@ -117,8 +117,8 @@ const SimpleRequestPopup: React.FC<SimpleRequestPopupProps> = ({
           {notification && (
             <div
               className={`mb-5 p-3 text-center rounded-lg shadow-sm animate-fadeIn ${notification.type === "success"
-                  ? "bg-green-100 text-green-800 border border-green-300"
-                  : "bg-red-100 text-red-800 border border-red-300"
+                ? "bg-green-100 text-green-800 border border-green-300"
+                : "bg-red-100 text-red-800 border border-red-300"
                 }`}
             >
               {notification.message}
@@ -127,28 +127,21 @@ const SimpleRequestPopup: React.FC<SimpleRequestPopupProps> = ({
 
           <form
             onSubmit={form.onSubmit(handleSubmit)}
-            className="max-w-lg p-6 mx-auto space-y-5 shadow-lg bg-white/95 rounded-2xl backdrop-blur-sm animate-slideUp"
+            className="max-w-lg p-6 mx-auto space-y-5 shadow-lg rounded-2xl backdrop-blur-sm animate-slideUp"
           >
-            <h3 className="text-xl font-semibold text-center text-gray-800">
-              User Details
-            </h3>
 
             <div>
-              <label className="block mb-1 text-sm font-medium text-gray-700">
-                Username
+              <label className="block mb-1 text-sm font-medium text-white">
+                Name
               </label>
               <TextInput
                 placeholder="Enter your username"
-                classNames={{
-                  input:
-                    "rounded-xl border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition shadow-sm",
-                }}
                 {...form.getInputProps("username")}
               />
             </div>
 
             <div>
-              <label className="block mb-1 text-sm font-medium text-gray-700">
+              <label className="block mb-1 text-sm font-medium text-white">
                 Mobile Number
               </label>
               <TextInput
@@ -162,7 +155,7 @@ const SimpleRequestPopup: React.FC<SimpleRequestPopupProps> = ({
             </div>
 
             <div>
-              <label className="block mb-1 text-sm font-medium text-gray-700">
+              <label className="block mb-1 text-sm font-medium text-white">
                 Email
               </label>
               <TextInput
@@ -181,7 +174,7 @@ const SimpleRequestPopup: React.FC<SimpleRequestPopupProps> = ({
                 onClick={handleClose}
                 variant="outline"
                 disabled={isSubmitting}
-                className="transition border-gray-300 rounded-xl hover:bg-gray-100"
+                className="flex-1 h-11 !bg-white !text-black lg:h-12 text-sm lg:text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 Close
               </StyledButton>
@@ -189,7 +182,7 @@ const SimpleRequestPopup: React.FC<SimpleRequestPopupProps> = ({
               <StyledButton
                 type="submit"
                 disabled={isSubmitting}
-                className="text-white transition bg-blue-600 shadow-md rounded-xl hover:bg-blue-700 hover:shadow-lg"
+                className="flex-1 h-11 lg:h-12 text-sm lg:text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-200 !bg-blue-600 hover:!bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? "Sending..." : "Submit"}
               </StyledButton>

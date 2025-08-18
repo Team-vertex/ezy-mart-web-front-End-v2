@@ -68,19 +68,8 @@ export default function POSInterface() {
               }}
             >
               <iframe
-                src="https://embed.figma.com/proto/o3GDFWHWUDz91gKbSSayOU/EzyMart.lk-V2?page-id=2659%3A6237&node-id=2766-304&viewport=291%2C485%2C0.17&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=2673%3A9&show-proto-sidebar=1&embed-host=share"
-                width={contentWidth}
-                height={contentHeight}
-                style={{
-                  transform: `scale(${scale})`,
-                  transformOrigin: "top left",
-                  border: "none",
-                  display: "block",
-                  // To prevent iframe default scroll
-                  overflow: "hidden",
-                }}
-                scrolling="yes"
-                frameBorder="1"
+                src="https://vertexcooperation.lk/"
+                className="w-full h-full border-0"
               ></iframe>
             </div>
           </motion.div>

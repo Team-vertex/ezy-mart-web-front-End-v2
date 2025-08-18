@@ -1,7 +1,6 @@
 // import { routes } from "@/constants/route";
 // import { detectPlatformAndDownload } from "@/utils/appUtils";
 import { motion, useInView } from "framer-motion";
-import { usePOSRequestPopup } from "@/hooks/usePOSRequestPopup";
 import {
   ChevronLeft,
   ChevronRight,
@@ -15,6 +14,7 @@ import {
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { FormattedMessage, useIntl } from "react-intl";
+import { useMobleRequestPopups } from "@/hooks/useMobleRequestPopup";
 // import { useNavigate  } from "react-router-dom";
 
 const WhyUseSection = () => {
@@ -29,7 +29,7 @@ const WhyUseSection = () => {
   // Carousel state
   const [currentSlide, setCurrentSlide] = useState(0); 
   
-  const { openPOSRequest, POSRequestModal } = usePOSRequestPopup();
+    const { openMobileRequest, MobileRequestModal } = useMobleRequestPopups();
 
 
   // Mobile app screens data
@@ -69,13 +69,15 @@ const WhyUseSection = () => {
     return () => clearInterval(interval);
   }, [appScreens.length]);
 
+
+
   // Navigation functions
   // const handleTryDemoClick = () => {
   //   navigate(routes.demo);
   // };
 
   const handleDownloadAppClick = () => {
-    openPOSRequest();
+    openMobileRequest();
   };
 
   const nextSlide = () => {
@@ -362,7 +364,7 @@ const WhyUseSection = () => {
                 >
                   <span className="flex items-center justify-center gap-2">
                     <Download className="w-5 h-5" />
-                    Download App
+                    Request Mobile App 
                     <span className="inline-block transition-transform transform group-hover:translate-x-1">
                       →
                     </span>
@@ -480,7 +482,7 @@ const WhyUseSection = () => {
           </div> */}
         </motion.div>
       </div>
-      <POSRequestModal />
+      <MobileRequestModal />
     </section>
   );
 };
