@@ -194,7 +194,7 @@ const POSRequestPopup: React.FC<POSRequestPopupProps> = ({
               
               <div>
                 <label className="block mb-2 text-sm font-medium text-white lg:text-base">
-                  Personal Email (optional)
+                 Email (optional)
                 </label>
                 <TextInput
                   placeholder="your.personal@email.com"
@@ -251,8 +251,8 @@ const POSRequestPopup: React.FC<POSRequestPopupProps> = ({
             </div> */}
 
             {/* Fourth row - District & City */}
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:gap-6">
-              {/* <div>
+            {/* <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:gap-6">
+              <div>
                 <label className="block mb-2 text-sm font-medium text-white lg:text-base">
                   District
                 </label>
@@ -264,13 +264,13 @@ const POSRequestPopup: React.FC<POSRequestPopupProps> = ({
                       "!bg-white/15 !border-white/30 !text-white placeholder:!text-white/70 !rounded-xl h-11 lg:h-12 text-sm lg:text-base focus:!border-white/60 focus:!bg-white/20 transition-all duration-200",
                   }}
                 />
-              </div> */}
+              </div>
               
-            </div>
+            </div> */}
 
             {/* Fifth row - Message */}
             <div>
-              <label className="block mb-2 text-sm font-medium text-white lg:text-base">
+              <label className="block text-sm font-medium text-white lg:text-base">
                 Message *
               </label>
               <Textarea
