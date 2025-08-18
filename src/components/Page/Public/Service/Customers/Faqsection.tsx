@@ -2,12 +2,11 @@ import FaqContent from "@/components/core/FaqContent";
 // import { AppDownloadButtons } from "@/components/ui/AppDownloadButtons";
 import { FAQCustomer } from "@/constants/Data";
 // import { routes } from "@/constants/route";
+import { useMobleRequestPopups } from "@/hooks/useMobleRequestPopup";
 import { IconQuestionMark, IconSparkles } from "@tabler/icons-react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { FormattedMessage } from "react-intl";
-import { useNavigate } from "react-router-dom";
-import { useMobleRequestPopups } from "@/hooks/useMobleRequestPopup";
 // import { scrollToSection } from "@/utils/scrollUtils";
 
 // FaqSection component
@@ -15,10 +14,9 @@ const FaqSection = () => {
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
   const contentRef = useRef(null);
-  
 
-     const navigate = useNavigate();
-      const { openMobileRequest, MobileRequestModal } = useMobleRequestPopups();
+  ;
+  const { openMobileRequest, MobileRequestModal } = useMobleRequestPopups();
 
   // Navigation functions
   const handleGetStartedClick = () => {
@@ -29,12 +27,12 @@ const FaqSection = () => {
   //    scrollToSection('appshowcase');
   // };
 
-    // const handleGetStartedKeyDown = (event: React.KeyboardEvent) => {
-    //   if (event.key === 'Enter' || event.key === ' ') {
-    //     event.preventDefault();
-    //     handleContactSupportClick();
-    //   }
-    // };
+  // const handleGetStartedKeyDown = (event: React.KeyboardEvent) => {
+  //   if (event.key === 'Enter' || event.key === ' ') {
+  //     event.preventDefault();
+  //     handleContactSupportClick();
+  //   }
+  // };
 
   const isHeadingInView = useInView(headingRef, { once: true, amount: 0.5 });
   const isContentInView = useInView(contentRef, { once: true, amount: 0.3 });
@@ -136,7 +134,7 @@ const FaqSection = () => {
             <div className="relative z-10">
               <FaqContent faqList={FAQCustomer} />
             </div>
-           
+
           </div>
 
           {/* Bottom decorative element */}
@@ -156,7 +154,7 @@ const FaqSection = () => {
             <h3 className="mb-4 text-2xl font-bold text-gray-900 lg:text-3xl">
               <FormattedMessage id="customers.faq.cta.title" />
             </h3>
-            
+
             <p className="max-w-2xl mx-auto mb-8 text-lg text-gray-600">
               <FormattedMessage id="customers.faq.cta.description" />
             </p>
@@ -167,15 +165,15 @@ const FaqSection = () => {
               >
                 <FormattedMessage id="customers.faq.cta.button1" />
               </button>
-             
+
             </div>
 
             {/* App Download Section */}
             {/* <div className="pt-8 border-t border-gray-200"> */}
-              {/* <h4 className="mb-4 text-lg font-semibold text-gray-900">
+            {/* <h4 className="mb-4 text-lg font-semibold text-gray-900">
                 Request Our Mobile App
               </h4> */}
-              {/* <AppDownloadButtons /> */}
+            {/* <AppDownloadButtons /> */}
             {/* </div> */}
           </div>
         </motion.div>
@@ -220,7 +218,7 @@ const FaqSection = () => {
           animation: scale-x 1s ease-out 1s forwards;
         }
       `}</style>
-       <MobileRequestModal />
+      <MobileRequestModal />
     </section>
   );
 };
