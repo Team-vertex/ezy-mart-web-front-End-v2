@@ -6,9 +6,8 @@ import { FormattedMessage } from "react-intl";
 export function StorySection() {
   // Navigation function
   const handleLearnMoreClick = () => {
-    // Scroll to the vision/mission section
-    scrollToSection('vision-mission');
-  };
+  window.open("https://vertexcooperation.lk/", "_blank"); 
+};
   const highlights = [
     {
       icon: Target,
@@ -28,9 +27,9 @@ export function StorySection() {
   ];
 
   return (
-    <section data-section="story" className="py-20 px-4 bg-gradient-to-br from-blue-50/30 to-white">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <section data-section="story" className="px-4 py-20 bg-gradient-to-br from-blue-50/30 to-white">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid items-center gap-16 lg:grid-cols-2">
           {/* Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -40,10 +39,10 @@ export function StorySection() {
             className="space-y-8"
           >
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              <h2 className="mb-6 text-4xl font-bold text-gray-900 md:text-5xl">
                 <FormattedMessage id="aboutUs.story.title" />
               </h2>
-              <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
+              <div className="space-y-6 text-lg leading-relaxed text-gray-600">
                 <p>
                   <FormattedMessage id="aboutUs.story.content.0" />
                 </p>
@@ -67,10 +66,10 @@ export function StorySection() {
                       <IconComponent size={24} className="text-white" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">
+                      <h3 className="mb-1 font-semibold text-gray-900">
                         <FormattedMessage id={highlight.titleKey} />
                       </h3>
-                      <p className="text-gray-600 text-sm">
+                      <p className="text-sm text-gray-600">
                         <FormattedMessage id={highlight.descriptionKey} />
                       </p>
                     </div>
@@ -88,7 +87,7 @@ export function StorySection() {
               className="group bg-[#0A65FC] text-white px-8 py-4 rounded-full font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
             >
               <FormattedMessage id="aboutUs.story.button" />
-              <span className="inline-block ml-2 transform group-hover:translate-x-1 transition-transform">
+              <span className="inline-block ml-2 transition-transform transform group-hover:translate-x-1">
                 →
               </span>
             </motion.button>
@@ -104,19 +103,19 @@ export function StorySection() {
           >
             {/* Main illustration area */}
             <div className="relative bg-gradient-to-br from-[#0A65FC]/10 to-blue-600/5 rounded-3xl p-8 min-h-[500px] flex items-center justify-center">
-              <div className="grid grid-cols-2 gap-6 w-full">
+              <div className="grid w-full grid-cols-2 gap-6">
                 {/* Feature cards */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
                   viewport={{ once: true }}
-                  className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow"
+                  className="p-6 transition-shadow bg-white shadow-lg rounded-2xl hover:shadow-xl"
                 >
                   <div className="w-12 h-12 bg-gradient-to-r from-[#0A65FC] to-blue-600 rounded-xl flex items-center justify-center mb-4">
                     <CheckCircle size={24} className="text-white" />
                   </div>
-                  <h4 className="font-semibold text-gray-900 mb-2">
+                  <h4 className="mb-2 font-semibold text-gray-900">
                     Quality Assured
                   </h4>
                   <p className="text-sm text-gray-600">
@@ -129,12 +128,12 @@ export function StorySection() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: 0.3 }}
                   viewport={{ once: true }}
-                  className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow mt-8"
+                  className="p-6 mt-8 transition-shadow bg-white shadow-lg rounded-2xl hover:shadow-xl"
                 >
                   <div className="w-12 h-12 bg-gradient-to-r from-[#0A65FC] to-blue-600 rounded-xl flex items-center justify-center mb-4">
                     <Zap size={24} className="text-white" />
                   </div>
-                  <h4 className="font-semibold text-gray-900 mb-2">
+                  <h4 className="mb-2 font-semibold text-gray-900">
                     Fast & Easy
                   </h4>
                   <p className="text-sm text-gray-600">
@@ -147,12 +146,12 @@ export function StorySection() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: 0.4 }}
                   viewport={{ once: true }}
-                  className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow"
+                  className="p-6 transition-shadow bg-white shadow-lg rounded-2xl hover:shadow-xl"
                 >
                   <div className="w-12 h-12 bg-gradient-to-r from-[#0A65FC] to-blue-600 rounded-xl flex items-center justify-center mb-4">
                     <Users size={24} className="text-white" />
                   </div>
-                  <h4 className="font-semibold text-gray-900 mb-2">
+                  <h4 className="mb-2 font-semibold text-gray-900">
                     Community Focus
                   </h4>
                   <p className="text-sm text-gray-600">
@@ -165,12 +164,12 @@ export function StorySection() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: 0.5 }}
                   viewport={{ once: true }}
-                  className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow mt-8"
+                  className="p-6 mt-8 transition-shadow bg-white shadow-lg rounded-2xl hover:shadow-xl"
                 >
                   <div className="w-12 h-12 bg-gradient-to-r from-[#0A65FC] to-blue-600 rounded-xl flex items-center justify-center mb-4">
                     <Target size={24} className="text-white" />
                   </div>
-                  <h4 className="font-semibold text-gray-900 mb-2">
+                  <h4 className="mb-2 font-semibold text-gray-900">
                     Smart Solutions
                   </h4>
                   <p className="text-sm text-gray-600">
@@ -189,7 +188,7 @@ export function StorySection() {
             <motion.div
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 4, repeat: Infinity }}
-              className="absolute -bottom-6 -left-6 w-32 h-32 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full opacity-5"
+              className="absolute w-32 h-32 rounded-full -bottom-6 -left-6 bg-gradient-to-r from-blue-400 to-blue-600 opacity-5"
             />
           </motion.div>
         </div>

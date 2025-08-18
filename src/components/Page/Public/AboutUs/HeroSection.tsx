@@ -19,7 +19,7 @@ export const HeroSection: React.FC = () => {
   };
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-white via-blue-50/30 to-blue-100/40 overflow-hidden">
+    <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-blue-100/40">
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -44,7 +44,7 @@ export const HeroSection: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="mb-8"
           >
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight">
+            <h1 className="text-5xl font-bold leading-tight text-gray-900 md:text-6xl lg:text-7xl">
               <FormattedMessage id="aboutUs.hero.title" />
             </h1>
           </motion.div>
@@ -53,7 +53,7 @@ export const HeroSection: React.FC = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl md:text-2xl text-gray-600 leading-relaxed max-w-4xl mx-auto mb-12"
+            className="max-w-4xl mx-auto mb-12 text-xl leading-relaxed text-gray-600 md:text-2xl"
           >
             <FormattedMessage id="aboutUs.hero.subtitle" />
           </motion.p>
@@ -62,7 +62,7 @@ export const HeroSection: React.FC = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            className="flex flex-col items-center justify-center gap-4 sm:flex-row"
           >
             <button
               onClick={handleOurStoryClick}
@@ -70,7 +70,7 @@ export const HeroSection: React.FC = () => {
               className="group bg-[#0A65FC] text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-300"
             >
               Our Story
-              <span className="inline-block ml-2 transform group-hover:translate-x-1 transition-transform">
+              <span className="inline-block ml-2 transition-transform transform group-hover:translate-x-1">
                 →
               </span>
             </button>
@@ -90,7 +90,7 @@ export const HeroSection: React.FC = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+        className="absolute transform -translate-x-1/2 bottom-8 left-1/2"
       >
         <motion.div
           animate={{ y: [0, 10, 0] }}
