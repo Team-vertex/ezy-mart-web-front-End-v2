@@ -16,7 +16,7 @@ import { useNavigate } from "react-router-dom";
 export const Service: React.FC = () => {
   // MARK: Hooks
   const navigate = useNavigate();
-  const { openPOSRequest, POSRequestModal } = usePOSRequestPopup();
+  const { POSRequestModal } = usePOSRequestPopup();
 
   // MARK: Refs
   const sectionRef = useRef(null);
@@ -32,7 +32,7 @@ export const Service: React.FC = () => {
 
   // MARK: Navigation Functions
   const handleStartFreeTrial = () => {
-     navigate(routes.serviceForBusiness);
+    navigate(routes.serviceForBusiness);
     // Scroll to demo area after navigation
     setTimeout(() => {
       const demoSection = document.getElementById('demo-area');
