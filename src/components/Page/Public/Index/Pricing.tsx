@@ -76,7 +76,7 @@ export const Pricing: React.FC = () => {
     // },
     {
       name: "Pro",
-      description: "Perfect for small and mid level business",
+      description: "Perfect for affordable business",
       icon: IconRocket,
       price: { monthly: 2400, yearly: 26400 },
       originalPrice: { monthly: 2500, yearly: 30000 },
@@ -85,7 +85,7 @@ export const Pricing: React.FC = () => {
         "Web based POS",
         "Stocks Management",
         "Employee Managment",
-        "Work Online & Offline",
+        "Work Online",
         "Supplier Managment",
         "Manage Expenses",
         "Sales Analysis",
@@ -95,23 +95,23 @@ export const Pricing: React.FC = () => {
 
       ],
       limitations: [
-        "Multi-location support",
+
       ],
       popular: true,
       borderColor: "border-blue-200",
     },
     {
-      name: "Single Branch One-Time",
-      description: "Lifetime license for a single branch",
+      name: "Single Branch",
+      description: "Perfect for Single Shop",
       icon: IconRocket,
-      price: { monthly: 0, yearly: 80000 }, // yearly use karanawa one-time price
+      price: { monthly: 0, yearly: 80000 },
       originalPrice: { monthly: 0, yearly: 0 },
       features: [
         "Web based admin panel",
         "Web based POS",
         "Stocks Management",
         "Employee Management",
-        "Work Online & Offline",
+        "Work Online",
         "Supplier Management",
         "Manage Expenses",
         "Sales Analysis",
@@ -120,23 +120,23 @@ export const Pricing: React.FC = () => {
         "Cloud backup",
       ],
       limitations: [
-        "No Multi-location support",
+
       ],
       popular: false,
       borderColor: "border-green-200",
     },
     {
-      name: "Multi Branch One-Time",
-      description: "Lifetime license for multiple branches",
+      name: "Multi Branch",
+      description: "Perfect for multiple branches",
       icon: IconRocket,
-      price: { monthly: 0, yearly: 150000 }, // yearly use karanawa one-time price
+      price: { monthly: 0, yearly: 150000 },
       originalPrice: { monthly: 0, yearly: 0 },
       features: [
         "Web based admin panel",
         "Web based POS",
         "Stocks Management",
         "Employee Management",
-        "Work Online & Offline",
+        "Work Online",
         "Supplier Management",
         "Manage Expenses",
         "Sales Analysis",
@@ -145,7 +145,7 @@ export const Pricing: React.FC = () => {
         "Cloud backup",
       ],
       limitations: [
-        "No Multi-location support",
+
       ],
       popular: false,
       borderColor: "border-green-200",
@@ -282,14 +282,14 @@ export const Pricing: React.FC = () => {
                 <div className="mb-4 text-center">
                   <span className="text-4xl font-bold text-gray-900">
                     LKR{" "}
-                    {(plan.name.includes("One-Time") ? 
-                    plan.price.yearly : isYearly
-                      ? plan.price.yearly
-                      : plan.price.monthly
+                    {(plan.name.includes("Branch") ?
+                      plan.price.yearly : isYearly
+                        ? plan.price.yearly
+                        : plan.price.monthly
                     ).toLocaleString()}
                   </span>
                   <span className="block mt-1 text-lg text-gray-600">
-                    {plan.name.includes("One-Time")
+                    {plan.name.includes("Branch")
                       ? "One-Time"
                       : `/${isYearly ? "year" : "month"}`}
                   </span>

@@ -18,7 +18,7 @@ const getRoadmapItems = (intl: any) => [
     roadmapId: 1,
     title: intl.formatMessage({ id: "aboutUs.roadmap.items.platform.title" }),
     year: "Q1 2025",
-    month: "January",
+    month: "August",
     description: intl.formatMessage({
       id: "aboutUs.roadmap.items.platform.description",
     }),
