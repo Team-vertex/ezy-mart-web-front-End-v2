@@ -52,6 +52,12 @@ export default function POSInterface() {
             <p className="max-w-3xl mx-auto text-xl leading-relaxed text-gray-600">
               <FormattedMessage id="demo.posInterface.subtitle" />
             </p>
+
+            <p className="max-w-3xl  mx-auto text-xl leading-relaxed ">
+              Website: www.posdemo.vertexcooperation.lk/ <br/>
+              Email: contact.vertexcooperation@gmail.com <br/>
+              password: 123456
+            </p>
           </motion.div>
 
           {/* Figma Prototype */}
@@ -63,7 +69,7 @@ export default function POSInterface() {
           >
             
               <iframe
-                src="https://vertexcooperation.lk/"
+                src="https://posdemo.vertexcooperation.lk/"
                 className="w-full h-full border-0"
               ></iframe>
             

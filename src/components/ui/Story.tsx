@@ -32,7 +32,7 @@ export const Story: React.FC<StorySectionProps> = ({
         
         <div className="w-full text-base text-black font-medium leading-6 mt-[26px] max-md:max-w-full">
           <p className="text-black max-md:max-w-full">
-            EzyMart is a smart shopping platform developed by Vertex
+            EzyShop is a smart shopping platform developed by Vertex
             Cooperation (PVT) LTD, a team dedicated to creating practical,
             innovative tech solutions. Guided by our vision — Enhancing
             mankind's lifestyles for a better future — we aim to make
@@ -40,9 +40,9 @@ export const Story: React.FC<StorySectionProps> = ({
           </p>
           
           <p className="text-black mt-[26px] max-md:max-w-full">
-            Our Project EzyMart is to bring small and mid-level businesses
+            Our Project EzyShop is to bring small and mid-level businesses
             into the digital world and connect everyday customers with local
-            shops through a smart, easy-to-use app. EzyMart helps users find
+            shops through a smart, easy-to-use app. EzyShop helps users find
             nearby products quickly, making shopping more convenient,
             affordable, and efficient—whether it's groceries, electronics,
             or daily essentials.
@@ -52,7 +52,7 @@ export const Story: React.FC<StorySectionProps> = ({
       
       <ContactButton 
         onClick={onContactClick}
-        aria-label="Get in touch with the EzyMart team"
+        aria-label="Get in touch with the EzyShop team"
       />
     </section>
   );

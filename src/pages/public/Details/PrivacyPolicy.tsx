@@ -18,15 +18,15 @@ export default function PrivacyPolicy(): JSX.Element {
 
             <h3 className="text-xl font-semibold mb-3 mt-6">1.1 Definitions</h3>
             <ul className="list-disc pl-5 text-gray-700 mb-4">
-              <li>“Business User” – Any shop or business that uses the EzyMart POS system.</li>
-              <li>“Customer User” – Any individual who uses the EzyMart mobile app to browse shops and products.</li>
-              <li>“Services” – EzyMart POS system, mobile application, website, and related services.</li>
+              <li>“Business User” – Any shop or business that uses the EzyShop POS system.</li>
+              <li>“Customer User” – Any individual who uses the EzyShop mobile app to browse shops and products.</li>
+              <li>“Services” – EzyShop POS system, mobile application, website, and related services.</li>
               <li>“Subscription Plan” – Paid plans available for Business Users, including ad-free options for customers.</li>
             </ul>
 
             <h3 className="text-xl font-semibold mb-3 mt-6">1.2 Eligibility</h3>
             <p className="text-gray-700 mb-4">
-              You must be at least 18 years old to use EzyMart. Businesses must be legally registered in Sri Lanka or their country of operation.
+              You must be at least 18 years old to use EzyShop. Businesses must be legally registered in Sri Lanka or their country of operation.
             </p>
 
             <h3 className="text-xl font-semibold mb-3 mt-6">1.3 Accounts</h3>
@@ -51,14 +51,14 @@ export default function PrivacyPolicy(): JSX.Element {
 
             <h3 className="text-xl font-semibold mb-3 mt-6">1.6 Acceptable Use</h3>
             <ul className="list-disc pl-5 text-gray-700 mb-4">
-              <li>Use EzyMart for illegal activities</li>
+              <li>Use EzyShop for illegal activities</li>
               <li>Upload offensive or prohibited content</li>
               <li>Attempt to hack or disrupt our systems</li>
             </ul>
 
             <h3 className="text-xl font-semibold mb-3 mt-6">1.7 Intellectual Property</h3>
             <ul className="list-disc pl-5 text-gray-700 mb-4">
-              <li>EzyMart logos, branding, and software belong to Vertex Cooperation (Pvt) Ltd.</li>
+              <li>EzyShop logos, branding, and software belong to Vertex Cooperation (Pvt) Ltd.</li>
               <li>You may not copy, modify, or distribute our software without permission.</li>
             </ul>
 
@@ -78,7 +78,7 @@ export default function PrivacyPolicy(): JSX.Element {
             </ul>
 
             <h3 className="text-xl font-semibold mb-3 mt-6">1.11 Indemnification</h3>
-            <p className="text-gray-700 mb-4">You agree to protect us from claims arising from your misuse of EzyMart.</p>
+            <p className="text-gray-700 mb-4">You agree to protect us from claims arising from your misuse of EzyShop.</p>
 
             <h3 className="text-xl font-semibold mb-3 mt-6">1.12 Governing Law</h3>
             <p className="text-gray-700 mb-4">These Terms follow the laws of Sri Lanka.</p>
@@ -135,7 +135,7 @@ export default function PrivacyPolicy(): JSX.Element {
             </ul>
 
             <h3 className="text-xl font-semibold mb-3 mt-6">2.7 Children’s Privacy</h3>
-            <p className="text-gray-700 mb-4">EzyMart is not intended for children under 13.</p>
+            <p className="text-gray-700 mb-4">EzyShop is not intended for children under 13.</p>
           </section>
 
           <section>

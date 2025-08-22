@@ -2,9 +2,9 @@ import { AccordionData } from "@/interface/core";
 
 export const indexHeroText = {
   TextOne:
-    "EzyMart make you run your business smoothly than ever before through EzyMart pos without and extra works.",
+    "EzyShop make you run your business smoothly than ever before through EzyShop pos without and extra works.",
   Texttwo:
-    "EzyMart makes shopping easier than ever. Search for products near you, discover local shops, save time, and enjoy a smooth, stress free shopping experience all through one smart app",
+    "EzyShop makes shopping easier than ever. Search for products near you, discover local shops, save time, and enjoy a smooth, stress free shopping experience all through one smart app",
 };
 
 export const FAQContent: AccordionData[] = [
@@ -16,7 +16,7 @@ export const FAQContent: AccordionData[] = [
   {
     title: "What are the service provided for customers in Sri Lanka ?",
     description:
-      "We will provide EzyMart mobile application for Sri Lankan people. You can find any product nearly where you at and alos shops informations more.",
+      "We will provide EzyShop mobile application for Sri Lankan people. You can find any product nearly where you at and alos shops informations more.",
   },
   {
     title: "How to connect with you?",
@@ -33,7 +33,7 @@ export const FAQCustomer: AccordionData[] = [
   {
     title: "What are the service provided for customers in Sri Lanka ?",
     description:
-      "We will provide EzyMart mobile application for Sri Lankan people. You can find any product nearly where you at and alos shops informations more.",
+      "We will provide EzyShop mobile application for Sri Lankan people. You can find any product nearly where you at and alos shops informations more.",
   },
   {
     title: "How to connect with you?",

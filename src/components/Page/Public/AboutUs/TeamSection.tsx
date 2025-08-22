@@ -107,7 +107,7 @@ export function TeamSection() {
       position: "CEO & Founder",
       imageSrc:
         "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
-      bio: "Visionary leader driving EzyMart's mission to revolutionize local shopping experiences.",
+      bio: "Visionary leader driving EzyShop's mission to revolutionize local shopping experiences.",
       social: {
         linkedin: "https://www.linkedin.com/in/bamindu-jayakodi",
       },

@@ -13,7 +13,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({
   isOpen,
   onClose,
   videoId = "dQw4w9WgXcQ", // Default to a demo video
-  title = "EzyMart POS Demo",
+  title = "EzyShop POS Demo",
 }) => {
   return (
     <AnimatePresence>
@@ -71,7 +71,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({
               <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div>
                   <p className="text-gray-300 text-sm">
-                    Like what you see? Get started with EzyMart POS today.
+                    Like what you see? Get started with EzyShop POS today.
                   </p>
                 </div>
                 <div className="flex gap-3">

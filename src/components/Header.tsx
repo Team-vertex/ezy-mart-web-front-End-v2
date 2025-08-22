@@ -99,7 +99,7 @@ export default function Header() {
           <a href={routes.home} className="flex items-center space-x-2 group">
             <Image
               src="/images/logo-dark.png"
-              alt="EzyMart Logo"
+              alt="EzyShop Logo"
               width={32}
               height={32}
               className="transition-transform duration-200 group-hover:scale-110 w-16 h-16"
@@ -211,7 +211,7 @@ export default function Header() {
               <span className="text-white font-bold text-sm">E</span>
             </div>
             <div>
-              <h1 className="font-bold text-gray-900">EzyMart</h1>
+              <h1 className="font-bold text-gray-900">EzyShop</h1>
               <p className="text-xs text-gray-500">POS Solution</p>
             </div>
           </div>

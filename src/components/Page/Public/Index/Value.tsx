@@ -51,7 +51,7 @@ export const Value: React.FC = () => {
     {
       id: 1,
       src: "public/stock/home/values/3979020.jpg",
-      alt: "Shop owner using EzyMart POS",
+      alt: "Shop owner using EzyShop POS",
       title: "Smart POS Solutions",
       description:
         "Streamline your business operations with our intuitive POS system designed for modern retailers.",
@@ -60,7 +60,7 @@ export const Value: React.FC = () => {
     {
       id: 2,
       src: "public/stock/home/values/showing_people_creates_a_custom_design_for_a_mobile_application_suitable_for_landing_page_ui_web_app_intro_card_editorial_flyer_and_banner.jpg",
-      alt: "Customer using EzyMart mobile app",
+      alt: "Customer using EzyShop mobile app",
       title: "Mobile Integration",
       description:
         "Connect with customers through our powerful mobile app that enhances shopping experience.",
@@ -69,7 +69,7 @@ export const Value: React.FC = () => {
     {
       id: 3,
       src: "public/stock/home/values/erp-enterprise-resource-planning-concept-company-productivity-improvement-illustration-website.jpg",
-      alt: "Inventory management with EzyMart",
+      alt: "Inventory management with EzyShop",
       title: "Real-time Analytics",
       description:
         "Make data-driven decisions with comprehensive analytics and reporting tools.",

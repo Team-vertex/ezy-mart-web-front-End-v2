@@ -210,7 +210,7 @@ export const Instructions: React.FC = () => {
               <div className="relative p-6 bg-white shadow-2xl rounded-2xl lg:p-8">
                 <img
                   src="/stock/home/instuctions/a7f887ba-7534-4a49-b99f-89b9da8fe29c.jpg"
-                  alt="EzyMart Training Session"
+                  alt="EzyShop Training Session"
                   className="w-full h-auto rounded-xl"
                 />
 

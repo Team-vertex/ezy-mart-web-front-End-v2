@@ -37,7 +37,7 @@ export const ImageGallery: React.FC<ImageGalleryProps> = ({ className = '' }) =>
       </div>
       <img
         src="https://cdn.builder.io/api/v1/image/assets/048e14f207294d2d81c31c8ac35554bd/d41cf452394cbb68b57ac5d41c7e6472f11182b2?placeholderIfAbsent=true"
-        alt="EzyMart platform highlight"
+        alt="EzyShop platform highlight"
         className="aspect-[1] object-contain w-[62px] shadow-[8px_4px_10px_rgba(0,0,0,0.25)] self-center mt-9 rounded-[300px]"
       />
     </section>

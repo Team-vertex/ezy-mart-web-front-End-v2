@@ -123,11 +123,11 @@ const POSRequestPopup: React.FC<POSRequestPopupProps> = ({
           {/* Header */}
           <div className="mb-8 text-center lg:mb-10">
             <h2 className="mb-3 text-xl font-bold leading-tight text-white sm:text-2xl lg:text-3xl xl:text-4xl lg:mb-4">
-              Request Your EzyMart POS Now
+              Request Your EzyShop POS Now
             </h2>
             <p className="max-w-2xl mx-auto text-xs leading-relaxed text-white/90 sm:text-sm lg:text-base">
               Ready to get started? Send us your details and we'll help you set
-              up EzyMart POS for your business fast, easy, and stress free.
+              up EzyShop POS for your business fast, easy, and stress free.
             </p>
 
             {/* Notification */}

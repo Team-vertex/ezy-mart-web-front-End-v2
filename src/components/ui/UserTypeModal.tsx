@@ -69,7 +69,7 @@ export const UserTypeModal: React.FC<UserTypeModalProps> = ({
                   </div>
                 </div>
                 <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                  Welcome to EzyMart!
+                  Welcome to EzyShop!
                 </h2>
                 <p className="text-gray-600">
                   Help us personalize your experience
