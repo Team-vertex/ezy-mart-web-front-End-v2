@@ -4,11 +4,7 @@ import {
   Calendar,
   CheckCircle,
   Clock,
-  Diamond,
-  Globe,
   Rocket,
-  Smartphone,
-  Users,
 } from "lucide-react";
 import { FormattedMessage, useIntl } from "react-intl";
 import { useNavigate } from "react-router-dom";
@@ -36,90 +32,90 @@ const getRoadmapItems = (intl: any) => [
       }),
     ],
   },
-  {
-    roadmapId: 2,
-    title: intl.formatMessage({ id: "aboutUs.roadmap.items.mobile.title" }),
-    year: "Q2 2025",
-    month: "April",
-    description: intl.formatMessage({
-      id: "aboutUs.roadmap.items.mobile.description",
-    }),
-    icon: Smartphone,
-    status: "in-progress",
-    achievements: [
-      intl.formatMessage({ id: "aboutUs.roadmap.items.mobile.achievements.0" }),
-      intl.formatMessage({ id: "aboutUs.roadmap.items.mobile.achievements.1" }),
-      intl.formatMessage({ id: "aboutUs.roadmap.items.mobile.achievements.2" }),
-    ],
-  },
-  {
-    roadmapId: 3,
-    title: intl.formatMessage({ id: "aboutUs.roadmap.items.community.title" }),
-    year: "Q3 2025",
-    month: "July",
-    description: intl.formatMessage({
-      id: "aboutUs.roadmap.items.community.description",
-    }),
-    icon: Users,
-    status: "upcoming",
-    achievements: [
-      intl.formatMessage({
-        id: "aboutUs.roadmap.items.community.achievements.0",
-      }),
-      intl.formatMessage({
-        id: "aboutUs.roadmap.items.community.achievements.1",
-      }),
-      intl.formatMessage({
-        id: "aboutUs.roadmap.items.community.achievements.2",
-      }),
-    ],
-  },
-  {
-    roadmapId: 4,
-    title: intl.formatMessage({ id: "aboutUs.roadmap.items.premium.title" }),
-    year: "Q4 2025",
-    month: "October",
-    description: intl.formatMessage({
-      id: "aboutUs.roadmap.items.premium.description",
-    }),
-    icon: Diamond,
-    status: "upcoming",
-    achievements: [
-      intl.formatMessage({
-        id: "aboutUs.roadmap.items.premium.achievements.0",
-      }),
-      intl.formatMessage({
-        id: "aboutUs.roadmap.items.premium.achievements.1",
-      }),
-      intl.formatMessage({
-        id: "aboutUs.roadmap.items.premium.achievements.2",
-      }),
-    ],
-  },
-  {
-    roadmapId: 5,
-    title: intl.formatMessage({
-      id: "aboutUs.roadmap.items.international.title",
-    }),
-    year: "2026",
-    month: "Q1",
-    description: intl.formatMessage({
-      id: "aboutUs.roadmap.items.international.description",
-    }),
-    icon: Globe,
-    status: "upcoming",
-    achievements: [
-      intl.formatMessage({
-        id: "aboutUs.roadmap.items.international.achievements.0",
-      }),
-      intl.formatMessage({
-        id: "aboutUs.roadmap.items.international.achievements.1",
-      }),
-      intl.formatMessage({
-        id: "aboutUs.roadmap.items.international.achievements.2",
-      }),
-    ],
-  },
+  // {
+  //   roadmapId: 2,
+  //   title: intl.formatMessage({ id: "aboutUs.roadmap.items.mobile.title" }),
+  //   year: "Q2 2025",
+  //   month: "OCT",
+  //   description: intl.formatMessage({
+  //     id: "aboutUs.roadmap.items.mobile.description",
+  //   }),
+  //   icon: Smartphone,
+  //   status: "in-progress",
+  //   achievements: [
+  //     intl.formatMessage({ id: "aboutUs.roadmap.items.mobile.achievements.0" }),
+  //     intl.formatMessage({ id: "aboutUs.roadmap.items.mobile.achievements.1" }),
+  //     intl.formatMessage({ id: "aboutUs.roadmap.items.mobile.achievements.2" }),
+  //   ],
+  // },
+  // {
+  //   roadmapId: 3,
+  //   title: intl.formatMessage({ id: "aboutUs.roadmap.items.community.title" }),
+  //   year: "Q3 2025",
+  //   month: "July",
+  //   description: intl.formatMessage({
+  //     id: "aboutUs.roadmap.items.community.description",
+  //   }),
+  //   icon: Users,
+  //   status: "upcoming",
+  //   achievements: [
+  //     intl.formatMessage({
+  //       id: "aboutUs.roadmap.items.community.achievements.0",
+  //     }),
+  //     intl.formatMessage({
+  //       id: "aboutUs.roadmap.items.community.achievements.1",
+  //     }),
+  //     intl.formatMessage({
+  //       id: "aboutUs.roadmap.items.community.achievements.2",
+  //     }),
+  //   ],
+  // },
+  // {
+  //   roadmapId: 4,
+  //   title: intl.formatMessage({ id: "aboutUs.roadmap.items.premium.title" }),
+  //   year: "Q4 2025",
+  //   month: "October",
+  //   description: intl.formatMessage({
+  //     id: "aboutUs.roadmap.items.premium.description",
+  //   }),
+  //   icon: Diamond,
+  //   status: "upcoming",
+  //   achievements: [
+  //     intl.formatMessage({
+  //       id: "aboutUs.roadmap.items.premium.achievements.0",
+  //     }),
+  //     intl.formatMessage({
+  //       id: "aboutUs.roadmap.items.premium.achievements.1",
+  //     }),
+  //     intl.formatMessage({
+  //       id: "aboutUs.roadmap.items.premium.achievements.2",
+  //     }),
+  //   ],
+  // },
+  // {
+  //   roadmapId: 5,
+  //   title: intl.formatMessage({
+  //     id: "aboutUs.roadmap.items.international.title",
+  //   }),
+  //   year: "2026",
+  //   month: "Q1",
+  //   description: intl.formatMessage({
+  //     id: "aboutUs.roadmap.items.international.description",
+  //   }),
+  //   icon: Globe,
+  //   status: "upcoming",
+  //   achievements: [
+  //     intl.formatMessage({
+  //       id: "aboutUs.roadmap.items.international.achievements.0",
+  //     }),
+  //     intl.formatMessage({
+  //       id: "aboutUs.roadmap.items.international.achievements.1",
+  //     }),
+  //     intl.formatMessage({
+  //       id: "aboutUs.roadmap.items.international.achievements.2",
+  //     }),
+  //   ],
+  // },
 ];
 
 export function RoadmapSection() {
