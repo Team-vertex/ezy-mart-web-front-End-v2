@@ -105,81 +105,80 @@ export function TeamSection() {
     {
       name: "Bamindu Jayakodi",
       position: "CEO & Founder",
-      imageSrc:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+      imageSrc:"public/images/teamProfiles/bamidu.jpeg",
       bio: "Visionary leader driving EzyShop's mission to revolutionize local shopping experiences.",
       social: {
-        linkedin: "https://www.linkedin.com/in/bamindu-jayakodi",
+        linkedin: "https://www.linkedin.com/in/bamidujayakodi/",
       },
     },
     {
       name: "Thamoddya Rashmitha",
       position: "CTO & Co-Founder",
       imageSrc:
-        "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
+        "",
       bio: "Technology innovator building scalable solutions for the future of commerce.",
       social: {
-        linkedin: "https://www.linkedin.com/in/thamoddya-rashmitha",
+        linkedin: "public/images/teamProfiles/avatar.jpg",
       },
     },
     {
       name: "Shehan Hansaka",
       position: "CMO & Co-Founder",
       imageSrc:
-        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+        "public/images/teamProfiles/shehan.jpeg",
       bio: "Marketing strategist connecting communities with local businesses nationwide.",
       social: {
-        linkedin: "https://www.linkedin.com/in/shehan-hansaka",
+        linkedin: "https://www.linkedin.com/in/shehan-hansaka-687781373/",
       },
     },
     {
       name: "Rishika Mandakini",
       position: "UX Designer",
       imageSrc:
-        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
+        "public/images/teamProfiles/rishika.jpeg",
       bio: "User experience specialist ensuring every interaction is smooth and meaningful.",
       social: {
-        linkedin: "https://www.linkedin.com/in/rishika-mandakini",
+        linkedin: "https://www.linkedin.com/in/rishika-mandakini-823822270/",
       },
     },
     {
       name: "Pasindu Wijesinghe",
       position: "UX Designer",
       imageSrc:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+        "public/images/teamProfiles/pasindu.jpeg",
       bio: "Creative designer crafting intuitive user experiences that delight customers.",
       social: {
-        linkedin: "https://www.linkedin.com/in/pasindu-wijesinghe",
+        linkedin: "https://www.linkedin.com/in/pasindudilshan2001/",
       },
     },
     {
-      name: "Mohan Chanaka",
+      name: "Mohan Chanaka Jayaweera",
       position: "Java Developer",
       imageSrc:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+        "public/images/teamProfiles/mohan.jpg",
       bio: "Develops functional software aligned with business goals.",
       social: {
-        linkedin: "https://www.linkedin.com/in/mohan-chanaka",
+        linkedin: "https://www.linkedin.com/in/mohan-chanaka-2504a7290/",
       },
     },
     {
       name: "Sithijaya",
       position: "Back-End Developer",
       imageSrc:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+        "",
       bio: "Develops server-side solutions aligned with business goals.",
       social: {
-        linkedin: "https://www.linkedin.com/in/sithijaya",
+        linkedin: "#",
       },
     },
     {
       name: "Sasindu Deshan",
       position: "Front-End Developer",
       imageSrc:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+        "",
       bio: "Develops functional front-end solutions aligned with business goals.",
       social: {
-        linkedin: "https://www.linkedin.com/in/sasindu-deshan",
+        linkedin: "https://www.linkedin.com/in/sasindu-deshan-39852b2b0/",
       },
     },
   ];
