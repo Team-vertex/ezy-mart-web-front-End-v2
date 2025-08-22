@@ -99,8 +99,7 @@ const LetsTalk = () => {
 
       // Send email
       const result = await emailService.sendContactEmail({
-        firstName: formData.firstName.trim(),
-        lastName: formData.lastName.trim() || undefined,
+        Name: formData.firstName.trim() + " " + formData.lastName.trim(),
         contactNumber: formData.contactNumber.trim(),
         email: formData.email.trim() || undefined,
         reason: formData.reason,
