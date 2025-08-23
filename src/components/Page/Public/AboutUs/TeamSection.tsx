@@ -135,7 +135,7 @@ export function TeamSection() {
       name: "Rishika Mandakini",
       position: "UX Designer",
       imageSrc:
-        "public/images/teamProfiles/rishika.jpeg",
+        "public/images/teamProfiles/rishika.png",
       bio: "User experience specialist ensuring every interaction is smooth and meaningful.",
       social: {
         linkedin: "https://www.linkedin.com/in/rishika-mandakini-823822270/",
