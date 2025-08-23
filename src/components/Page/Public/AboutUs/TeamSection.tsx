@@ -125,7 +125,7 @@ export function TeamSection() {
       name: "Shehan Hansaka",
       position: "CMO & Co-Founder",
       imageSrc:
-        "public/images/teamProfiles/shehan.jpeg",
+        "public/images/teamProfiles/shehan.jpg",
       bio: "Marketing strategist connecting communities with local businesses nationwide.",
       social: {
         linkedin: "https://www.linkedin.com/in/shehan-hansaka-687781373/",
