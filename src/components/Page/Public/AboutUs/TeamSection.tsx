@@ -165,7 +165,7 @@ export function TeamSection() {
       name: "Sithijaya",
       position: "Back-End Developer",
       imageSrc:
-        "",
+        "/images/teamProfiles/sithijaya.jpg",
       bio: "Develops server-side solutions aligned with business goals.",
       social: {
         linkedin: "#",
