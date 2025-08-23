@@ -225,7 +225,7 @@ export const Service: React.FC = () => {
               {/* Main Image Container */}
               <div className="relative p-4 bg-white shadow-2xl rounded-2xl lg:p-6">
                 <img
-                  src="public/stock/home/why_choose_us/5138237.jpg"
+                  src="/stock/home/why_choose_us/5138237.jpg"
                   alt="EzyShop POS Interface"
                   className="w-full h-auto rounded-xl"
                 />

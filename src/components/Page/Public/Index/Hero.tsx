@@ -163,8 +163,8 @@ export const Hero: React.FC = () => {
             >
               <p
                 className={`text-lg lg:text-xl text-gray-600 leading-relaxed max-w-2xl transition-all duration-500 ease-in-out ${isAnimating
-                    ? "opacity-0 transform -translate-y-4"
-                    : "opacity-100 transform translate-y-0"
+                  ? "opacity-0 transform -translate-y-4"
+                  : "opacity-100 transform translate-y-0"
                   }`}
               >
                 <FormattedMessage
@@ -291,8 +291,8 @@ export const Hero: React.FC = () => {
                 >
                   <Carousel.Slide>
                     <img
-                      // src="public/stock/home/hero/Hero.png"
-                      src="public/stock/home/hero/Hero.png"
+                      // src="/stock/home/hero/Hero.png"
+                      src="/stock/home/hero/Hero.png"
                       alt="EzyShop POS Dashboard"
                       className="w-full h-auto rounded-xl shadow-lg"
                     />

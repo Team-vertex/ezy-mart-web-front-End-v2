@@ -105,7 +105,7 @@ export function TeamSection() {
     {
       name: "Bamindu Jayakodi",
       position: "CEO & Founder",
-      imageSrc:"public/images/teamProfiles/bamidu.jpeg",
+      imageSrc: "/images/teamProfiles/bamidu.jpeg",
       bio: "Visionary leader driving EzyShop's mission to revolutionize local shopping experiences.",
       social: {
         linkedin: "https://www.linkedin.com/in/bamidujayakodi/",
@@ -118,14 +118,14 @@ export function TeamSection() {
         "",
       bio: "Technology innovator building scalable solutions for the future of commerce.",
       social: {
-        linkedin: "public/images/teamProfiles/avatar.jpg",
+        linkedin: "/images/teamProfiles/avatar.jpg",
       },
     },
     {
       name: "Shehan Hansaka",
       position: "CMO & Co-Founder",
       imageSrc:
-        "public/images/teamProfiles/shehan.jpg",
+        "/images/teamProfiles/shehan.jpg",
       bio: "Marketing strategist connecting communities with local businesses nationwide.",
       social: {
         linkedin: "https://www.linkedin.com/in/shehan-hansaka-687781373/",
@@ -135,7 +135,7 @@ export function TeamSection() {
       name: "Rishika Mandakini",
       position: "UX Designer",
       imageSrc:
-        "public/images/teamProfiles/rishika.jpeg",
+        "/images/teamProfiles/rishika.jpeg",
       bio: "User experience specialist ensuring every interaction is smooth and meaningful.",
       social: {
         linkedin: "https://www.linkedin.com/in/rishika-mandakini-823822270/",
@@ -145,7 +145,7 @@ export function TeamSection() {
       name: "Pasindu Wijesinghe",
       position: "UX Designer",
       imageSrc:
-        "public/images/teamProfiles/pasindu.jpeg",
+        "/images/teamProfiles/pasindu.jpeg",
       bio: "Creative designer crafting intuitive user experiences that delight customers.",
       social: {
         linkedin: "https://www.linkedin.com/in/pasindudilshan2001/",
@@ -155,7 +155,7 @@ export function TeamSection() {
       name: "Mohan Chanaka Jayaweera",
       position: "Java Developer",
       imageSrc:
-        "public/images/teamProfiles/mohan.jpg",
+        "/images/teamProfiles/mohan.jpg",
       bio: "Develops functional software aligned with business goals.",
       social: {
         linkedin: "https://www.linkedin.com/in/mohan-chanaka-2504a7290/",

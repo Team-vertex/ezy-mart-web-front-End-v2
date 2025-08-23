@@ -39,7 +39,7 @@ const AppShowcase = () => {
       content={
         <p className="text-xs md:text-sm">
           <img
-            src="/public/images/CoustomerService/Frame 388.svg"
+            src="/images/CoustomerService/Frame 388.svg"
             alt={intl.formatMessage({ id: "customers.appShowcase.slide1.alt" })}
           />
         </p>
@@ -53,7 +53,7 @@ const AppShowcase = () => {
       content={
         <p className="text-xs md:text-sm">
           <img
-            src="/public/images/CoustomerService/Frame 390.svg"
+            src="/images/CoustomerService/Frame 390.svg"
             alt={intl.formatMessage({ id: "customers.appShowcase.slide2.alt" })}
           />
         </p>
