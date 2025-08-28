@@ -115,10 +115,10 @@ export function TeamSection() {
       name: "Thamoddya Rashmitha",
       position: "CTO & Co-Founder",
       imageSrc:
-        "",
+        "/images/teamProfiles/thamoddya.png",
       bio: "Technology innovator building scalable solutions for the future of commerce.",
       social: {
-        linkedin: "/images/teamProfiles/avatar.jpg",
+        linkedin: "https://www.linkedin.com/in/thamoddya-rashmitha",
       },
     },
     {
