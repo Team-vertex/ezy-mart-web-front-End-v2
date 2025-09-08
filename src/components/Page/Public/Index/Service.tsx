@@ -297,38 +297,39 @@ export const Service: React.FC = () => {
 
         {/* Bottom CTA Section */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={
-            isSectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
-          }
-          transition={{ duration: 0.8, delay: 1.0 }}
-          className="mt-16 text-center lg:mt-20"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6 }}
+          className="mt-12 text-center sm:mt-14 lg:mt-20"
         >
-          <div className="bg-gradient-to-r from-[#0A65FC] to-blue-700 rounded-2xl p-8 lg:p-12 text-white">
-            <h3 className="mb-4 text-2xl font-bold lg:text-3xl">
+          <div className="bg-gradient-to-r from-[#0A65FC] to-blue-700 rounded-2xl p-6 sm:p-8 lg:p-12 text-white shadow-xl">
+            <h3 className="mb-3 text-xl font-bold sm:text-2xl lg:text-3xl">
               <FormattedMessage id="home.service.quickAction.Title" />
-
             </h3>
-            <p className="max-w-2xl mx-auto mb-8 text-lg lg:text-xl opacity-90">
-              <FormattedMessage id="home.service.quickAction.subTitle" />
 
+            <p className="max-w-2xl mx-auto mb-6 text-base sm:text-lg lg:text-xl opacity-90">
+              <FormattedMessage id="home.service.quickAction.subTitle" />
             </p>
-            <div className="flex flex-col justify-center gap-4 sm:flex-row">
+
+            {/* Buttons stack on mobile, side-by-side on sm+ */}
+            <div className="flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
               <button
                 onClick={handleStartFreeTrial}
-                className="px-8 py-4 bg-white text-[#0A65FC] rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
+                className="w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 bg-white text-[#0A65FC] rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
               >
                 Start Free Trial
               </button>
               <button
                 onClick={handleScheduleDemo}
-                className="px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-[#0A65FC] transition-all duration-300"
+                className="w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-[#0A65FC] transition-all duration-300"
               >
                 Schedule Demo
               </button>
             </div>
           </div>
         </motion.div>
+
       </div>
 
       {/* POS Request Modal */}

@@ -197,9 +197,9 @@ export const Value: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="relative">
+            <div className="relative ">
               <div className="absolute inset-0 bg-gradient-to-r from-[#0A65FC] to-blue-700 rounded-2xl blur-2xl opacity-20 scale-105"></div>
-              <div className="relative p-4 bg-white shadow-2xl rounded-2xl lg:p-6">
+              {/* <div className="relative p-4 border-none shadow-xl rounded-xl lg:p-6"> */}
                 <div className="h-96 lg:h-[28rem]">
                   <ModernCarousel
                     images={slideImages}
@@ -210,7 +210,7 @@ export const Value: React.FC = () => {
                     className="h-full"
                   />
                 </div>
-              </div>
+              {/* </div> */}
             </div>
           </motion.div>
 
@@ -294,36 +294,35 @@ export const Value: React.FC = () => {
         {/* Bottom CTA Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={
-            isSectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
-          }
-          transition={{ duration: 0.8, delay: 1.2 }}
-          className="mt-16 text-center lg:mt-20"
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }} // trigger early on mobile
+          transition={{ duration: 0.7 }}
+          className="px-4 mt-12 text-center sm:mt-16 lg:mt-20"
         >
-          <div className="p-8 bg-white border border-gray-200 shadow-xl rounded-2xl lg:p-12">
-            <h3 className="mb-4 text-2xl font-bold text-gray-900 lg:text-3xl">
+          <div className="p-6 bg-white border border-gray-200 shadow-xl sm:p-8 lg:p-12 rounded-2xl">
+            <h3 className="mb-3 text-xl font-bold text-gray-900 sm:text-2xl lg:text-3xl">
               <FormattedMessage id="home.value.bottomCta.Title" />
             </h3>
-            <p className="max-w-2xl mx-auto mb-8 text-lg text-gray-600">
+            <p className="max-w-2xl mx-auto mb-6 text-base text-gray-600 sm:mb-8 sm:text-lg">
               <FormattedMessage id="home.value.bottomCta.subTitle" />
-
             </p>
-            <div className="flex flex-col justify-center gap-4 sm:flex-row">
+            <div className="flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
               <button
                 onClick={handleStartFreeTrial}
-                className="px-8 py-4 bg-gradient-to-r from-[#0A65FC] to-blue-700 text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
+                className="w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-[#0A65FC] to-blue-700 text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
               >
                 <FormattedMessage id="home.value.bottomCta.action1" />
               </button>
               <button
                 onClick={handleWatchDemo}
-                className="px-8 py-4 border-2 border-[#0A65FC] text-[#0A65FC] rounded-lg font-semibold hover:bg-[#0A65FC] hover:text-white transition-all duration-300"
+                className="w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 border-2 border-[#0A65FC] text-[#0A65FC] rounded-lg font-semibold hover:bg-[#0A65FC] hover:text-white transition-all duration-300"
               >
                 <FormattedMessage id="home.value.bottomCta.action2" />
               </button>
             </div>
           </div>
         </motion.div>
+
       </div>
 
       {/* POS Request Modal */}

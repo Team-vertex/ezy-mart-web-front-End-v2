@@ -32,7 +32,7 @@ export const Instructions: React.FC = () => {
 
   // MARK: Navigation Functions
   const handleStartFreeTrial = () => {
-     navigate(routes.serviceForBusiness);
+    navigate(routes.serviceForBusiness);
     // Scroll to demo area after navigation
     setTimeout(() => {
       const demoSection = document.getElementById('demo-area');
@@ -40,7 +40,7 @@ export const Instructions: React.FC = () => {
         demoSection.scrollIntoView({ behavior: 'smooth' });
       }
     },
-    100);
+      100);
   };
 
   const handleWatchTutorial = () => {
@@ -311,9 +311,9 @@ export const Instructions: React.FC = () => {
                     <span className="text-sm font-medium text-gray-700">
                       <FormattedMessage id={feature} />
                     </span>
-                     
+
                   </div>
-                 
+
                 ))}
               </div>
 
@@ -331,38 +331,36 @@ export const Instructions: React.FC = () => {
 
         {/* Bottom CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={
-            isSectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
-          }
-          transition={{ duration: 0.8, delay: 1.0 }}
-          className="mt-16 text-center lg:mt-20"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }} // ensures it triggers on mobile
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="mt-12 text-center sm:mt-16 lg:mt-20"
         >
-          <div className="p-8 bg-white border border-gray-200 shadow-xl rounded-2xl lg:p-12">
-            <h3 className="mb-4 text-2xl font-bold text-gray-900 lg:text-3xl">
+          <div className="p-6 bg-white border border-gray-200 shadow-xl sm:p-8 lg:p-12 rounded-2xl">
+            <h3 className="mb-3 text-xl font-bold text-gray-900 sm:text-2xl lg:text-3xl">
               <FormattedMessage id="home.instructions.business.bottomCtaTitle" />
-
             </h3>
-            <p className="max-w-2xl mx-auto mb-8 text-lg text-gray-600">
+            <p className="max-w-2xl mx-auto mb-6 text-base text-gray-600 sm:text-lg lg:mb-8">
               <FormattedMessage id="home.instructions.business.bottomCtaSubTitle" />
-
             </p>
-            <div className="flex flex-col justify-center gap-4 sm:flex-row">
+            <div className="flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
               <button
                 onClick={handleStartFreeTrial}
-                className="px-8 py-4 font-semibold text-white transition-all duration-300 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 hover:shadow-lg"
+                className="w-full sm:w-auto px-6 py-3 font-semibold text-white transition-all duration-300 rounded-lg bg-blue-600  hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]"
               >
                 Start Free Trial
               </button>
               <button
                 onClick={handleWatchTutorial}
-                className="px-8 py-4 font-semibold text-gray-700 transition-all duration-300 border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:text-blue-600"
+                className="w-full sm:w-auto px-6 py-3 font-semibold text-gray-700 transition-all duration-300 border-2 border-gray-300 rounded-lg hover:border-blue-600 hover:text-blue-600 hover:scale-[1.02] active:scale-[0.98]"
               >
                 Watch Tutorial
               </button>
             </div>
           </div>
         </motion.div>
+
       </div>
 
       {/* POS Request Modal */}

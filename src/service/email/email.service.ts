@@ -54,12 +54,13 @@ class EmailService {
             // Prepare template parameters for EmailJS
             const templateParams = {
                 from_name: `${formData.Name} `.trim(),
+                // from_email: formData.contactEmail,
                 from_phone: formData.mobile,
-                location: `${formData.city}, `,
+                                location: `${formData.city}, `,
                 subject: `POS System Request `,
                 message: formData.message,
                 to_email: 'contact.vertexcooperation@gmail.com', // Your receiving email
-               
+                // reply_to: formData.contactEmail,
             };
 
             // Send email using EmailJS
@@ -109,14 +110,14 @@ class EmailService {
 
             // Prepare template parameters for EmailJS
             const templateParams = {
-                from_name: `${formData.Name}`.trim(),
+                // from_name: `${formData.Name} ${formData.lastName || ''}`.trim(),
                 from_email: formData.email || 'No email provided',
                 from_phone: formData.contactNumber,
                 subject: `Contact Form: ${formData.reason}`,
                 message: formData.message,
                 reason: formData.reason,
                 to_email: 'contact.vertexcooperation@gmail.com', // Your receiving email
-                reply_to: formData.email || '',
+                // reply_to: formData.email || '',
             };
 
             // Send email using EmailJS

@@ -19,7 +19,19 @@ export const HeroSection: React.FC = () => {
   };
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-white via-blue-50/30 to-blue-100/40">
+    <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-[#0A65FC] to-blue-700">
+      <div className="absolute top-0 left-0 w-64 h-64 -translate-x-32 -translate-y-32 rounded-full bg-white/10 animate-pulse"></div>
+        <div className="absolute right-0 w-48 h-48 translate-x-24 -translate-y-12 rounded-full top-20 bg-white/10 animate-pulse animation-delay-1000"></div>
+        <div className="absolute bottom-0 w-32 h-32 translate-y-16 rounded-full right-20 bg-white/10 animate-pulse animation-delay-2000"></div>
+
+         <div className="absolute w-24 h-24 bottom-20 left-32 opacity-20">
+          <div className="grid grid-cols-6 gap-2">
+            {[...Array(36)].map((_, i) => (
+              <div key={i} className="w-1 h-1 bg-white rounded-full"></div>
+            ))}
+          </div>
+        </div>
+
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -44,7 +56,7 @@ export const HeroSection: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="mb-8"
           >
-            <h1 className="text-5xl font-bold leading-tight text-gray-900 md:text-6xl lg:text-7xl">
+            <h1 className="text-5xl font-bold leading-tight text-white md:text-6xl lg:text-7xl">
               <FormattedMessage id="aboutUs.hero.title" />
             </h1>
           </motion.div>
@@ -53,7 +65,7 @@ export const HeroSection: React.FC = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="max-w-4xl mx-auto mb-12 text-xl leading-relaxed text-gray-600 md:text-2xl"
+            className="max-w-4xl mx-auto mb-12 text-xl leading-relaxed text-white md:text-2xl"
           >
             <FormattedMessage id="aboutUs.hero.subtitle" />
           </motion.p>

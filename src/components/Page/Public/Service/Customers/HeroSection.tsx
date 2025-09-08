@@ -29,7 +29,7 @@ const HeroSection = () => {
   return (
     <section
       ref={ref}
-      className="relative flex-grow flex min-h-[80vh] flex-col items-center justify-center bg-gradient-to-tr from-[#0A65FC] to-blue-600 overflow-hidden"
+      className="relative flex-grow flex min-h-[80vh] flex-col items-center justify-center bg-gradient-to-tr from-[#0A65FC] to-blue-600 overflow-hidden mt-14"
     >
       {/* Decorative bubbles */}
       <div className="absolute inset-0 overflow-hidden">
@@ -49,20 +49,20 @@ const HeroSection = () => {
         ))}
       </div>
 
-      <div className="relative z-10 pt-20 container mx-auto px-4 flex flex-col items-center justify-center">
+      <div className="container relative z-10 flex flex-col items-center justify-center px-4 pt-20 mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-8"
+          className="mb-8 text-center"
         >
           <div className="flex items-center justify-center mb-6">
-            <span className="px-4 py-2 bg-white/20 text-white rounded-full text-sm font-semibold tracking-wide uppercase border border-white/30">
+            <span className="px-4 py-2 text-sm font-semibold tracking-wide text-white uppercase border rounded-full bg-white/20 border-white/30">
               <FormattedMessage id="customers.hero.badge" />
             </span>
           </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-center text-white mb-6 leading-tight">
+          <h1 className="mb-6 text-4xl font-bold leading-tight text-center text-white md:text-5xl lg:text-7xl">
             <FormattedMessage
               id="customers.hero.title"
               values={{
@@ -75,7 +75,7 @@ const HeroSection = () => {
             />
           </h1>
 
-          <p className="text-xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+          <p className="max-w-3xl mx-auto text-xl leading-relaxed text-white/90">
             <FormattedMessage id="customers.hero.description" />
           </p>
         </motion.div>
@@ -86,7 +86,7 @@ const HeroSection = () => {
             isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }
           }
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-8 w-full max-w-4xl"
+          className="grid w-full max-w-4xl grid-cols-2 gap-4 mt-8 lg:grid-cols-4"
         >
           {features.map((text, i) => (
             <FeatureItem key={i} text={text} delay={i * 0.1} />
@@ -102,7 +102,7 @@ const HeroSection = () => {
           }
           transition={{ duration: 0.8, delay: 0.6 }}
           onClick={handleGetStartedClick}
-          className="!z-50 mt-12 px-12 py-4 bg-white text-[#0A65FC] font-bold text-lg rounded-full hover:bg-white/90 transition-all duration-300 transform hover:scale-105 shadow-xl focus:outline-none focus:ring-4 focus:ring-white/50"
+          className="!z-50 mt-10 px-12 py-4 bg-white text-[#0A65FC] font-bold text-lg rounded-full hover:bg-white/90 transition-all duration-300  transform hover:scale-105 shadow-xl focus:outline-none focus:ring-4 focus:ring-white/50"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -143,10 +143,10 @@ export const FeatureItem = ({
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.6, delay: 0.5 + delay }}
-    className="flex items-center justify-center text-white gap-2 bg-white/10 backdrop-blur-sm rounded-xl p-3 border border-white/20"
+    className="flex items-center justify-center gap-2 p-3 text-white border bg-white/10 backdrop-blur-sm rounded-xl border-white/20"
   >
-    <IconCheck className="w-5 h-5 text-green-300 flex-shrink-0" />
-    <span className="text-sm md:text-base font-medium text-center">{text}</span>
+    <IconCheck className="flex-shrink-0 w-5 h-5 text-green-300" />
+    <span className="text-sm font-medium text-center md:text-base">{text}</span>
   </motion.div>
 );
 

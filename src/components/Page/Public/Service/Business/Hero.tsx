@@ -75,7 +75,7 @@ function Hero() {
   const features = getFeatures();
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-[#0A65FC] via-blue-600 to-blue-700 overflow-hidden flex items-center">
+    <section className="relative min-h-screen bg-gradient-to-br from-[#0A65FC] via-blue-600 to-blue-700 overflow-hidden flex items-center mt-14">
       {/* Background decorations */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div

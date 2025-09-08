@@ -69,10 +69,10 @@ export const Hero: React.FC = () => {
   ];
 
   const stats = [
-    { value: "-", label: "home.hero.stats.users", icon: IconTrendingUp },
+    { value: "1", label: "home.hero.stats.users", icon: IconTrendingUp },
     { value: "99.9%", label: "home.hero.stats.uptime", icon: IconShield },
     { value: "24/7", label: "home.hero.stats.support", icon: IconClock },
-    { value: "-", label: "home.hero.stats.rating", icon: IconStar },
+    // { value: "-", label: "home.hero.stats.rating", icon: IconStar },
   ];
   //4.9★
 
@@ -95,7 +95,7 @@ export const Hero: React.FC = () => {
   // MARK: Render
   return (
     <section
-      className="relative min-h-screen overflow-hidden pt-20 lg:pt-28 pb-0"
+      className="relative min-h-screen pt-20 pb-0 overflow-hidden lg:pt-28"
       style={{
         background:
           "linear-gradient(to bottom right, rgb(248 250 252), rgb(239 246 255), rgb(238 242 255))",
@@ -107,12 +107,12 @@ export const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
 
         {/* Gradient Orbs */}
-        <div className="absolute top-0 -left-4 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse"></div>
-        <div className="absolute top-0 -right-4 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse animation-delay-2000"></div>
-        <div className="absolute -bottom-8 left-20 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-pulse animation-delay-4000"></div>
+        <div className="absolute top-0 bg-blue-300 rounded-full -left-4 w-72 h-72 mix-blend-multiply filter blur-xl opacity-70 animate-pulse"></div>
+        <div className="absolute top-0 bg-blue-400 rounded-full -right-4 w-72 h-72 mix-blend-multiply filter blur-xl opacity-70 animate-pulse animation-delay-2000"></div>
+        <div className="absolute bg-blue-200 rounded-full -bottom-8 left-20 w-72 h-72 mix-blend-multiply filter blur-xl opacity-70 animate-pulse animation-delay-4000"></div>
       </div>
 
-      <div className="relative container mx-auto px-6 lg:px-8 max-w-7xl">
+      <div className="container relative px-6 mx-auto lg:px-8 max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center min-h-[calc(100vh-7rem)]">
           {/* Content Section */}
           <div className="space-y-8">
@@ -124,7 +124,7 @@ export const Hero: React.FC = () => {
                 isWelcomeInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
               }
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-700 text-sm font-medium rounded-full border border-blue-200"
+              className="inline-flex items-center px-4 py-2 text-sm font-medium text-blue-700 border border-blue-200 rounded-full bg-gradient-to-r from-blue-100 to-purple-100"
             >
               <IconStars size={16} className="mr-2 text-yellow-500" />
               Welcome to EzyShop - New Version of Sri Lankan businesses!
@@ -138,7 +138,7 @@ export const Hero: React.FC = () => {
                 isHeadingInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
               }
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-4xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-tight"
+              className="text-4xl font-bold leading-tight text-gray-900 lg:text-6xl xl:text-7xl"
             >
               <FormattedMessage
                 id={
@@ -190,10 +190,10 @@ export const Hero: React.FC = () => {
             >
               {features.map((feature, index) => (
                 <div key={index} className="flex items-center space-x-2">
-                  <div className="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center">
+                  <div className="flex items-center justify-center w-5 h-5 bg-green-100 rounded-full">
                     <IconCheck className="w-3 h-3 text-green-600" />
                   </div>
-                  <span className="text-gray-700 font-medium">
+                  <span className="font-medium text-gray-700">
                     <FormattedMessage id={feature} />
                   </span>
                 </div>
@@ -216,25 +216,25 @@ export const Hero: React.FC = () => {
               </div>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col gap-4 sm:flex-row">
                 <motion.button
-                  className="group flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:shadow-xl transition-all duration-300 font-semibold text-lg"
+                  className="flex items-center justify-center px-8 py-4 text-lg font-semibold text-white transition-all duration-300 bg-blue-600 group rounded-xl hover:shadow-xl"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={handleStartFreeTrial}
                 >
-                  <IconRocket className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
+                  <IconRocket className="w-5 h-5 mr-2 transition-transform duration-300 group-hover:scale-110" />
                   <FormattedMessage id="home.hero.cta.primary" />
-                  <IconArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                  <IconArrowRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
                 </motion.button>
 
                 <motion.button
                   onClick={handleWatchDemo}
-                  className="group flex items-center justify-center px-8 py-4 bg-white border-2 border-gray-200 text-gray-800 rounded-xl hover:border-blue-300 hover:shadow-lg transition-all duration-300 font-semibold text-lg"
+                  className="flex items-center justify-center px-8 py-4 text-lg font-semibold text-gray-800 transition-all duration-300 bg-white border-2 border-gray-200 group rounded-xl hover:border-blue-300 hover:shadow-lg"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <IconPlayerPlay className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform duration-300" />
+                  <IconPlayerPlay className="w-5 h-5 mr-2 transition-transform duration-300 group-hover:scale-110" />
                   <FormattedMessage id="home.hero.cta.secondary" />
                 </motion.button>
               </div>
@@ -249,16 +249,16 @@ export const Hero: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.8 }}
               className="pt-6"
             >
-              <p className="text-sm text-gray-500 mb-4">
+              <p className="mb-4 text-sm text-gray-500">
                 We will become number One Sri Lanka.
               </p>
-              <div className="flex items-center space-x-8 opacity-60">
+              {/* <div className="flex items-center space-x-8 opacity-60"> */}
                 {/* Placeholder for logos */}
+                {/* <div className="w-24 h-8 bg-gray-200 rounded"></div>
                 <div className="w-24 h-8 bg-gray-200 rounded"></div>
                 <div className="w-24 h-8 bg-gray-200 rounded"></div>
-                <div className="w-24 h-8 bg-gray-200 rounded"></div>
-                <div className="w-24 h-8 bg-gray-200 rounded"></div>
-              </div>
+                <div className="w-24 h-8 bg-gray-200 rounded"></div> */}
+              {/* </div> */}
             </motion.div>
           </div>
 
@@ -274,8 +274,8 @@ export const Hero: React.FC = () => {
           >
             {/* Main Dashboard Container */}
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl blur-2xl opacity-20 scale-105"></div>
-              <div className="relative bg-white rounded-2xl shadow-2xl p-4 lg:p-6">
+              <div className="absolute inset-0 scale-105 bg-blue-600 bg-gradient-to-r 0 rounded-2xl blur-2xl opacity-20"></div>
+              <div className="relative p-4 bg-white shadow-2xl rounded-2xl lg:p-6">
                 <Carousel
                   withIndicators
                   withControls={false}
@@ -294,14 +294,14 @@ export const Hero: React.FC = () => {
                       // src="/stock/home/hero/Hero.png"
                       src="/stock/home/hero/Hero.png"
                       alt="EzyShop POS Dashboard"
-                      className="w-full h-auto rounded-xl shadow-lg"
+                      className="w-full h-auto shadow-lg rounded-xl"
                     />
                   </Carousel.Slide>
                   {/* <Carousel.Slide>
                     <img
                       src="/stock/homeimg2.png"
                       alt="EzyShop POS Interface"
-                      className="w-full h-auto rounded-xl shadow-lg"
+                      className="w-full h-auto shadow-lg rounded-xl"
                     />
                   </Carousel.Slide> */}
                 </Carousel>
@@ -313,10 +313,10 @@ export const Hero: React.FC = () => {
                     isImageInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
                   }
                   transition={{ duration: 0.8, delay: 1.0 }}
-                  className="absolute -top-4 -left-4 bg-white rounded-xl shadow-lg p-4 border"
+                  className="absolute p-4 bg-white border shadow-lg -top-4 -left-4 rounded-xl"
                 >
                   <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                    <div className="flex items-center justify-center w-10 h-10 bg-green-100 rounded-lg">
                       <IconTrendingUp className="w-5 h-5 text-green-600" />
                     </div>
                     <div>
@@ -334,10 +334,10 @@ export const Hero: React.FC = () => {
                       : { opacity: 0, y: -20 }
                   }
                   transition={{ duration: 0.8, delay: 1.2 }}
-                  className="absolute -top-4 -right-4 bg-white rounded-xl shadow-lg p-4 border"
+                  className="absolute p-4 bg-white border shadow-lg -top-4 -right-4 rounded-xl"
                 >
                   <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                    <div className="flex items-center justify-center w-10 h-10 bg-blue-100 rounded-lg">
                       <IconShield className="w-5 h-5 text-blue-600" />
                     </div>
                     <div>
@@ -353,10 +353,10 @@ export const Hero: React.FC = () => {
                     isImageInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }
                   }
                   transition={{ duration: 0.8, delay: 1.4 }}
-                  className="absolute -bottom-4 -right-4 bg-white rounded-xl shadow-lg p-4 border"
+                  className="absolute p-4 bg-white border shadow-lg -bottom-4 -right-4 rounded-xl"
                 >
                   <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                    <div className="flex items-center justify-center w-10 h-10 bg-purple-100 rounded-lg">
                       <IconClock className="w-5 h-5 text-purple-600" />
                     </div>
                     <div>
@@ -373,46 +373,46 @@ export const Hero: React.FC = () => {
         </div>
 
         {/* Stats Section */}
-        <motion.div
-          ref={statsRef}
-          initial={{ opacity: 0, y: 50 }}
-          animate={isStatsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ duration: 0.8 }}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mt-16 lg:mt-24 mb-20"
-        >
-          {stats.map((stat, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={
-                isStatsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
-              }
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="text-center bg-white/50 backdrop-blur-sm rounded-xl p-6 border border-white/20"
-            >
-              <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg mb-4">
-                <stat.icon className="w-6 h-6 text-white" />
-              </div>
-              <div className="text-2xl lg:text-3xl font-bold text-gray-900 mb-1">
-                {stat.value}
-              </div>
-              <div className="text-sm text-gray-600">
-                <FormattedMessage id={stat.label} />
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+       <motion.div
+  ref={statsRef}
+  initial={{ opacity: 0, y: 50 }}
+  animate={isStatsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+  transition={{ duration: 0.8 }}
+  className="grid gap-6 mt-16 mb-20 lg:gap-8 lg:mt-24
+             grid-cols-[repeat(auto-fit,minmax(200px,1fr))]" // 👈 responsive auto-fit
+>
+  {stats.map((stat, index) => (
+    <motion.div
+      key={index}
+      initial={{ opacity: 0, y: 30 }}
+      animate={isStatsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      className="p-6 text-center border bg-white/50 backdrop-blur-sm rounded-xl border-white/20"
+    >
+      <div className="inline-flex items-center justify-center w-12 h-12 mb-4 bg-blue-600 rounded-lg">
+        <stat.icon className="w-6 h-6 text-white" />
+      </div>
+      <div className="mb-1 text-2xl font-bold text-gray-900 lg:text-3xl">
+        {stat.value}
+      </div>
+      <div className="text-sm text-gray-600">
+        <FormattedMessage id={stat.label} />
+      </div>
+    </motion.div>
+  ))}
+</motion.div>
+
       </div>
 
       {/* Video Modal */}
       {isVideoModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75 p-4">
-          <div className="relative bg-white rounded-2xl max-w-4xl w-full">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-75">
+          <div className="relative w-full max-w-4xl bg-white rounded-2xl">
             <button
               onClick={() => setIsVideoModalOpen(false)}
-              className="absolute -top-4 -right-4 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-shadow duration-300"
+              className="absolute flex items-center justify-center w-8 h-8 transition-shadow duration-300 bg-white rounded-full shadow-lg -top-4 -right-4 hover:shadow-xl"
             >
-              <span className="text-gray-600 text-lg">×</span>
+              <span className="text-lg text-gray-600">×</span>
             </button>
             <div className="aspect-video">
               <video

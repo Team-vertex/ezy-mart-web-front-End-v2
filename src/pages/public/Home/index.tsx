@@ -21,7 +21,7 @@ export default function Home(): JSX.Element {
 
   // MARK: Render
   return (
-    <div className="bg-white overflow-hidden">
+    <div className="overflow-hidden bg-white">
       <Hero />
       <Service />
       <Value />
