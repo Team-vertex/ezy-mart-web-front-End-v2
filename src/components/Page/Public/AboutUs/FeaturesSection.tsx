@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
-import { Headphones, Lightbulb, Settings } from "lucide-react";
+import {Lightbulb, Settings } from "lucide-react";
 import React from "react";
+import {
+ IconHeadset,
+} from "@tabler/icons-react";
 import { FormattedMessage } from "react-intl";
 
 interface FeatureCardProps {
@@ -22,16 +25,16 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       viewport={{ once: true }}
-      className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-blue-200"
+      className="relative p-8 transition-all duration-300 bg-white border border-gray-100 shadow-lg group rounded-2xl hover:shadow-xl hover:border-blue-200"
     >
       <div className="flex flex-col items-center text-center">
         <div className="w-16 h-16 bg-gradient-to-br from-[#0A65FC] to-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
           <Icon className="w-8 h-8 text-white" />
         </div>
-        <h3 className="text-xl font-bold text-gray-900 mb-4">
+        <h3 className="mb-4 text-xl font-bold text-gray-900">
           <FormattedMessage id={titleKey} />
         </h3>
-        <p className="text-gray-600 leading-relaxed">
+        <p className="leading-relaxed text-gray-600">
           <FormattedMessage id={descriptionKey} />
         </p>
       </div>
@@ -54,29 +57,29 @@ export const FeaturesSection: React.FC = () => {
     {
       titleKey: "aboutUs.features.support.title",
       descriptionKey: "aboutUs.features.support.description",
-      icon: Headphones,
+      icon: IconHeadset,
     },
   ];
 
   return (
     <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="mb-16 text-center"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="mb-6 text-4xl font-bold text-gray-900 md:text-5xl">
             <FormattedMessage id="aboutUs.features.title" />
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="max-w-3xl mx-auto text-xl text-gray-600">
             <FormattedMessage id="aboutUs.features.subtitle" />
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {features.map((feature, index) => (
             <FeatureCard
               key={index}

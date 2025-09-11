@@ -146,7 +146,6 @@ export const Instructions: React.FC = () => {
 
               <p className="text-lg leading-relaxed text-gray-600">
                 <FormattedMessage id="home.instructions.paragraph" />
-
               </p>
             </div>
 
@@ -311,16 +310,16 @@ export const Instructions: React.FC = () => {
                     <span className="text-sm font-medium text-gray-700">
                       <FormattedMessage id={feature} />
                     </span>
-
                   </div>
-
                 ))}
               </div>
 
               {/* CTA */}
               <button
-                onClick={index === 0 ? handleWatchTutorial : handleStartFreeTrial}
-                className="flex items-center justify-center w-full px-6 py-3 font-medium text-gray-700 transition-all duration-300 bg-gray-100 rounded-lg group/btn hover:bg-blue-600 hover:text-white"
+                onClick={
+                  index === 0 ? handleWatchTutorial : handleStartFreeTrial
+                }
+                className="flex items-center justify-center w-full px-6 py-3 font-medium text-gray-700 transition-all duration-300 bg-gray-100 border border-black rounded-lg group/btn hover:bg-blue-600 hover:text-white"
               >
                 <FormattedMessage id="home.instructions.business.action" />
                 <IconArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover/btn:translate-x-1" />
@@ -360,7 +359,6 @@ export const Instructions: React.FC = () => {
             </div>
           </div>
         </motion.div>
-
       </div>
 
       {/* POS Request Modal */}

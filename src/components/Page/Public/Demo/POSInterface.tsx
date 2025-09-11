@@ -82,7 +82,7 @@ export default function POSInterface() {
             {/* Height scales with viewport for mobile; larger fixed cap on desktop */}
             <div className="w-full h-[65vh] sm:h-[70vh] lg:h-[720px]">
               <iframe
-                src="https://posdemo.vertexcooperation.lk/"
+                src="https://demo.ezyshop.lk/#/app/dashboard"
                 className="w-full h-full border-0"
                 title="POS Demo"
                 loading="lazy"

@@ -105,20 +105,20 @@ const SimpleRequestPopup: React.FC<SimpleRequestPopupProps> = ({
           className="absolute inset-0 shadow-2xl rounded-3xl"
           style={{
             background:
-              "linear-gradient(135deg, #0A1A33 0%, #0A65FC 25%, #0A1A33 50%, #0A1A33 75%, #0A1A33 100%)",
+              "linear-gradient(135deg, #ffffff 0%, #e0f2fe 25%, #ffffff 50%, #dbeafe 75%, #ffffff 100%)",
           }}
         />
 
-        <div className="px-2 py-4">
-          <h2 className="mb-6 text-2xl font-bold text-center text-white drop-shadow">
+        <div className="px-2 py-4 border border-gray-950 rounded-2xl">
+          <h2 className="mb-6 text-2xl font-bold text-center text-black drop-shadow">
             Mobile Request Form
           </h2>
 
           {notification && (
             <div
               className={`mb-5 p-3 text-center rounded-lg shadow-sm animate-fadeIn ${notification.type === "success"
-                ? "bg-green-100 text-green-800 border border-green-300"
-                : "bg-red-100 text-red-800 border border-red-300"
+                ? "bg-green-400 text-green-800 border border-green-300"
+                : "bg-red-400 text-red-800 border border-red-300"
                 }`}
             >
               {notification.message}
@@ -131,7 +131,7 @@ const SimpleRequestPopup: React.FC<SimpleRequestPopupProps> = ({
           >
 
             <div>
-              <label className="block mb-1 text-sm font-medium text-white">
+              <label className="block mb-1 text-sm font-medium text-black">
                 Name
               </label>
               <TextInput
@@ -141,7 +141,7 @@ const SimpleRequestPopup: React.FC<SimpleRequestPopupProps> = ({
             </div>
 
             <div>
-              <label className="block mb-1 text-sm font-medium text-white">
+              <label className="block mb-1 text-sm font-medium text-black">
                 Mobile Number
               </label>
               <TextInput
@@ -155,7 +155,7 @@ const SimpleRequestPopup: React.FC<SimpleRequestPopupProps> = ({
             </div>
 
             <div>
-              <label className="block mb-1 text-sm font-medium text-white">
+              <label className="block mb-1 text-sm font-medium text-black">
                 Email
               </label>
               <TextInput

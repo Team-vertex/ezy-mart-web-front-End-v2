@@ -8,17 +8,22 @@ import { UserTypeModal } from "@/components/ui/UserTypeModal";
 import { useEffect, useState } from "react";
 
 export default function Home(): JSX.Element {
-  const [showUserTypeModal, setShowUserTypeModal] = useState(false);
+const [showUserTypeModal, setShowUserTypeModal] = useState(false);
 
-  useEffect(() => {
-    // Show modal after a short delay when component mounts
-    const timer = setTimeout(() => {
-      setShowUserTypeModal(true);
-    }, 1000);
+useEffect(() => {
+  // Check if the modal has already been shown
+  const alreadyShown = localStorage.getItem("userTypeModalShown");
 
-    return () => clearTimeout(timer);
-  }, []);
-
+  if (alreadyShown) {
+    // If it has, set the state to false to hide the modal
+    setShowUserTypeModal(true);
+  } else {
+    // If it hasn't, set the state to true to show the modal
+    setShowUserTypeModal(false);
+    // Mark the modal as shown in localStorage
+    localStorage.setItem("userTypeModalShown", "true");
+  }
+}, []);
   // MARK: Render
   return (
     <div className="overflow-hidden bg-white">

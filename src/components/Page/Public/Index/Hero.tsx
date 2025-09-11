@@ -102,7 +102,7 @@ export const Hero: React.FC = () => {
       }}
     >
       {/* Background Elements */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 ">
         {/* Grid Pattern */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
 
@@ -112,8 +112,8 @@ export const Hero: React.FC = () => {
         <div className="absolute bg-blue-200 rounded-full -bottom-8 left-20 w-72 h-72 mix-blend-multiply filter blur-xl opacity-70 animate-pulse animation-delay-4000"></div>
       </div>
 
-      <div className="container relative px-6 mx-auto lg:px-8 max-w-7xl">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center min-h-[calc(100vh-7rem)]">
+      <div className="container relative px-6 mx-auto lg:px-8 max-w-7xl ">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center min-h-[calc(100vh-7rem)] ">
           {/* Content Section */}
           <div className="space-y-8">
             {/* Welcome Badge */}

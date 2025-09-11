@@ -5,6 +5,9 @@ import {
   IconReportAnalytics,
   IconShield,
   IconUsers,
+  IconStack3 ,
+  IconCalendarDollar,
+  IconScaleOutlineOff,
 } from "@tabler/icons-react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
@@ -54,19 +57,19 @@ export default function DemoFeatures() {
       bg: "bg-blue-600",
     },
     {
-      icon: IconCloudComputing,
+      icon: IconStack3,
       titleId: "demo.features.stock.title",
       descriptionId: "demo.features.stock.description",
       bg: "bg-blue-600",
     },
     {
-      icon: IconCloudComputing,
+      icon: IconCalendarDollar,
       titleId: "demo.features.expenses.title",
       descriptionId: "demo.features.expenses.description",
       bg: "bg-blue-600",
     },
     {
-      icon: IconCloudComputing,
+      icon: IconScaleOutlineOff,
       titleId: "demo.features.work.title",
       descriptionId: "demo.features.work.description",
       bg: "bg-blue-600",

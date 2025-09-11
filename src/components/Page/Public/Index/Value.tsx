@@ -92,19 +92,19 @@ export const Value: React.FC = () => {
   const stats = [
     {
       icon: IconUsers,
-      value: "-",
+      value: "1",
       labelKey: "home.value.stats.customers",
       color: "blue",
     },
     {
       icon: IconTrendingUp,
-      value: "-",
+      value: "1",
       labelKey: "home.value.stats.increase",
       color: "blue",
     },
     {
       icon: IconAward,
-      value: "-",
+      value: "4.3",
       labelKey: "home.value.stats.rating",
       color: "blue",
     },

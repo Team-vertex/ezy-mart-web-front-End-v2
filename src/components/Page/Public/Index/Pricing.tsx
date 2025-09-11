@@ -3,10 +3,13 @@ import { usePOSRequestPopup } from "@/hooks/usePOSRequestPopup.tsx";
 import {
   // IconBolt,
   IconCheck,
-  IconDevices,
+  IconBarcode,
   IconRocket,
+  IconDevices2,
+  IconBattery2,
   IconStar,
   IconX,
+  IconPrinter ,
 } from "@tabler/icons-react";
 import { motion, useInView } from "framer-motion";
 import React, { useRef, useState } from "react";
@@ -232,7 +235,7 @@ export const Pricing: React.FC = () => {
       {/* Popular Badge */}
       {plan.popular && (
         <div className="absolute z-10 transform -translate-x-1/2 -top-4 left-1/2">
-          <span className="flex items-center gap-2 px-4 py-2 text-sm font-semibold text-white rounded-full shadow-lg bg-gradient-to-r from-blue-600 to-purple-600">
+          <span className="flex items-center gap-2 px-4 py-2 text-sm font-semibold text-white bg-blue-600 rounded-full shadow-lg bg-gradient-to-r ">
             <IconStar className="w-4 h-4" />
             Most Popular
           </span>
@@ -271,7 +274,7 @@ export const Pricing: React.FC = () => {
           onClick={plan.name === "Comming Soon" ? undefined : handleGetStarted}
           className={`w-full py-4 px-6 rounded-xl font-semibold text-base transition-all duration-300 transform hover:scale-105 shadow-lg ${
             plan.popular
-              ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700 shadow-blue-500/25"
+              ? "bg-gradient-to-r bg-blue-600  text-white hover:from-blue-700 hover:to-purple-700 shadow-blue-500/25"
               : plan.name === "Comming Soon"
               ? "bg-gray-400 text-white cursor-not-allowed"
               : "bg-gray-900 text-white hover:bg-gray-800"
@@ -362,7 +365,10 @@ export const Pricing: React.FC = () => {
           className="p-6 text-center transition-shadow duration-300 bg-gradient-to-br from-gray-50 to-purple-50 rounded-xl hover:shadow-lg"
         >
           <div className="flex items-center justify-center w-12 h-12 mx-auto mb-4 bg-purple-100 rounded-xl">
-            <IconDevices className="w-6 h-6 text-blue-600" />
+           {i === 0 && <IconPrinter className="w-6 h-6 text-blue-600" />}
+        {i === 1 && <IconBarcode className="w-6 h-6 text-blue-600" />}
+        {i === 2 && <IconDevices2 className="w-6 h-6 text-blue-600" />}
+        {i === 3 && <IconBattery2 className="w-6 h-6 text-blue-600" />}
           </div>
           <h4 className="mb-2 font-semibold text-gray-900">{item.name}</h4>
           <p className="mb-3 text-sm leading-relaxed text-gray-600">{item.description}</p>

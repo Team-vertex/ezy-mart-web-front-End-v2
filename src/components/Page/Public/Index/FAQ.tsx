@@ -74,7 +74,7 @@ export const FAQ: React.FC = () => {
           transition={{ duration: 0.65, delay: 0.05 }}
           className="max-w-3xl mx-auto"
         >
-         <div className="p-5 border shadow-xl  md:p-8 lg:p-10 bg-white/90 backdrop-blur rounded-2xl md:rounded-3xl border-white/40">
+         <div className="p-5 border shadow-xl md:p-8 lg:p-10 bg-white/90 backdrop-blur rounded-2xl md:rounded-3xl border-white/40">
   <FaqContent faqList={FAQContent} />
 </div>
 
