@@ -11,18 +11,14 @@ export default function Home(): JSX.Element {
 const [showUserTypeModal, setShowUserTypeModal] = useState(false);
 
 useEffect(() => {
-  // Check if the modal has already been shown
-  const alreadyShown = localStorage.getItem("userTypeModalShown");
 
-  if (alreadyShown) {
-    // If it has, set the state to false to hide the modal
-    setShowUserTypeModal(true);
-  } else {
-    // If it hasn't, set the state to true to show the modal
-    setShowUserTypeModal(false);
-    // Mark the modal as shown in localStorage
-    localStorage.setItem("userTypeModalShown", "true");
-  }
+    const modelSkip=localStorage.getItem("modelSkip")??"0"
+    if(modelSkip==="0")
+    {
+        setShowUserTypeModal(true);
+        localStorage.setItem("modelSkip", '1')
+    }
+
 }, []);
   // MARK: Render
   return (
