@@ -88,7 +88,7 @@ export const FAQ: React.FC = () => {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="mt-12 text-center md:mt-16"
         >
-          <div className="p-6 text-white shadow-2xl md:p-8 lg:p-10 bg-gradient-to-br from-blue-600 via-blue-700 to-purple-800 rounded-2xl">
+          <div className="p-6 text-white shadow-2xl md:p-8 lg:p-10 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 rounded-2xl">
             <div className="flex items-center justify-center mb-3 md:mb-4">
               <IconHelp className="w-6 h-6 mr-2 md:w-8 md:h-8" />
               <h3 className="text-xl font-bold md:text-2xl">

@@ -46,17 +46,17 @@ export default function POSInterface() {
                 <p className="text-sm leading-relaxed text-gray-700 break-words md:text-base">
                   <span className="font-semibold">Website:</span>{" "}
                   <a
-                    href="https://posdemo.vertexcooperation.lk/"
+                    href=" https://demo.ezyshop.lk/"
                     target="_blank"
                     rel="noreferrer"
                     className="text-[#0A65FC] underline break-all"
                   >
-                    www.posdemo.vertexcooperation.lk
+                    https://demo.ezyshop.lk/
                   </a>
                   <br />
                   <span className="font-semibold">Email:</span>{" "}
                   <span className="break-all select-all">
-                    contact.vertexcooperation@gmail.com
+                    ezyshop@gmail.com
                   </span>
                   <br />
                   <span className="font-semibold">Password:</span>{" "}
@@ -94,7 +94,7 @@ export default function POSInterface() {
           {/* Optional helper link for very small devices */}
           <div className="mt-4 text-center">
             <a
-              href="https://posdemo.vertexcooperation.lk/"
+              href="https://demo.ezyshop.lk/#/app/dashboard"
               target="_blank"
               rel="noreferrer"
               className="inline-block text-sm text-[#0A65FC] underline underline-offset-4"

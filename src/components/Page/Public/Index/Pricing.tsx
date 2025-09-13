@@ -274,7 +274,7 @@ export const Pricing: React.FC = () => {
           onClick={plan.name === "Comming Soon" ? undefined : handleGetStarted}
           className={`w-full py-4 px-6 rounded-xl font-semibold text-base transition-all duration-300 transform hover:scale-105 shadow-lg ${
             plan.popular
-              ? "bg-gradient-to-r bg-blue-600  text-white hover:from-blue-700 hover:to-purple-700 shadow-blue-500/25"
+              ? "bg-gradient-to-r bg-blue-600  text-white hover:from-blue-400 hover:to-blue-700 shadow-blue-500/25"
               : plan.name === "Comming Soon"
               ? "bg-gray-400 text-white cursor-not-allowed"
               : "bg-gray-900 text-white hover:bg-gray-800"
@@ -393,7 +393,7 @@ export const Pricing: React.FC = () => {
   transition={{ duration: 0.6, delay: 0.1 }}
   className="mt-20 text-center"
 >
-  <div className="p-10 text-white shadow-2xl bg-gradient-to-br from-blue-600 via-blue-700 to-purple-800 rounded-2xl">
+  <div className="p-10 text-white shadow-2xl bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 rounded-2xl">
     <h3 className="mb-6 text-3xl font-bold">
       <FormattedMessage id="home.contact.title" />
     </h3>

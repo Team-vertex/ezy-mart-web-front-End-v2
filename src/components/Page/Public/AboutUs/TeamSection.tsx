@@ -150,7 +150,7 @@ export function TeamSection() {
     {
       name: "Pasindu Dilshan",
       position: "UX Designer",
-      imageSrc: "/images/teamProfiles/avatar.jpg",
+      imageSrc: "/images/teamProfiles/pasindu.jpg",
       bio: "Creative designer crafting intuitive user experiences that delight customers.",
       social: {
         linkedin: "https://www.linkedin.com/in/pasindudilshan2001/",
